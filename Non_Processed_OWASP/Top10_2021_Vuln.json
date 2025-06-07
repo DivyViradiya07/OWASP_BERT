@@ -1,0 +1,573 @@
+[
+    {
+    "id": "A01:2021",
+    "name": "Broken Access Control",
+    "statistics": {
+      "cwEsMapped": 34,
+      "maxIncidenceRate": "55.97%",
+      "avgIncidenceRate": "3.81%",
+      "avgWeightedExploit": 6.92,
+      "avgWeightedImpact": 5.93,
+      "maxCoverage": "94.55%",
+      "avgCoverage": "47.72%",
+      "totalOccurrences": 318487,
+      "totalCVEs": 19013
+    },
+    "overview": "Moving up from the fifth position, 94% of applications were tested for some form of broken access control with the average incidence rate of 3.81%, and has the most occurrences in the contributed dataset with over 318k. Notable Common Weakness Enumerations (CWEs) included are CWE-200: Exposure of Sensitive Information to an Unauthorized Actor, CWE-201: Insertion of Sensitive Information Into Sent Data, and CWE-352: Cross-Site Request Forgery.",
+    "description": "Access control enforces policy such that users cannot act outside of their intended permissions. Failures typically lead to unauthorized information disclosure, modification, or destruction of all data or performing a business function outside the user's limits.",
+    "commonVulnerabilities": [
+      "Violation of the principle of least privilege or deny by default.",
+      "Bypassing access control checks via URL tampering, internal state modification, or API tool usage.",
+      "Insecure direct object references (IDOR).",
+      "Missing access controls for API methods such as POST, PUT, and DELETE.",
+      "Privilege escalation (e.g., acting as admin when logged in as user).",
+      "Metadata manipulation (e.g., tampering with JWT, cookies).",
+      "CORS misconfiguration.",
+      "Force browsing to privileged or authenticated pages."
+    ],
+    "prevention": [
+      "Implement access control in trusted server-side code.",
+      "Deny access by default except for public resources.",
+      "Use centralized access control mechanisms.",
+      "Enforce record ownership and business rules in domain models.",
+      "Disable web server directory listings and remove sensitive metadata files.",
+      "Log and alert on access control failures.",
+      "Rate-limit API access.",
+      "Invalidate session identifiers after logout; use short-lived JWTs.",
+      "Include functional access control unit and integration tests."
+    ],
+    "exampleScenarios": [
+      {
+        "description": "Unverified 'acct' parameter used in SQL call.",
+        "example": "https://example.com/app/accountInfo?acct=notmyacct"
+      },
+      {
+        "description": "Force browsing to unauthorized admin pages.",
+        "example": [
+          "https://example.com/app/getappInfo",
+          "https://example.com/app/admin_getappInfo"
+        ]
+      }
+    ],
+    "references": [
+      "OWASP Proactive Controls: Enforce Access Controls",
+      "OWASP Application Security Verification Standard: V4 Access Control",
+      "OWASP Testing Guide: Authorization Testing",
+      "OWASP Cheat Sheet: Authorization",
+      "PortSwigger: Exploiting CORS Misconfiguration",
+      "OAuth: Revoking Access"
+    ],
+    "mappedCWEs": [
+      "CWE-22", "CWE-23", "CWE-35", "CWE-59", "CWE-200", "CWE-201", "CWE-219", "CWE-264",
+      "CWE-275", "CWE-276", "CWE-284", "CWE-285", "CWE-352", "CWE-359", "CWE-377", "CWE-402",
+      "CWE-425", "CWE-441", "CWE-497", "CWE-538", "CWE-540", "CWE-548", "CWE-552", "CWE-566",
+      "CWE-601", "CWE-639", "CWE-651", "CWE-668", "CWE-706", "CWE-862", "CWE-863", "CWE-913",
+      "CWE-922", "CWE-1275"
+    ]
+  },
+  {
+    "id": "A02:2021",
+    "name": "Cryptographic Failures",
+    "statistics": {
+      "cwEsMapped": 29,
+      "maxIncidenceRate": "46.44%",
+      "avgIncidenceRate": "4.49%",
+      "avgWeightedExploit": 7.29,
+      "avgWeightedImpact": 6.81,
+      "maxCoverage": "79.33%",
+      "avgCoverage": "34.85%",
+      "totalOccurrences": 233788,
+      "totalCVEs": 3075
+    },
+    "overview": "Shifting up one position to #2, previously known as Sensitive Data Exposure, which is more of a broad symptom rather than a root cause, the focus is on failures related to cryptography (or lack thereof), which often lead to exposure of sensitive data.",
+    "description": "Cryptographic failures occur when sensitive data is improperly protected due to weak or missing encryption mechanisms. Issues include use of outdated or weak algorithms, insecure key management, lack of encryption for data in transit or at rest, and poor implementation practices such as hard-coded keys or weak entropy sources.",
+    "commonVulnerabilities": [
+      "Cleartext transmission of sensitive data (e.g., HTTP, FTP)",
+      "Use of deprecated algorithms or protocols (e.g., MD5, SHA1, ECB)",
+      "Hard-coded, default, or reused cryptographic keys",
+      "Failure to enforce encryption via HTTP headers (e.g., HSTS)",
+      "Improper certificate validation or trust chain",
+      "Insecure random number generation (e.g., low entropy seeds)",
+      "Inappropriate use of password-based key derivation functions",
+      "Side-channel attacks (e.g., padding oracle)",
+      "Use of weak password hashing without salting (e.g., rainbow table attacks)"
+    ],
+    "prevention": [
+      "Classify data and identify sensitivity per legal/regulatory/business requirements",
+      "Discard sensitive data when not needed or use tokenization/truncation",
+      "Encrypt sensitive data at rest and in transit with strong, current protocols",
+      "Use adaptive salted hashing functions for passwords (e.g., Argon2, bcrypt, scrypt)",
+      "Ensure cryptographic keys are randomly generated and well managed",
+      "Use CSPRNGs and never reuse IVs for encryption modes requiring uniqueness",
+      "Enforce encryption via TLS and HTTP headers (e.g., HSTS)",
+      "Avoid deprecated functions and verify security configurations independently"
+    ],
+    "exampleScenarios": [
+      "Scenario #1: SQL injection flaw retrieves encrypted credit card data stored with automatic decryption, revealing cleartext.",
+      "Scenario #2: Site uses weak encryption and lacks TLS enforcement, allowing session hijacking via network sniffing.",
+      "Scenario #3: Passwords stored with simple unsalted hashes are stolen and cracked using precomputed rainbow tables."
+    ],
+    "references": [
+      "OWASP Proactive Controls: Protect Data Everywhere",
+      "OWASP ASVS (V7, V9, V10)",
+      "OWASP Cheat Sheets: Transport Layer Protection, Password Storage, Cryptographic Storage, HSTS, User Privacy",
+      "OWASP Testing Guide: Testing for Weak Cryptography"
+    ],
+    "mappedCWEs": [
+      "CWE-261", "CWE-296", "CWE-310", "CWE-319", "CWE-321", "CWE-322", "CWE-323",
+      "CWE-324", "CWE-325", "CWE-326", "CWE-327", "CWE-328", "CWE-329", "CWE-330",
+      "CWE-331", "CWE-335", "CWE-336", "CWE-337", "CWE-338", "CWE-340", "CWE-347",
+      "CWE-523", "CWE-720", "CWE-757", "CWE-759", "CWE-760", "CWE-780", "CWE-818",
+      "CWE-916"
+    ]
+  },
+  {
+    "id": "A03:2021",
+    "name": "Injection",
+    "statistics": {
+      "cwEsMapped": 33,
+      "maxIncidenceRate": "19.09%",
+      "avgIncidenceRate": "3.37%",
+      "avgWeightedExploit": 7.25,
+      "avgWeightedImpact": 7.15,
+      "maxCoverage": "94.04%",
+      "avgCoverage": "47.90%",
+      "totalOccurrences": 274228,
+      "totalCVEs": 32078
+    },
+    "overview": "Injection drops to the third position in the OWASP Top 10. Despite this, it remains highly prevalent, with 94% of applications tested showing some form of injection vulnerability, and over 274,000 occurrences recorded. High-risk CWEs such as CWE-79 (XSS), CWE-89 (SQL Injection), and CWE-73 (External Control of File Name or Path) are key contributors.",
+    "description": "Injection flaws occur when untrusted data is sent to an interpreter as part of a command or query. The attacker’s hostile data can trick the interpreter into executing unintended commands or accessing unauthorized data. These vulnerabilities commonly arise from improper input validation and insecure handling of dynamic queries, stored procedures, or framework-level constructs (e.g., HQL, EL, OGNL). A wide range of injection types exists, including SQL, OS command, LDAP, XPath, and NoSQL injections.",
+    "commonVulnerabilities": [
+      "SQL Injection via concatenated query strings",
+      "Cross-Site Scripting (XSS) from unsanitized output rendering",
+      "Command injection through OS-level commands",
+      "LDAP or XPath injection due to insecure search filters",
+      "Expression Language (EL) or OGNL injection in template engines",
+      "Framework-specific ORM injections (e.g., Hibernate, Sequelize)"
+    ],
+    "prevention": [
+      "Use safe APIs that avoid using the interpreter directly (e.g., parameterized queries or ORM tools)",
+      "Apply strict server-side whitelisting validation on all user inputs",
+      "Escape user inputs using context-aware encoding/escaping mechanisms specific to the interpreter",
+      "Limit query results using SQL controls like LIMIT and OFFSET to reduce impact",
+      "Avoid dynamic SQL where structure elements (table names, column names) are user-controlled",
+      "Integrate SAST, DAST, and IAST tools into CI/CD to detect and prevent injection early"
+    ],
+    "exampleScenarios": [
+      "Scenario #1: An application constructs SQL using user input directly:\n  `String query = \"SELECT * FROM accounts WHERE custID='\" + request.getParameter(\"id\") + \"'\";`\n  The attacker sends `id=' UNION SELECT SLEEP(10);--` to perform a time-based SQL injection.",
+      "Scenario #2: An ORM-based app trusts HQL input:\n  `Query HQLQuery = session.createQuery(\"FROM accounts WHERE custID='\" + request.getParameter(\"id\") + \"'\");`\n  This allows the same attack pattern as SQL injection, even though an ORM is used."
+    ],
+    "references": [
+      "OWASP Proactive Controls: Secure Database Access",
+      "OWASP ASVS: V5 Input Validation and Encoding",
+      "OWASP Testing Guide: SQL Injection, Command Injection, and ORM Injection",
+      "OWASP Cheat Sheet: Injection Prevention",
+      "OWASP Cheat Sheet: SQL Injection Prevention",
+      "OWASP Cheat Sheet: Injection Prevention in Java",
+      "OWASP Cheat Sheet: Query Parameterization",
+      "OWASP Automated Threats to Web Applications – OAT-014",
+      "PortSwigger: Server-side template injection"
+    ],
+    "mappedCWEs": [
+      "CWE-20", "CWE-74", "CWE-75", "CWE-77", "CWE-78", "CWE-79", "CWE-80", "CWE-83", "CWE-87", "CWE-88",
+      "CWE-89", "CWE-90", "CWE-91", "CWE-93", "CWE-94", "CWE-95", "CWE-96", "CWE-97", "CWE-98", "CWE-99",
+      "CWE-100", "CWE-113", "CWE-116", "CWE-138", "CWE-184", "CWE-470", "CWE-471", "CWE-564", "CWE-610",
+      "CWE-643", "CWE-644", "CWE-652", "CWE-917"
+    ]
+  },
+  {
+    "id": "A04:2021",
+    "name": "Insecure Design",
+    "statistics": {
+      "cwEsMapped": 40,
+      "maxIncidenceRate": "24.19%",
+      "avgIncidenceRate": "3.00%",
+      "avgWeightedExploit": 6.46,
+      "avgWeightedImpact": 6.78,
+      "maxCoverage": "77.25%",
+      "avgCoverage": "42.51%",
+      "totalOccurrences": 262407,
+      "totalCVEs": 2691
+    },
+    "overview": "A new category for 2021 focuses on risks related to design and architectural flaws, with a call for more use of threat modeling, secure design patterns, and reference architectures. As a community we need to move beyond \"shift-left\" in the coding space to pre-code activities that are critical for the principles of Secure by Design. Notable CWEs include CWE-209, CWE-256, CWE-501, and CWE-522.",
+    "description": "Insecure design represents different weaknesses resulting from missing or ineffective control design. It is distinct from implementation flaws and cannot be mitigated by proper coding alone. This issue often stems from the lack of business risk profiling and a failure to determine the level of required security design. Without establishing effective security controls during the design phase, applications remain vulnerable regardless of code quality.",
+    "commonVulnerabilities": [
+      "Missing threat modeling for critical workflows and authentication mechanisms",
+      "Use of outdated or weak design patterns (e.g., security questions for account recovery)",
+      "Absence of business logic validation and abuse case scenarios",
+      "Improper segregation of tenants in shared environments",
+      "Failure to integrate security considerations in user stories or requirements",
+      "Unrestricted use of resources by users or automated agents"
+    ],
+    "prevention": [
+      "Establish and use a secure development lifecycle with AppSec professionals to evaluate and design security and privacy-related controls",
+      "Use a library of secure design patterns or 'paved road' components",
+      "Conduct threat modeling for critical flows such as authentication, access control, and business logic",
+      "Integrate security language and controls into user stories",
+      "Incorporate plausibility checks across all tiers of the application",
+      "Write unit and integration tests that validate resistance to modeled threats",
+      "Segregate system and network layers based on exposure and risk",
+      "Implement strong multi-tenant separation across all tiers",
+      "Enforce resource consumption limits per user or service"
+    ],
+    "exampleScenarios": [
+      "Scenario #1: A credential recovery workflow relies on security questions and answers. This method is outdated and insecure as multiple users can know the answers. It violates NIST and OWASP standards and should be replaced with stronger identity verification mechanisms.",
+      "Scenario #2: A cinema booking platform allows group discounts up to 15 attendees. Attackers manipulate this flow to reserve hundreds of seats in multiple theaters with a few requests, exploiting the lack of business logic validation and threat modeling.",
+      "Scenario #3: A retail chain’s e-commerce platform lacks bot protection. Scalpers use bots to buy all available GPUs within seconds, damaging brand reputation and customer trust. Proper bot detection and purchase pattern analysis could have prevented this abuse."
+    ],
+    "references": [
+      "OWASP Cheat Sheet: Secure Design Principles",
+      "OWASP SAMM: Design:Security Architecture",
+      "OWASP SAMM: Design:Threat Assessment",
+      "NIST – Guidelines on Minimum Standards for Developer Verification of Software",
+      "The Threat Modeling Manifesto",
+      "Awesome Threat Modeling"
+    ],
+    "mappedCWEs": [
+      "CWE-73", "CWE-183", "CWE-209", "CWE-213", "CWE-235", "CWE-256", "CWE-257", "CWE-266",
+      "CWE-269", "CWE-280", "CWE-311", "CWE-312", "CWE-313", "CWE-316", "CWE-419", "CWE-430",
+      "CWE-434", "CWE-444", "CWE-451", "CWE-472", "CWE-501", "CWE-522", "CWE-525", "CWE-539",
+      "CWE-579", "CWE-598", "CWE-602", "CWE-642", "CWE-646", "CWE-650", "CWE-653", "CWE-656",
+      "CWE-657", "CWE-799", "CWE-807", "CWE-840", "CWE-841", "CWE-927", "CWE-1021", "CWE-1173"
+    ]
+  },  
+  {
+    "id": "A05:2021",
+    "name": "Security Misconfiguration",
+    "statistics": {
+      "cwEsMapped": 20,
+      "maxIncidenceRate": "19.84%",
+      "avgIncidenceRate": "4.51%",
+      "avgWeightedExploit": 8.12,
+      "avgWeightedImpact": 6.56,
+      "maxCoverage": "89.58%",
+      "avgCoverage": "44.84%",
+      "totalOccurrences": 208387,
+      "totalCVEs": 789
+    },
+    "overview": "Security Misconfiguration rises from #6 to #5 in the OWASP Top 10, reflecting a growing issue with highly configurable systems. Approximately 90% of applications assessed had some form of misconfiguration, totaling over 208,000 occurrences. Common misconfigurations include default settings, excessive permissions, and unnecessary features being left enabled. Notable related CWEs include CWE-16 (Configuration) and CWE-611 (Improper Restriction of XML External Entity Reference).",
+    "description": "This category covers improper implementation or maintenance of security controls across the software stack. Applications may be vulnerable due to missing security hardening, unchanged default credentials, exposed error messages, unnecessary enabled features, or outdated software. Inadequate configuration management across environments can significantly increase the risk of unauthorized access and data exposure. Without an automated and consistent security configuration process, systems remain prone to misconfiguration-related vulnerabilities.",
+    "commonVulnerabilities": [
+      "Default credentials or accounts are left enabled in production systems",
+      "Sample applications and debugging features are deployed to production",
+      "Overly permissive cloud storage or IAM policies (e.g., public S3 buckets)",
+      "Detailed stack traces and error messages are exposed to end users",
+      "Security headers like `Content-Security-Policy` or `X-Frame-Options` are not set",
+      "Unnecessary open ports, services, or frameworks left enabled",
+      "Outdated or vulnerable components are not properly configured or patched"
+    ],
+    "prevention": [
+      "Establish and enforce a secure configuration baseline across all environments",
+      "Automate environment setup using hardened templates and configuration scripts",
+      "Minimize installed software, features, and services to reduce attack surface",
+      "Review and apply security updates, notes, and hardening guides regularly",
+      "Use segmented architectures with strict access controls for internal components",
+      "Apply consistent and secure configurations across development, QA, and production",
+      "Enable and verify security headers and CSP directives",
+      "Conduct regular audits and automated checks of configuration settings"
+    ],
+    "exampleScenarios": [
+      "Scenario #1: Sample apps on a production server expose known vulnerabilities and default admin credentials. An attacker exploits these to gain admin access.",
+      "Scenario #2: Directory listing is enabled. An attacker navigates to `/WEB-INF/classes/`, downloads and reverse-engineers compiled Java classes to discover logic flaws.",
+      "Scenario #3: Verbose error messages including stack traces are visible to end-users, disclosing internal libraries and vulnerable component versions.",
+      "Scenario #4: A misconfigured cloud storage bucket is accessible by external users, leaking sensitive business or customer data."
+    ],
+    "references": [
+      "OWASP Testing Guide: Configuration Management",
+      "OWASP Testing Guide: Testing for Error Codes",
+      "Application Security Verification Standard V14: Configuration",
+      "NIST Guide to General Server Hardening",
+      "CIS Security Configuration Guides/Benchmarks",
+      "Amazon S3 Bucket Discovery and Enumeration"
+    ],
+    "mappedCWEs": [
+      "CWE-2", "CWE-11", "CWE-13", "CWE-15", "CWE-16", "CWE-260", "CWE-315", "CWE-520", "CWE-526", "CWE-537",
+      "CWE-541", "CWE-547", "CWE-611", "CWE-614", "CWE-756", "CWE-776", "CWE-942", "CWE-1004", "CWE-1032", "CWE-1174"
+    ]
+  },
+  {
+    "id": "A06:2021",
+    "name": "Vulnerable and Outdated Components",
+    "statistics": {
+      "cwEsMapped": 3,
+      "maxIncidenceRate": "27.96%",
+      "avgIncidenceRate": "8.77%",
+      "maxCoverage": "51.78%",
+      "avgCoverage": "22.47%",
+      "avgWeightedExploit": 5.0,
+      "avgWeightedImpact": 5.0,
+      "totalOccurrences": 30457,
+      "totalCVEs": 0
+    },
+    "overview": "Although ranked #2 by the community, this risk also appears in the Top 10 data. It represents a long-standing and difficult issue: using outdated or vulnerable software components. It is the only category without directly mapped CVEs, so a default exploitability and impact score of 5.0 is used. Notable related CWEs include CWE-1104 and historical entries from the OWASP Top 10 2013 and 2017.",
+    "description": "Applications are at risk when components—both direct and transitive—are outdated, unsupported, or known to be vulnerable. This includes everything from operating systems to runtime libraries, front-end frameworks, and backend services. Developers often fail to inventory, monitor, or patch components appropriately, leaving systems open to well-known and documented exploits. The use of unmaintained third-party packages is especially risky, as is the lack of secure sourcing practices.",
+    "commonVulnerabilities": [
+      "Lack of inventory or visibility into component versions and dependencies",
+      "Use of outdated or unsupported libraries, frameworks, or platforms",
+      "Failure to monitor security advisories (CVE, NVD, GitHub advisories)",
+      "Lack of a timely patching and upgrade process",
+      "Downloading packages from unofficial or insecure sources",
+      "Deployment of components that are no longer maintained or patched",
+      "No virtual patching or compensating controls when upgrades are not feasible"
+    ],
+    "prevention": [
+      "Establish a continuous and automated patch management process",
+      "Remove unused or unnecessary components and dependencies",
+      "Maintain an inventory of all client-side and server-side components, including nested dependencies",
+      "Use software composition analysis tools (e.g., OWASP Dependency Check, retire.js)",
+      "Subscribe to security bulletins and monitor CVE/NVD databases for updates",
+      "Only use packages from official, verified sources and prefer signed packages",
+      "Evaluate whether components are actively maintained and patched by the vendor",
+      "Use virtual patching techniques when updates are delayed or unsupported"
+    ],
+    "exampleScenarios": [
+      "Scenario #1: A web application uses Apache Struts 2 with a known remote code execution vulnerability (CVE-2017-5638). Attackers exploit the flaw to execute arbitrary code on the server, leading to a full system compromise.",
+      "Scenario #2: An organization delays monthly patching for IoT medical devices. An attacker exploits an outdated SSL library to intercept sensitive data.",
+      "Scenario #3: Shodan reveals exposed devices still vulnerable to Heartbleed years after a fix was released, demonstrating widespread failure to patch outdated OpenSSL versions."
+    ],
+    "references": [
+      "OWASP Application Security Verification Standard: V1 Architecture, Design and Threat Modelling",
+      "OWASP Dependency Check",
+      "OWASP Testing Guide - Map Application Architecture (OTG-INFO-010)",
+      "OWASP Virtual Patching Best Practices",
+      "The Unfortunate Reality of Insecure Libraries",
+      "MITRE Common Vulnerabilities and Exposures (CVE) Search",
+      "National Vulnerability Database (NVD)",
+      "Retire.js",
+      "GitHub Advisory Database",
+      "Ruby Libraries Security Advisory Database and Tools",
+      "SAFECode Software Integrity Controls"
+    ],
+    "mappedCWEs": [
+      "CWE-937",
+      "CWE-1035",
+      "CWE-1104"
+    ]
+  },
+  {
+    "id": "A07:2021",
+    "name": "Identification and Authentication Failures",
+    "statistics": {
+      "cwEsMapped": 22,
+      "maxIncidenceRate": "14.84%",
+      "avgIncidenceRate": "2.55%",
+      "avgWeightedExploit": 7.40,
+      "avgWeightedImpact": 6.50,
+      "maxCoverage": "79.51%",
+      "avgCoverage": "45.72%",
+      "totalOccurrences": 132195,
+      "totalCVEs": 3897
+    },
+    "overview": "Previously known as Broken Authentication, this category slid down from the second position and now includes Common Weakness Enumerations (CWEs) related to identification failures. Notable CWEs included are CWE-297: Improper Validation of Certificate with Host Mismatch, CWE-287: Improper Authentication, and CWE-384: Session Fixation.",
+    "description": "Confirmation of the user's identity, authentication, and session management is critical to protect against authentication-related attacks. There may be authentication weaknesses if the application:\n\n- Permits automated attacks such as credential stuffing.\n- Allows brute force or automated attacks.\n- Uses default, weak, or well-known passwords.\n- Uses weak credential recovery processes.\n- Stores passwords insecurely.\n- Lacks multi-factor authentication.\n- Exposes or mishandles session identifiers.\n- Fails to invalidate sessions correctly.",
+    "commonVulnerabilities": [
+      "Credential stuffing attacks using known credentials",
+      "Brute force login attempts without throttling or lockout",
+      "Use of weak or default passwords like 'admin/admin'",
+      "Credential recovery via insecure 'security questions'",
+      "Storing passwords in plaintext or with weak hashing",
+      "Lack of session expiration or reuse of session tokens"
+    ],
+    "prevention": [
+      "Implement multi-factor authentication to mitigate brute force and stolen credential use",
+      "Never deploy with default credentials, especially for admin accounts",
+      "Enforce password strength and blacklist common passwords (e.g., top 10,000 worst passwords)",
+      "Follow NIST 800-63b guidelines for memorized secrets",
+      "Use uniform error messages for all login and recovery outcomes to avoid account enumeration",
+      "Rate-limit or delay login attempts, and log failed logins for detection",
+      "Use secure server-side session management with random session IDs, invalidate sessions on logout, idle, and timeout"
+    ],
+    "exampleScenarios": [
+      "Scenario #1: Credential stuffing attack exploiting lack of rate limiting or detection allows attacker to verify valid credentials.",
+      "Scenario #2: Application relies solely on passwords with outdated complexity rules, causing users to reuse weak passwords. MFA is not enforced.",
+      "Scenario #3: Session timeout is not implemented. A public computer user closes the tab without logging out. An attacker later accesses the session still valid in the browser."
+    ],
+    "references": [
+      "OWASP Proactive Controls: Implement Digital Identity",
+      "OWASP ASVS: V2 Authentication",
+      "OWASP ASVS: V3 Session Management",
+      "OWASP Testing Guide: Identity, Authentication",
+      "OWASP Cheat Sheet: Authentication",
+      "OWASP Cheat Sheet: Credential Stuffing",
+      "OWASP Cheat Sheet: Forgot Password",
+      "OWASP Cheat Sheet: Session Management",
+      "OWASP Automated Threats Handbook",
+      "NIST 800-63b: 5.1.1 Memorized Secrets"
+    ],
+    "mappedCWEs": [
+      "CWE-255", "CWE-259", "CWE-287", "CWE-288", "CWE-290", "CWE-294", "CWE-295",
+      "CWE-297", "CWE-300", "CWE-302", "CWE-304", "CWE-306", "CWE-307", "CWE-346",
+      "CWE-384", "CWE-521", "CWE-613", "CWE-620", "CWE-640", "CWE-798", "CWE-940",
+      "CWE-1216"
+    ]
+  }, 
+  {
+    "id": "A08:2021",
+    "name": "Software and Data Integrity Failures",
+    "statistics": {
+      "cwEsMapped": 10,
+      "maxIncidenceRate": "16.67%",
+      "avgIncidenceRate": "2.05%",
+      "avgWeightedExploit": 6.94,
+      "avgWeightedImpact": 7.94,
+      "maxCoverage": "75.04%",
+      "avgCoverage": "45.35%",
+      "totalOccurrences": 47972,
+      "totalCVEs": 1152
+    },
+    "overview": "This new category for 2021 highlights vulnerabilities resulting from unverified assumptions regarding software integrity—such as updates, data sources, or CI/CD pipelines. It has one of the highest average impact scores due to the criticality of supply chain compromise. Prominent CWEs include CWE-829, CWE-494, and CWE-502.",
+    "description": "Software and data integrity failures occur when code, configurations, or data from untrusted sources are accepted and used without proper verification. These issues are prevalent in scenarios where applications use auto-update mechanisms, untrusted third-party components, or insecure CI/CD pipelines. Insecure deserialization and unverified software dependencies are common examples. If integrity is not verified, attackers may introduce malicious updates, tamper with data, or compromise build systems to achieve persistent and large-scale attacks.",
+    "commonVulnerabilities": [
+      "Use of unsigned or unverified software updates and dependencies",
+      "Reliance on untrusted external sources (e.g., public package repositories, CDNs)",
+      "Weak or absent integrity checks in CI/CD pipelines",
+      "Insecure deserialization of user-controllable data structures",
+      "Lack of cryptographic validation of critical software or configuration changes",
+      "Improper control over code execution in build pipelines",
+      "Tampering risk in infrastructure-as-code or deployment scripts"
+    ],
+    "prevention": [
+      "Use digital signatures to validate the authenticity and integrity of updates and software components",
+      "Consume libraries and packages from trusted, verified sources only",
+      "Use software supply chain tools like OWASP Dependency Check and CycloneDX to identify vulnerable components",
+      "Host internal repositories of vetted packages for high-risk environments",
+      "Ensure code and configuration changes undergo peer review before deployment",
+      "Secure and segment CI/CD pipelines, applying proper access controls and configuration hardening",
+      "Avoid sending unsigned or unencrypted serialized data to clients; use integrity checks or digital signatures"
+    ],
+    "exampleScenarios": [
+      "Scenario #1: A router firmware update mechanism does not verify digital signatures. An attacker distributes malicious firmware, leading to permanent compromise of affected devices.",
+      "Scenario #2: The SolarWinds Orion supply chain attack subverted the vendor's build system to distribute a malicious update to thousands of customers, leading to espionage-level data breaches.",
+      "Scenario #3: A Java-based microservice serializes user session data. An attacker manipulates serialized objects and achieves remote code execution using known Java deserialization tools."
+    ],
+    "references": [
+      "OWASP Cheat Sheet: Software Supply Chain Security",
+      "OWASP Cheat Sheet: Secure Build and Deployment",
+      "OWASP Cheat Sheet: Infrastructure as Code",
+      "OWASP Cheat Sheet: Deserialization",
+      "SAFECode Software Integrity Controls",
+      "A 'Worst Nightmare' Cyberattack: The Untold Story Of The SolarWinds Hack",
+      "CodeCov Bash Uploader Compromise",
+      "Securing DevOps by Julien Vehent"
+    ],
+    "mappedCWEs": [
+      "CWE-345",
+      "CWE-353",
+      "CWE-426",
+      "CWE-494",
+      "CWE-502",
+      "CWE-565",
+      "CWE-784",
+      "CWE-829",
+      "CWE-830",
+      "CWE-915"
+    ]
+  },
+  {
+    "id": "A09:2021",
+    "name": "Security Logging and Monitoring Failures",
+    "statistics": {
+      "cwEsMapped": 4,
+      "maxIncidenceRate": "19.23%",
+      "avgIncidenceRate": "6.51%",
+      "avgWeightedExploit": 6.87,
+      "avgWeightedImpact": 4.99,
+      "maxCoverage": "53.67%",
+      "avgCoverage": "39.97%",
+      "totalOccurrences": 53615,
+      "totalCVEs": 242
+    },
+    "overview": "Logging and monitoring are crucial for detecting and responding to breaches, yet they are often insufficient or entirely absent. Although CVE/CVSS data is limited, this category is highly impactful for visibility, accountability, incident response, and forensic analysis. It expands beyond CWE-778 to include weaknesses such as CWE-117, CWE-223, and CWE-532.",
+    "description": "This category addresses failures in detecting, escalating, and responding to active breaches due to missing or inadequate logging and monitoring. Vulnerabilities arise when critical events (e.g., logins, transactions, validation failures) are not logged, logs are not monitored, or alerts and incident response mechanisms are missing or ineffective. Additionally, poorly configured logging may leak sensitive data or provide visibility to attackers.",
+    "commonVulnerabilities": [
+      "Lack of logging for critical security events (e.g., authentication, authorization failures)",
+      "Failure to monitor application and API logs for suspicious behavior",
+      "Unsecured or local-only storage of logs",
+      "Ineffective or absent alerting and escalation mechanisms",
+      "Log formats not compatible with analysis or aggregation tools",
+      "Sensitive data (e.g., passwords, credit card details) written to logs",
+      "Logs leaking security events to users or attackers"
+    ],
+    "prevention": [
+      "Log all critical security-relevant events with sufficient context for investigation and correlation",
+      "Ensure logs are properly formatted for consumption by log management and SIEM solutions",
+      "Sanitize and encode log data to prevent injection attacks",
+      "Protect logs from unauthorized access and tampering (e.g., append-only storage)",
+      "Enable alerting for suspicious activities and integrate with incident response processes",
+      "Implement logging and monitoring controls aligned with NIST 800-61r2 or similar standards",
+      "Use open-source or commercial tools such as the OWASP ModSecurity Core Rule Set or the ELK stack for centralized logging and alerting"
+    ],
+    "exampleScenarios": [
+      "Scenario #1: A healthcare provider failed to detect a breach affecting over 3.5 million children's records due to absent monitoring and logging, allowing attackers to operate undetected for up to seven years.",
+      "Scenario #2: A major airline experienced a data breach through a third-party cloud provider, exposing sensitive passenger data over a decade. Detection was delayed due to the lack of integrated monitoring.",
+      "Scenario #3: Attackers exploited payment application vulnerabilities at a European airline, stealing over 400,000 payment records. Inadequate monitoring delayed detection, leading to a £20 million GDPR fine."
+    ],
+    "references": [
+      "OWASP Proactive Controls: Implement Logging and Monitoring",
+      "OWASP Application Security Verification Standard: V7 Logging and Monitoring",
+      "OWASP Testing Guide: Testing for Detailed Error Code",
+      "OWASP Cheat Sheet: Application Logging Vocabulary",
+      "OWASP Cheat Sheet: Logging",
+      "Data Integrity: Recovering from Ransomware and Other Destructive Events",
+      "Data Integrity: Identifying and Protecting Assets Against Ransomware and Other Destructive Events",
+      "Data Integrity: Detecting and Responding to Ransomware and Other Destructive Events"
+    ],
+    "mappedCWEs": [
+      "CWE-117",
+      "CWE-223",
+      "CWE-532",
+      "CWE-778"
+    ]
+  },
+  {
+    "id": "A10:2021",
+    "name": "Server-Side Request Forgery (SSRF)",
+    "statistics": {
+      "cwEsMapped": 1,
+      "maxIncidenceRate": "2.72%",
+      "avgIncidenceRate": "2.72%",
+      "avgWeightedExploit": 8.28,
+      "avgWeightedImpact": 6.72,
+      "maxCoverage": "67.72%",
+      "avgCoverage": "67.72%",
+      "totalOccurrences": 9503,
+      "totalCVEs": 385
+    },
+    "overview": "Introduced in the Top 10 community survey as the #1 request, SSRF has relatively low incidence but high exploitability and impact ratings. With growing usage of cloud services and architectural complexity, SSRF continues to rise in severity and frequency.",
+    "description": "Server-Side Request Forgery (SSRF) vulnerabilities occur when an application fetches remote resources without properly validating user-supplied URLs. Attackers can manipulate these requests to access internal systems behind firewalls, VPNs, or network ACLs, potentially leading to data exposure, service compromise, or remote code execution.",
+    "commonVulnerabilities": [
+      "Improper validation or sanitization of URLs submitted by the user",
+      "Allowing internal or restricted IPs to be queried (e.g., 127.0.0.1 or cloud metadata endpoints)",
+      "Allowing open redirection or unverified response forwarding",
+      "Weak URL parsing allowing bypasses through encoding tricks",
+      "Lack of segmentation or filtering between internal and external requests"
+    ],
+    "prevention": [
+      "Segment remote resource access to isolated networks to limit impact",
+      "Enforce 'deny by default' network ACLs/firewalls for internal resources",
+      "Whitelist only necessary and safe URL schemas, ports, and destinations",
+      "Disable HTTP redirects for fetched resources",
+      "Avoid sending raw responses to the client",
+      "Validate and sanitize all user input related to URLs",
+      "Avoid using regular expressions or deny-lists to prevent SSRF—these can be bypassed",
+      "Prevent deployment of sensitive services (e.g., OpenID) on frontend systems",
+      "Use encrypted connections (e.g., VPN) for high-sensitivity services on separate systems"
+    ],
+    "exampleScenarios": [
+      "Scenario #1: Port scan internal network – An attacker uses SSRF to scan internal IPs and ports by measuring response times or connection status.",
+      "Scenario #2: Read local files – The attacker crafts a URL such as file:///etc/passwd to access sensitive local files.",
+      "Scenario #3: Access cloud metadata – Attackers read internal cloud metadata via SSRF (e.g., http://169.254.169.254/) to steal credentials.",
+      "Scenario #4: Compromise internal services – The attacker targets internal services and executes further attacks like RCE or DoS via SSRF."
+    ],
+    "references": [
+      "OWASP - Server-Side Request Forgery Prevention Cheat Sheet",
+      "PortSwigger - Server-side request forgery (SSRF)",
+      "Acunetix - What is Server-Side Request Forgery (SSRF)?",
+      "SSRF bible",
+      "A New Era of SSRF - Exploiting URL Parser in Trending Programming Languages!"
+    ],
+    "mappedCWEs": [
+      "CWE-918"
+    ]
+  }        
+]

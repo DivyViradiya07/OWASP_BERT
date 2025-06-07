@@ -1,0 +1,2374 @@
+{
+  "basic_understanding": [
+    {
+      "question": "What is Identification and Authentication Failures in web security?",
+      "answer": "It refers to weaknesses in verifying user identity and managing authentication that allow attackers to impersonate users or access accounts improperly.",
+      "id": "A07-Q001",
+      "intent": "define_identification_authentication_failures",
+      "type": "basic_understanding",
+      "related_topics": []
+    },
+    {
+      "question": "Why is authentication critical for application security?",
+      "answer": "Because it confirms a user's identity and controls access, preventing unauthorized users from gaining access to sensitive information or actions.",
+      "id": "A07-Q002",
+      "intent": "importance_of_authentication",
+      "type": "basic_understanding",
+      "related_topics": []
+    },
+    {
+      "question": "What was the previous name of the 'Identification and Authentication Failures' category?",
+      "answer": "It was previously known as 'Broken Authentication'.",
+      "id": "A07-Q003",
+      "intent": "history_of_category_name",
+      "type": "basic_understanding",
+      "related_topics": []
+    },
+    {
+      "question": "What kinds of attacks are common due to authentication failures?",
+      "answer": "Common attacks include credential stuffing, brute force login attempts, session hijacking, and exploitation of weak password recovery mechanisms.",
+      "id": "A07-Q004",
+      "intent": "common_attacks_due_to_auth_failures",
+      "type": "basic_understanding",
+      "related_topics": []
+    },
+    {
+      "question": "What is credential stuffing?",
+      "answer": "Credential stuffing is an automated attack where attackers use lists of stolen usernames and passwords to try to gain unauthorized access to accounts.",
+      "id": "A07-Q005",
+      "intent": "explain_credential_stuffing",
+      "type": "basic_understanding",
+      "related_topics": [
+        "How does credential stuffing technically work? (A07-Q032)"
+      ]
+    },
+    {
+      "question": "What weaknesses can allow brute force attacks?",
+      "answer": "Lack of rate limiting, absence of account lockouts, or weak password policies can allow attackers to guess passwords via brute force.",
+      "id": "A07-Q006",
+      "intent": "causes_of_brute_force",
+      "type": "basic_understanding",
+      "related_topics": [
+        "What technical factors enable brute force attacks to succeed? (A07-Q033)"
+      ]
+    },
+    {
+      "question": "Why are default or weak passwords a security risk?",
+      "answer": "Because they are easy to guess or are widely known, allowing attackers to gain access without much effort.",
+      "id": "A07-Q007",
+      "intent": "risk_of_weak_passwords",
+      "type": "basic_understanding",
+      "related_topics": [
+        "Why are default credentials a security risk? (A05-Q004)",
+        "How prevalent are vulnerabilities due to default or weak passwords? (A07-Q197)"
+      ]
+    },
+    {
+      "question": "How can insecure password recovery mechanisms be exploited?",
+      "answer": "If recovery questions or processes are weak or predictable, attackers can use them to reset passwords and take over accounts.",
+      "id": "A07-Q008",
+      "intent": "insecure_password_recovery",
+      "type": "basic_understanding",
+      "related_topics": [
+        "How can attackers exploit weak credential recovery mechanisms? (A07-Q027)",
+        "What signs show insecure password recovery mechanisms? (A07-Q068)",
+        "What risk comes from insecure password reset flows? (A07-Q127)"
+      ]
+    },
+    {
+      "question": "What problems arise from storing passwords insecurely?",
+      "answer": "Storing passwords in plaintext or using weak hashes allows attackers to easily obtain usable credentials if they gain access to the storage.",
+      "id": "A07-Q009",
+      "intent": "password_storage_issues",
+      "type": "basic_understanding",
+      "related_topics": [
+        "What consequences arise from storing passwords with reversible encryption? (A07-Q146)",
+        "What happens when passwords are stored insecurely? (A07-Q125)"
+      ]
+    },
+    {
+      "question": "What is session fixation?",
+      "answer": "Session fixation is an attack where the attacker sets or steals a valid session ID, allowing them to impersonate a user once the victim logs in.",
+      "id": "A07-Q010",
+      "intent": "explain_session_fixation",
+      "type": "basic_understanding",
+      "related_topics": [
+        "How does a session fixation attack occur technically? (A07-Q035)",
+        "What is the technical nature of CWE-384 (Session Fixation)? (A07-Q058)"
+      ]
+    },
+    {
+      "question": "Why is session expiration important?",
+      "answer": "It ensures that sessions are invalidated after inactivity or logout, preventing attackers from using old session tokens.",
+      "id": "A07-Q011",
+      "intent": "importance_of_session_expiration",
+      "type": "basic_understanding",
+      "related_topics": [
+        "How does session timeout improve security? (A07-Q103)",
+        "What is the advantage of expiring sessions when a browser is closed? (A07-Q220)",
+        "How does lack of session expiration increase risk? (A07-Q020)",
+        "Why is it important to invalidate sessions on logout and timeout? (A07-Q019)",
+        "Why is setting a session lifetime important? (A07-Q222)"
+      ]
+    },
+    {
+      "question": "What role does multi-factor authentication (MFA) play in preventing authentication failures?",
+      "answer": "MFA adds an extra layer of verification, making it harder for attackers to access accounts with stolen or guessed passwords.",
+      "id": "A07-Q012",
+      "intent": "role_of_mfa",
+      "type": "basic_understanding",
+      "related_topics": [
+        "How does implementing multi-factor authentication improve security? (A07-Q091)",
+        "How does multifactor authentication help prevent security misconfiguration consequences? (A05-Q107)",
+        "How does multi-factor authentication mitigate risks from misconfigured access controls? (A05-Q206)",
+        "How effective is multi-factor authentication (MFA) in preventing access control exploits? (A01-Q135)"
+      ]
+    },
+    {
+      "question": "What does 'improper validation of certificate with host mismatch' mean?",
+      "answer": "It means the application does not correctly verify that the SSL/TLS certificate matches the expected host, leading to potential man-in-the-middle attacks.",
+      "id": "A07-Q013",
+      "intent": "explain_certificate_validation_issue",
+      "type": "basic_understanding",
+      "related_topics": [
+        "What does CWE-297 (Improper Validation of Certificate with Host Mismatch) technically entail? (A07-Q059)"
+      ]
+    },
+    {
+      "question": "What is the risk of exposing or mishandling session identifiers?",
+      "answer": "Exposed session IDs can be stolen and reused by attackers to hijack active sessions.",
+      "id": "A07-Q014",
+      "intent": "risks_of_session_identifier_exposure",
+      "type": "basic_understanding",
+      "related_topics": [
+        "What risks are caused by predictable session IDs? (A07-Q147)",
+        "What risks arise from session IDs in URLs? (A07-Q078)",
+        "What risk comes from storing session IDs insecurely on client devices? (A07-Q140)"
+      ]
+    },
+    {
+      "question": "How do uniform error messages help in authentication security?",
+      "answer": "They prevent attackers from discovering valid usernames by providing consistent responses regardless of whether login or recovery succeeds or fails.",
+      "id": "A07-Q015",
+      "intent": "uniform_error_messages_benefit",
+      "type": "basic_understanding",
+      "related_topics": [
+        "How do uniform error messages technically prevent attacks? (A07-Q043)",
+        "Why should error messages be uniform during authentication? (A07-Q098)"
+      ]
+    },
+    {
+      "question": "What is account enumeration and why is it a vulnerability?",
+      "answer": "Account enumeration is when an attacker can discover valid usernames or accounts through different error messages or responses, aiding targeted attacks.",
+      "id": "A07-Q016",
+      "intent": "account_enumeration_explanation",
+      "type": "basic_understanding",
+      "related_topics": [
+        "How does account enumeration aid attackers? (A07-Q130)"
+      ]
+    },
+    {
+      "question": "What are common CWE identifiers related to authentication failures?",
+      "answer": "Notable CWEs include CWE-287 (Improper Authentication), CWE-384 (Session Fixation), and CWE-297 (Improper Validation of Certificate with Host Mismatch).",
+      "id": "A07-Q017",
+      "intent": "related_cwes",
+      "type": "basic_understanding",
+      "related_topics": [
+        "Which CWE identifiers are commonly mapped to Security Logging and Monitoring Failures? (A09-Q3)",
+        "Which CWE related to authentication is among the most common? (A07-Q190)",
+        "Which CWEs are associated with broken access control? (A01:011)"
+      ]
+    },
+    {
+      "question": "What is the difference between identification and authentication?",
+      "answer": "Identification is claiming an identity (e.g., username), while authentication is proving the claimed identity (e.g., password, token).",
+      "id": "A07-Q018",
+      "intent": "difference_identification_authentication",
+      "type": "basic_understanding",
+      "related_topics": []
+    },
+    {
+      "question": "Why is it important to invalidate sessions on logout and timeout?",
+      "answer": "To ensure sessions cannot be reused by attackers, reducing risk of session hijacking.",
+      "id": "A07-Q019",
+      "intent": "importance_session_invalidation",
+      "type": "basic_understanding",
+      "related_topics": [
+        "Why is session expiration important? (A07-Q011)",
+        "What is the advantage of expiring sessions when a browser is closed? (A07-Q220)",
+        "Why should tokens be invalidated on logout? (A07-Q227)",
+        "Why invalidate sessions immediately on logout? (A07-Q113)",
+        "Why is setting a session lifetime important? (A07-Q222)"
+      ]
+    },
+    {
+      "question": "How does lack of session expiration increase risk?",
+      "answer": "It allows attackers to use sessions indefinitely if they gain access to the session token.",
+      "id": "A07-Q020",
+      "intent": "risk_of_no_session_expiration",
+      "type": "basic_understanding",
+      "related_topics": [
+        "What risk arises from session tokens not expiring properly? (A07-Q132)",
+        "What risk does no session timeout present on public computers? (A07-Q136)",
+        "How does token expiration protect authentication sessions? (A07-Q053)",
+        "Why is session expiration important? (A07-Q011)",
+        "Why is setting a session lifetime important? (A07-Q222)"
+      ]
+    },
+    {
+      "question": "What is brute force attack in the context of authentication?",
+      "answer": "An attack where an attacker systematically tries many password combinations to gain unauthorized access.",
+      "id": "A07-Q021",
+      "intent": "define_brute_force_attack",
+      "type": "basic_understanding",
+      "related_topics": []
+    },
+    {
+      "question": "What role do security questions play in authentication failures?",
+      "answer": "Weak or guessable security questions can allow attackers to reset passwords and hijack accounts.",
+      "id": "A07-Q022",
+      "intent": "security_questions_risks",
+      "type": "basic_understanding",
+      "related_topics": []
+    },
+    {
+      "question": "Why is using weak password hashing algorithms a vulnerability?",
+      "answer": "Weak hashes can be cracked easily, revealing user passwords to attackers.",
+      "id": "A07-Q023",
+      "intent": "weak_hashing_vulnerability",
+      "type": "basic_understanding",
+      "related_topics": [
+        "Why is storing passwords with weak hashing algorithms insecure? (A07-Q034)",
+        "Why is using weak hash algorithms for passwords dangerous? (A07-Q138)",
+        "How does the use of weak cryptographic algorithms lead to vulnerabilities? (A02-Q021)"
+      ]
+    },
+    {
+      "question": "What happens if login attempts are not rate-limited?",
+      "answer": "Attackers can perform unlimited attempts to guess passwords, increasing risk of account compromise.",
+      "id": "A07-Q024",
+      "intent": "importance_of_rate_limiting",
+      "type": "basic_understanding",
+      "related_topics": [
+        "What happens when rate limiting is missing in login systems? (A04-Q142)",
+        "What can happen if login attempts are not rate limited? (A07-Q129)"
+      ]
+    },
+    {
+      "question": "What is session hijacking?",
+      "answer": "An attack where an attacker steals or predicts a valid session token to impersonate a user.",
+      "id": "A07-Q025",
+      "intent": "define_session_hijacking",
+      "type": "basic_understanding",
+      "related_topics": [
+        "How does session hijacking occur? (A07-Q128)"
+      ]
+    },
+    {
+      "question": "What is the impact of using default administrator credentials?",
+      "answer": "It allows easy unauthorized access as default credentials are widely known and exploited.",
+      "id": "A07-Q026",
+      "intent": "impact_of_default_credentials",
+      "type": "basic_understanding",
+      "related_topics": [
+        "What could happen if default credentials are left enabled in a production system? (A05-Q108)",
+        "What risk arises from using default credentials? (A07-Q123)"
+      ]
+    },
+    {
+      "question": "How can attackers exploit weak credential recovery mechanisms?",
+      "answer": "By answering predictable questions or intercepting recovery tokens to reset passwords.",
+      "id": "A07-Q027",
+      "intent": "exploit_credential_recovery",
+      "type": "basic_understanding",
+      "related_topics": [
+        "How can insecure password recovery mechanisms be exploited? (A07-Q008)"
+      ]
+    },
+    {
+      "question": "What is the importance of secure server-side session management?",
+      "answer": "It ensures session IDs are random, securely stored, and invalidated appropriately to prevent hijacking.",
+      "id": "A07-Q028",
+      "intent": "importance_secure_session_management",
+      "type": "basic_understanding",
+      "related_topics": [
+        "Why is session management critical for secure access control? (A01-Q154)"
+      ]
+    },
+    {
+      "question": "Why should error messages be generic on authentication failures?",
+      "answer": "To avoid leaking information that could aid attackers in enumerating valid accounts.",
+      "id": "A07-Q029",
+      "intent": "generic_error_messages_benefit",
+      "type": "basic_understanding",
+      "related_topics": [
+        "Why should login error messages be generic? (A07-Q224)",
+        "Why should error messages be uniform during authentication? (A07-Q098)"
+      ]
+    },
+    {
+      "question": "What is a common consequence of improper validation of certificates?",
+      "answer": "It can lead to man-in-the-middle attacks compromising the confidentiality and integrity of communications.",
+      "id": "A07-Q030",
+      "intent": "consequences_of_bad_certificate_validation",
+      "type": "basic_understanding",
+      "related_topics": [
+        "How can improper certificate validation affect secure communications? (A02-Q105)",
+        "What vulnerabilities arise from improper certificate chain validation? (A02-Q067)"
+      ]
+    }
+  ],
+  "example_scenarios": [
+    {
+      "question": "What happens in a credential stuffing attack?",
+      "answer": "Attackers use leaked username-password pairs on a site without rate limiting, gaining unauthorized access to many accounts.",
+      "id": "A07-Q121",
+      "intent": "credential_stuffing",
+      "type": "example_scenario",
+      "related_topics": [
+        "How does credential stuffing technically work? (A07-Q032)",
+        "How does credential phishing lead to authentication failures? (A07-Q148)"
+      ]
+    },
+    {
+      "question": "How does a brute force attack exploit authentication failures?",
+      "answer": "An attacker tries numerous password combinations due to lack of account lockout, eventually guessing a valid password.",
+      "id": "A07-Q122",
+      "intent": "brute_force_attack",
+      "type": "example_scenario",
+      "related_topics": []
+    },
+    {
+      "question": "What risk arises from using default credentials?",
+      "answer": "An attacker logs into admin panels using well-known default usernames and passwords like 'admin/admin'.",
+      "id": "A07-Q123",
+      "intent": "default_credentials",
+      "type": "example_scenario",
+      "related_topics": [
+        "What could happen if default credentials are left enabled in a production system? (A05-Q108)",
+        "How do default credentials lead to system compromise technically? (A05-Q033)",
+        "Why are default credentials a security risk? (A05-Q004)",
+        "What is the impact of using default administrator credentials? (A07-Q026)",
+        "Why must default credentials never be used in production? (A07-Q095)"
+      ]
+    },
+    {
+      "question": "How can session fixation be exploited?",
+      "answer": "An attacker tricks a user into authenticating with a session ID the attacker controls, enabling hijacking.",
+      "id": "A07-Q124",
+      "intent": "session_fixation",
+      "type": "example_scenario",
+      "related_topics": [
+        "How to identify session fixation vulnerabilities? (A07-Q064)",
+        "How can session fixation cause broken access control? (A01-Q087)",
+        "How does a session fixation attack occur technically? (A07-Q035)",
+        "How does session hijacking occur? (A07-Q128)"
+      ]
+    },
+    {
+      "question": "What happens when passwords are stored insecurely?",
+      "answer": "If passwords are stored in plaintext or weak hashes, attackers who breach the database can easily recover user credentials.",
+      "id": "A07-Q125",
+      "intent": "insecure_password_storage",
+      "type": "example_scenario",
+      "related_topics": [
+        "What happens if passwords are stored using unsalted hashes? (A02-Q106)",
+        "What problems arise from storing passwords insecurely? (A07-Q009)",
+        "What consequences arise from storing passwords with reversible encryption? (A07-Q146)"
+      ]
+    },
+    {
+      "question": "How does lack of MFA increase account risk?",
+      "answer": "Even if passwords are compromised, without MFA, attackers can access accounts directly.",
+      "id": "A07-Q126",
+      "intent": "lack_of_mfa",
+      "type": "example_scenario",
+      "related_topics": [
+        "How does missing MFA contribute to account compromise? (A07-Q150)"
+      ]
+    },
+    {
+      "question": "What risk comes from insecure password reset flows?",
+      "answer": "Attackers may reset passwords by exploiting weak verification like insecure security questions.",
+      "id": "A07-Q127",
+      "intent": "insecure_password_reset",
+      "type": "example_scenario",
+      "related_topics": [
+        "How can insecure password recovery mechanisms be exploited? (A07-Q008)"
+      ]
+    },
+    {
+      "question": "How does session hijacking occur?",
+      "answer": "An attacker steals a valid session cookie due to insecure cookie flags or network interception and impersonates the user.",
+      "id": "A07-Q128",
+      "intent": "session_hijacking",
+      "type": "example_scenario",
+      "related_topics": [
+        "What technical methods do attackers use to hijack sessions? (A07-Q048)",
+        "What is session hijacking? (A07-Q025)",
+        "How does a session fixation attack occur technically? (A07-Q035)",
+        "How can session fixation be exploited? (A07-Q124)"
+      ]
+    },
+    {
+      "question": "What can happen if login attempts are not rate limited?",
+      "answer": "Attackers can attempt thousands of login tries rapidly, increasing chances of success.",
+      "id": "A07-Q129",
+      "intent": "lack_of_rate_limiting",
+      "type": "example_scenario",
+      "related_topics": [
+        "What happens if login attempts are not rate-limited? (A07-Q024)",
+        "What happens when rate limiting is missing in login systems? (A04-Q142)"
+      ]
+    },
+    {
+      "question": "How does account enumeration aid attackers?",
+      "answer": "Distinct error messages reveal valid usernames, allowing attackers to focus attacks on real accounts.",
+      "id": "A07-Q130",
+      "intent": "account_enumeration",
+      "type": "example_scenario",
+      "related_topics": [
+        "What is account enumeration and why is it a vulnerability? (A07-Q016)"
+      ]
+    },
+    {
+      "question": "How can improper certificate validation lead to MITM attacks?",
+      "answer": "Attackers intercept communication by presenting invalid certificates if the client does not validate them properly.",
+      "id": "A07-Q131",
+      "intent": "man_in_the_middle",
+      "type": "example_scenario",
+      "related_topics": [
+        "How can improper certificate validation affect secure communications? (A02-Q105)",
+        "How does improper certificate trust chain validation affect cryptographic security? (A02-Q049)",
+        "What vulnerabilities arise from improper certificate chain validation? (A02-Q067)"
+      ]
+    },
+    {
+      "question": "What risk arises from session tokens not expiring properly?",
+      "answer": "An attacker can reuse old session tokens to access accounts after logout or inactivity.",
+      "id": "A07-Q132",
+      "intent": "reuse_of_session_tokens",
+      "type": "example_scenario",
+      "related_topics": [
+        "How does lack of session expiration increase risk? (A07-Q020)",
+        "How does token expiration protect authentication sessions? (A07-Q053)"
+      ]
+    },
+    {
+      "question": "How do weak password policies lead to authentication failures?",
+      "answer": "Users choose easily guessable passwords, making accounts vulnerable to guessing or brute force.",
+      "id": "A07-Q133",
+      "intent": "weak_passwords",
+      "type": "example_scenario",
+      "related_topics": [
+        "How can weak password policies lead to security misconfiguration risks? (A05-Q122)",
+        "Why is enforcing strong password policies important? (A07-Q092)",
+        "How do strong password policies help prevent misconfigurations? (A05-Q093)"
+      ]
+    },
+    {
+      "question": "How can phishing impact identification and authentication?",
+      "answer": "Users are tricked into revealing credentials on fake sites, allowing attackers to bypass authentication.",
+      "id": "A07-Q134",
+      "intent": "phishing_attack",
+      "type": "example_scenario",
+      "related_topics": []
+    },
+    {
+      "question": "What risk does password reuse across sites pose?",
+      "answer": "Compromise of one site leads to credential stuffing attacks on others.",
+      "id": "A07-Q135",
+      "intent": "reuse_of_passwords_across_sites",
+      "type": "example_scenario",
+      "related_topics": [
+        "Why is password reuse risky from a technical perspective? (A07-Q051)"
+      ]
+    },
+    {
+      "question": "What risk does no session timeout present on public computers?",
+      "answer": "Subsequent users can access active sessions without reauthentication.",
+      "id": "A07-Q136",
+      "intent": "lack_of_session_timeout",
+      "type": "example_scenario",
+      "related_topics": [
+        "How does lack of session expiration increase risk? (A07-Q020)"
+      ]
+    },
+    {
+      "question": "What happens if security questions are guessable?",
+      "answer": "Attackers can reset passwords by answering common or easily researched questions.",
+      "id": "A07-Q137",
+      "intent": "insecure_credential_recovery",
+      "type": "example_scenario",
+      "related_topics": []
+    },
+    {
+      "question": "Why is using weak hash algorithms for passwords dangerous?",
+      "answer": "They can be cracked quickly, exposing passwords after a breach.",
+      "id": "A07-Q138",
+      "intent": "use_of_weak_hash_algorithms",
+      "type": "example_scenario",
+      "related_topics": [
+        "Why is using weak password hashing algorithms a vulnerability? (A07-Q023)",
+        "How does the use of weak cryptographic algorithms lead to vulnerabilities? (A02-Q021)",
+        "Why is storing passwords with weak hashing algorithms insecure? (A07-Q034)"
+      ]
+    },
+    {
+      "question": "What happens if authentication data is sent unencrypted?",
+      "answer": "Attackers can intercept credentials on the network and use them maliciously.",
+      "id": "A07-Q139",
+      "intent": "lack_of_encryption_in_authentication",
+      "type": "example_scenario",
+      "related_topics": []
+    },
+    {
+      "question": "What risk comes from storing session IDs insecurely on client devices?",
+      "answer": "Malware or other apps can steal tokens and hijack user sessions.",
+      "id": "A07-Q140",
+      "intent": "insecure_session_storage",
+      "type": "example_scenario",
+      "related_topics": [
+        "What is the risk of exposing or mishandling session identifiers? (A07-Q014)"
+      ]
+    },
+    {
+      "question": "How does absence of login logs affect security?",
+      "answer": "Attackers remain undetected for longer, increasing damage.",
+      "id": "A07-Q141",
+      "intent": "lack_of_login_audit_trails",
+      "type": "example_scenario",
+      "related_topics": []
+    },
+    {
+      "question": "What risks come from legacy authentication protocols?",
+      "answer": "They may have vulnerabilities allowing attackers to bypass modern protections.",
+      "id": "A07-Q142",
+      "intent": "attack_using_legacy_protocols",
+      "type": "example_scenario",
+      "related_topics": [
+        "Which resource details risks associated with legacy authentication protocols? (A07-Q177)",
+        "What risks do deprecated protocols in components introduce? (A06-Q057)",
+        "Why disable legacy authentication protocols? (A07-Q116)"
+      ]
+    },
+    {
+      "question": "How does missing device verification affect authentication?",
+      "answer": "Unknown devices can access accounts without extra checks, increasing risk.",
+      "id": "A07-Q143",
+      "intent": "lack_of_device_verification",
+      "type": "example_scenario",
+      "related_topics": []
+    },
+    {
+      "question": "How can cookie theft lead to unauthorized access?",
+      "answer": "Attackers use stolen cookies to impersonate users without knowing their passwords.",
+      "id": "A07-Q144",
+      "intent": "unauthorized_access_via_cookie_theft",
+      "type": "example_scenario",
+      "related_topics": []
+    },
+    {
+      "question": "What happens if sessions aren't invalidated on logout?",
+      "answer": "Attackers can reuse the session ID to access the user account.",
+      "id": "A07-Q145",
+      "intent": "attack_due_to_insecure_logout",
+      "type": "example_scenario",
+      "related_topics": []
+    },
+    {
+      "question": "What consequences arise from storing passwords with reversible encryption?",
+      "answer": "If the encryption key is compromised, all passwords are exposed.",
+      "id": "A07-Q146",
+      "intent": "use_of_insecure_password_storage_methods",
+      "type": "example_scenario",
+      "related_topics": [
+        "What problems arise from storing passwords insecurely? (A07-Q009)",
+        "What happens when passwords are stored insecurely? (A07-Q125)"
+      ]
+    },
+    {
+      "question": "What risks are caused by predictable session IDs?",
+      "answer": "Attackers can guess session IDs to hijack active sessions.",
+      "id": "A07-Q147",
+      "intent": "weak_session_id_generation",
+      "type": "example_scenario",
+      "related_topics": [
+        "What risks arise from session IDs in URLs? (A07-Q078)",
+        "What is the risk of exposing or mishandling session identifiers? (A07-Q014)"
+      ]
+    },
+    {
+      "question": "How does credential phishing lead to authentication failures?",
+      "answer": "Users unknowingly provide credentials to attackers, bypassing normal authentication.",
+      "id": "A07-Q148",
+      "intent": "exposure_to_credential_phishing",
+      "type": "example_scenario",
+      "related_topics": [
+        "What happens in a credential stuffing attack? (A07-Q121)"
+      ]
+    },
+    {
+      "question": "What happens when recovery questions are publicly known?",
+      "answer": "Attackers reset accounts without knowing the original password.",
+      "id": "A07-Q149",
+      "intent": "use_of_insecure_password_recovery_questions",
+      "type": "example_scenario",
+      "related_topics": []
+    },
+    {
+      "question": "How does missing MFA contribute to account compromise?",
+      "answer": "Attackers who steal credentials can directly access accounts without extra verification.",
+      "id": "A07-Q150",
+      "intent": "exploitation_due_to_missing_mfa",
+      "type": "example_scenario",
+      "related_topics": [
+        "How does lack of MFA increase account risk? (A07-Q126)"
+      ]
+    }
+  ],
+  "prevention": [
+    {
+      "question": "How does implementing multi-factor authentication improve security?",
+      "answer": "It adds an additional verification layer, making it harder for attackers to compromise accounts using stolen credentials.",
+      "id": "A07-Q091",
+      "intent": "implement_mfa",
+      "type": "prevention",
+      "related_topics": [
+        "How does multifactor authentication help prevent security misconfiguration consequences? (A05-Q107)",
+        "What role does multi-factor authentication (MFA) play in preventing authentication failures? (A07-Q012)",
+        "How does multi-factor authentication mitigate risks from misconfigured access controls? (A05-Q206)"
+      ]
+    },
+    {
+      "question": "Why is enforcing strong password policies important?",
+      "answer": "Strong policies reduce the likelihood of easily guessable or reused passwords, mitigating brute force and credential stuffing risks.",
+      "id": "A07-Q092",
+      "intent": "enforce_strong_password_policies",
+      "type": "prevention",
+      "related_topics": [
+        "How do weak password policies lead to authentication failures? (A07-Q133)",
+        "How can weak password policies lead to security misconfiguration risks? (A05-Q122)",
+        "How do strong password policies help prevent misconfigurations? (A05-Q093)"
+      ]
+    },
+    {
+      "question": "What are secure practices for storing passwords?",
+      "answer": "Passwords should be hashed with strong algorithms like bcrypt or Argon2 and salted with unique values to prevent cracking.",
+      "id": "A07-Q093",
+      "intent": "use_secure_password_storage",
+      "type": "prevention",
+      "related_topics": [
+        "What measures ensure passwords are stored securely? (A02-Q074)",
+        "What resources provide advice on securely storing passwords? (A07-Q162)"
+      ]
+    },
+    {
+      "question": "How does rate limiting on login attempts prevent attacks?",
+      "answer": "It slows down or blocks automated brute force or credential stuffing attacks by limiting repeated login attempts.",
+      "id": "A07-Q094",
+      "intent": "apply_rate_limiting_on_logins",
+      "type": "prevention",
+      "related_topics": [
+        "How does rate limiting help technically mitigate SSRF attacks? (A10-T24)",
+        "How does rate limiting support secure design? (A04-Q105)",
+        "How does rate limiting protect against authentication attacks? (A07-Q039)",
+        "Why should login endpoints have rate limiting? (A07-Q217)",
+        "How does rate limiting help against SSRF attacks? (A10-P17)"
+      ]
+    },
+    {
+      "question": "Why must default credentials never be used in production?",
+      "answer": "They are widely known and exploited by attackers to gain unauthorized access quickly.",
+      "id": "A07-Q095",
+      "intent": "avoid_default_credentials",
+      "type": "prevention",
+      "related_topics": [
+        "Why should default credentials and settings be changed before deployment? (A05-Q183)",
+        "What could happen if default credentials are left enabled in a production system? (A05-Q108)",
+        "What risk arises from using default credentials? (A07-Q123)",
+        "How do default credentials lead to system compromise technically? (A05-Q033)",
+        "Why are default credentials a security risk? (A05-Q004)"
+      ]
+    },
+    {
+      "question": "What measures improve session management security?",
+      "answer": "Using random, unique session IDs, setting secure cookie flags, expiring sessions after inactivity, and invalidating on logout.",
+      "id": "A07-Q096",
+      "intent": "secure_session_management",
+      "type": "prevention",
+      "related_topics": [
+        "What are technical best practices for secure session management? (A07-Q060)"
+      ]
+    },
+    {
+      "question": "How does account lockout help protect against brute force attacks?",
+      "answer": "Locking accounts after multiple failed login attempts prevents attackers from continuously guessing credentials.",
+      "id": "A07-Q097",
+      "intent": "implement_account_lockout",
+      "type": "prevention",
+      "related_topics": [
+        "How does account lockout protect against authentication abuse? (A07-Q232)"
+      ]
+    },
+    {
+      "question": "Why should error messages be uniform during authentication?",
+      "answer": "To avoid giving attackers clues about valid usernames or passwords, preventing account enumeration.",
+      "id": "A07-Q098",
+      "intent": "use_uniform_error_messages",
+      "type": "prevention",
+      "related_topics": [
+        "Why should error messages be generic on authentication failures? (A07-Q029)",
+        "Why should login error messages be generic? (A07-Q224)",
+        "How do uniform error messages help in authentication security? (A07-Q015)"
+      ]
+    },
+    {
+      "question": "What makes a password recovery process secure?",
+      "answer": "Using time-limited, single-use tokens and avoiding easily guessable security questions.",
+      "id": "A07-Q099",
+      "intent": "secure_password_recovery_process",
+      "type": "prevention",
+      "related_topics": [
+        "What technical measures improve the security of password recovery? (A07-Q045)",
+        "What makes password reset flows secure? (A07-Q115)"
+      ]
+    },
+    {
+      "question": "How does proper certificate validation prevent attacks?",
+      "answer": "It ensures communication is with the legitimate server, preventing man-in-the-middle attacks.",
+      "id": "A07-Q100",
+      "intent": "validate_certificates_properly",
+      "type": "prevention",
+      "related_topics": [
+        "How does TLS certificate validation protect against man-in-the-middle attacks? (A02-Q037)"
+      ]
+    },
+    {
+      "question": "Why encrypt authentication data during transmission?",
+      "answer": "To prevent interception of credentials by attackers through network sniffing.",
+      "id": "A07-Q101",
+      "intent": "encrypt_authentication_data",
+      "type": "prevention",
+      "related_topics": []
+    },
+    {
+      "question": "What is the importance of Secure and HttpOnly flags on cookies?",
+      "answer": "They protect session cookies from being accessed by client-side scripts and ensure they are sent only over HTTPS.",
+      "id": "A07-Q102",
+      "intent": "use_secure_cookie_flags",
+      "type": "prevention",
+      "related_topics": [
+        "What do HttpOnly and Secure cookie flags do technically? (A07-Q046)"
+      ]
+    },
+    {
+      "question": "How does session timeout improve security?",
+      "answer": "It automatically logs users out after inactivity, reducing the risk of session hijacking.",
+      "id": "A07-Q103",
+      "intent": "implement_session_timeout",
+      "type": "prevention",
+      "related_topics": [
+        "What is the advantage of expiring sessions when a browser is closed? (A07-Q220)",
+        "Why is session expiration important? (A07-Q011)",
+        "Why is setting a session lifetime important? (A07-Q222)"
+      ]
+    },
+    {
+      "question": "Why should authentication systems be regularly audited?",
+      "answer": "To detect and fix vulnerabilities before attackers exploit them.",
+      "id": "A07-Q104",
+      "intent": "regularly_audit_authentication_system",
+      "type": "prevention",
+      "related_topics": [
+        "Why should organizations regularly audit authentication flows? (A07-Q212)"
+      ]
+    },
+    {
+      "question": "How does monitoring authentication logs help security?",
+      "answer": "It enables detection of suspicious activities like brute force or credential stuffing attacks.",
+      "id": "A07-Q105",
+      "intent": "monitor_authentication_logs",
+      "type": "prevention",
+      "related_topics": [
+        "How does logging unauthorized access attempts help? (A01-Q060)"
+      ]
+    },
+    {
+      "question": "Why enforce password blacklists?",
+      "answer": "To prevent users from choosing common, easily guessable passwords.",
+      "id": "A07-Q106",
+      "intent": "enforce_password_blacklists",
+      "type": "prevention",
+      "related_topics": []
+    },
+    {
+      "question": "How does OTP help in authentication security?",
+      "answer": "It adds a time-sensitive verification code that enhances protection against unauthorized access.",
+      "id": "A07-Q107",
+      "intent": "use_otp_for_sensitive_actions",
+      "type": "prevention",
+      "related_topics": []
+    },
+    {
+      "question": "How to protect session IDs from theft?",
+      "answer": "By using secure cookies, avoiding URL session IDs, and regenerating session IDs after login.",
+      "id": "A07-Q108",
+      "intent": "protect_session_ids",
+      "type": "prevention",
+      "related_topics": []
+    },
+    {
+      "question": "Why disable autocomplete on login forms?",
+      "answer": "To reduce the risk of password exposure from shared or public computers.",
+      "id": "A07-Q109",
+      "intent": "disable_autocomplete_on_login_fields",
+      "type": "prevention",
+      "related_topics": []
+    },
+    {
+      "question": "How do CAPTCHAs prevent authentication abuse?",
+      "answer": "They block automated login attempts by requiring human verification.",
+      "id": "A07-Q110",
+      "intent": "use_captcha_to_block_automation",
+      "type": "prevention",
+      "related_topics": []
+    },
+    {
+      "question": "Which security headers help protect authentication?",
+      "answer": "Headers like Content-Security-Policy, Strict-Transport-Security, and X-Frame-Options protect against common attacks.",
+      "id": "A07-Q111",
+      "intent": "implement_security_headers",
+      "type": "prevention",
+      "related_topics": [
+        "Which security headers help protect authentication sessions? (A07-Q044)"
+      ]
+    },
+    {
+      "question": "Why use cryptographically strong random session tokens?",
+      "answer": "To prevent attackers from predicting or forging valid sessions.",
+      "id": "A07-Q112",
+      "intent": "use_strong_session_token_generation",
+      "type": "prevention",
+      "related_topics": []
+    },
+    {
+      "question": "Why invalidate sessions immediately on logout?",
+      "answer": "To prevent reuse of session tokens and protect user accounts.",
+      "id": "A07-Q113",
+      "intent": "invalidate_sessions_on_logout",
+      "type": "prevention",
+      "related_topics": [
+        "Why block session reuse during sensitive operations like password changes? (A07-Q240)",
+        "Why is session expiration important? (A07-Q011)",
+        "What is the advantage of expiring sessions when a browser is closed? (A07-Q220)",
+        "Why should tokens be invalidated on logout? (A07-Q227)",
+        "Why is it important to invalidate sessions on logout and timeout? (A07-Q019)"
+      ]
+    },
+    {
+      "question": "How does user education help authentication security?",
+      "answer": "Users aware of phishing tactics are less likely to disclose credentials to attackers.",
+      "id": "A07-Q114",
+      "intent": "educate_users_about_phishing",
+      "type": "prevention",
+      "related_topics": []
+    },
+    {
+      "question": "What makes password reset flows secure?",
+      "answer": "Use single-use, time-limited tokens delivered via secure channels, with strong identity verification.",
+      "id": "A07-Q115",
+      "intent": "use_secure_password_reset_flows",
+      "type": "prevention",
+      "related_topics": [
+        "What makes a password recovery process secure? (A07-Q099)"
+      ]
+    },
+    {
+      "question": "Why disable legacy authentication protocols?",
+      "answer": "They may have known vulnerabilities that attackers can exploit.",
+      "id": "A07-Q116",
+      "intent": "disable_legacy_authentication_protocols",
+      "type": "prevention",
+      "related_topics": [
+        "What risks come from legacy authentication protocols? (A07-Q142)"
+      ]
+    },
+    {
+      "question": "How does segregating admin authentication improve security?",
+      "answer": "By enforcing stricter controls and monitoring on privileged access.",
+      "id": "A07-Q117",
+      "intent": "segregate_admin_authentication",
+      "type": "prevention",
+      "related_topics": [
+        "How does using centralized authorization help prevent access control flaws? (A01-Q049)"
+      ]
+    },
+    {
+      "question": "Why use OAuth or OpenID Connect for authentication?",
+      "answer": "They provide secure, standardized authentication flows with built-in protections.",
+      "id": "A07-Q118",
+      "intent": "use_oauth_or_openid_connect",
+      "type": "prevention",
+      "related_topics": []
+    },
+    {
+      "question": "Why is penetration testing critical for authentication security?",
+      "answer": "It identifies weaknesses and misconfigurations before attackers can exploit them.",
+      "id": "A07-Q119",
+      "intent": "perform_penetration_testing_on_authentication",
+      "type": "prevention",
+      "related_topics": [
+        "Why is penetration testing valuable in identifying Security Misconfiguration? (A05-Q195)"
+      ]
+    },
+    {
+      "question": "How does device fingerprinting help in authentication?",
+      "answer": "It detects unusual login attempts from unknown devices to trigger additional verification.",
+      "id": "A07-Q120",
+      "intent": "implement_device_fingerprinting",
+      "type": "prevention",
+      "related_topics": []
+    }
+  ],
+  "proactive": [
+    {
+      "question": "Why should organizations enforce multi-factor authentication universally?",
+      "answer": "MFA adds a critical layer of defense, reducing the impact of stolen or weak credentials.",
+      "id": "A07-Q211",
+      "intent": "enforce_mfa_everywhere",
+      "type": "proactive",
+      "related_topics": []
+    },
+    {
+      "question": "Why should organizations regularly audit authentication flows?",
+      "answer": "Audits help identify outdated or insecure mechanisms that may be vulnerable to attack.",
+      "id": "A07-Q212",
+      "intent": "audit_auth_flows",
+      "type": "proactive",
+      "related_topics": [
+        "Why should authentication systems be regularly audited? (A07-Q104)"
+      ]
+    },
+    {
+      "question": "How does rotating session tokens after authentication state changes help?",
+      "answer": "It prevents session fixation attacks and reduces the window for session hijacking.",
+      "id": "A07-Q213",
+      "intent": "rotate_session_tokens_on_auth_change",
+      "type": "proactive",
+      "related_topics": []
+    },
+    {
+      "question": "What is the benefit of centralized identity management systems?",
+      "answer": "They provide consistency, easier auditing, and stronger access controls across systems.",
+      "id": "A07-Q214",
+      "intent": "centralize_identity_management",
+      "type": "proactive",
+      "related_topics": []
+    },
+    {
+      "question": "Why is user education on password practices still necessary?",
+      "answer": "Users often choose weak or reused passwords unless properly guided and restricted.",
+      "id": "A07-Q215",
+      "intent": "educate_users_on_secure_passwords",
+      "type": "proactive",
+      "related_topics": []
+    },
+    {
+      "question": "How can passwordless authentication reduce risk?",
+      "answer": "It eliminates password-based vulnerabilities like reuse, guessing, and phishing.",
+      "id": "A07-Q216",
+      "intent": "implement_passwordless_auth",
+      "type": "proactive",
+      "related_topics": []
+    },
+    {
+      "question": "Why should login endpoints have rate limiting?",
+      "answer": "It thwarts brute-force and credential stuffing attacks by slowing repeated attempts.",
+      "id": "A07-Q217",
+      "intent": "apply_authentication_rate_limiting",
+      "type": "proactive",
+      "related_topics": [
+        "How does rate limiting on login attempts prevent attacks? (A07-Q094)",
+        "How does rate limiting protect against authentication attacks? (A07-Q039)"
+      ]
+    },
+    {
+      "question": "Why should password recovery mechanisms be thoroughly tested?",
+      "answer": "Poorly designed recovery flows can allow attackers to reset credentials fraudulently.",
+      "id": "A07-Q218",
+      "intent": "test_credential_recovery_flows",
+      "type": "proactive",
+      "related_topics": []
+    },
+    {
+      "question": "Why should developers use mature authentication libraries?",
+      "answer": "They handle edge cases, security features, and updates better than custom implementations.",
+      "id": "A07-Q219",
+      "intent": "use_proven_auth_libraries",
+      "type": "proactive",
+      "related_topics": [
+        "Why is it important to update authentication-related libraries? (A07-Q239)"
+      ]
+    },
+    {
+      "question": "What is the advantage of expiring sessions when a browser is closed?",
+      "answer": "It reduces the chance of session hijacking from shared or public computers.",
+      "id": "A07-Q220",
+      "intent": "expire_sessions_on_browser_close",
+      "type": "proactive",
+      "related_topics": [
+        "How does session timeout improve security? (A07-Q103)",
+        "Why is session expiration important? (A07-Q011)",
+        "Why invalidate sessions immediately on logout? (A07-Q113)",
+        "Why is it important to invalidate sessions on logout and timeout? (A07-Q019)",
+        "Why is setting a session lifetime important? (A07-Q222)"
+      ]
+    },
+    {
+      "question": "Why should failed login attempts be logged and monitored?",
+      "answer": "They can indicate ongoing attacks such as brute-force or enumeration attempts.",
+      "id": "A07-Q221",
+      "intent": "monitor_failed_logins",
+      "type": "proactive",
+      "related_topics": [
+        "Why is it important to log both successful and failed access attempts? (A01-Q073)"
+      ]
+    },
+    {
+      "question": "Why is setting a session lifetime important?",
+      "answer": "It limits the window for attackers to reuse or hijack active sessions.",
+      "id": "A07-Q222",
+      "intent": "set_session_lifetime_limits",
+      "type": "proactive",
+      "related_topics": [
+        "How does session timeout improve security? (A07-Q103)",
+        "Why is session expiration important? (A07-Q011)",
+        "What is the advantage of expiring sessions when a browser is closed? (A07-Q220)",
+        "How does lack of session expiration increase risk? (A07-Q020)",
+        "Why is it important to invalidate sessions on logout and timeout? (A07-Q019)"
+      ]
+    },
+    {
+      "question": "Why sanitize user input in authentication and login forms?",
+      "answer": "To prevent injection attacks such as SQLi or LDAPi that bypass authentication.",
+      "id": "A07-Q223",
+      "intent": "sanitize_all_user_input_in_auth",
+      "type": "proactive",
+      "related_topics": [
+        "Why sanitize responses from SSRF requests before processing? (A10-P26)"
+      ]
+    },
+    {
+      "question": "Why should login error messages be generic?",
+      "answer": "To prevent attackers from determining valid usernames or emails through error responses.",
+      "id": "A07-Q224",
+      "intent": "avoid_credential_hints_in_errors",
+      "type": "proactive",
+      "related_topics": [
+        "Why should error messages be generic on authentication failures? (A07-Q029)",
+        "Why should error messages be uniform during authentication? (A07-Q098)"
+      ]
+    },
+    {
+      "question": "How do device or geo-based restrictions improve security?",
+      "answer": "They add contextual controls that reduce the chance of successful unauthorized logins.",
+      "id": "A07-Q225",
+      "intent": "enforce_device_and_geo_limits",
+      "type": "proactive",
+      "related_topics": []
+    },
+    {
+      "question": "Why is correct implementation of OAuth/OpenID Connect essential?",
+      "answer": "Misconfigurations can lead to authentication bypass or impersonation vulnerabilities.",
+      "id": "A07-Q226",
+      "intent": "use_oauth_openid_correctly",
+      "type": "proactive",
+      "related_topics": []
+    },
+    {
+      "question": "Why should tokens be invalidated on logout?",
+      "answer": "To ensure session data isn't reusable after a user actively logs out.",
+      "id": "A07-Q227",
+      "intent": "invalidate_tokens_on_logout",
+      "type": "proactive",
+      "related_topics": [
+        "Why invalidate sessions immediately on logout? (A07-Q113)",
+        "Why is it important to invalidate sessions on logout and timeout? (A07-Q019)"
+      ]
+    },
+    {
+      "question": "Why verify all authentication headers carefully?",
+      "answer": "Improper handling of headers can allow spoofing or bypassing authentication layers.",
+      "id": "A07-Q228",
+      "intent": "verify_auth_headers",
+      "type": "proactive",
+      "related_topics": []
+    },
+    {
+      "question": "How should cookies used for authentication be secured?",
+      "answer": "Set them as HttpOnly, Secure, and SameSite to prevent theft and misuse.",
+      "id": "A07-Q229",
+      "intent": "secure_auth_cookies",
+      "type": "proactive",
+      "related_topics": [
+        "Where to find guidance on securing cookies to prevent theft? (A07-Q178)"
+      ]
+    },
+    {
+      "question": "Why restrict the lifespan of password reset links?",
+      "answer": "Short expiry reduces the risk of link compromise and unauthorized resets.",
+      "id": "A07-Q230",
+      "intent": "restrict_password_reset_links",
+      "type": "proactive",
+      "related_topics": []
+    },
+    {
+      "question": "Why scan dependencies for known CVEs in authentication modules?",
+      "answer": "Vulnerable libraries can introduce backdoors or bypass flaws in auth logic.",
+      "id": "A07-Q231",
+      "intent": "scan_for_known_auth_cves",
+      "type": "proactive",
+      "related_topics": []
+    },
+    {
+      "question": "How does account lockout protect against authentication abuse?",
+      "answer": "It blocks brute-force attempts after multiple failed logins.",
+      "id": "A07-Q232",
+      "intent": "implement_account_lockout_policies",
+      "type": "proactive",
+      "related_topics": [
+        "How does account lockout help protect against brute force attacks? (A07-Q097)"
+      ]
+    },
+    {
+      "question": "Why require email confirmation for new accounts?",
+      "answer": "To verify account ownership and prevent registration abuse or spoofing.",
+      "id": "A07-Q233",
+      "intent": "require_email_confirmation",
+      "type": "proactive",
+      "related_topics": []
+    },
+    {
+      "question": "Why should threat modeling include authentication scenarios?",
+      "answer": "To proactively identify weaknesses in credential flow, session handling, and access.",
+      "id": "A07-Q234",
+      "intent": "conduct_threat_modeling",
+      "type": "proactive",
+      "related_topics": []
+    },
+    {
+      "question": "How does Zero Trust architecture help mitigate auth failures?",
+      "answer": "It enforces continuous validation, reducing reliance on a single point of identity.",
+      "id": "A07-Q235",
+      "intent": "adopt_zero_trust_principles",
+      "type": "proactive",
+      "related_topics": [
+        "How does a zero trust model help protect software integrity? (A08-Q237)"
+      ]
+    },
+    {
+      "question": "Why apply least privilege even after successful authentication?",
+      "answer": "To prevent users from accessing data or actions they don’t need.",
+      "id": "A07-Q236",
+      "intent": "apply_least_privilege_after_auth",
+      "type": "proactive",
+      "related_topics": []
+    },
+    {
+      "question": "What is the benefit of auditing active sessions and issued tokens?",
+      "answer": "It allows detection of anomalies and prevents misuse of long-lived sessions.",
+      "id": "A07-Q237",
+      "intent": "audit_sessions_and_tokens",
+      "type": "proactive",
+      "related_topics": []
+    },
+    {
+      "question": "Why validate third-party authentication integrations?",
+      "answer": "To avoid security gaps from misconfigured identity providers or trust issues.",
+      "id": "A07-Q238",
+      "intent": "validate_third_party_auth_integrations",
+      "type": "proactive",
+      "related_topics": []
+    },
+    {
+      "question": "Why is it important to update authentication-related libraries?",
+      "answer": "Outdated modules may contain critical vulnerabilities that attackers can exploit.",
+      "id": "A07-Q239",
+      "intent": "update_auth_modules_regularly",
+      "type": "proactive",
+      "related_topics": [
+        "Why should developers use mature authentication libraries? (A07-Q219)"
+      ]
+    },
+    {
+      "question": "Why block session reuse during sensitive operations like password changes?",
+      "answer": "To reduce the risk of unauthorized activity using stale or hijacked sessions.",
+      "id": "A07-Q240",
+      "intent": "restrict_session_reuse_in_sensitive_ops",
+      "type": "proactive",
+      "related_topics": [
+        "Why invalidate sessions immediately on logout? (A07-Q113)",
+        "Why is it important to invalidate sessions on logout and timeout? (A07-Q019)"
+      ]
+    }
+  ],
+  "reference": [
+    {
+      "question": "Where can I find guidelines for implementing strong digital identity controls?",
+      "answer": "Refer to OWASP Proactive Controls: Implement Digital Identity for best practices.",
+      "id": "A07-Q151",
+      "intent": "authentication_best_practices",
+      "type": "reference",
+      "related_topics": []
+    },
+    {
+      "question": "Which OWASP document provides detailed authentication requirements?",
+      "answer": "OWASP Application Security Verification Standard (ASVS) V2 covers authentication in depth.",
+      "id": "A07-Q152",
+      "intent": "authentication_standards",
+      "type": "reference",
+      "related_topics": []
+    },
+    {
+      "question": "Where can I learn best practices for secure session management?",
+      "answer": "OWASP ASVS V3 provides comprehensive guidance on session management.",
+      "id": "A07-Q153",
+      "intent": "session_management",
+      "type": "reference",
+      "related_topics": [
+        "Which guides cover securing session cookies and preventing hijacking? (A07-Q163)",
+        "What are technical best practices for secure session management? (A07-Q060)",
+        "Which resource covers proper session invalidation on logout? (A07-Q170)",
+        "Where to find session management best practices in a cheat sheet format? (A07-Q158)"
+      ]
+    },
+    {
+      "question": "Which resource is best for testing identity and authentication controls?",
+      "answer": "OWASP Testing Guide: Identity and Authentication section details relevant tests.",
+      "id": "A07-Q154",
+      "intent": "authentication_testing",
+      "type": "reference",
+      "related_topics": []
+    },
+    {
+      "question": "Where can I find quick authentication best practices?",
+      "answer": "OWASP Cheat Sheet: Authentication offers concise, actionable recommendations.",
+      "id": "A07-Q155",
+      "intent": "authentication_cheatsheets",
+      "type": "reference",
+      "related_topics": []
+    },
+    {
+      "question": "Where can I learn about mitigating credential stuffing attacks?",
+      "answer": "OWASP Cheat Sheet: Credential Stuffing provides practical defenses.",
+      "id": "A07-Q156",
+      "intent": "credential_stuffing",
+      "type": "reference",
+      "related_topics": [
+        "Where can I find information on mitigating phishing attacks impacting authentication? (A07-Q173)"
+      ]
+    },
+    {
+      "question": "Which cheat sheet covers secure password recovery methods?",
+      "answer": "OWASP Cheat Sheet: Forgot Password explains secure recovery processes.",
+      "id": "A07-Q157",
+      "intent": "password_recovery",
+      "type": "reference",
+      "related_topics": []
+    },
+    {
+      "question": "Where to find session management best practices in a cheat sheet format?",
+      "answer": "OWASP Cheat Sheet: Session Management provides security tips and standards.",
+      "id": "A07-Q158",
+      "intent": "session_management_cheatsheet",
+      "type": "reference",
+      "related_topics": [
+        "Which guides cover securing session cookies and preventing hijacking? (A07-Q163)",
+        "Which resource covers proper session invalidation on logout? (A07-Q170)",
+        "Where can I learn best practices for secure session management? (A07-Q153)",
+        "What are technical best practices for secure session management? (A07-Q060)"
+      ]
+    },
+    {
+      "question": "Which document details automated threats like credential stuffing?",
+      "answer": "OWASP Automated Threats Handbook describes common automated attacks.",
+      "id": "A07-Q159",
+      "intent": "automated_threats",
+      "type": "reference",
+      "related_topics": []
+    },
+    {
+      "question": "Where are authoritative guidelines on memorized secrets and passwords?",
+      "answer": "NIST 800-63b Section 5.1.1 covers best practices for memorized secrets.",
+      "id": "A07-Q160",
+      "intent": "nist_password_guidelines",
+      "type": "reference",
+      "related_topics": [
+        "What resources provide advice on securely storing passwords? (A07-Q162)"
+      ]
+    },
+    {
+      "question": "Where can I find guidance on implementing multi-factor authentication?",
+      "answer": "Refer to OWASP Proactive Controls and ASVS documentation for MFA implementation.",
+      "id": "A07-Q161",
+      "intent": "multi_factor_authentication",
+      "type": "reference",
+      "related_topics": [
+        "Where can I find detailed MFA implementation guidance? (A07-Q180)"
+      ]
+    },
+    {
+      "question": "What resources provide advice on securely storing passwords?",
+      "answer": "OWASP Password Storage Cheat Sheet explains secure hashing and salting techniques.",
+      "id": "A07-Q162",
+      "intent": "secure_password_storage",
+      "type": "reference",
+      "related_topics": [
+        "Where are authoritative guidelines on memorized secrets and passwords? (A07-Q160)",
+        "Which documents provide advice on securely storing credentials and tokens? (A07-Q175)",
+        "What are secure practices for storing passwords? (A07-Q093)",
+        "What measures ensure passwords are stored securely? (A02-Q074)",
+        "What OWASP resources cover secure password storage and cryptographic storage? (A02-Q202)"
+      ]
+    },
+    {
+      "question": "Which guides cover securing session cookies and preventing hijacking?",
+      "answer": "OWASP Session Management Cheat Sheet and ASVS provide session security controls.",
+      "id": "A07-Q163",
+      "intent": "session_security",
+      "type": "reference",
+      "related_topics": [
+        "Where to find session management best practices in a cheat sheet format? (A07-Q158)",
+        "Where can I learn best practices for secure session management? (A07-Q153)",
+        "Where to find guidance on securing cookies to prevent theft? (A07-Q178)"
+      ]
+    },
+    {
+      "question": "Where can I find recommendations on account lockout and throttling?",
+      "answer": "OWASP Authentication Cheat Sheet discusses rate limiting and lockout strategies.",
+      "id": "A07-Q164",
+      "intent": "account_lockout_policy",
+      "type": "reference",
+      "related_topics": []
+    },
+    {
+      "question": "Which documents explain how to create effective password policies?",
+      "answer": "NIST 800-63b and OWASP Authentication Cheat Sheet offer password policy guidance.",
+      "id": "A07-Q165",
+      "intent": "password_policy",
+      "type": "reference",
+      "related_topics": [
+        "Does OWASP provide guidance on secure password policies? (A02-Q217)",
+        "How do strong password policies help prevent misconfigurations? (A05-Q093)"
+      ]
+    },
+    {
+      "question": "Where can I learn about detecting authentication attacks like brute force?",
+      "answer": "OWASP Testing Guide and Automated Threats Handbook cover detection techniques.",
+      "id": "A07-Q166",
+      "intent": "attack_detection",
+      "type": "reference",
+      "related_topics": []
+    },
+    {
+      "question": "Which resources explain the importance of session timeout policies?",
+      "answer": "OWASP Session Management Cheat Sheet highlights session expiration best practices.",
+      "id": "A07-Q167",
+      "intent": "session_timeout",
+      "type": "reference",
+      "related_topics": [
+        "Which resource covers proper session invalidation on logout? (A07-Q170)"
+      ]
+    },
+    {
+      "question": "Where to find best practices for certificate validation to prevent MITM?",
+      "answer": "OWASP TLS Cheat Sheet and ASVS include guidance on certificate validation.",
+      "id": "A07-Q168",
+      "intent": "certificate_validation",
+      "type": "reference",
+      "related_topics": [
+        "How can proper certificate validation be enforced? (A02-Q082)"
+      ]
+    },
+    {
+      "question": "Where can I find advice on handling error messages to prevent account enumeration?",
+      "answer": "OWASP Authentication Cheat Sheet recommends uniform error responses.",
+      "id": "A07-Q169",
+      "intent": "error_message_handling",
+      "type": "reference",
+      "related_topics": []
+    },
+    {
+      "question": "Which resource covers proper session invalidation on logout?",
+      "answer": "OWASP Session Management Cheat Sheet advises on session invalidation.",
+      "id": "A07-Q170",
+      "intent": "logout_security",
+      "type": "reference",
+      "related_topics": [
+        "Which resources explain the importance of session timeout policies? (A07-Q167)",
+        "Where can I learn best practices for secure session management? (A07-Q153)",
+        "Where to find session management best practices in a cheat sheet format? (A07-Q158)"
+      ]
+    },
+    {
+      "question": "Where can I learn about the risks of password reuse and mitigation strategies?",
+      "answer": "OWASP Credential Stuffing Cheat Sheet explains password reuse risks.",
+      "id": "A07-Q171",
+      "intent": "password_reuse",
+      "type": "reference",
+      "related_topics": []
+    },
+    {
+      "question": "Which resource discusses the security risks of recovery questions?",
+      "answer": "OWASP Forgot Password Cheat Sheet covers risks and alternatives to security questions.",
+      "id": "A07-Q172",
+      "intent": "security_questions",
+      "type": "reference",
+      "related_topics": []
+    },
+    {
+      "question": "Where can I find information on mitigating phishing attacks impacting authentication?",
+      "answer": "OWASP Automated Threats Handbook provides phishing mitigation techniques.",
+      "id": "A07-Q173",
+      "intent": "phishing_mitigation",
+      "type": "reference",
+      "related_topics": [
+        "Where can I learn about mitigating credential stuffing attacks? (A07-Q156)"
+      ]
+    },
+    {
+      "question": "Where to find best practices on device verification during authentication?",
+      "answer": "OWASP Authentication Cheat Sheet includes device recognition and verification controls.",
+      "id": "A07-Q174",
+      "intent": "device_verification",
+      "type": "reference",
+      "related_topics": []
+    },
+    {
+      "question": "Which documents provide advice on securely storing credentials and tokens?",
+      "answer": "OWASP Session Management and Password Storage Cheat Sheets offer relevant guidance.",
+      "id": "A07-Q175",
+      "intent": "secure_credential_storage",
+      "type": "reference",
+      "related_topics": [
+        "What OWASP resources cover secure password storage and cryptographic storage? (A02-Q202)",
+        "What resources provide advice on securely storing passwords? (A07-Q162)"
+      ]
+    },
+    {
+      "question": "Where can I learn about logging authentication events for security monitoring?",
+      "answer": "OWASP Testing Guide and Automated Threats Handbook describe audit logging best practices.",
+      "id": "A07-Q176",
+      "intent": "logging_and_monitoring",
+      "type": "reference",
+      "related_topics": []
+    },
+    {
+      "question": "Which resource details risks associated with legacy authentication protocols?",
+      "answer": "OWASP Authentication Cheat Sheet warns against legacy protocols and advises upgrades.",
+      "id": "A07-Q177",
+      "intent": "legacy_protocols_risks",
+      "type": "reference",
+      "related_topics": [
+        "What risks come from legacy authentication protocols? (A07-Q142)"
+      ]
+    },
+    {
+      "question": "Where to find guidance on securing cookies to prevent theft?",
+      "answer": "OWASP Session Management Cheat Sheet explains flags like HttpOnly and Secure.",
+      "id": "A07-Q178",
+      "intent": "secure_session_cookie",
+      "type": "reference",
+      "related_topics": [
+        "How should cookies used for authentication be secured? (A07-Q229)",
+        "Which guides cover securing session cookies and preventing hijacking? (A07-Q163)"
+      ]
+    },
+    {
+      "question": "Which standards are authoritative for authentication and identity security?",
+      "answer": "NIST 800-63b is a widely recognized standard for digital identity and authentication.",
+      "id": "A07-Q179",
+      "intent": "security_standards",
+      "type": "reference",
+      "related_topics": []
+    },
+    {
+      "question": "Where can I find detailed MFA implementation guidance?",
+      "answer": "OWASP Proactive Controls and ASVS offer detailed guidance on MFA deployment.",
+      "id": "A07-Q180",
+      "intent": "multi_factor_authentication_implementation",
+      "type": "reference",
+      "related_topics": [
+        "Where can I find guidance on implementing multi-factor authentication? (A07-Q161)"
+      ]
+    }
+  ],
+  "statistics": [
+    {
+      "question": "How many CWEs are mapped to Identification and Authentication Failures?",
+      "answer": "There are 22 CWEs mapped to this category.",
+      "id": "A07-Q181",
+      "intent": "mapped_cwes_count",
+      "type": "statistics",
+      "related_topics": [
+        "How many CWEs are mapped to Insecure Design in OWASP A04:2021? (A04-Q167)",
+        "How many CWEs are mapped to the Software and Data Integrity Failures category? (A08-Q181)",
+        "How many CWEs are mapped to cryptographic failures according to OWASP data? (A02-Q222)",
+        "How many CWEs are mapped to the Security Logging and Monitoring Failures category? (A09-S1)",
+        "How many CWEs are mapped to Injection vulnerabilities? (A03-Q154)"
+      ]
+    },
+    {
+      "question": "What is the maximum incidence rate for Identification and Authentication Failures?",
+      "answer": "The maximum incidence rate is 14.84%.",
+      "id": "A07-Q182",
+      "intent": "max_incidence_rate",
+      "type": "statistics",
+      "related_topics": [
+        "What is the maximum incidence rate recorded for Security Logging and Monitoring Failures? (A09-S2)",
+        "What is the maximum incidence rate of SSRF vulnerabilities according to OWASP 2021? (A10-S1)",
+        "What is the maximum incidence rate recorded for injection flaws? (A03-Q146)",
+        "What is the maximum incidence rate reported for this category? (A08-Q182)",
+        "What is the maximum incidence rate of Insecure Design vulnerabilities? (A04-Q168)"
+      ]
+    },
+    {
+      "question": "What is the average incidence rate for this vulnerability category?",
+      "answer": "The average incidence rate is 2.55%.",
+      "id": "A07-Q183",
+      "intent": "avg_incidence_rate",
+      "type": "statistics",
+      "related_topics": [
+        "What is the average incidence rate of vulnerable components across applications? (A06-Q191)",
+        "What is the average incidence rate of SSRF vulnerabilities? (A10-S2)",
+        "What is the average incidence rate of Software and Data Integrity Failures? (A08-Q183)",
+        "What is the average incidence rate for Insecure Design? (A04-Q169)",
+        "What is the average incidence rate for this category? (A09-S3)"
+      ]
+    },
+    {
+      "question": "What is the average weighted exploitability score for A07 vulnerabilities?",
+      "answer": "The average weighted exploitability is 7.40.",
+      "id": "A07-Q184",
+      "intent": "avg_weighted_exploit",
+      "type": "statistics",
+      "related_topics": [
+        "What is the average weighted exploit score for Insecure Design? (A04-Q170)",
+        "What is the average weighted exploitability score for cryptographic failures? (A02-Q226)",
+        "What is the average weighted exploitability score for this category? (A09-S4)",
+        "What is the average weighted impact score for vulnerabilities under A07? (A07-Q185)",
+        "What is the average weighted exploitability score for this category? (A08-Q184)"
+      ]
+    },
+    {
+      "question": "What is the average weighted impact score for vulnerabilities under A07?",
+      "answer": "The average weighted impact is 6.50.",
+      "id": "A07-Q185",
+      "intent": "avg_weighted_impact",
+      "type": "statistics",
+      "related_topics": [
+        "What is the average weighted exploitability score for A07 vulnerabilities? (A07-Q184)",
+        "What is the average weighted impact score for SSRF vulnerabilities? (A10-S4)",
+        "What is the average weighted impact score for Insecure Design vulnerabilities? (A04-Q171)",
+        "What is the average weighted impact score for Security Misconfiguration? (A05-Q161)",
+        "What is the average weighted impact score for Software and Data Integrity Failures? (A08-Q185)"
+      ]
+    },
+    {
+      "question": "What is the maximum coverage of A07 vulnerabilities in applications?",
+      "answer": "The maximum coverage is 79.51%.",
+      "id": "A07-Q186",
+      "intent": "max_coverage",
+      "type": "statistics",
+      "related_topics": [
+        "What is the maximum coverage percentage for this category? (A09-S6)",
+        "What is the maximum coverage percentage for this vulnerability category? (A08-Q186)"
+      ]
+    },
+    {
+      "question": "What is the average coverage of these vulnerabilities across tested applications?",
+      "answer": "The average coverage is 45.72%.",
+      "id": "A07-Q187",
+      "intent": "avg_coverage",
+      "type": "statistics",
+      "related_topics": [
+        "What is the average coverage for Software and Data Integrity Failures? (A08-Q187)"
+      ]
+    },
+    {
+      "question": "How many total vulnerability occurrences were reported for A07?",
+      "answer": "There were 132,195 total occurrences reported.",
+      "id": "A07-Q188",
+      "intent": "total_occurrences",
+      "type": "statistics",
+      "related_topics": [
+        "How many total occurrences of vulnerabilities have been reported in this category? (A08-Q188)",
+        "How many total occurrences have been reported for Security Logging and Monitoring Failures? (A09-S8)",
+        "How many total SSRF occurrences have been recorded? (A10-S7)",
+        "How many total occurrences of vulnerable and outdated components were observed in recent datasets? (A06-Q193)"
+      ]
+    },
+    {
+      "question": "How many CVEs are associated with Identification and Authentication Failures?",
+      "answer": "There are 3,897 CVEs associated with this category.",
+      "id": "A07-Q189",
+      "intent": "total_cves",
+      "type": "statistics",
+      "related_topics": [
+        "How many CVEs are associated with Security Misconfiguration? (A05-Q165)",
+        "How many CVEs are associated with Insecure Design? (A04-Q175)",
+        "How many total CVEs are associated with Software and Data Integrity Failures? (A08-Q189)",
+        "What is the total number of CVEs associated with this category? (A09-S9)"
+      ]
+    },
+    {
+      "question": "Which CWE related to authentication is among the most common?",
+      "answer": "CWE-287: Improper Authentication is one of the most commonly mapped CWEs under A07.",
+      "id": "A07-Q190",
+      "intent": "cwe_287_popularity",
+      "type": "statistics",
+      "related_topics": [
+        "What are common CWE identifiers related to authentication failures? (A07-Q017)"
+      ]
+    },
+    {
+      "question": "How has the ranking of A07 changed from the previous OWASP Top 10?",
+      "answer": "It declined from the second position in the 2017 list to seventh in the 2021 list.",
+      "id": "A07-Q191",
+      "intent": "trend_decline",
+      "type": "statistics",
+      "related_topics": []
+    },
+    {
+      "question": "Is CWE-384: Session Fixation included in this category?",
+      "answer": "Yes, CWE-384 is one of the mapped weaknesses in A07.",
+      "id": "A07-Q192",
+      "intent": "cwe_384_presence",
+      "type": "statistics",
+      "related_topics": []
+    },
+    {
+      "question": "Which CWE addresses certificate validation issues in A07?",
+      "answer": "CWE-297: Improper Validation of Certificate with Host Mismatch.",
+      "id": "A07-Q193",
+      "intent": "cwe_297_certificate_validation",
+      "type": "statistics",
+      "related_topics": []
+    },
+    {
+      "question": "Are session handling issues common in A07 vulnerabilities?",
+      "answer": "Yes, session mismanagement is a recurring problem contributing to A07 incidents.",
+      "id": "A07-Q194",
+      "intent": "session_issues_occurrence",
+      "type": "statistics",
+      "related_topics": [
+        "Is session hijacking a notable issue within A07 vulnerabilities? (A07-Q207)"
+      ]
+    },
+    {
+      "question": "What are the most common vulnerability patterns in A07?",
+      "answer": "Credential stuffing, brute force attacks, and weak password policies are among the most common patterns.",
+      "id": "A07-Q195",
+      "intent": "common_vulnerability_patterns",
+      "type": "statistics",
+      "related_topics": []
+    },
+    {
+      "question": "What percentage of tested applications had at least one A07 issue?",
+      "answer": "Nearly 80% of tested applications had coverage for at least one A07 weakness.",
+      "id": "A07-Q196",
+      "intent": "percentage_applications_affected",
+      "type": "statistics",
+      "related_topics": []
+    },
+    {
+      "question": "How prevalent are vulnerabilities due to default or weak passwords?",
+      "answer": "They are very common, contributing significantly to the high total occurrences under A07.",
+      "id": "A07-Q197",
+      "intent": "default_password_incidents",
+      "type": "statistics",
+      "related_topics": [
+        "Why are default or weak passwords a security risk? (A07-Q007)"
+      ]
+    },
+    {
+      "question": "How does MFA adoption impact A07 vulnerability rates?",
+      "answer": "Organizations without MFA are significantly more likely to have A07-related issues.",
+      "id": "A07-Q198",
+      "intent": "mfa_adoption_rate",
+      "type": "statistics",
+      "related_topics": []
+    },
+    {
+      "question": "Is CWE-940: Improper Verification of Source of a Communication included in A07?",
+      "answer": "Yes, it is one of the mapped CWEs contributing to the vulnerability count.",
+      "id": "A07-Q199",
+      "intent": "cwe_940_coverage",
+      "type": "statistics",
+      "related_topics": []
+    },
+    {
+      "question": "How impactful is A07 on overall authentication security?",
+      "answer": "It significantly undermines authentication security, with high exploit and impact scores.",
+      "id": "A07-Q200",
+      "intent": "impact_on_authentication_security",
+      "type": "statistics",
+      "related_topics": []
+    },
+    {
+      "question": "How common are brute force vulnerabilities in A07?",
+      "answer": "Brute force vulnerabilities are among the most frequent A07-related security issues.",
+      "id": "A07-Q201",
+      "intent": "brute_force_prevalence",
+      "type": "statistics",
+      "related_topics": []
+    },
+    {
+      "question": "Which CWEs are the top contributors to A07 incidents?",
+      "answer": "CWE-287, CWE-384, and CWE-259 are major contributors to A07 vulnerability statistics.",
+      "id": "A07-Q202",
+      "intent": "top_weakness_cwes",
+      "type": "statistics",
+      "related_topics": []
+    },
+    {
+      "question": "How often do insecure credential storage practices contribute to A07?",
+      "answer": "Insecure storage of credentials is a frequent issue and leads to major exposure risks.",
+      "id": "A07-Q203",
+      "intent": "stored_credentials_risk",
+      "type": "statistics",
+      "related_topics": []
+    },
+    {
+      "question": "How does A07 rank in terms of exploitability compared to other Top 10 categories?",
+      "answer": "A07 ranks high with an average exploitability score of 7.40, indicating ease of attack.",
+      "id": "A07-Q204",
+      "intent": "auth_exploitability_score_ranking",
+      "type": "statistics",
+      "related_topics": [
+        "What is the exploitability rank of this category compared to others? (A09-S12)",
+        "How does A07 compare to other OWASP categories in terms of CWE diversity? (A07-Q209)"
+      ]
+    },
+    {
+      "question": "Is the use of default credentials mapped under A07?",
+      "answer": "Yes, CWE-259: Use of Hard-coded Password is included in A07’s mapped weaknesses.",
+      "id": "A07-Q205",
+      "intent": "cwe_259_default_credentials",
+      "type": "statistics",
+      "related_topics": []
+    },
+    {
+      "question": "How frequently do authentication failures appear in vulnerability scans?",
+      "answer": "They appear frequently, with over 130,000 occurrences documented in recent data.",
+      "id": "A07-Q206",
+      "intent": "authentication_failure_frequency",
+      "type": "statistics",
+      "related_topics": []
+    },
+    {
+      "question": "Is session hijacking a notable issue within A07 vulnerabilities?",
+      "answer": "Yes, session hijacking risks from poorly managed session tokens are prevalent.",
+      "id": "A07-Q207",
+      "intent": "session_hijacking_prevalence",
+      "type": "statistics",
+      "related_topics": [
+        "Are session handling issues common in A07 vulnerabilities? (A07-Q194)"
+      ]
+    },
+    {
+      "question": "How much risk does A07 pose to user data confidentiality?",
+      "answer": "A07 vulnerabilities pose high risk to user data due to unauthorized access possibilities.",
+      "id": "A07-Q208",
+      "intent": "impact_on_user_data",
+      "type": "statistics",
+      "related_topics": []
+    },
+    {
+      "question": "How does A07 compare to other OWASP categories in terms of CWE diversity?",
+      "answer": "A07 has moderate CWE diversity with 22 unique weakness types mapped.",
+      "id": "A07-Q209",
+      "intent": "cwe_count_comparison",
+      "type": "statistics",
+      "related_topics": [
+        "How does A07 rank in terms of exploitability compared to other Top 10 categories? (A07-Q204)"
+      ]
+    },
+    {
+      "question": "What makes A07 a high-risk category despite being 7th on the list?",
+      "answer": "Its high exploitability, impact scores, and widespread presence make it critically risky.",
+      "id": "A07-Q210",
+      "intent": "total_risk_analysis",
+      "type": "statistics",
+      "related_topics": []
+    }
+  ],
+  "technical": [
+    {
+      "question": "How does the authentication process work in web applications?",
+      "answer": "Authentication verifies that a user is who they claim to be by validating credentials such as passwords, tokens, or biometrics.",
+      "id": "A07-Q031",
+      "intent": "explain_authentication_process",
+      "type": "technical_explanation",
+      "related_topics": []
+    },
+    {
+      "question": "How does credential stuffing technically work?",
+      "answer": "Attackers use automated tools to test large volumes of leaked username-password pairs against a target application, exploiting reused credentials.",
+      "id": "A07-Q032",
+      "intent": "explain_credential_stuffing_technique",
+      "type": "technical_explanation",
+      "related_topics": [
+        "What happens in a credential stuffing attack? (A07-Q121)",
+        "What is credential stuffing? (A07-Q005)"
+      ]
+    },
+    {
+      "question": "What technical factors enable brute force attacks to succeed?",
+      "answer": "Brute force attacks succeed due to lack of throttling, absence of lockout mechanisms, and predictable or weak passwords.",
+      "id": "A07-Q033",
+      "intent": "explain_brute_force_attack_mechanism",
+      "type": "technical_explanation",
+      "related_topics": [
+        "What weaknesses can allow brute force attacks? (A07-Q006)"
+      ]
+    },
+    {
+      "question": "Why is storing passwords with weak hashing algorithms insecure?",
+      "answer": "Weak hashing algorithms can be reversed or cracked using modern computing power, exposing plaintext passwords.",
+      "id": "A07-Q034",
+      "intent": "explain_weak_password_storage",
+      "type": "technical_explanation",
+      "related_topics": [
+        "Why is using weak password hashing algorithms a vulnerability? (A07-Q023)",
+        "Why is using weak hash algorithms for passwords dangerous? (A07-Q138)",
+        "How does the use of weak cryptographic algorithms lead to vulnerabilities? (A02-Q021)"
+      ]
+    },
+    {
+      "question": "How does a session fixation attack occur technically?",
+      "answer": "An attacker tricks a user into using a session ID known to the attacker, allowing hijacking of the user’s authenticated session.",
+      "id": "A07-Q035",
+      "intent": "describe_session_fixation_attack",
+      "type": "technical_explanation",
+      "related_topics": [
+        "What is session fixation? (A07-Q010)",
+        "How does session hijacking occur? (A07-Q128)",
+        "How can session fixation be exploited? (A07-Q124)"
+      ]
+    },
+    {
+      "question": "What role do cookies play in session management and vulnerabilities?",
+      "answer": "Cookies store session identifiers; if not secured with flags like HttpOnly and Secure, they can be stolen leading to session hijacking.",
+      "id": "A07-Q036",
+      "intent": "role_of_cookies_in_session_management",
+      "type": "technical_explanation",
+      "related_topics": []
+    },
+    {
+      "question": "How is multi-factor authentication implemented technically?",
+      "answer": "MFA combines multiple authentication factors such as something you know (password), something you have (token), or something you are (biometrics) to verify identity.",
+      "id": "A07-Q037",
+      "intent": "multi_factor_authentication_implementation",
+      "type": "technical_explanation",
+      "related_topics": []
+    },
+    {
+      "question": "What causes improper validation of certificates with host mismatch?",
+      "answer": "Failure to check the domain name against the certificate’s subject or SAN fields can allow attackers to present fraudulent certificates.",
+      "id": "A07-Q038",
+      "intent": "certificate_validation_issues",
+      "type": "technical_explanation",
+      "related_topics": [
+        "How to detect improper validation of certificates with host mismatch? (A07-Q071)"
+      ]
+    },
+    {
+      "question": "How does rate limiting protect against authentication attacks?",
+      "answer": "It restricts the number of login attempts per user or IP in a given timeframe, slowing or blocking brute force and credential stuffing attacks.",
+      "id": "A07-Q039",
+      "intent": "rate_limiting_mechanism",
+      "type": "technical_explanation",
+      "related_topics": [
+        "How does rate limiting help technically mitigate SSRF attacks? (A10-T24)",
+        "How does rate limiting on login attempts prevent attacks? (A07-Q094)",
+        "How does rate limiting support secure design? (A04-Q105)",
+        "What role does rate limiting play in access control? (A01-Q047)",
+        "How does rate limiting help against SSRF attacks? (A10-P17)"
+      ]
+    },
+    {
+      "question": "How can attackers technically perform account enumeration?",
+      "answer": "By analyzing differences in server responses or timing during login or password recovery attempts to discover valid usernames.",
+      "id": "A07-Q040",
+      "intent": "describe_account_enumeration",
+      "type": "technical_explanation",
+      "related_topics": []
+    },
+    {
+      "question": "What technical steps are involved in proper session invalidation?",
+      "answer": "Deleting server-side session data and expiring session cookies on logout or timeout ensures sessions cannot be reused.",
+      "id": "A07-Q041",
+      "intent": "session_invalidation_technicalities",
+      "type": "technical_explanation",
+      "related_topics": []
+    },
+    {
+      "question": "How is password blacklisting implemented technically?",
+      "answer": "Applications maintain a list of banned passwords and reject user-chosen passwords that match these to enforce stronger password policies.",
+      "id": "A07-Q042",
+      "intent": "password_blacklisting_technical_implementation",
+      "type": "technical_explanation",
+      "related_topics": []
+    },
+    {
+      "question": "How do uniform error messages technically prevent attacks?",
+      "answer": "By always returning the same response regardless of whether the username or password is incorrect, attackers cannot determine valid usernames.",
+      "id": "A07-Q043",
+      "intent": "explaining_uniform_error_messages",
+      "type": "technical_explanation",
+      "related_topics": [
+        "How do uniform error messages help in authentication security? (A07-Q015)"
+      ]
+    },
+    {
+      "question": "Which security headers help protect authentication sessions?",
+      "answer": "Headers like Strict-Transport-Security, Content-Security-Policy, and setting cookies with Secure and HttpOnly flags enhance session security.",
+      "id": "A07-Q044",
+      "intent": "security_headers_in_session_protection",
+      "type": "technical_explanation",
+      "related_topics": [
+        "Which security headers help protect authentication? (A07-Q111)"
+      ]
+    },
+    {
+      "question": "What technical measures improve the security of password recovery?",
+      "answer": "Using temporary tokens with expiration, multi-factor verification during recovery, and avoiding insecure security questions strengthen recovery processes.",
+      "id": "A07-Q045",
+      "intent": "technical_measures_for_password_recovery_security",
+      "type": "technical_explanation",
+      "related_topics": [
+        "What makes a password recovery process secure? (A07-Q099)"
+      ]
+    },
+    {
+      "question": "What do HttpOnly and Secure cookie flags do technically?",
+      "answer": "HttpOnly prevents client-side scripts from accessing cookies, and Secure ensures cookies are sent only over HTTPS.",
+      "id": "A07-Q046",
+      "intent": "session_cookie_security_flags",
+      "type": "technical_explanation",
+      "related_topics": [
+        "What is the importance of Secure and HttpOnly flags on cookies? (A07-Q102)"
+      ]
+    },
+    {
+      "question": "How does token-based authentication work technically?",
+      "answer": "Tokens (like JWTs) encode user identity and claims and are presented on requests to authenticate without repeatedly sending credentials.",
+      "id": "A07-Q047",
+      "intent": "token_based_authentication_explained",
+      "type": "technical_explanation",
+      "related_topics": []
+    },
+    {
+      "question": "What technical methods do attackers use to hijack sessions?",
+      "answer": "Techniques include stealing cookies via XSS, sniffing traffic over unencrypted connections, or predicting session IDs.",
+      "id": "A07-Q048",
+      "intent": "session_hijacking_methods",
+      "type": "technical_explanation",
+      "related_topics": [
+        "How does session hijacking occur? (A07-Q128)"
+      ]
+    },
+    {
+      "question": "What makes a password hashing algorithm secure technically?",
+      "answer": "Algorithms like bcrypt or Argon2 use salting and computationally expensive operations to resist brute force and rainbow table attacks.",
+      "id": "A07-Q049",
+      "intent": "explain_password_hashing_algorithms",
+      "type": "technical_explanation",
+      "related_topics": []
+    },
+    {
+      "question": "Why is salting passwords important technically?",
+      "answer": "Salts add random data to passwords before hashing, making precomputed hash attacks ineffective.",
+      "id": "A07-Q050",
+      "intent": "importance_of_salting_passwords",
+      "type": "technical_explanation",
+      "related_topics": [
+        "What is the importance of using salted hashing when storing passwords? (A02-Q050)",
+        "What is salting in password hashing and why is it important? (A02-Q010)"
+      ]
+    },
+    {
+      "question": "Why is password reuse risky from a technical perspective?",
+      "answer": "If credentials leak from one site, attackers can use them to access other sites due to reused passwords.",
+      "id": "A07-Q051",
+      "intent": "describe_password_reuse_risk",
+      "type": "technical_explanation",
+      "related_topics": [
+        "What risk does password reuse across sites pose? (A07-Q135)"
+      ]
+    },
+    {
+      "question": "What are the technical categories of factors used in multi-factor authentication?",
+      "answer": "Factors include knowledge (password), possession (hardware token or app), and inherence (biometrics).",
+      "id": "A07-Q052",
+      "intent": "technical_description_of_mfa_factors",
+      "type": "technical_explanation",
+      "related_topics": []
+    },
+    {
+      "question": "How does token expiration protect authentication sessions?",
+      "answer": "Expiring tokens force re-authentication, limiting the window attackers can misuse stolen tokens.",
+      "id": "A07-Q053",
+      "intent": "explaining_token_expiration_mechanism",
+      "type": "technical_explanation",
+      "related_topics": [
+        "How does lack of session expiration increase risk? (A07-Q020)",
+        "Why is session expiration important? (A07-Q011)",
+        "What risk arises from session tokens not expiring properly? (A07-Q132)"
+      ]
+    },
+    {
+      "question": "What is the technical difference between session IDs and authentication tokens?",
+      "answer": "Session IDs are server-managed stateful identifiers, whereas tokens like JWTs are stateless and carry user info.",
+      "id": "A07-Q054",
+      "intent": "difference_session_id_vs_token",
+      "type": "technical_explanation",
+      "related_topics": []
+    },
+    {
+      "question": "How does HTTPS protect authentication mechanisms technically?",
+      "answer": "HTTPS encrypts communication between client and server, preventing interception and tampering of credentials and tokens.",
+      "id": "A07-Q055",
+      "intent": "describe_https_role_in_authentication_security",
+      "type": "technical_explanation",
+      "related_topics": []
+    },
+    {
+      "question": "How does Cross-Site Scripting (XSS) threaten authentication sessions technically?",
+      "answer": "XSS can steal session cookies or tokens via malicious scripts, enabling attackers to hijack user sessions.",
+      "id": "A07-Q056",
+      "intent": "explain_cross_site_scripting_risk_to_sessions",
+      "type": "technical_explanation",
+      "related_topics": []
+    },
+    {
+      "question": "What technical issues does CWE-287 (Improper Authentication) describe?",
+      "answer": "It covers failures in authentication mechanisms, such as bypasses, missing checks, or flawed implementations.",
+      "id": "A07-Q057",
+      "intent": "describe_cwe_287",
+      "type": "technical_explanation",
+      "related_topics": []
+    },
+    {
+      "question": "What is the technical nature of CWE-384 (Session Fixation)?",
+      "answer": "It involves allowing attackers to fixate a user's session ID before authentication to take over the session.",
+      "id": "A07-Q058",
+      "intent": "describe_cwe_384",
+      "type": "technical_explanation",
+      "related_topics": [
+        "What is session fixation? (A07-Q010)"
+      ]
+    },
+    {
+      "question": "What does CWE-297 (Improper Validation of Certificate with Host Mismatch) technically entail?",
+      "answer": "It involves failing to verify that the certificate presented by a server matches the expected host name, allowing spoofing.",
+      "id": "A07-Q059",
+      "intent": "describe_cwe_297",
+      "type": "technical_explanation",
+      "related_topics": [
+        "What does 'improper validation of certificate with host mismatch' mean? (A07-Q013)"
+      ]
+    },
+    {
+      "question": "What are technical best practices for secure session management?",
+      "answer": "Best practices include using secure, random session IDs, enforcing expiration and logout invalidation, and protecting cookies with appropriate flags.",
+      "id": "A07-Q060",
+      "intent": "describe_session_management_best_practices",
+      "type": "technical_explanation",
+      "related_topics": [
+        "Where can I learn best practices for secure session management? (A07-Q153)",
+        "Where to find session management best practices in a cheat sheet format? (A07-Q158)",
+        "What measures improve session management security? (A07-Q096)"
+      ]
+    }
+  ],
+  "vulnerability_identification": [
+    {
+      "question": "What signs indicate a credential stuffing attack in authentication logs?",
+      "answer": "Multiple rapid login attempts from diverse IPs using known username-password pairs without CAPTCHA or rate limiting.",
+      "id": "A07-Q061",
+      "intent": "identify_credential_stuffing_attack",
+      "type": "vulnerability_identification",
+      "related_topics": []
+    },
+    {
+      "question": "How can you detect brute force login attempts?",
+      "answer": "Repeated failed login attempts from the same IP or user within a short timeframe without account lockout triggers.",
+      "id": "A07-Q062",
+      "intent": "detect_brute_force_attack",
+      "type": "vulnerability_identification",
+      "related_topics": [
+        "How do you identify insufficient login throttling? (A07-Q077)"
+      ]
+    },
+    {
+      "question": "What are common indicators of weak passwords in a system?",
+      "answer": "User accounts with passwords found in common password blacklists or patterns like '123456' or 'password'.",
+      "id": "A07-Q063",
+      "intent": "spot_weak_password_usage",
+      "type": "vulnerability_identification",
+      "related_topics": []
+    },
+    {
+      "question": "How to identify session fixation vulnerabilities?",
+      "answer": "If the session ID remains unchanged after login or is set from an attacker-controlled source.",
+      "id": "A07-Q064",
+      "intent": "recognize_session_fixation",
+      "type": "vulnerability_identification",
+      "related_topics": [
+        "What signs reveal weak session management? (A07-Q090)",
+        "How to identify missing session timeout vulnerabilities? (A07-Q070)",
+        "How can session reuse vulnerabilities be identified? (A07-Q074)",
+        "How can session fixation be exploited? (A07-Q124)"
+      ]
+    },
+    {
+      "question": "What indicates insecure password storage in a system?",
+      "answer": "Presence of plaintext passwords or usage of weak hashing algorithms like MD5 or SHA1 without salt.",
+      "id": "A07-Q065",
+      "intent": "detect_insecure_password_storage",
+      "type": "vulnerability_identification",
+      "related_topics": []
+    },
+    {
+      "question": "How can you identify account enumeration issues?",
+      "answer": "Different error messages or response times when submitting valid vs invalid usernames during login or recovery.",
+      "id": "A07-Q066",
+      "intent": "find_account_enumeration_vulnerability",
+      "type": "vulnerability_identification",
+      "related_topics": []
+    },
+    {
+      "question": "How to detect missing multi-factor authentication in applications?",
+      "answer": "Lack of prompts for additional verification factors during login for sensitive or privileged accounts.",
+      "id": "A07-Q067",
+      "intent": "detect_missing_mfa",
+      "type": "vulnerability_identification",
+      "related_topics": []
+    },
+    {
+      "question": "What signs show insecure password recovery mechanisms?",
+      "answer": "Use of easily guessable security questions or reset links without expiry or token validation.",
+      "id": "A07-Q068",
+      "intent": "spot_weak_password_recovery",
+      "type": "vulnerability_identification",
+      "related_topics": [
+        "How can insecure password recovery mechanisms be exploited? (A07-Q008)"
+      ]
+    },
+    {
+      "question": "What factors increase risk of session hijacking?",
+      "answer": "Unsecured cookies without HttpOnly or Secure flags, or use of predictable session IDs.",
+      "id": "A07-Q069",
+      "intent": "identify_session_hijacking_risk",
+      "type": "vulnerability_identification",
+      "related_topics": []
+    },
+    {
+      "question": "How to identify missing session timeout vulnerabilities?",
+      "answer": "Sessions remain active indefinitely without automatic expiration after inactivity.",
+      "id": "A07-Q070",
+      "intent": "detect_missing_session_timeout",
+      "type": "vulnerability_identification",
+      "related_topics": [
+        "How to identify session fixation vulnerabilities? (A07-Q064)",
+        "What signs reveal weak session management? (A07-Q090)"
+      ]
+    },
+    {
+      "question": "How to detect improper validation of certificates with host mismatch?",
+      "answer": "Application accepts SSL/TLS certificates that do not match the expected hostname, allowing MITM attacks.",
+      "id": "A07-Q071",
+      "intent": "find_improper_certificate_validation",
+      "type": "vulnerability_identification",
+      "related_topics": [
+        "What causes improper validation of certificates with host mismatch? (A07-Q038)"
+      ]
+    },
+    {
+      "question": "How can you detect use of default credentials in deployed systems?",
+      "answer": "Testing commonly known default username/password combos like admin/admin or root/toor during authentication.",
+      "id": "A07-Q072",
+      "intent": "detect_default_credentials",
+      "type": "vulnerability_identification",
+      "related_topics": [
+        "How can you identify the presence of default credentials in a system? (A05-Q046)",
+        "What risk arises from using default credentials? (A07-Q123)"
+      ]
+    },
+    {
+      "question": "What indicates unencrypted authentication in network traffic?",
+      "answer": "Credentials transmitted in plaintext over HTTP or other unencrypted protocols.",
+      "id": "A07-Q073",
+      "intent": "spot_unencrypted_authentication",
+      "type": "vulnerability_identification",
+      "related_topics": []
+    },
+    {
+      "question": "How can session reuse vulnerabilities be identified?",
+      "answer": "Same session ID is accepted after logout or multiple sessions share identical session tokens.",
+      "id": "A07-Q074",
+      "intent": "identify_session_reuse",
+      "type": "vulnerability_identification",
+      "related_topics": [
+        "How to identify session fixation vulnerabilities? (A07-Q064)"
+      ]
+    },
+    {
+      "question": "What reveals insecure storage of session data?",
+      "answer": "Session tokens stored in client-side scripts or local storage without encryption.",
+      "id": "A07-Q075",
+      "intent": "detect_insecure_session_storage",
+      "type": "vulnerability_identification",
+      "related_topics": []
+    },
+    {
+      "question": "How to detect weak password policies?",
+      "answer": "Allowing short passwords, no complexity requirements, or no enforcement of password changes.",
+      "id": "A07-Q076",
+      "intent": "recognize_weak_password_policies",
+      "type": "vulnerability_identification",
+      "related_topics": [
+        "What methods can detect weak password policies? (A05-Q069)"
+      ]
+    },
+    {
+      "question": "How do you identify insufficient login throttling?",
+      "answer": "Systems that do not limit failed login attempts, allowing unlimited rapid retries.",
+      "id": "A07-Q077",
+      "intent": "spot_insufficient_login_throttling",
+      "type": "vulnerability_identification",
+      "related_topics": [
+        "How can you detect brute force login attempts? (A07-Q062)"
+      ]
+    },
+    {
+      "question": "What risks arise from session IDs in URLs?",
+      "answer": "Session IDs in URLs can be leaked via browser history, referrer headers, or logs, enabling hijacking.",
+      "id": "A07-Q078",
+      "intent": "find_exposed_session_ids_in_url",
+      "type": "vulnerability_identification",
+      "related_topics": [
+        "What risks are caused by predictable session IDs? (A07-Q147)",
+        "What is the risk of exposing or mishandling session identifiers? (A07-Q014)"
+      ]
+    },
+    {
+      "question": "How to detect missing logout functionality?",
+      "answer": "No way for users to explicitly terminate authenticated sessions.",
+      "id": "A07-Q079",
+      "intent": "detect_lack_of_logout_functionality",
+      "type": "vulnerability_identification",
+      "related_topics": []
+    },
+    {
+      "question": "How to identify improper access controls related to authentication?",
+      "answer": "Users gain access to resources without proper verification of their authentication status.",
+      "id": "A07-Q080",
+      "intent": "identify_improper_access_controls_in_authentication",
+      "type": "vulnerability_identification",
+      "related_topics": [
+        "How can broken access control be identified during a security test? (A01-Q029)",
+        "How can access control failures be detected? (A01:009)",
+        "How do you identify improperly configured access controls? (A05-Q059)"
+      ]
+    },
+    {
+      "question": "How can plaintext password storage in databases be detected?",
+      "answer": "By inspecting stored user credentials and finding passwords stored without hashing or encryption.",
+      "id": "A07-Q081",
+      "intent": "spot_plaintext_password_storage_in_db",
+      "type": "vulnerability_identification",
+      "related_topics": []
+    },
+    {
+      "question": "How to detect missing salting of password hashes?",
+      "answer": "Identical passwords have identical hashes, indicating lack of unique salts.",
+      "id": "A07-Q082",
+      "intent": "detect_missing_password_salting",
+      "type": "vulnerability_identification",
+      "related_topics": [
+        "How do I detect the use of unsalted or weakly hashed passwords in a system? (A02-Q055)"
+      ]
+    },
+    {
+      "question": "What cookie settings indicate insecurity?",
+      "answer": "Cookies lacking HttpOnly, Secure, or SameSite flags.",
+      "id": "A07-Q083",
+      "intent": "recognize_insecure_cookie_settings",
+      "type": "vulnerability_identification",
+      "related_topics": []
+    },
+    {
+      "question": "How to detect insecure password reset tokens?",
+      "answer": "Tokens that are predictable, reusable, or do not expire.",
+      "id": "A07-Q084",
+      "intent": "spot_vulnerable_password_reset_tokens",
+      "type": "vulnerability_identification",
+      "related_topics": []
+    },
+    {
+      "question": "How to identify insufficient logging of authentication events?",
+      "answer": "Missing or incomplete records of login successes, failures, or suspicious activity.",
+      "id": "A07-Q085",
+      "intent": "detect_insufficient_logging_of_authentication_events",
+      "type": "vulnerability_identification",
+      "related_topics": []
+    },
+    {
+      "question": "How to detect missing account lockout mechanisms?",
+      "answer": "No restriction after multiple failed login attempts allowing unlimited retries.",
+      "id": "A07-Q086",
+      "intent": "find_missing_account_lockout",
+      "type": "vulnerability_identification",
+      "related_topics": []
+    },
+    {
+      "question": "What indicates insecure session token generation?",
+      "answer": "Tokens generated with predictable patterns or insufficient randomness.",
+      "id": "A07-Q087",
+      "intent": "spot_insecure_session_token_generation",
+      "type": "vulnerability_identification",
+      "related_topics": []
+    },
+    {
+      "question": "How to identify possible MFA bypass vulnerabilities?",
+      "answer": "Authentication flows allowing access without completing MFA or via alternative paths.",
+      "id": "A07-Q088",
+      "intent": "detect_mfa_bypass_methods",
+      "type": "vulnerability_identification",
+      "related_topics": []
+    },
+    {
+      "question": "How can flaws in authentication flow be detected?",
+      "answer": "Testing for logical bypasses, such as parameter tampering or missing checks.",
+      "id": "A07-Q089",
+      "intent": "identify_authentication_flow_flaws",
+      "type": "vulnerability_identification",
+      "related_topics": []
+    },
+    {
+      "question": "What signs reveal weak session management?",
+      "answer": "Sessions not invalidated on logout, or reused across multiple users or devices.",
+      "id": "A07-Q090",
+      "intent": "detect_weak_session_management",
+      "type": "vulnerability_identification",
+      "related_topics": [
+        "How to identify session fixation vulnerabilities? (A07-Q064)",
+        "How to identify missing session timeout vulnerabilities? (A07-Q070)"
+      ]
+    }
+  ]
+}

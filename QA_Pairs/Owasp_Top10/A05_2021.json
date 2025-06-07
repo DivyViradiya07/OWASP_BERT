@@ -1,0 +1,1530 @@
+{
+  "basic_understanding": [
+    {
+      "id": "A05-Q001",
+      "type": "basic_understanding",
+      "intent": "define_security_misconfiguration",
+      "question": "What is Security Misconfiguration?",
+      "answer": "Security Misconfiguration refers to improper implementation or maintenance of security controls across a system, such as leaving default settings unchanged, exposing error messages, or enabling unnecessary features that increase vulnerability risk."
+    },
+    {
+      "id": "A05-Q002",
+      "type": "basic_understanding",
+      "intent": "importance_of_security_configuration",
+      "question": "Why is proper security configuration important?",
+      "answer": "Proper security configuration reduces the attack surface, prevents unauthorized access, protects sensitive data, and ensures the system's security controls are effective and consistent across environments."
+    },
+    {
+      "id": "A05-Q003",
+      "type": "basic_understanding",
+      "intent": "common_causes_of_security_misconfiguration",
+      "question": "What are common causes of Security Misconfiguration?",
+      "answer": "Common causes include use of default credentials, lack of automated configuration management, overly permissive permissions, exposed detailed error messages, and running unnecessary services or open ports."
+    },
+    {
+      "id": "A05-Q004",
+      "type": "basic_understanding",
+      "intent": "default_credentials_risk",
+      "question": "Why are default credentials a security risk?",
+      "answer": "Default credentials are widely known and often left unchanged, allowing attackers to easily gain unauthorized access to systems or applications."
+    },
+    {
+      "id": "A05-Q005",
+      "type": "basic_understanding",
+      "intent": "explain_excessive_permissions",
+      "question": "What is meant by excessive permissions in security misconfiguration?",
+      "answer": "Excessive permissions occur when users, services, or cloud storage have more privileges than necessary, increasing the risk of misuse or data leakage."
+    },
+    {
+      "id": "A05-Q006",
+      "type": "basic_understanding",
+      "intent": "role_of_error_messages",
+      "question": "How can detailed error messages lead to security vulnerabilities?",
+      "answer": "Detailed error messages can reveal internal system information such as stack traces, software versions, or configurations that attackers can exploit."
+    },
+    {
+      "id": "A05-Q007",
+      "type": "basic_understanding",
+      "intent": "security_headers_importance",
+      "question": "Why are security headers like Content-Security-Policy and X-Frame-Options important?",
+      "answer": "Security headers help protect applications from attacks such as cross-site scripting, clickjacking, and other code injection by controlling how browsers handle content."
+    },
+    {
+      "id": "A05-Q008",
+      "type": "basic_understanding",
+      "intent": "impact_of_outdated_components",
+      "question": "How do outdated or vulnerable components contribute to security misconfiguration?",
+      "answer": "Outdated components may contain known vulnerabilities or lack security patches, increasing the risk that attackers can exploit these weaknesses."
+    },
+    {
+      "id": "A05-Q009",
+      "type": "basic_understanding",
+      "intent": "why_automate_configuration",
+      "question": "Why is automation important in preventing security misconfiguration?",
+      "answer": "Automation ensures consistent, repeatable, and hardened configurations across all environments, reducing human error and misconfiguration risks."
+    },
+    {
+      "id": "A05-Q010",
+      "type": "basic_understanding",
+      "intent": "how_segmentation_helps_security",
+      "question": "How does network segmentation help prevent security misconfiguration impacts?",
+      "answer": "Segmentation limits access between different parts of a system, reducing the risk that a misconfiguration in one area compromises the entire infrastructure."
+    },
+    {
+      "id": "A05-Q011",
+      "type": "basic_understanding",
+      "intent": "importance_of_regular_audits",
+      "question": "Why are regular audits and automated checks necessary for security configurations?",
+      "answer": "They help detect and remediate misconfigurations early, ensuring configurations remain secure as systems evolve."
+    },
+    {
+      "id": "A05-Q012",
+      "type": "basic_understanding",
+      "intent": "describe_sample_apps_risk",
+      "question": "Why should sample applications and debugging features not be deployed to production?",
+      "answer": "Sample apps and debug features may contain vulnerabilities or reveal sensitive information that attackers can exploit."
+    },
+    {
+      "id": "A05-Q013",
+      "type": "basic_understanding",
+      "intent": "what_is_misconfigured_cloud_storage",
+      "question": "What risks does misconfigured cloud storage pose?",
+      "answer": "Misconfigured cloud storage, such as public S3 buckets, can expose sensitive data to unauthorized users, leading to data breaches."
+    },
+    {
+      "id": "A05-Q014",
+      "type": "basic_understanding",
+      "intent": "explain_open_ports_risk",
+      "question": "Why are unnecessary open ports or services a security risk?",
+      "answer": "Unnecessary open ports provide additional entry points for attackers to exploit vulnerabilities or gain unauthorized access."
+    },
+    {
+      "id": "A05-Q015",
+      "type": "basic_understanding",
+      "intent": "how_security_misconfiguration_affects_data",
+      "question": "How can security misconfiguration lead to data exposure?",
+      "answer": "Misconfigurations can leave sensitive data unprotected or accessible, enabling attackers to read, modify, or steal information."
+    },
+    {
+      "id": "A05-Q016",
+      "type": "basic_understanding",
+      "intent": "describe_role_of_configuration_management",
+      "question": "What is the role of configuration management in security?",
+      "answer": "Configuration management ensures systems are set up and maintained consistently according to security policies, reducing the likelihood of vulnerabilities."
+    },
+    {
+      "id": "A05-Q017",
+      "type": "basic_understanding",
+      "intent": "define_security_configuration_baseline",
+      "question": "What is a secure configuration baseline?",
+      "answer": "A secure configuration baseline is a documented, approved set of configurations that enforce security standards across all systems and environments."
+    },
+    {
+      "id": "A05-Q018",
+      "type": "basic_understanding",
+      "intent": "how_to_minimize_attack_surface",
+      "question": "How can minimizing installed software and features reduce security risks?",
+      "answer": "Reducing installed software and features limits potential vulnerabilities and points of attack, decreasing the overall attack surface."
+    },
+    {
+      "id": "A05-Q019",
+      "type": "basic_understanding",
+      "intent": "importance_of_security_updates",
+      "question": "Why is applying security updates and patches regularly critical?",
+      "answer": "Updates often fix known vulnerabilities; failing to apply them leaves systems exposed to exploits targeting those flaws."
+    },
+    {
+      "id": "A05-Q020",
+      "type": "basic_understanding",
+      "intent": "explain_configuration_inconsistencies",
+      "question": "What problems arise from inconsistent configurations across development, QA, and production?",
+      "answer": "Inconsistencies can cause unexpected behavior, security gaps, and make it difficult to replicate and fix issues securely."
+    },
+    {
+      "id": "A05-Q021",
+      "type": "basic_understanding",
+      "intent": "describe_hardening_templates",
+      "question": "What are hardened templates in the context of environment setup?",
+      "answer": "Hardened templates are pre-configured, secure environment setups designed to enforce security best practices automatically during deployment."
+    },
+    {
+      "id": "A05-Q022",
+      "type": "basic_understanding",
+      "intent": "why_security_configuration_fails",
+      "question": "What are common reasons why security configuration fails?",
+      "answer": "Failures often result from manual errors, lack of automation, insufficient knowledge, inadequate policies, or neglecting environment differences."
+    },
+    {
+      "id": "A05-Q023",
+      "type": "basic_understanding",
+      "intent": "role_of_security_headers",
+      "question": "How do security headers protect web applications?",
+      "answer": "Security headers instruct browsers to enforce security policies that prevent attacks such as XSS, clickjacking, and data injection."
+    },
+    {
+      "id": "A05-Q024",
+      "type": "basic_understanding",
+      "intent": "what_is_configuration_drift",
+      "question": "What is configuration drift and why is it problematic?",
+      "answer": "Configuration drift occurs when systems deviate from their approved secure state, potentially reintroducing vulnerabilities or inconsistent behavior."
+    },
+    {
+      "id": "A05-Q025",
+      "type": "basic_understanding",
+      "intent": "describe_impact_of_verbose_error_messages",
+      "question": "Why should verbose error messages not be exposed to end users?",
+      "answer": "Verbose errors reveal internal information that can help attackers understand system architecture and exploit vulnerabilities."
+    },
+    {
+      "id": "A05-Q026",
+      "type": "basic_understanding",
+      "intent": "why_use_segmented_architectures",
+      "question": "What benefits do segmented architectures offer in security?",
+      "answer": "They isolate critical components, limit attack propagation, and control access, reducing the impact of any misconfiguration."
+    },
+    {
+      "id": "A05-Q027",
+      "type": "basic_understanding",
+      "intent": "explain_security_misconfiguration_incidence",
+      "question": "How common is Security Misconfiguration in applications?",
+      "answer": "It is very common, with around 90% of assessed applications having some form of misconfiguration according to OWASP."
+    },
+    {
+      "id": "A05-Q028",
+      "type": "basic_understanding",
+      "intent": "list_notable_cwes_related_to_security_misconfiguration",
+      "question": "What are some notable CWEs related to Security Misconfiguration?",
+      "answer": "Notable CWEs include CWE-16 (Configuration), CWE-611 (Improper Restriction of XML External Entity Reference), CWE-2 (Improper Control of Generation of Code), and CWE-260 (Use of a Password Hash With Insufficient Computational Effort)."
+    },
+    {
+      "id": "A05-Q029",
+      "type": "basic_understanding",
+      "intent": "why_is_security_misconfiguration_increasing",
+      "question": "Why is Security Misconfiguration becoming a more significant issue?",
+      "answer": "Because modern applications and environments are highly configurable and complex, increasing the chances of errors and overlooked insecure settings."
+    },
+    {
+      "id": "A05-Q030",
+      "type": "basic_understanding",
+      "intent": "how_to_detect_security_misconfiguration",
+      "question": "What methods are used to detect Security Misconfiguration?",
+      "answer": "Detection methods include manual audits, automated configuration scanning tools, vulnerability scanners, and penetration testing."
+    },
+    {
+      "id": "A05-Q031",
+      "type": "basic_understanding",
+      "intent": "describe_cloud_iam_policies_risk",
+      "question": "What risks are associated with overly permissive cloud IAM policies?",
+      "answer": "They can grant excessive privileges to users or services, increasing the risk of unauthorized data access or resource manipulation."
+    }
+  ],
+  "example_scenarios": [
+    {
+      "id": "A05-Q108",
+      "type": "example_scenarios",
+      "intent": "scenario_default_credentials",
+      "question": "What could happen if default credentials are left enabled in a production system?",
+      "answer": "An attacker can easily gain unauthorized administrative access by using default usernames and passwords, compromising the entire system."
+    },
+    {
+      "id": "A05-Q109",
+      "type": "example_scenarios",
+      "intent": "scenario_sample_applications",
+      "question": "What is the risk of deploying sample applications or debugging features in production?",
+      "answer": "Sample apps may contain known vulnerabilities and debugging features can expose sensitive information, allowing attackers to exploit the system."
+    },
+    {
+      "id": "A05-Q110",
+      "type": "example_scenarios",
+      "intent": "scenario_directory_listing",
+      "question": "How can enabled directory listing lead to security risks?",
+      "answer": "Attackers can view and download files, such as configuration files or source code, which can help them identify vulnerabilities to exploit."
+    },
+    {
+      "id": "A05-Q111",
+      "type": "example_scenarios",
+      "intent": "scenario_verbose_error_messages",
+      "question": "What is the danger of exposing detailed error messages to end users?",
+      "answer": "Detailed errors can reveal internal system information, including software versions and stack traces, aiding attackers in crafting targeted attacks."
+    },
+    {
+      "id": "A05-Q112",
+      "type": "example_scenarios",
+      "intent": "scenario_cloud_bucket_misconfiguration",
+      "question": "What happens if a cloud storage bucket is misconfigured to allow public access?",
+      "answer": "Sensitive business or customer data stored in the bucket may be leaked, causing data breaches and regulatory issues."
+    },
+    {
+      "id": "A05-Q113",
+      "type": "example_scenarios",
+      "intent": "scenario_unnecessary_open_ports",
+      "question": "How can unnecessary open ports lead to exploitation?",
+      "answer": "Attackers can scan open ports and exploit vulnerable services running on them to gain unauthorized access or cause disruptions."
+    },
+    {
+      "id": "A05-Q114",
+      "type": "example_scenarios",
+      "intent": "scenario_unpatched_vulnerable_components",
+      "question": "What risks arise from not patching vulnerable components in a system?",
+      "answer": "Attackers can exploit known vulnerabilities in outdated components to compromise the system or escalate privileges."
+    },
+    {
+      "id": "A05-Q115",
+      "type": "example_scenarios",
+      "intent": "scenario_missing_security_headers",
+      "question": "What impact does the absence of security headers like Content-Security-Policy have?",
+      "answer": "It increases the risk of attacks like cross-site scripting (XSS) and clickjacking, leading to data theft or session hijacking."
+    },
+    {
+      "id": "A05-Q116",
+      "type": "example_scenarios",
+      "intent": "scenario_exposed_sensitive_files",
+      "question": "How can exposure of sensitive files through misconfiguration be exploited?",
+      "answer": "Attackers can gain access to configuration files containing credentials or keys, enabling further attacks on the system."
+    },
+    {
+      "id": "A05-Q117",
+      "type": "example_scenarios",
+      "intent": "scenario_incorrect_iam_policies",
+      "question": "What consequences can arise from overly permissive IAM policies?",
+      "answer": "Users or services may gain excessive permissions, allowing data leaks, unauthorized actions, or privilege escalation."
+    },
+    {
+      "id": "A05-Q118",
+      "type": "example_scenarios",
+      "intent": "scenario_enabled_debugging_in_production",
+      "question": "What are the risks of having debugging enabled in a production environment?",
+      "answer": "Debugging can reveal application internals and sensitive data, which attackers can leverage to find vulnerabilities."
+    },
+    {
+      "id": "A05-Q119",
+      "type": "example_scenarios",
+      "intent": "scenario_insecure_cloud_api_configs",
+      "question": "How can insecure cloud API configurations be exploited?",
+      "answer": "Attackers may access or modify cloud resources unauthorizedly, potentially leading to data theft or service disruption."
+    },
+    {
+      "id": "A05-Q120",
+      "type": "example_scenarios",
+      "intent": "scenario_unsecured_error_logs",
+      "question": "What risks are associated with unsecured or verbose error logs?",
+      "answer": "Logs containing sensitive information can be accessed by attackers to gather intelligence for further exploitation."
+    },
+    {
+      "id": "A05-Q121",
+      "type": "example_scenarios",
+      "intent": "scenario_unrestricted_file_upload",
+      "question": "What dangers arise from unrestricted file uploads due to misconfiguration?",
+      "answer": "Attackers can upload malicious files that could execute code, leading to full system compromise."
+    },
+    {
+      "id": "A05-Q122",
+      "type": "example_scenarios",
+      "intent": "scenario_weak_password_policies",
+      "question": "How can weak password policies lead to security misconfiguration risks?",
+      "answer": "They allow attackers to guess or brute force credentials easily, gaining unauthorized access."
+    },
+    {
+      "id": "A05-Q123",
+      "type": "example_scenarios",
+      "intent": "scenario_exposed_admin_interfaces",
+      "question": "What happens if admin interfaces are exposed without proper access controls?",
+      "answer": "Attackers can access sensitive management features, potentially taking over systems or stealing data."
+    },
+    {
+      "id": "A05-Q124",
+      "type": "example_scenarios",
+      "intent": "scenario_unencrypted_communications",
+      "question": "What risks are caused by unencrypted communications in misconfigured systems?",
+      "answer": "Sensitive data transmitted in cleartext can be intercepted and manipulated by attackers."
+    },
+    {
+      "id": "A05-Q125",
+      "type": "example_scenarios",
+      "intent": "scenario_inconsistent_security_configurations",
+      "question": "What are the dangers of inconsistent security configurations across environments?",
+      "answer": "Differences can create weak points attackers exploit, such as production missing security controls applied in testing."
+    },
+    {
+      "id": "A05-Q126",
+      "type": "example_scenarios",
+      "intent": "scenario_publicly_accessible_sensitive_endpoints",
+      "question": "How can publicly accessible sensitive endpoints be exploited?",
+      "answer": "They allow unauthorized users to access or manipulate sensitive data or services."
+    },
+    {
+      "id": "A05-Q127",
+      "type": "example_scenarios",
+      "intent": "scenario_insufficient_access_logging",
+      "question": "What problems arise from insufficient access logging in misconfigured systems?",
+      "answer": "Without proper logs, attacks can go undetected and forensic investigations become difficult."
+    },
+    {
+      "id": "A05-Q128",
+      "type": "example_scenarios",
+      "intent": "scenario_overly_permissive_firewall_rules",
+      "question": "How do overly permissive firewall rules contribute to security misconfiguration?",
+      "answer": "They allow unauthorized traffic that can be exploited by attackers to access internal systems."
+    },
+    {
+      "id": "A05-Q129",
+      "type": "example_scenarios",
+      "intent": "scenario_unsecured_database_access",
+      "question": "What risks are associated with unsecured database access due to misconfiguration?",
+      "answer": "Attackers may read, modify, or delete sensitive data, leading to data breaches or service disruption."
+    },
+    {
+      "id": "A05-Q130",
+      "type": "example_scenarios",
+      "intent": "scenario_insecure_default_settings",
+      "question": "Why are insecure default settings a common misconfiguration risk?",
+      "answer": "Defaults often prioritize ease of use over security, leaving systems exposed until hardened."
+    },
+    {
+      "id": "A05-Q131",
+      "type": "example_scenarios",
+      "intent": "scenario_excessive_permissions_in_cloud",
+      "question": "What happens if cloud resources have excessive permissions assigned?",
+      "answer": "Compromise of one component can lead to broader access and increased damage potential."
+    },
+    {
+      "id": "A05-Q132",
+      "type": "example_scenarios",
+      "intent": "scenario_disabled_security_features",
+      "question": "What risks come from disabled security features in production?",
+      "answer": "It removes protective barriers, increasing vulnerability to attacks like injection or unauthorized access."
+    },
+    {
+      "id": "A05-Q133",
+      "type": "example_scenarios",
+      "intent": "scenario_lack_of_configuration_management",
+      "question": "How does lack of configuration management contribute to security misconfiguration?",
+      "answer": "It leads to inconsistent environments, untracked changes, and difficulty in enforcing security standards."
+    },
+    {
+      "id": "A05-Q134",
+      "type": "example_scenarios",
+      "intent": "scenario_public_exposure_of_internal_services",
+      "question": "What is the risk of internal services being publicly accessible?",
+      "answer": "Attackers can access internal APIs or services not intended for public use, leading to exploitation."
+    },
+    {
+      "id": "A05-Q135",
+      "type": "example_scenarios",
+      "intent": "scenario_improper_xml_external_entity_handling",
+      "question": "What dangers arise from improper XML external entity configuration?",
+      "answer": "Attackers can exploit XXE vulnerabilities to read sensitive files or cause denial of service."
+    },
+    {
+      "id": "A05-Q136",
+      "type": "example_scenarios",
+      "intent": "scenario_incorrectly_configured_ssl_tls",
+      "question": "How can incorrectly configured SSL/TLS increase risk?",
+      "answer": "Weak or outdated protocols and ciphers allow attackers to intercept or manipulate encrypted data."
+    },
+    {
+      "id": "A05-Q137",
+      "type": "example_scenarios",
+      "intent": "scenario_weak_authentication_mechanisms",
+      "question": "What are the consequences of weak authentication mechanisms due to misconfiguration?",
+      "answer": "Attackers can bypass authentication, gaining unauthorized access to sensitive systems."
+    },
+    {
+      "id": "A05-Q138",
+      "type": "example_scenarios",
+      "intent": "scenario_misconfigured_security_logging",
+      "question": "How does misconfigured security logging impact detection and response?",
+      "answer": "Critical security events might be missed, delaying response and increasing damage potential."
+    }
+  ],
+  "prevention": [
+    {
+      "id": "A05-Q076",
+      "type": "prevention_methods",
+      "intent": "prevent_default_credentials",
+      "question": "How can organizations prevent risks from default credentials?",
+      "answer": "Enforce mandatory changing of default passwords before deployment and disable unused default accounts."
+    },
+    {
+      "id": "A05-Q077",
+      "type": "prevention_methods",
+      "intent": "secure_configuration_baseline",
+      "question": "What is the importance of establishing a secure configuration baseline?",
+      "answer": "A secure baseline ensures all systems start from a hardened state with approved settings, reducing misconfiguration risks."
+    },
+    {
+      "id": "A05-Q078",
+      "type": "prevention_methods",
+      "intent": "automate_environment_setup",
+      "question": "How does automation help prevent security misconfiguration?",
+      "answer": "Automation with scripts and templates enforces consistent, repeatable setups and reduces human error during environment provisioning."
+    },
+    {
+      "id": "A05-Q079",
+      "type": "prevention_methods",
+      "intent": "minimize_attack_surface",
+      "question": "Why should software and services be minimized in an environment?",
+      "answer": "Reducing installed software and enabled services limits attack vectors and decreases the chance of misconfiguration."
+    },
+    {
+      "id": "A05-Q080",
+      "type": "prevention_methods",
+      "intent": "regular_patching_and_updates",
+      "question": "How do regular patches and updates prevent security misconfiguration?",
+      "answer": "Applying updates fixes known vulnerabilities and ensures security settings stay current and effective."
+    },
+    {
+      "id": "A05-Q081",
+      "type": "prevention_methods",
+      "intent": "segmented_network_architecture",
+      "question": "How does network segmentation aid in preventing security misconfiguration impact?",
+      "answer": "Segmentation limits lateral movement by restricting access between components, containing potential breaches."
+    },
+    {
+      "id": "A05-Q082",
+      "type": "prevention_methods",
+      "intent": "apply_consistent_security_configs",
+      "question": "Why is applying consistent security configurations across environments crucial?",
+      "answer": "Consistency avoids configuration drift and reduces vulnerabilities caused by environment differences."
+    },
+    {
+      "id": "A05-Q083",
+      "type": "prevention_methods",
+      "intent": "enable_security_headers",
+      "question": "How do security headers help prevent security misconfiguration issues?",
+      "answer": "Headers like Content-Security-Policy and X-Frame-Options enforce browser security policies to mitigate attacks such as XSS and clickjacking."
+    },
+    {
+      "id": "A05-Q084",
+      "type": "prevention_methods",
+      "intent": "conduct_regular_audits",
+      "question": "What role do regular audits play in preventing security misconfigurations?",
+      "answer": "Audits detect configuration deviations early, enabling timely correction before exploitation."
+    },
+    {
+      "id": "A05-Q085",
+      "type": "prevention_methods",
+      "intent": "implement_strong_iam_policies",
+      "question": "How can strong IAM policies reduce security misconfiguration risks?",
+      "answer": "By granting least privilege access and regularly reviewing permissions, organizations prevent excessive rights that lead to vulnerabilities."
+    },
+    {
+      "id": "A05-Q086",
+      "type": "prevention_methods",
+      "intent": "disable_unnecessary_services",
+      "question": "Why should unnecessary services and ports be disabled?",
+      "answer": "Disabling reduces the attack surface and limits opportunities for attackers to exploit misconfigured services."
+    },
+    {
+      "id": "A05-Q087",
+      "type": "prevention_methods",
+      "intent": "secure_cloud_storage_buckets",
+      "question": "How can public cloud storage misconfigurations be prevented?",
+      "answer": "By setting strict access controls, encrypting data, and regularly reviewing bucket policies for unintended exposure."
+    },
+    {
+      "id": "A05-Q088",
+      "type": "prevention_methods",
+      "intent": "use_configuration_management_tools",
+      "question": "What benefits do configuration management tools provide for prevention?",
+      "answer": "They enforce consistent settings, automate remediation, and track changes to reduce misconfiguration risks."
+    },
+    {
+      "id": "A05-Q089",
+      "type": "prevention_methods",
+      "intent": "restrict_debugging_features_in_production",
+      "question": "How should debugging features be handled in production?",
+      "answer": "Debugging and sample applications must be disabled or removed to prevent exposing sensitive information."
+    },
+    {
+      "id": "A05-Q090",
+      "type": "prevention_methods",
+      "intent": "implement_secure_error_handling",
+      "question": "What is secure error handling and why is it important?",
+      "answer": "It involves providing generic error messages to users while logging detailed errors securely, preventing leakage of internal system details."
+    },
+    {
+      "id": "A05-Q091",
+      "type": "prevention_methods",
+      "intent": "enforce_encryption_for_data",
+      "question": "How does encryption prevent security misconfiguration consequences?",
+      "answer": "Encrypting data at rest and in transit protects sensitive information even if configurations are misapplied."
+    },
+    {
+      "id": "A05-Q092",
+      "type": "prevention_methods",
+      "intent": "validate_security_policies_periodically",
+      "question": "Why is periodic validation of security policies necessary?",
+      "answer": "It ensures policies remain effective and aligned with evolving threats and organizational changes."
+    },
+    {
+      "id": "A05-Q093",
+      "type": "prevention_methods",
+      "intent": "implement_strong_password_policies",
+      "question": "How do strong password policies help prevent misconfigurations?",
+      "answer": "They reduce risks from weak or default passwords that attackers can exploit."
+    },
+    {
+      "id": "A05-Q094",
+      "type": "prevention_methods",
+      "intent": "remove_unused_accounts_and_services",
+      "question": "Why is removing unused accounts and services a good prevention strategy?",
+      "answer": "Unused resources may become attack vectors if left unsecured or unmonitored."
+    },
+    {
+      "id": "A05-Q095",
+      "type": "prevention_methods",
+      "intent": "monitor_and_log_security_events",
+      "question": "How does monitoring and logging aid in preventing security misconfiguration exploitation?",
+      "answer": "It provides visibility into suspicious activities and enables quick incident response."
+    },
+    {
+      "id": "A05-Q096",
+      "type": "prevention_methods",
+      "intent": "apply_security_best_practices_for_cloud",
+      "question": "What best practices can prevent cloud security misconfigurations?",
+      "answer": "Implement identity and access management, encrypt data, enforce network segmentation, and continuously audit cloud resources."
+    },
+    {
+      "id": "A05-Q097",
+      "type": "prevention_methods",
+      "intent": "establish_configuration_change_control",
+      "question": "How does change control help prevent security misconfigurations?",
+      "answer": "It ensures all configuration changes are reviewed, approved, and documented, minimizing errors and unauthorized modifications."
+    },
+    {
+      "id": "A05-Q098",
+      "type": "prevention_methods",
+      "intent": "use_security_scanning_tools",
+      "question": "What role do security scanning tools play in prevention?",
+      "answer": "They automatically detect misconfigurations and vulnerabilities before deployment or in production."
+    },
+    {
+      "id": "A05-Q099",
+      "type": "prevention_methods",
+      "intent": "implement_least_privilege_principle",
+      "question": "How does the principle of least privilege prevent security misconfiguration?",
+      "answer": "By restricting users and services to only necessary permissions, it limits potential damage from misconfigurations."
+    },
+    {
+      "id": "A05-Q100",
+      "type": "prevention_methods",
+      "intent": "perform_security_training_for_teams",
+      "question": "Why is security training important to prevent misconfiguration?",
+      "answer": "Educated staff are more likely to follow best practices and avoid introducing misconfigurations."
+    },
+    {
+      "id": "A05-Q101",
+      "type": "prevention_methods",
+      "intent": "secure_api_configurations",
+      "question": "How can APIs be securely configured to prevent misconfiguration?",
+      "answer": "By enforcing authentication, limiting permissions, validating inputs, and securing endpoints with proper headers."
+    },
+    {
+      "id": "A05-Q102",
+      "type": "prevention_methods",
+      "intent": "remove_sensitive_info_from_logs",
+      "question": "Why should sensitive information be removed from logs?",
+      "answer": "To prevent leakage of credentials or internal details if logs are accessed by unauthorized users."
+    },
+    {
+      "id": "A05-Q103",
+      "type": "prevention_methods",
+      "intent": "regularly_test_configurations",
+      "question": "How does regular testing of configurations help in prevention?",
+      "answer": "It uncovers configuration errors and vulnerabilities early, allowing timely fixes."
+    },
+    {
+      "id": "A05-Q104",
+      "type": "prevention_methods",
+      "intent": "disable_directory_listing",
+      "question": "Why is disabling directory listing important for security?",
+      "answer": "It prevents attackers from viewing directory contents that could reveal sensitive files."
+    },
+    {
+      "id": "A05-Q105",
+      "type": "prevention_methods",
+      "intent": "use_firewalls_and_access_controls",
+      "question": "How do firewalls and access controls prevent security misconfiguration impacts?",
+      "answer": "They restrict unauthorized access and filter potentially harmful traffic, mitigating risks."
+    },
+    {
+      "id": "A05-Q106",
+      "type": "prevention_methods",
+      "intent": "manage_cloud_resource_permissions",
+      "question": "How should cloud resource permissions be managed to prevent misconfiguration?",
+      "answer": "Assign permissions carefully, review them regularly, and use role-based access controls."
+    },
+    {
+      "id": "A05-Q107",
+      "type": "prevention_methods",
+      "intent": "implement_multifactor_authentication",
+      "question": "How does multifactor authentication help prevent security misconfiguration consequences?",
+      "answer": "It adds an extra layer of verification, reducing the risk from compromised credentials due to misconfigurations."
+    }
+  ],
+  "proactive": [
+    {
+      "id": "A05-Q177",
+      "type": "proactive_suggestion",
+      "intent": "establish_secure_baseline",
+      "question": "How can establishing a secure configuration baseline help prevent Security Misconfiguration?",
+      "answer": "A secure configuration baseline ensures all systems start with hardened, vetted settings, reducing the risk of accidental insecure defaults."
+    },
+    {
+      "id": "A05-Q178",
+      "type": "proactive_suggestion",
+      "intent": "automate_configuration_management",
+      "question": "Why is automating configuration management important for security?",
+      "answer": "Automation minimizes human error, enforces consistency across environments, and speeds up deployment of secure configurations."
+    },
+    {
+      "id": "A05-Q179",
+      "type": "proactive_suggestion",
+      "intent": "reduce_attack_surface",
+      "question": "How does minimizing installed software and services reduce Security Misconfiguration risks?",
+      "answer": "Fewer components reduce complexity and potential entry points, lowering the chances of misconfigured or vulnerable features."
+    },
+    {
+      "id": "A05-Q180",
+      "type": "proactive_suggestion",
+      "intent": "regular_patch_management",
+      "question": "Why is regular patching critical in preventing Security Misconfiguration?",
+      "answer": "Patching fixes known vulnerabilities and misconfigurations in software, preventing attackers from exploiting outdated components."
+    },
+    {
+      "id": "A05-Q181",
+      "type": "proactive_suggestion",
+      "intent": "apply_security_headers",
+      "question": "How do security headers like Content-Security-Policy help mitigate risks from Security Misconfiguration?",
+      "answer": "Security headers instruct browsers to enforce restrictions, preventing attacks like cross-site scripting caused by misconfiguration."
+    },
+    {
+      "id": "A05-Q182",
+      "type": "proactive_suggestion",
+      "intent": "segmented_architecture",
+      "question": "What role does network segmentation play in mitigating Security Misconfiguration impacts?",
+      "answer": "Segmentation limits access between components, containing breaches and reducing the blast radius of misconfigurations."
+    },
+    {
+      "id": "A05-Q183",
+      "type": "proactive_suggestion",
+      "intent": "secure_default_settings",
+      "question": "Why should default credentials and settings be changed before deployment?",
+      "answer": "Default credentials and settings are widely known and easily exploited if left unchanged, creating critical vulnerabilities."
+    },
+    {
+      "id": "A05-Q184",
+      "type": "proactive_suggestion",
+      "intent": "remove_unnecessary_features",
+      "question": "How does disabling unused features reduce security risks?",
+      "answer": "Unused features can have vulnerabilities or be misconfigured; disabling them reduces attack vectors."
+    },
+    {
+      "id": "A05-Q185",
+      "type": "proactive_suggestion",
+      "intent": "conduct_security_audits",
+      "question": "How do regular security audits help prevent Security Misconfiguration?",
+      "answer": "Audits detect misconfigurations and gaps early, allowing for timely remediation before exploitation."
+    },
+    {
+      "id": "A05-Q186",
+      "type": "proactive_suggestion",
+      "intent": "implement_configuration_scanning",
+      "question": "What benefits do automated configuration scanning tools provide?",
+      "answer": "They continuously monitor for deviations from secure baselines and alert on misconfigurations, enabling rapid fixes."
+    },
+    {
+      "id": "A05-Q187",
+      "type": "proactive_suggestion",
+      "intent": "secure_cloud_storage",
+      "question": "How can cloud storage misconfigurations be proactively avoided?",
+      "answer": "By applying strict IAM policies, encrypting data at rest, and regularly reviewing bucket permissions."
+    },
+    {
+      "id": "A05-Q188",
+      "type": "proactive_suggestion",
+      "intent": "manage_error_message_exposure",
+      "question": "Why should detailed error messages be restricted in production environments?",
+      "answer": "Detailed error messages can reveal sensitive internal information useful to attackers."
+    },
+    {
+      "id": "A05-Q189",
+      "type": "proactive_suggestion",
+      "intent": "use_hardened_images",
+      "question": "What are the advantages of using hardened OS or container images?",
+      "answer": "They come pre-configured with secure settings, reducing initial misconfiguration risks."
+    },
+    {
+      "id": "A05-Q190",
+      "type": "proactive_suggestion",
+      "intent": "enforce_strict_access_control",
+      "question": "How does enforcing strict access controls reduce Security Misconfiguration risks?",
+      "answer": "It ensures that only authorized users can modify configurations or access sensitive data."
+    },
+    {
+      "id": "A05-Q191",
+      "type": "proactive_suggestion",
+      "intent": "document_configuration_changes",
+      "question": "Why is documenting configuration changes important for security?",
+      "answer": "It enables tracking and auditing, helping to identify when and how insecure changes occur."
+    },
+    {
+      "id": "A05-Q192",
+      "type": "proactive_suggestion",
+      "intent": "environment_consistency",
+      "question": "Why is consistent configuration across development, testing, and production critical?",
+      "answer": "Inconsistencies can lead to untested vulnerabilities and unexpected misconfigurations in production."
+    },
+    {
+      "id": "A05-Q193",
+      "type": "proactive_suggestion",
+      "intent": "train_devops_on_security",
+      "question": "How does training DevOps teams on security help prevent misconfigurations?",
+      "answer": "Educated teams are more likely to apply security best practices and recognize risky configurations."
+    },
+    {
+      "id": "A05-Q194",
+      "type": "proactive_suggestion",
+      "intent": "integrate_security_in_ci_cd",
+      "question": "How can integrating security checks into CI/CD pipelines prevent misconfiguration?",
+      "answer": "It catches configuration issues before deployment, enabling automated enforcement of security policies."
+    },
+    {
+      "id": "A05-Q195",
+      "type": "proactive_suggestion",
+      "intent": "perform_penetration_testing",
+      "question": "Why is penetration testing valuable in identifying Security Misconfiguration?",
+      "answer": "It simulates attacker behavior to uncover misconfigurations that automated tools might miss."
+    },
+    {
+      "id": "A05-Q196",
+      "type": "proactive_suggestion",
+      "intent": "manage_third_party_components",
+      "question": "How can misconfigurations in third-party components be minimized?",
+      "answer": "By auditing third-party software, applying vendor patches, and using secure defaults."
+    },
+    {
+      "id": "A05-Q197",
+      "type": "proactive_suggestion",
+      "intent": "implement_least_privilege",
+      "question": "What is the principle of least privilege and how does it help?",
+      "answer": "It restricts access rights to the minimum necessary, reducing the risk from misconfigurations granting excessive permissions."
+    },
+    {
+      "id": "A05-Q198",
+      "type": "proactive_suggestion",
+      "intent": "validate_configuration_files",
+      "question": "Why should configuration files be validated before deployment?",
+      "answer": "Validation prevents syntax errors or insecure settings that could cause vulnerabilities."
+    },
+    {
+      "id": "A05-Q199",
+      "type": "proactive_suggestion",
+      "intent": "monitor_configuration_drift",
+      "question": "What is configuration drift and why is monitoring it important?",
+      "answer": "Configuration drift is unauthorized or unintended changes over time; monitoring helps maintain secure baselines."
+    },
+    {
+      "id": "A05-Q200",
+      "type": "proactive_suggestion",
+      "intent": "restrict_open_ports",
+      "question": "How does restricting open ports reduce security risks?",
+      "answer": "Limiting open ports reduces attack vectors that can be exploited through misconfiguration."
+    },
+    {
+      "id": "A05-Q201",
+      "type": "proactive_suggestion",
+      "intent": "enable_logging_and_alerting",
+      "question": "Why is logging configuration changes important for security?",
+      "answer": "Logs provide audit trails to detect and investigate misconfigurations or unauthorized modifications."
+    },
+    {
+      "id": "A05-Q202",
+      "type": "proactive_suggestion",
+      "intent": "use_security_benchmark_tools",
+      "question": "How can security benchmark tools help prevent misconfiguration?",
+      "answer": "They provide standards and automated checks to ensure systems comply with best practices."
+    },
+    {
+      "id": "A05-Q203",
+      "type": "proactive_suggestion",
+      "intent": "isolate_development_environments",
+      "question": "Why should development environments be isolated from production?",
+      "answer": "Isolation prevents accidental exposure of debugging features or test data in production."
+    },
+    {
+      "id": "A05-Q204",
+      "type": "proactive_suggestion",
+      "intent": "secure_api_endpoints",
+      "question": "How does securing API endpoints prevent security misconfiguration risks?",
+      "answer": "Proper authentication, authorization, and input validation reduce risks of exposing sensitive operations."
+    },
+    {
+      "id": "A05-Q205",
+      "type": "proactive_suggestion",
+      "intent": "regularly_review_permissions",
+      "question": "Why is reviewing user and service permissions regularly important?",
+      "answer": "It helps identify and remove excessive or outdated permissions that may lead to misconfigurations."
+    },
+    {
+      "id": "A05-Q206",
+      "type": "proactive_suggestion",
+      "intent": "use_multi_factor_authentication",
+      "question": "How does multi-factor authentication mitigate risks from misconfigured access controls?",
+      "answer": "It adds an extra security layer, making unauthorized access harder even if misconfigurations exist."
+    },
+    {
+      "id": "A05-Q207",
+      "type": "proactive_suggestion",
+      "intent": "employ_security_orchestration",
+      "question": "What benefits does security orchestration bring to configuration management?",
+      "answer": "It integrates tools and processes to automate detection and remediation of misconfigurations."
+    },
+    {
+      "id": "A05-Q208",
+      "type": "proactive_suggestion",
+      "intent": "establish_change_management_process",
+      "question": "How does a formal change management process help prevent misconfiguration?",
+      "answer": "It ensures all changes are reviewed, approved, and documented to avoid insecure configurations."
+    },
+    {
+      "id": "A05-Q209",
+      "type": "proactive_suggestion",
+      "intent": "implement_role_based_access_control",
+      "question": "How does RBAC reduce security misconfiguration risks?",
+      "answer": "RBAC limits permissions based on roles, minimizing chances of accidental over-permissioning."
+    },
+    {
+      "id": "A05-Q210",
+      "type": "proactive_suggestion",
+      "intent": "use_encrypted_communications",
+      "question": "Why is enforcing encrypted communications important in preventing security misconfiguration?",
+      "answer": "It protects data in transit from interception due to misconfigured network settings."
+    },
+    {
+      "id": "A05-Q211",
+      "type": "proactive_suggestion",
+      "intent": "conduct_security_training",
+      "question": "How does regular security training for staff help reduce Security Misconfiguration?",
+      "answer": "Educated staff are more aware of security risks and less likely to introduce or overlook misconfigurations."
+    },
+    {
+      "id": "A05-Q212",
+      "type": "proactive_suggestion",
+      "intent": "leverage_threat_intelligence",
+      "question": "How can threat intelligence improve configuration management?",
+      "answer": "It provides insights into emerging threats and misconfiguration exploits, guiding proactive defenses."
+    },
+    {
+      "id": "A05-Q213",
+      "type": "proactive_suggestion",
+      "intent": "periodic_configuration_reviews",
+      "question": "Why are periodic configuration reviews necessary?",
+      "answer": "They help identify drift, outdated settings, and emerging risks to keep configurations secure."
+    },
+    {
+      "id": "A05-Q214",
+      "type": "proactive_suggestion",
+      "intent": "integrate_with_security_information_and_event_management",
+      "question": "How does SIEM integration help in managing configuration security?",
+      "answer": "SIEM aggregates logs and alerts on suspicious changes, enabling quicker detection and response."
+    },
+    {
+      "id": "A05-Q215",
+      "type": "proactive_suggestion",
+      "intent": "prioritize_configuration_hardening",
+      "question": "Why should configuration hardening be prioritized during system setup?",
+      "answer": "Early hardening reduces vulnerabilities from insecure defaults and prevents future misconfigurations."
+    }
+  ],
+  "reference": [
+    {
+      "id": "A05-Q138",
+      "type": "references",
+      "intent": "owasp_testing_guide_configuration_management",
+      "question": "Where can I find guidance on configuration management in OWASP resources?",
+      "answer": "The OWASP Testing Guide includes detailed sections on configuration management best practices and testing methods."
+    },
+    {
+      "id": "A05-Q139",
+      "type": "references",
+      "intent": "owasp_testing_guide_error_codes",
+      "question": "Does OWASP provide guidance on testing for error codes?",
+      "answer": "Yes, OWASP Testing Guide covers testing for error codes to identify information leakage risks."
+    },
+    {
+      "id": "A05-Q140",
+      "type": "references",
+      "intent": "appsec_verification_standard_configuration",
+      "question": "Where can I find configuration-related requirements in application security standards?",
+      "answer": "The Application Security Verification Standard (ASVS) Version 14 includes configuration control requirements."
+    },
+    {
+      "id": "A05-Q141",
+      "type": "references",
+      "intent": "nist_guide_server_hardening",
+      "question": "Is there a NIST guide for general server hardening?",
+      "answer": "Yes, NIST provides comprehensive guidelines for general server hardening to reduce security misconfigurations."
+    },
+    {
+      "id": "A05-Q142",
+      "type": "references",
+      "intent": "cis_security_configuration_guides",
+      "question": "What are CIS security configuration guides?",
+      "answer": "The Center for Internet Security (CIS) publishes benchmarks and configuration guides to help secure systems."
+    },
+    {
+      "id": "A05-Q143",
+      "type": "references",
+      "intent": "amazon_s3_bucket_discovery",
+      "question": "Where can I learn about Amazon S3 bucket discovery and enumeration risks?",
+      "answer": "Several security research blogs and tools cover discovery and enumeration techniques related to Amazon S3 buckets."
+    },
+    {
+      "id": "A05-Q144",
+      "type": "references",
+      "intent": "cwe_16",
+      "question": "What is CWE-16 about in relation to security misconfiguration?",
+      "answer": "CWE-16 covers configuration issues that can lead to security vulnerabilities if not properly managed."
+    },
+    {
+      "id": "A05-Q145",
+      "type": "references",
+      "intent": "cwe_611",
+      "question": "What does CWE-611 represent?",
+      "answer": "CWE-611 refers to Improper Restriction of XML External Entity Reference, a common security misconfiguration."
+    },
+    {
+      "id": "A05-Q146",
+      "type": "references",
+      "intent": "owasp_secure_configuration_practices",
+      "question": "Does OWASP provide best practices for secure configuration?",
+      "answer": "Yes, OWASP offers guidelines and best practices to ensure secure configuration throughout the software lifecycle."
+    },
+    {
+      "id": "A05-Q147",
+      "type": "references",
+      "intent": "cloud_security_alliance_guides",
+      "question": "Are there cloud-specific security configuration guides?",
+      "answer": "The Cloud Security Alliance provides best practices and controls specifically for cloud environments."
+    },
+    {
+      "id": "A05-Q148",
+      "type": "references",
+      "intent": "nist_cybersecurity_framework",
+      "question": "How does the NIST Cybersecurity Framework address configuration management?",
+      "answer": "NIST CSF includes configuration management as a core function to maintain secure and resilient systems."
+    },
+    {
+      "id": "A05-Q149",
+      "type": "references",
+      "intent": "devsecops_secure_configuration",
+      "question": "How is secure configuration integrated into DevSecOps?",
+      "answer": "DevSecOps promotes automated, consistent configuration enforcement using tools like Infrastructure as Code and continuous monitoring."
+    },
+    {
+      "id": "A05-Q150",
+      "type": "references",
+      "intent": "pci_dss_configuration_requirements",
+      "question": "Does PCI DSS address security configuration requirements?",
+      "answer": "Yes, PCI DSS includes requirements for secure configuration of systems handling payment card data."
+    },
+    {
+      "id": "A05-Q151",
+      "type": "references",
+      "intent": "iso_27001_configuration_management",
+      "question": "How does ISO 27001 relate to configuration management?",
+      "answer": "ISO 27001 mandates information security controls including secure configuration management practices."
+    },
+    {
+      "id": "A05-Q152",
+      "type": "references",
+      "intent": "mitre_attck_configuration_misuse",
+      "question": "Does MITRE ATT&CK framework include techniques related to configuration misuse?",
+      "answer": "Yes, MITRE ATT&CK documents attacker techniques that exploit security misconfigurations."
+    },
+    {
+      "id": "A05-Q153",
+      "type": "references",
+      "intent": "owasp_top_10_a05",
+      "question": "What is OWASP Top 10 A05 about?",
+      "answer": "A05 in OWASP Top 10 2021 is Security Misconfiguration, highlighting common misconfiguration risks."
+    },
+    {
+      "id": "A05-Q154",
+      "type": "references",
+      "intent": "sans_secure_configuration_guides",
+      "question": "Does SANS provide secure configuration guides?",
+      "answer": "Yes, SANS publishes best practice guides on securing systems through proper configuration."
+    },
+    {
+      "id": "A05-Q155",
+      "type": "references",
+      "intent": "cloud_provider_security_benchmarks",
+      "question": "Do cloud providers offer security configuration benchmarks?",
+      "answer": "Major cloud providers like AWS, Azure, and Google Cloud publish security benchmarks and best practices."
+    },
+    {
+      "id": "A05-Q156",
+      "type": "references",
+      "intent": "kubernetes_security_configuration",
+      "question": "Where can I find best practices for Kubernetes security configuration?",
+      "answer": "Kubernetes official docs and security tools provide guidelines for secure configuration and hardening."
+    },
+    {
+      "id": "A05-Q157",
+      "type": "references",
+      "intent": "docker_security_best_practices",
+      "question": "Are there recommended security best practices for Docker configuration?",
+      "answer": "Docker documentation and community resources outline secure defaults and configuration practices for container security."
+    }
+  ],
+  "statistics": [
+    {
+      "id": "A05-Q158",
+      "type": "statistics",
+      "intent": "incidence_rate",
+      "question": "What is the maximum incidence rate of Security Misconfiguration according to OWASP 2021?",
+      "answer": "The maximum incidence rate of Security Misconfiguration is 19.84%."
+    },
+    {
+      "id": "A05-Q159",
+      "type": "statistics",
+      "intent": "average_incidence_rate",
+      "question": "What is the average incidence rate for Security Misconfiguration?",
+      "answer": "The average incidence rate for Security Misconfiguration is 4.51%."
+    },
+    {
+      "id": "A05-Q160",
+      "type": "statistics",
+      "intent": "average_weighted_exploit",
+      "question": "What is the average weighted exploitability score of Security Misconfiguration vulnerabilities?",
+      "answer": "The average weighted exploitability score is 8.12."
+    },
+    {
+      "id": "A05-Q161",
+      "type": "statistics",
+      "intent": "average_weighted_impact",
+      "question": "What is the average weighted impact score for Security Misconfiguration?",
+      "answer": "The average weighted impact score is 6.56."
+    },
+    {
+      "id": "A05-Q162",
+      "type": "statistics",
+      "intent": "max_coverage",
+      "question": "What is the maximum coverage percentage for Security Misconfiguration vulnerabilities?",
+      "answer": "The maximum coverage is 89.58%."
+    },
+    {
+      "id": "A05-Q163",
+      "type": "statistics",
+      "intent": "average_coverage",
+      "question": "What is the average coverage percentage for Security Misconfiguration?",
+      "answer": "The average coverage is 44.84%."
+    },
+    {
+      "id": "A05-Q164",
+      "type": "statistics",
+      "intent": "total_occurrences",
+      "question": "How many total occurrences of Security Misconfiguration vulnerabilities have been recorded?",
+      "answer": "There have been 208,387 total occurrences recorded."
+    },
+    {
+      "id": "A05-Q165",
+      "type": "statistics",
+      "intent": "total_cves",
+      "question": "How many CVEs are associated with Security Misconfiguration?",
+      "answer": "There are 789 CVEs associated with Security Misconfiguration."
+    },
+    {
+      "id": "A05-Q166",
+      "type": "statistics",
+      "intent": "rank_change",
+      "question": "What position did Security Misconfiguration hold in the OWASP Top 10 in 2021 compared to previous years?",
+      "answer": "Security Misconfiguration rose from #6 to #5 in the OWASP Top 10 in 2021."
+    },
+    {
+      "id": "A05-Q167",
+      "type": "statistics",
+      "intent": "commonality_in_apps",
+      "question": "Approximately what percentage of applications assessed had some form of Security Misconfiguration?",
+      "answer": "Approximately 90% of applications assessed had some form of Security Misconfiguration."
+    },
+    {
+      "id": "A05-Q168",
+      "type": "statistics",
+      "intent": "impact_comparison",
+      "question": "How does the average weighted impact of Security Misconfiguration compare to other OWASP Top 10 categories?",
+      "answer": "Security Misconfiguration has a moderately high average weighted impact score of 6.56, indicating significant potential damage."
+    },
+    {
+      "id": "A05-Q169",
+      "type": "statistics",
+      "intent": "exploitability_comparison",
+      "question": "Is the average weighted exploitability of Security Misconfiguration higher or lower compared to other OWASP Top 10 risks?",
+      "answer": "At 8.12, the average weighted exploitability of Security Misconfiguration is relatively high, meaning it is often easier to exploit."
+    },
+    {
+      "id": "A05-Q170",
+      "type": "statistics",
+      "intent": "occurrences_per_cve_ratio",
+      "question": "What is the approximate average number of occurrences per CVE for Security Misconfiguration?",
+      "answer": "On average, there are approximately 264 occurrences per CVE (208,387 occurrences divided by 789 CVEs)."
+    },
+    {
+      "id": "A05-Q171",
+      "type": "statistics",
+      "intent": "coverage_significance",
+      "question": "Why is coverage an important statistic in understanding Security Misconfiguration?",
+      "answer": "Coverage indicates how broadly a vulnerability type is detected across different systems and contexts, with higher coverage suggesting widespread risk."
+    },
+    {
+      "id": "A05-Q172",
+      "type": "statistics",
+      "intent": "incidence_trends",
+      "question": "Has the incidence rate of Security Misconfiguration increased or decreased recently according to OWASP 2021?",
+      "answer": "The incidence rate has increased, as reflected by its rise from #6 to #5 in the OWASP Top 10 rankings."
+    },
+    {
+      "id": "A05-Q173",
+      "type": "statistics",
+      "intent": "impact_exploitability_correlation",
+      "question": "What does the combination of high exploitability and moderate impact scores imply for Security Misconfiguration?",
+      "answer": "It implies that these vulnerabilities are relatively easy to exploit and can cause significant damage if exploited."
+    },
+    {
+      "id": "A05-Q174",
+      "type": "statistics",
+      "intent": "comparison_to_other_cwe_categories",
+      "question": "How does the number of CWEs mapped to Security Misconfiguration compare to other categories?",
+      "answer": "Security Misconfiguration has 20 mapped CWEs, which is moderate compared to other OWASP Top 10 categories."
+    },
+    {
+      "id": "A05-Q175",
+      "type": "statistics",
+      "intent": "distribution_of_misconfigurations",
+      "question": "Are security misconfigurations evenly distributed across systems or more prevalent in certain environments?",
+      "answer": "Misconfigurations tend to be more prevalent in highly configurable systems and cloud environments due to complexity."
+    },
+    {
+      "id": "A05-Q176",
+      "type": "statistics",
+      "intent": "importance_of_automation",
+      "question": "How can automation affect the incidence rate of Security Misconfiguration?",
+      "answer": "Automation in configuration management can significantly reduce incidence rates by enforcing consistent and secure setups."
+    }
+  ],
+  "technical": [
+    {
+      "id": "A05-Q032",
+      "type": "technical_explanation",
+      "intent": "explain_security_misconfiguration_technical",
+      "question": "What is the technical definition of Security Misconfiguration?",
+      "answer": "Security Misconfiguration occurs when security settings are defined, deployed, or maintained incorrectly across system components such as servers, databases, frameworks, or cloud services, resulting in vulnerabilities exploitable by attackers."
+    },
+    {
+      "id": "A05-Q033",
+      "type": "technical_explanation",
+      "intent": "how_default_credentials_lead_to_exploitation",
+      "question": "How do default credentials lead to system compromise technically?",
+      "answer": "Default credentials are preset username-password pairs or keys that come with software or devices. If not changed, attackers can use automated tools to scan for these defaults and gain unauthorized access without needing to exploit code vulnerabilities."
+    },
+    {
+      "id": "A05-Q034",
+      "type": "technical_explanation",
+      "intent": "describe_excessive_permissions_mechanism",
+      "question": "What is the mechanism by which excessive permissions cause vulnerabilities?",
+      "answer": "When permissions exceed the principle of least privilege, users or services gain access to resources or operations beyond their need, which attackers can abuse to escalate privileges or move laterally inside systems."
+    },
+    {
+      "id": "A05-Q035",
+      "type": "technical_explanation",
+      "intent": "role_of_configuration_files",
+      "question": "How do misconfigured configuration files contribute to security risks?",
+      "answer": "Configuration files often store settings like authentication methods, access controls, or cryptographic parameters. If misconfigured, such as weak encryption or improper access controls, they expose systems to unauthorized access or data leaks."
+    },
+    {
+      "id": "A05-Q036",
+      "type": "technical_explanation",
+      "intent": "impact_of_exposed_error_messages",
+      "question": "Why do exposed error messages pose a security risk at a technical level?",
+      "answer": "Exposed error messages can leak internal details such as file paths, database queries, or code structure, which attackers use to craft targeted exploits or discover weak points."
+    },
+    {
+      "id": "A05-Q037",
+      "type": "technical_explanation",
+      "intent": "explain_security_headers_technical",
+      "question": "How do security headers like Content-Security-Policy protect applications technically?",
+      "answer": "Content-Security-Policy (CSP) instructs browsers to restrict resource loading and script execution to trusted domains, preventing injection attacks such as cross-site scripting (XSS)."
+    },
+    {
+      "id": "A05-Q038",
+      "type": "technical_explanation",
+      "intent": "describe_cloud_storage_misconfiguration",
+      "question": "What technical misconfigurations typically occur in cloud storage services?",
+      "answer": "Common issues include overly permissive bucket policies allowing public read/write access, lack of encryption at rest or in transit, and failure to restrict access to authorized IAM roles."
+    },
+    {
+      "id": "A05-Q039",
+      "type": "technical_explanation",
+      "intent": "how_unpatched_components_lead_to_exploitation",
+      "question": "Technically, how do unpatched components cause vulnerabilities?",
+      "answer": "Unpatched components contain known flaws documented in vulnerability databases. Attackers exploit these known issues via crafted inputs or network packets, bypassing security controls."
+    },
+    {
+      "id": "A05-Q040",
+      "type": "technical_explanation",
+      "intent": "describe_automation_in_security_config",
+      "question": "How does automation improve security configuration technically?",
+      "answer": "Automation uses scripts or configuration management tools like Ansible or Terraform to apply standardized, tested, and repeatable security settings, eliminating human errors and configuration drift."
+    },
+    {
+      "id": "A05-Q041",
+      "type": "technical_explanation",
+      "intent": "explain_role_of_segmentation",
+      "question": "How does network segmentation technically limit damage from misconfiguration?",
+      "answer": "Segmentation divides a network into isolated zones with controlled communication, so a compromise in one segment doesn't allow unrestricted access to others, limiting attacker movement."
+    },
+    {
+      "id": "A05-Q042",
+      "type": "technical_explanation",
+      "intent": "describe_configuration_drift_impact",
+      "question": "What is configuration drift and what are its technical impacts?",
+      "answer": "Configuration drift happens when system settings diverge from the baseline due to manual changes or updates, causing inconsistent security postures and possible introduction of vulnerabilities."
+    },
+    {
+      "id": "A05-Q043",
+      "type": "technical_explanation",
+      "intent": "role_of_infrastructure_as_code_in_security",
+      "question": "How does Infrastructure as Code (IaC) help prevent Security Misconfiguration?",
+      "answer": "IaC enables defining infrastructure and configurations through code, which can be version-controlled, tested, and automatically deployed, ensuring consistent and secure setups."
+    },
+    {
+      "id": "A05-Q044",
+      "type": "technical_explanation",
+      "intent": "describe_open_ports_and_services_risk",
+      "question": "Why do unnecessary open ports and services pose security risks technically?",
+      "answer": "Open ports expose network services that may have vulnerabilities. Unnecessary services increase the attack surface and provide more opportunities for exploitation."
+    },
+    {
+      "id": "A05-Q045",
+      "type": "technical_explanation",
+      "intent": "how_stack_traces_expose_system_info",
+      "question": "Technically, how do stack traces aid attackers?",
+      "answer": "Stack traces reveal function call sequences, code file names, and line numbers that attackers can analyze to find exploitable bugs or gain insight into system internals."
+    }
+  ],
+  "vulnerability_identification": [
+    {
+      "id": "A05-Q046",
+      "type": "vulnerability_identification",
+      "intent": "identify_default_credentials_vuln",
+      "question": "How can you identify the presence of default credentials in a system?",
+      "answer": "Check for accounts or services using factory-set usernames and passwords by scanning known defaults or reviewing configuration files and access control lists."
+    },
+    {
+      "id": "A05-Q047",
+      "type": "vulnerability_identification",
+      "intent": "detect_excessive_permissions",
+      "question": "What techniques can detect excessive permissions in cloud environments?",
+      "answer": "Audit IAM policies and permissions using automated tools like AWS IAM Access Analyzer or Azure AD Privileged Identity Management to find overly broad access rights."
+    },
+    {
+      "id": "A05-Q048",
+      "type": "vulnerability_identification",
+      "intent": "find_exposed_error_messages",
+      "question": "How do you identify if detailed error messages are exposed to users?",
+      "answer": "Perform functional testing by triggering errors in the application and observing if stack traces or debug information is displayed in responses."
+    },
+    {
+      "id": "A05-Q049",
+      "type": "vulnerability_identification",
+      "intent": "discover_open_ports_and_services",
+      "question": "What methods help identify unnecessary open ports and services?",
+      "answer": "Use network scanning tools like Nmap to enumerate open ports and running services, then verify if all are necessary for application functionality."
+    },
+    {
+      "id": "A05-Q050",
+      "type": "vulnerability_identification",
+      "intent": "detect_missing_security_headers",
+      "question": "How can you check for missing security headers in web applications?",
+      "answer": "Use tools such as OWASP ZAP, Burp Suite, or browser developer tools to inspect HTTP response headers for presence of Content-Security-Policy, X-Frame-Options, and others."
+    },
+    {
+      "id": "A05-Q051",
+      "type": "vulnerability_identification",
+      "intent": "spot_unpatched_software",
+      "question": "How do you identify unpatched or outdated software components?",
+      "answer": "Conduct software composition analysis (SCA) with tools like Dependabot or Snyk to scan dependencies and versions against known vulnerability databases."
+    },
+    {
+      "id": "A05-Q052",
+      "type": "vulnerability_identification",
+      "intent": "identify_public_cloud_buckets",
+      "question": "What techniques are used to identify publicly accessible cloud storage buckets?",
+      "answer": "Use cloud-specific scanners and enumeration tools (e.g., AWS Bucket Finder) or manual URL testing to check for open read/write permissions."
+    },
+    {
+      "id": "A05-Q053",
+      "type": "vulnerability_identification",
+      "intent": "find_configuration_drift",
+      "question": "How can configuration drift be detected in environments?",
+      "answer": "Compare current system configurations with baseline configurations using configuration management tools or scripts to highlight unauthorized changes."
+    },
+    {
+      "id": "A05-Q054",
+      "type": "vulnerability_identification",
+      "intent": "identify_insecure_default_services",
+      "question": "How do you detect insecure default services running on a server?",
+      "answer": "Scan servers for services with known insecure defaults (like Telnet, FTP) and verify if they are enabled unnecessarily."
+    },
+    {
+      "id": "A05-Q055",
+      "type": "vulnerability_identification",
+      "intent": "detect_weak_cloud_iam_policies",
+      "question": "What are signs of weak IAM policies in cloud platforms?",
+      "answer": "Policies that grant wildcard permissions (e.g., '*' in actions or resources) or broad roles without restriction indicate weak policies."
+    },
+    {
+      "id": "A05-Q056",
+      "type": "vulnerability_identification",
+      "intent": "detect_exposed_debugging_features",
+      "question": "How can exposed debugging features be identified in production environments?",
+      "answer": "Test for accessible debug endpoints, exposed logs, or tools such as admin consoles left enabled in production."
+    },
+    {
+      "id": "A05-Q057",
+      "type": "vulnerability_identification",
+      "intent": "find_missing_encryption_configurations",
+      "question": "How do you identify missing encryption in storage or communications?",
+      "answer": "Inspect system configurations to verify if data at rest and data in transit are encrypted with strong algorithms and if encryption keys are properly managed."
+    },
+    {
+      "id": "A05-Q058",
+      "type": "vulnerability_identification",
+      "intent": "spot_directory_listing_enabled",
+      "question": "How can you detect if directory listing is enabled on a web server?",
+      "answer": "Attempt to access a directory URL without a default index file and observe if the server returns a list of files and folders."
+    },
+    {
+      "id": "A05-Q059",
+      "type": "vulnerability_identification",
+      "intent": "detect_improper_access_control_config",
+      "question": "How do you identify improperly configured access controls?",
+      "answer": "Test access restrictions by attempting to access restricted resources or administrative functions without proper authorization."
+    },
+    {
+      "id": "A05-Q060",
+      "type": "vulnerability_identification",
+      "intent": "find_insecure_api_endpoints",
+      "question": "What methods help identify insecure API endpoints due to misconfiguration?",
+      "answer": "Review API documentation and perform penetration testing to check for endpoints with weak authentication, excessive permissions, or verbose error messages."
+    },
+    {
+      "id": "A05-Q061",
+      "type": "vulnerability_identification",
+      "intent": "identify_unnecessary_services",
+      "question": "How can unnecessary services running on hosts be discovered?",
+      "answer": "Conduct port and service discovery scans, then correlate with business requirements to identify and flag services that are not needed."
+    },
+    {
+      "id": "A05-Q062",
+      "type": "vulnerability_identification",
+      "intent": "detect_sensitive_data_exposure_via_config",
+      "question": "How do you find sensitive data exposed due to misconfiguration?",
+      "answer": "Check for hardcoded credentials in config files, publicly accessible backup files, or debug information leaking secrets."
+    },
+    {
+      "id": "A05-Q063",
+      "type": "vulnerability_identification",
+      "intent": "detect_csp_misconfigurations",
+      "question": "How can CSP misconfigurations be identified?",
+      "answer": "Analyze Content-Security-Policy headers for overly permissive directives such as 'unsafe-inline' or 'unsafe-eval' which weaken protection."
+    },
+    {
+      "id": "A05-Q064",
+      "type": "vulnerability_identification",
+      "intent": "find_misconfigured_ssl_tls",
+      "question": "How do you identify misconfigured SSL/TLS settings?",
+      "answer": "Use SSL scanning tools like Qualys SSL Labs to detect weak protocols, cipher suites, missing certificates, or improper certificate chains."
+    },
+    {
+      "id": "A05-Q065",
+      "type": "vulnerability_identification",
+      "intent": "detect_incorrect_cors_settings",
+      "question": "What indicates insecure Cross-Origin Resource Sharing (CORS) settings?",
+      "answer": "Allowing wildcard origins '*' or misconfigured headers that permit any domain to access sensitive resources indicate insecure CORS."
+    },
+    {
+      "id": "A05-Q066",
+      "type": "vulnerability_identification",
+      "intent": "spot_default_web_admin_interfaces",
+      "question": "How can default web administration interfaces be identified?",
+      "answer": "Scan common default admin URLs (e.g., /admin, /manage) and check if default credentials or weak authentication protect them."
+    },
+    {
+      "id": "A05-Q067",
+      "type": "vulnerability_identification",
+      "intent": "identify_unsecured_remote_access",
+      "question": "How do you find unsecured remote access configurations?",
+      "answer": "Look for remote management interfaces accessible over the internet without VPN, strong authentication, or encryption."
+    },
+    {
+      "id": "A05-Q068",
+      "type": "vulnerability_identification",
+      "intent": "detect_missing_patch_management",
+      "question": "How can missing patch management be detected in systems?",
+      "answer": "Review patch deployment records and scan systems for outdated software versions with known CVEs."
+    },
+    {
+      "id": "A05-Q069",
+      "type": "vulnerability_identification",
+      "intent": "detect_weak_password_policies",
+      "question": "What methods can detect weak password policies?",
+      "answer": "Evaluate password complexity settings, expiration policies, and enforcement mechanisms via configuration review or password audits."
+    },
+    {
+      "id": "A05-Q070",
+      "type": "vulnerability_identification",
+      "intent": "find_insecure_backup_configurations",
+      "question": "How do you identify insecure backup configurations?",
+      "answer": "Check if backups are stored unencrypted, publicly accessible, or include sensitive data without access restrictions."
+    },
+    {
+      "id": "A05-Q071",
+      "type": "vulnerability_identification",
+      "intent": "detect_lack_of_logging_and_monitoring",
+      "question": "How can missing logging or monitoring be identified as a vulnerability?",
+      "answer": "Review system configurations to verify logging is enabled for critical actions and logs are monitored and retained securely."
+    },
+    {
+      "id": "A05-Q072",
+      "type": "vulnerability_identification",
+      "intent": "find_unnecessary_default_accounts",
+      "question": "How can unnecessary default accounts be found?",
+      "answer": "Inventory all accounts and check for unused or undocumented default user accounts that could be exploited."
+    },
+    {
+      "id": "A05-Q073",
+      "type": "vulnerability_identification",
+      "intent": "detect_missing_security_updates",
+      "question": "How do you identify missing security updates in software?",
+      "answer": "Use vulnerability scanners to detect outdated versions and check patch management systems for compliance gaps."
+    },
+    {
+      "id": "A05-Q074",
+      "type": "vulnerability_identification",
+      "intent": "identify_insecure_third_party_integrations",
+      "question": "How can insecure third-party integrations be detected?",
+      "answer": "Review permissions and data access granted to third-party services, and test for weak authentication or excessive privileges."
+    },
+    {
+      "id": "A05-Q075",
+      "type": "vulnerability_identification",
+      "intent": "detect_excessive_service_accounts",
+      "question": "How do you find excessive or unused service accounts?",
+      "answer": "Audit service accounts and permissions to identify those not in use or granted more privileges than necessary."
+    }
+  ]
+}

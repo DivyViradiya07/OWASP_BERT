@@ -1,0 +1,26 @@
+# Core Python
+json
+os
+time
+pathlib
+random
+
+# Data Processing
+numpy>=1.21.0
+pandas>=1.3.0
+scikit-learn>=0.24.2
+
+# ML/DL
+torch>=1.9.0
+sentence-transformers>=2.2.2
+keybert>=0.7.0
+transformers>=4.30.0
+
+# Vector Database
+pinecone-client>=2.2.1
+
+# Progress
+tqdm>=4.62.0
+
+# Datasets
+datasets>=2.0.0

@@ -1,0 +1,585 @@
+[
+    {
+        "id": "C1",
+        "name": "Implement Access Control",
+        "description": "Access Control (or Authorization) is allowing or denying specific requests from a user, program, or process. With each access control decision, a given subject requests access to a given object...",
+        "threats": [
+          "Attacker exploiting loosely configured access control policy",
+          "Attacker exploiting weakest access control components",
+          "Old accounts not decommissioned used by attacker",
+          "Policy that defaults to allow access"
+        ],
+        "implementation": [
+          {
+            "step": 1,
+            "title": "Design Access Control Thoroughly Up Front",
+            "details": "Choose RBAC or ABAC, design for multi-tenancy and horizontal access control early."
+          },
+          {
+            "step": 2,
+            "title": "Force Every Access Request to Go Through an Access Control Check",
+            "details": "Ensure all access requests pass through a centralized verification layer (Policy Enforcement Point)."
+          },
+          {
+            "step": 3,
+            "title": "Consolidate the Access Control Check",
+            "details": "Use a single routine for access control checks to avoid inconsistencies."
+          },
+          {
+            "step": 4,
+            "title": "Deny by Default",
+            "details": "All requests denied unless explicitly allowed."
+          },
+          {
+            "step": 5,
+            "title": "Principle of Least Privilege / JIT / JEA",
+            "details": "Grant just enough access, just in time, for short durations."
+          },
+          {
+            "step": 6,
+            "title": "Do Not Hard-code Roles",
+            "details": "Avoid hard-coded role checks; prefer attribute-based access control."
+          },
+          {
+            "step": 7,
+            "title": "ABAC Policy Enforcement Example",
+            "details": "Use permission-based checks like user.hasPermission(\"DELETE_ACCOUNT\")"
+          }
+        ],
+        "vulnerabilities_prevented": [
+          "OWASP Top 10 2021-A01_2021-Broken Access Control",
+          "CWE-862 Missing Authorization",
+          "CWE-863 Incorrect Authorization"
+        ],
+        "references": [
+          "OWASP Cheat Sheet: Authorization Cheat Sheet",
+          "OAuth2.0 protocol for authorization",
+          "RFC 2904 Policy Enforcement"
+        ],
+        "tools": [
+          "ZAP with Access Control Testing add-on",
+          "Open Policy Agent"
+        ]
+      },
+      {
+        "id": "C2",
+        "name": "Use Cryptography to Protect Data",
+        "description": "Sensitive data such as passwords, credit cards, health records require extra protection, including compliance with regulations like GDPR and PCI DSS...",
+        "threats": [
+          "Weak or outdated encryption algorithms exploited",
+          "Improper key storage and management",
+          "SQL Injection to steal encrypted data",
+          "Failure in key lifecycle management"
+        ],
+        "implementation": [
+          {
+            "rule": "Never transmit plaintext data",
+            "details": "Encrypt all data in transit and at rest using standard protocols."
+          },
+          {
+            "rule": "Do not create your own cryptographic protocols",
+            "details": "Use battle-tested cryptographic libraries and standards."
+          },
+          {
+            "rule": "Protect data at rest",
+            "details": "Avoid storing sensitive data if possible; if stored, encrypt with strong algorithms."
+          },
+          {
+            "rule": "Store passwords safely",
+            "details": "Use salted hashes and strong password hashing algorithms."
+          },
+          {
+            "rule": "Manage application secrets securely",
+            "details": "Use vaults and avoid hardcoding secrets in code or configs."
+          },
+          {
+            "rule": "Protect data in transit",
+            "details": "Use TLS 1.2 or 1.3; disable older insecure protocols."
+          },
+          {
+            "rule": "Support cryptographic agility",
+            "details": "Design for key rotation and algorithm updates."
+          }
+        ],
+        "vulnerabilities_prevented": [
+          "OWASP Top 10 A02_2021-Cryptographic Failures",
+          "MASVS-CRYPTO-1"
+        ],
+        "references": [
+          "OWASP Cheat Sheet: Transport Layer Protection",
+          "Ivan Ristic: SSL/TLS Deployment Best Practices",
+          "OWASP Cheat Sheet: Password Storage"
+        ],
+        "tools": [
+          "sslyze",
+          "testssl.sh",
+          "GitRob",
+          "TruffleHog",
+          "Hashicorp Vault",
+          "AWS Secrets Manager"
+        ]
+    },
+    {
+        "id": "C3",
+        "name": "Validate all Input & Handle Exceptions",
+        "description": "Input validation is a programming technique that ensures only properly formatted data may enter a software system component. Injection attacks occur when input is confused as executable commands. Validation includes syntactic and semantic checks.",
+        "threats": [
+          "SQL injection by submitting malicious input to manipulate queries",
+          "Cross-site scripting (XSS) via injected scripts executed in browsers",
+          "Remote code execution via injected commands in system calls or APIs",
+          "Buffer overflow from input exceeding expected lengths",
+          "Denial of service from malformed or excessive input",
+          "Path traversal exposing unauthorized files",
+          "Malicious XML payloads exploiting XML parsers",
+          "Server-side template injection leading to remote code execution",
+          "HTTP parameter pollution bypassing security controls"
+        ],
+        "implementation": [
+          {
+            "title": "Defense-in-Depth: Input Filtering, Output Escaping, Hardening",
+            "details": "Use multiple layers of protection including allowlist input validation, output escaping, and client-side hardening (like CSP). Security must not depend solely on optional hardening."
+          },
+          {
+            "title": "Never Trust User Input",
+            "details": "Screen all inputs against malicious patterns; prefer allowlisting over denylisting."
+          },
+          {
+            "title": "Allowlisting vs Denylisting",
+            "details": "Allowlisting validates only known good input patterns; denylisting tries to block known bad inputs but is error-prone and can be bypassed."
+          },
+          {
+            "title": "Server-side Validation Mandatory",
+            "details": "Client-side validation helps usability but cannot be trusted for security; always validate on server side."
+          },
+          {
+            "title": "Regular Expressions for Syntactic Validation",
+            "details": "Use regex to check format, e.g., usernames matching ^[a-z0-9_]{3,16}$, but watch for ReDoS risks."
+          },
+          {
+            "title": "Prevent Mass Assignment",
+            "details": "Avoid auto-binding inputs to objects without allowlists or use DTOs to avoid unauthorized field modification."
+          },
+          {
+            "title": "Separation of Data and Commands",
+            "details": "Use prepared statements for SQL, secure ORM use, sandbox template engines, avoid executing system commands with untrusted input."
+          },
+          {
+            "title": "JavaScript Injection (XSS) Mitigations",
+            "details": "Server-side input filtering, output escaping, HttpOnly cookies, CSP policies, and secure frameworks reduce XSS risk."
+          },
+          {
+            "title": "Validate and Sanitize HTML Inputs",
+            "details": "Use specialized HTML sanitization libraries to safely allow HTML input, since regex/escaping is insufficient."
+          },
+          {
+            "title": "Validate Data During Deserialization",
+            "details": "Avoid or carefully validate deserialization from untrusted sources; enforce type constraints, isolate deserialization, log exceptions."
+          }
+        ],
+        "vulnerabilities_prevented": [
+          "2023 CWE Top 25 - 3: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+          "2023 CWE Top 25 - 5: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
+          "2023 CWE Top 25 - 16: Improper Neutralization of Special Elements used in a Command ('Command Injection')",
+          "2023 CWE Top 25 - 23: Improper Control of Generation of Code ('Code Injection')"
+        ],
+        "references": [
+          "OWASP Cheat Sheet: Input Validation",
+          "OWASP Testing Guide: Testing for Input Validation",
+          "OWASP Cheat Sheet Series: DOM based XSS Prevention",
+          "Injection Prevention Cheat Sheet",
+          "Injection Prevention Cheat Sheet in Java",
+          "Hardening with CSP: CSP with Google"
+        ],
+        "tools": [
+          "OWASP Java HTML Sanitizer Project",
+          "Java JSR-303/JSR-349 Bean Validation",
+          "Java Hibernate Validator",
+          "Apache Commons Validator",
+          "PHP’s filter functions",
+          "Sqlmap.py",
+          "ZAP-based scans",
+          "CSP Evaluator"
+        ]
+      },
+      {
+        "id": "C4",
+        "name": "Address Security from the Start",
+        "description": "When designing a new application, creating a secure architecture prevents vulnerabilities before they even become part of the application. This prevents costly repairs and repudiation problems. Key principles include simplicity, secure defaults, avoiding security by obscurity, minimizing attack surface, and defense-in-depth.",
+        "threats": [
+          "Security-by-obscurity fails once reverse-engineered or network traffic is analyzed.",
+          "Misconfiguration of complex authorization schemes causing IDOR vulnerabilities.",
+          "New plugins or components added without secure defaults introducing vulnerabilities.",
+          "Excessive exposure of components (e.g., publicly accessible admin tools) increasing attack surface and risk of compromise."
+        ],
+        "implementation": [
+          {
+            "title": "Design for Clarity and Transparency",
+            "details": "Keep architecture as simple as user requirements allow. Avoid security-by-obscurity. Simplicity aids reasoning about security impacts and maintenance."
+          },
+          {
+            "title": "Make it Easy to Do the Right Thing",
+            "details": "Systems should be secure by design and secure by default. Secure configurations should be the path of least resistance, requiring explicit action to weaken security."
+          },
+          {
+            "title": "Clearly Articulate and Enforce Trust Boundaries",
+            "details": "Define what components are trusted and enforce boundaries using controls such as firewalls or gateways to limit blast radius."
+          },
+          {
+            "title": "Identify and Minimize Attack Surface",
+            "details": "Identify all externally accessible components and minimize them to reduce risk and simplify maintenance."
+          },
+          {
+            "title": "Use Well-Known Secure Architecture Patterns",
+            "details": "Select standard, vendor-neutral secure architecture patterns that solve security problems and mitigate known threats. Follow a process: identify problem, consider patterns, select and implement."
+          },
+          {
+            "title": "Use and Maintain Trusted Third-Party Components",
+            "details": "Use established, maintained libraries and frameworks to leverage security audits and secure defaults. Keep dependencies updated and avoid fighting framework conventions."
+          }
+        ],
+        "vulnerabilities_prevented": [
+          "Business Logic Flaws",
+          "OWASP Top 10 2021 - A04 Insecure Design"
+        ],
+        "references": [
+          "https://securitypatterns.io/what-is-a-security-pattern/",
+          "https://owasp.org/www-pdf-archive/Vanhilst_owasp_140319.pdf",
+          "OWASP Cheat Sheet Series: Attack Surface Analysis",
+          "OWASP Cheat Sheet Series: Microservices-based Security Arch Doc",
+          "OWASP Cheat Sheet: Secure Product Design",
+          "OWASP Cheat Sheet: Threat Modeling"
+        ],
+        "tools": [
+          "OWASP Threat Dragon",
+          "Amazon AWS Threat Composer",
+          "StrideGPT"
+        ]
+      },
+      {
+        "id": "C5",
+        "name": "Secure By Default Configurations",
+        "description": "“Secure-by-Default” means products are resilient against prevalent exploitation techniques out of the box without additional charge. Software should start in a secure state without requiring extensive user configuration, ensuring the default settings are always the most secure option. The benefit of having an application secure from the start is that it removes the burden away from developers on how to lock a system down, providing them with an already secure product. It reduces the effort required to deploy products in a secure manner and gives greater confidence that they will remain secure over time.",
+        "threats": [
+          "An attacker could gain unauthorized access by exploiting default, weak, or well-known credentials that haven't been changed from their out-of-the-box state.",
+          "An attacker could take advantage of overly permissive default settings to access sensitive resources or perform unauthorized actions.",
+          "An attacker could gather sensitive information by probing unnecessarily enabled features or services that are active by default.",
+          "An attacker could conduct cross-site scripting (XSS) attacks by exploiting lenient default security headers that don't provide adequate protection against such threats."
+        ],
+        "implementation": [
+          {
+            "title": "Infrastructure as Code and Configuration Management",
+            "details": "In modern cloud applications, developers also build infrastructure via Infrastructure-as-Code (IaC), applying security-critical configurations at the application, container, function, or infrastructure level."
+          },
+          {
+            "title": "Least Privilege Principle",
+            "details": "Implement configurations ensuring minimal access, e.g., cloud storage configured private and accessed minimally."
+          },
+          {
+            "title": "Access Denied by Default",
+            "details": "Access should be denied by default and only allowed through explicit allow lists."
+          },
+          {
+            "title": "Use Scanned Container Images",
+            "details": "Prefer container images scanned for vulnerabilities and pulled from private registries."
+          },
+          {
+            "title": "Declarative Infrastructure and Policy as Code",
+            "details": "Use Infrastructure-as-Code templates for automated provisioning, and Policy-as-Code to enforce privilege assignments, managed with source control and change management."
+          },
+          {
+            "title": "Traffic Encryption by Default",
+            "details": "Ensure encrypted communication channels by default; avoid unencrypted communication."
+          },
+          {
+            "title": "Continuous Configuration Verification",
+            "details": "Regularly verify that software configurations follow least privilege, disable unused accounts, software, and demo capabilities."
+          },
+          {
+            "title": "Disable Debugging in Production",
+            "details": "Ensure debugging features are disabled in deployed web and mobile applications."
+          }
+        ],
+        "vulnerabilities_prevented": [
+          "OWASP Top 10 2021 A05 – Security Misconfiguration"
+        ],
+        "references": [
+          "OWASP Cheat Sheet: Infrastructure as Code Security Cheat Sheet",
+          "OWASP ASVS: Application Security Verification Standard V14 Configuration",
+          "Cloud security guidance - NCSC.GOV.UK"
+        ],
+        "tools": [
+          "Tfsec - open source static analysis for your Terraform templates",
+          "Terrascan - scan for Infrastructure-as-Code vulnerabilities",
+          "Checkov - Scan for open-source and Infrastructure-as-Code vulnerabilities",
+          "Scout Suite - multi-cloud security auditing tool for AWS, Azure, GCP",
+          "prowler",
+          "Cloudmapper",
+          "Snyk - Scan for open-source, code, container, and Infrastructure-as-Code vulnerabilities",
+          "Trivy - Scan for open-source, code, container, and Infrastructure-as-Code vulnerabilities",
+          "KICS - Scan for Infrastructure-as-Code vulnerabilities",
+          "Kubescape - Scan for Kubernetes vulnerabilities",
+          "Kyverno - Securing Kubernetes using Policies"
+        ]
+      },
+      {
+        "id": "C6",
+        "name": "Keep your Components Secure",
+        "description": "It is a common practice in software development to leverage libraries and frameworks. Secure libraries and software frameworks with embedded security help software developers prevent security-related design and implementation flaws. When possible, the emphasis should be on using the existing secure features of frameworks rather than importing yet another third party libraries, which requires regular updates and maintenance. It is preferable to have developers take advantage of what they're already using instead of forcing yet another library on them. When incorporating third party libraries or frameworks into your software, it is important to identify trusted libraries and monitor and update packages to ensure your software is not vulnerable to security vulnerabilities introduced by these components.",
+        "threats": [
+          "An attacker could exploit known vulnerabilities in outdated third-party components to gain unauthorized access or execute malicious code.",
+          "An attacker could conduct supply chain attacks by compromising libraries or frameworks used in the development process, potentially inserting malicious code into the final product.",
+          "An attacker could extract sensitive information by exploiting insecure configurations in third-party components that haven't been properly hardened.",
+          "An attacker could launch denial of service attacks by targeting known vulnerabilities in external libraries, potentially disrupting the availability of services."
+        ],
+        "implementation": [
+          {
+            "title": "Best Practices to Identify Trusted Libraries",
+            "details": "Download security libraries from official sources over secure links; prefer signed packages to reduce risk of malicious components. Choose popular libraries with large communities, ensure active maintenance with timely issue resolution, use stable mature versions, avoid highly complex libraries with many dependencies, and utilize static application security testing (SAST) or Software Composition Analysis (SCA) for open source packages before inclusion."
+          },
+          {
+            "title": "Maintain an Inventory and Monitor",
+            "details": "Maintain an inventory catalog of all third-party components, preferably automatically creating Software Bill Of Materials (SBOM) during build pipelines, which includes dependencies and versions. Use SBOMs with supply chain monitoring tools to detect known vulnerabilities."
+          },
+          {
+            "title": "Continuous Security Checks",
+            "details": "Integrate SCA tools early and throughout the software development lifecycle to gain visibility into the number and severity of security vulnerabilities in dependencies."
+          },
+          {
+            "title": "Proactive Updates",
+            "details": "Regularly update libraries and components throughout the software lifecycle, from ideation to retirement, to address newly disclosed vulnerabilities."
+          }
+        ],
+        "vulnerabilities_prevented": [
+          "OWASP Top 10 2021 A06 – Using Vulnerable and Outdated Components"
+        ],
+        "references": [
+          "OWASP Cheat Sheet: Third Party JavaScript Management",
+          "OpenSSF Scorecard - Security health metrics for Open Source"
+        ],
+        "tools": [
+          "OWASP Dependency-Check – identify project dependencies and check for disclosed vulnerabilities",
+          "OWASP Dependency-Track – monitor SBOM files periodically for new vulnerabilities",
+          "Retire.JS scanner for JavaScript libraries",
+          "Renovate – automated dependency updates",
+          "Harbor – open source registry securing artifacts with policies and role-based access control"
+        ]
+      },
+      {
+        "id": "C7",
+        "name": "Secure Digital Identities",
+        "description": "Digital Identity is a unique representation of an individual, organization, or entity in online transactions. Authentication verifies the identity, and session management maintains authentication state across requests. This control covers secure implementation of authentication, multi-factor authentication, session management, and password handling based on NIST 800-63B guidelines.",
+        "threats": [
+          "Session hijacking by stealing or predicting session tokens.",
+          "Session fixation attacks by forcing use of known session IDs.",
+          "Cross-site request forgery (CSRF) attacks.",
+          "Weak password guessing and credential stuffing.",
+          "Insecure password recovery exploits."
+        ],
+        "implementation": [
+          {
+            "title": "Authentication Assurance Levels (AAL)",
+            "details": "Implement different assurance levels based on risk: AAL1 allows single-factor authentication suitable for low-risk applications; AAL2 requires multi-factor authentication using two or more factors; AAL3 mandates cryptographic hardware-based authentication for high-risk scenarios."
+          },
+          {
+            "title": "Multi-Factor Authentication (MFA)",
+            "details": "Require MFA to strengthen authentication security, combining factors like passwords (knowledge), authenticator apps or hardware tokens (possession), and biometrics (inherence). Avoid using biometrics as a single factor due to replication risks."
+          },
+          {
+            "title": "Session Management",
+            "details": "Use secure session management techniques such as server-side sessions with long, random session IDs, and secure cookies with flags (Secure, HttpOnly, SameSite). Consider JWT tokens with strong signing algorithms and key management for stateless sessions."
+          },
+          {
+            "title": "Password Requirements and Storage",
+            "details": "Enforce minimum password lengths (at least 8 chars with MFA, 10 without), encourage long passphrases without complexity requirements, block common leaked passwords using public lists, and store passwords securely using salted, slow hashing algorithms like bcrypt or Argon2."
+          },
+          {
+            "title": "Password Recovery",
+            "details": "Implement secure password recovery mechanisms involving multi-factor elements to prevent unauthorized account takeovers."
+          },
+          {
+            "title": "Session Expiration and Rotation",
+            "details": "Generate new session IDs on authentication and re-authentication, enforce idle and absolute session timeouts proportional to data sensitivity, and invalidate sessions on logout."
+          },
+          {
+            "title": "Secure Cookie Configuration",
+            "details": "Set cookies with Secure, HttpOnly, and SameSite flags to prevent theft and cross-site attacks. Limit cookie scope using domain and path attributes carefully."
+          }
+        ],
+        "vulnerabilities_prevented": [
+          "OWASP A07:2021 – Identification and Authentication Failures",
+          "OWASP Mobile Top 10 2016-M4 – Insecure Authentication"
+        ],
+        "references": [
+          "OWASP Cheat Sheet: Authentication",
+          "OWASP Cheat Sheet: Password Storage",
+          "OWASP Cheat Sheet: Forgot Password",
+          "OWASP Cheat Sheet: Choosing and Using Security Questions",
+          "OWASP Cheat Sheet: Session Management",
+          "NIST SP 800-63 Revision 3 - Digital Identity Guidelines",
+          "Daniel Miessler: Most commonly found passwords - https://github.com/danielmiessler/SecLists/tree/master/Passwords"
+        ],
+        "tools": [
+          "Password cracking tools (e.g., Hashcat) to test password strength",
+          "Multi-factor authentication services (e.g., Google Authenticator, Authy)",
+          "Session management libraries and frameworks with secure defaults",
+          "Static and dynamic application security testing (SAST/DAST) tools to check authentication flows"
+        ]
+      },
+      {
+        "id": "C8",
+        "name": "Leverage Browser Security Features",
+        "description": "Browsers are the gateway to the web for most users. As such, it's critical to employ robust security measures to protect the user from various threats. This section outlines the techniques and policies that can be implemented to bolster browser security. While this focuses on traditional web browsers, developers should verify client-side security features of other clients (mobile apps, API clients, smart-TVs) and configure respective HTTP headers accordingly. Browser security directives are opportunistic and depend on browser support, which varies over time and across versions. Explicitly setting security headers can unify browser behavior and reduce maintenance effort. A fully compromised browser may ignore these, but at that stage attackers have other severe exploits.",
+        "threats": [
+          "An attacker could execute cross-site scripting (XSS) attacks by exploiting inadequate Content Security Policy settings, potentially injecting malicious scripts into web pages.",
+          "An attacker could perform clickjacking attacks by taking advantage of missing X-Frame-Options headers, potentially tricking users into unintended interactions with disguised web elements.",
+          "An attacker could gather sensitive information through Referer HTTP headers when proper Referrer-Policy is not set, potentially exposing private data or user activities.",
+          "An attacker could exploit MIME type confusion vulnerabilities in the absence of X-Content-Type-Options headers, potentially executing malicious scripts disguised as benign file types.",
+          "An attacker could hijack user sessions by exploiting insecure cookie settings, potentially gaining unauthorized access to user accounts.",
+          "An attacker could perform DNS rebinding attacks in the absence of proper DNS pinning, potentially bypassing same-origin policy restrictions.",
+          "An attacker could exploit a cross-origin resource sharing (CORS) misconfiguration to gain unauthorized access to resources, potentially compromising data confidentiality and integrity."
+        ],
+        "implementation": [
+          {
+            "title": "Configure the Browser to prevent Information Disclosure",
+            "details": "Use HTTP Strict Transport Security (HSTS) to ensure browsers connect only via HTTPS, preventing SSL stripping attacks. Implement Content Security Policy (CSP) to upgrade HTTP connections to HTTPS and restrict data submission origins. Use Referrer-Policy header to control which URL information is shared between sites. Set cookie's Secure flag to prevent transmission over unencrypted HTTP."
+          },
+          {
+            "title": "Reduce the potential Impact of XSS",
+            "details": "Employ strict Content Security Policy (CSP) to disable inline JavaScript and styles, reducing XSS attack surface. Use host allowlists in CSP to block third-party JavaScript unless explicitly trusted. Utilize nonces or hashes in CSP 'script-src' directives for strong mitigation. Implement Trusted Types API to prevent DOM-based XSS. Set HttpOnly flag on cookies to prevent JavaScript access, especially for session cookies."
+          },
+          {
+            "title": "Prevent Clickjacking",
+            "details": "Use X-Frame-Options (XFO) header to prevent your content from being embedded into other sites. Alternatively, use CSP frame-* directives for fine-grained control over framing. Be cautious with duplicate headers, as some headers disable protection if duplicated."
+          },
+          {
+            "title": "Control the Browser’s Advanced Capabilities",
+            "details": "Use Permission Policy headers to restrict browser features such as camera, microphone, and USB device access, minimizing attack surface even if malicious code is injected."
+          },
+          {
+            "title": "Prevent CSRF Attacks",
+            "details": "Mark cookies with SameSite attribute to restrict cross-origin cookie transmission. Verify Fetch Metadata request headers server-side to enforce resource isolation policies, protecting against common cross-origin attacks like CSRF."
+          }
+        ],
+        "vulnerabilities_prevented": [
+          "Cross-Site Scripting (XSS)",
+          "Cross-Site Request Forgery (CSRF)",
+          "Clickjacking",
+          "Data Theft through insecure transmission",
+          "Session Hijacking",
+          "Abusing unintended browser hardware access (microphone, cameras, etc.)"
+        ],
+        "tools": [
+          "Web Check",
+          "Security Headers",
+          "Mozilla Observatory",
+          "CSP Evaluator"
+        ],
+        "references": [
+          "Content Security Policy (CSP)",
+          "Strict Content Security Policy",
+          "Trusted Types",
+          "OWASP Secure Headers Project",
+          "Security Headers Quick Reference",
+          "Fetch Metadata Request Headers",
+          "Fetch Metadata Resource Isolation Policy",
+          "Caniuse.com",
+          "OWASP Cheat Sheet Series: Clickjacking Defense",
+          "OWASP Cheat Sheet Series: Content Security Policy",
+          "OWASP Cheat Sheet Series: CSRF Prevention",
+          "OWASP Cheat Sheet Series: HTTP Security Response Headers Cheat Sheet"
+        ]
+      },
+      {
+        "id": "C9",
+        "name": "Implement Security Logging and Monitoring",
+        "description": "Logging is a concept that most developers already use for debugging and diagnostic purposes. Security logging is an equally basic concept: to log security information during the runtime operation of an application. Monitoring is the live review of application and security logs using various forms of automation. The same tools and patterns can be used for operations, debugging and security purposes. The goal of security logging is to detect and respond to potential security incidents.",
+        "benefits": [
+          "Feeding intrusion detection systems",
+          "Forensic analysis and investigations",
+          "Satisfying regulatory compliance requirements"
+        ],
+        "logging_for_intrusion_detection_and_response": [
+          "Submitted data that is outside of an expected numeric range.",
+          "Submitted data that involves changes to data that should not be modifiable (select list, checkbox or other limited entry component).",
+          "Requests that violate server-side access control rules."
+        ],
+        "response_recommendations": "When your application encounters potentially malicious activity, it should at minimum log the event with high severity. Ideally, it should respond in real-time by invalidating the user session and locking the user account to mitigate potential attacks.",
+        "secure_logging_design": [
+          "Allow expected characters only and/or encode input to prevent log injection attacks, preferably by input escaping rather than dropping data.",
+          "Do not log sensitive information such as passwords, session IDs, credit cards, or social security numbers.",
+          "Protect log integrity through appropriate file permissions and audit of log changes.",
+          "Forward logs from distributed systems to a central, secure logging service to prevent loss and enable centralized or automated monitoring."
+        ],
+        "threats": [
+          "Log injection attacks manipulating log entries to insert malicious data or commands.",
+          "Unauthorized access to sensitive information due to overly verbose logging.",
+          "Log tampering to erase or modify evidence of intrusion.",
+          "Denial of service by flooding logging systems with data.",
+          "Unauthorized access to log files from improper access controls.",
+          "Log forging to create false audit trails.",
+          "Insufficient logging allowing undetected malicious activities.",
+          "Log file race conditions corrupting logs or exposing sensitive data.",
+          "Replay attacks using data gleaned from logs."
+        ],
+        "implementation": [
+          "Follow a common logging format and approach within and across organizational systems (e.g., Apache Logging Services).",
+          "Balance logging volume to include timestamp, source IP, and user-id, while avoiding logging private or confidential data without extra safeguards.",
+          "Ensure time synchronization across nodes for consistent timestamps."
+        ],
+        "vulnerabilities_prevented": [
+          "Brute-Force Attacks against Login-Mechanisms"
+        ],
+        "references": [
+          "Logging Cheat Sheet",
+          "OWASP Logging Guide"
+        ],
+        "tools": []
+      },
+      {
+        "id": "C9",
+        "name": "Implement Security Logging and Monitoring",
+        "description": "Logging is a concept that most developers already use for debugging and diagnostic purposes. Security logging is an equally basic concept: to log security information during the runtime operation of an application. Monitoring is the live review of application and security logs using various forms of automation. The same tools and patterns can be used for operations, debugging and security purposes. The goal of security logging is to detect and respond to potential security incidents.",
+        "benefits": [
+          "Feeding intrusion detection systems",
+          "Forensic analysis and investigations",
+          "Satisfying regulatory compliance requirements"
+        ],
+        "logging_for_intrusion_detection_and_response": [
+          "Submitted data that is outside of an expected numeric range.",
+          "Submitted data that involves changes to data that should not be modifiable (select list, checkbox or other limited entry component).",
+          "Requests that violate server-side access control rules."
+        ],
+        "response_recommendations": "When your application encounters potentially malicious activity, it should at minimum log the event with high severity. Ideally, it should respond in real-time by invalidating the user session and locking the user account to mitigate potential attacks.",
+        "secure_logging_design": [
+          "Allow expected characters only and/or encode input to prevent log injection attacks, preferably by input escaping rather than dropping data.",
+          "Do not log sensitive information such as passwords, session IDs, credit cards, or social security numbers.",
+          "Protect log integrity through appropriate file permissions and audit of log changes.",
+          "Forward logs from distributed systems to a central, secure logging service to prevent loss and enable centralized or automated monitoring."
+        ],
+        "threats": [
+          "Log injection attacks manipulating log entries to insert malicious data or commands.",
+          "Unauthorized access to sensitive information due to overly verbose logging.",
+          "Log tampering to erase or modify evidence of intrusion.",
+          "Denial of service by flooding logging systems with data.",
+          "Unauthorized access to log files from improper access controls.",
+          "Log forging to create false audit trails.",
+          "Insufficient logging allowing undetected malicious activities.",
+          "Log file race conditions corrupting logs or exposing sensitive data.",
+          "Replay attacks using data gleaned from logs."
+        ],
+        "implementation": [
+          "Follow a common logging format and approach within and across organizational systems (e.g., Apache Logging Services).",
+          "Balance logging volume to include timestamp, source IP, and user-id, while avoiding logging private or confidential data without extra safeguards.",
+          "Ensure time synchronization across nodes for consistent timestamps."
+        ],
+        "vulnerabilities_prevented": [
+          "Brute-Force Attacks against Login-Mechanisms"
+        ],
+        "references": [
+          "Logging Cheat Sheet",
+          "OWASP Logging Guide"
+        ],
+        "tools": []
+      }                                         
+]
+  

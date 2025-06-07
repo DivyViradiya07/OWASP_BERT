@@ -1,0 +1,1187 @@
+{
+  "basic_understanding": [
+    {
+      "id": "A01-Q001",
+      "question": "What is broken access control?",
+      "answer": "Broken access control refers to a failure in enforcing policies that restrict users from acting outside their intended permissions. This can lead to unauthorized information disclosure, modification, or deletion of data.",
+      "intent": "define_broken_access_control",
+      "type": "basic_understanding"
+    },
+    {
+      "id": "A01-Q002",
+      "question": "Why is broken access control important in cybersecurity?",
+      "answer": "Broken access control is critical because it can allow attackers to gain unauthorized access to sensitive data or perform restricted operations, making it a major security risk.",
+      "intent": "importance_broken_access_control",
+      "type": "basic_understanding"
+    },
+    {
+      "id": "A01-Q003",
+      "question": "What are some examples of broken access control vulnerabilities?",
+      "answer": "Examples include privilege escalation, insecure direct object references (IDOR), bypassing access checks using URL tampering, and CORS misconfigurations.",
+      "intent": "examples_broken_access_control",
+      "type": "basic_understanding"
+    },
+    {
+      "id": "A01-Q017",
+      "question": "How is access control different from authentication?",
+      "answer": "Authentication verifies who a user is, while access control determines what an authenticated user is allowed to do.",
+      "intent": "difference_access_control_authentication",
+      "type": "basic_understanding"
+    },
+    {
+      "id": "A01-Q018",
+      "question": "What is the role of access control in the SDLC?",
+      "answer": "Access control should be designed and tested from the design phase onward to ensure secure authorization throughout the application lifecycle.",
+      "intent": "access_control_sdlc_role",
+      "type": "basic_understanding"
+    },
+    {
+      "id": "A01-Q019",
+      "question": "What are the common access control models?",
+      "answer": "Common models include Discretionary Access Control (DAC), Mandatory Access Control (MAC), Role-Based Access Control (RBAC), and Attribute-Based Access Control (ABAC).",
+      "intent": "access_control_models",
+      "type": "basic_understanding"
+    },
+    {
+      "id": "A01-Q020",
+      "question": "Why do modern applications need fine-grained access control?",
+      "answer": "Fine-grained access control ensures that users only access data or actions they are explicitly authorized for, reducing the risk of data leakage.",
+      "intent": "need_fine_grained_access_control",
+      "type": "basic_understanding"
+    },
+    {
+      "id": "A01-Q021",
+      "question": "What’s the difference between horizontal and vertical privilege escalation?",
+      "answer": "Horizontal escalation means accessing peer data (e.g., another user’s records), while vertical escalation means accessing higher-privileged functions (e.g., admin features).",
+      "intent": "horizontal_vs_vertical_escalation",
+      "type": "basic_understanding"
+    },
+    {
+      "id": "A01-Q022",
+      "question": "How does broken access control rank in the OWASP Top 10?",
+      "answer": "Broken Access Control is ranked #1 in the OWASP Top 10 (2021), reflecting its high frequency and impact across web applications.",
+      "intent": "owasp_ranking_broken_access_control",
+      "type": "basic_understanding"
+    }
+  ],
+  "example_scenarios": [
+    {
+      "id": "A01-Q078",
+      "question": "What happens if a user changes the 'user_id' parameter in a request URL?",
+      "answer": "If proper access checks are not in place, the user may gain access to another user's private data, leading to an Insecure Direct Object Reference (IDOR).",
+      "intent": "idor_example_url_tampering",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q079",
+      "question": "What is a typical example of force browsing?",
+      "answer": "Force browsing occurs when an attacker guesses or crafts a URL like /admin/panel and accesses it without authorization due to missing server-side checks.",
+      "intent": "force_browsing_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q080",
+      "question": "How can mobile app APIs lead to broken access control?",
+      "answer": "If mobile APIs do not verify user roles on the backend, attackers can use tools like Burp Suite to modify requests and perform unauthorized actions.",
+      "intent": "mobile_api_broken_access_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q081",
+      "question": "What can go wrong with hidden form fields for access control?",
+      "answer": "Attackers can inspect and change hidden form fields in the browser to escalate their privileges or access restricted areas.",
+      "intent": "hidden_form_fields_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q082",
+      "question": "How can access control fail in multi-tenant applications?",
+      "answer": "If tenant boundaries aren't enforced strictly, users may access data or configurations from other tenants.",
+      "intent": "multi_tenant_access_control_flaw",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q083",
+      "question": "Can you provide an example involving HTTP verb tampering?",
+      "answer": "If an endpoint only restricts GET requests but allows PUT or DELETE without checks, attackers can alter or delete records via verb tampering.",
+      "intent": "http_verb_tampering_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q084",
+      "question": "What if an admin interface is not protected by access controls?",
+      "answer": "Anyone who discovers the admin URL can gain administrative access, especially if authentication is weak or absent.",
+      "intent": "unprotected_admin_interface_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q085",
+      "question": "What happens when file permissions are misconfigured?",
+      "answer": "Files containing sensitive data like config files or keys may become accessible via direct URL access without checks.",
+      "intent": "file_permission_misconfig_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q086",
+      "question": "How can access control be broken via misconfigured CORS?",
+      "answer": "If a sensitive endpoint allows cross-origin requests from unauthorized domains, attackers can exploit it via malicious websites.",
+      "intent": "cors_misconfig_exploit_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q087",
+      "question": "How can session fixation cause broken access control?",
+      "answer": "An attacker can force a victim to use a known session ID, then reuse it after login to hijack access.",
+      "intent": "session_fixation_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q088",
+      "question": "What’s an example involving cookie manipulation?",
+      "answer": "Modifying cookies like 'isAdmin=true' without validation can allow attackers to gain unauthorized admin access.",
+      "intent": "cookie_manipulation_access_control",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q089",
+      "question": "How can APIs expose sensitive user data without proper access control?",
+      "answer": "An API endpoint like /api/user/1234 can leak data if it doesn’t verify that the requester owns or is authorized to access the resource.",
+      "intent": "api_leak_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q090",
+      "question": "What’s an example of vertical privilege escalation?",
+      "answer": "A regular user accesses an admin-only function like /admin/deleteUser by crafting a direct request or modifying roles client-side.",
+      "intent": "vertical_privilege_escalation_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q091",
+      "question": "How can race conditions lead to broken access control?",
+      "answer": "If authorization checks are done after some partial access, users might exploit timing to escalate privileges or access restricted data.",
+      "intent": "race_condition_example_access_control",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q092",
+      "question": "Can misconfigured JWT tokens be exploited?",
+      "answer": "Yes, if a system accepts unsigned or weakly signed JWTs, an attacker can forge tokens and gain unauthorized access.",
+      "intent": "jwt_misuse_access_control_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q093",
+      "question": "What if access control is implemented only on the frontend?",
+      "answer": "Attackers can bypass restrictions using tools like Postman or curl to send requests directly to backend APIs.",
+      "intent": "frontend_only_access_control_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q094",
+      "question": "What happens if the user role is assigned via query parameters?",
+      "answer": "If role-based actions depend on query parameters like ?role=admin, attackers can change the value and access restricted features.",
+      "intent": "query_param_role_manipulation_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q095",
+      "question": "Can brute-forcing object IDs be an issue?",
+      "answer": "Yes, if object IDs are numeric and predictable, attackers can cycle through them to access other users' data.",
+      "intent": "object_id_bruteforce_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q096",
+      "question": "How can browser extensions contribute to broken access control?",
+      "answer": "If internal APIs are exposed to extensions or poorly protected, malicious extensions may steal or manipulate data.",
+      "intent": "browser_extension_access_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q097",
+      "question": "How can insecure redirects cause broken access control?",
+      "answer": "If redirects happen without validating user privileges, users can be redirected into unauthorized internal areas.",
+      "intent": "insecure_redirect_access_control_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q098",
+      "question": "What can happen if password reset tokens are not properly validated?",
+      "answer": "Attackers may reuse or guess tokens to reset passwords of other users, gaining unauthorized access.",
+      "intent": "password_reset_token_flaw_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q099",
+      "question": "How does improper caching affect access control?",
+      "answer": "Cached pages intended for one user may be served to another, exposing private information.",
+      "intent": "improper_caching_access_control_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q100",
+      "question": "How can direct database access bypass access control?",
+      "answer": "If attackers gain DB access through injection or misconfigurations, they can read or modify any data ignoring app controls.",
+      "intent": "direct_db_access_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q101",
+      "question": "What risks come from relying solely on security through obscurity?",
+      "answer": "Hidden URLs or parameters without real access controls can be discovered and exploited easily by attackers.",
+      "intent": "security_through_obscurity_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q102",
+      "question": "How can logging sensitive data lead to broken access control issues?",
+      "answer": "Logs accessible to low-privileged users may expose access tokens or sensitive info that attackers can misuse.",
+      "intent": "logging_sensitive_data_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q103",
+      "question": "What happens if access control checks are skipped on batch processing?",
+      "answer": "Attackers can inject unauthorized batch jobs or data, leading to data leaks or modification.",
+      "intent": "batch_processing_access_control_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q104",
+      "question": "How does improper logout handling cause access control issues?",
+      "answer": "If sessions are not invalidated on logout, attackers may reuse session IDs to access accounts.",
+      "intent": "logout_handling_access_control_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q105",
+      "question": "Can error messages leak access control information?",
+      "answer": "Detailed error messages revealing roles or permissions can aid attackers in crafting targeted exploits.",
+      "intent": "error_message_leak_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q106",
+      "question": "What risks are there in multi-factor authentication bypass?",
+      "answer": "If access control relies solely on MFA but fails backend checks, attackers can bypass controls by manipulating requests.",
+      "intent": "mfa_bypass_access_control_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q107",
+      "question": "How can cloud storage misconfiguration lead to broken access control?",
+      "answer": "Publicly accessible buckets or improperly set permissions can expose sensitive data to anyone with the link.",
+      "intent": "cloud_storage_misconfig_example",
+      "type": "example_scenario"
+    },
+    {
+      "id": "A01-Q005",
+      "question": "Can you give a real-world example of broken access control?",
+      "answer": "Yes. For example, if a user modifies a URL to access another account's data like https://example.com/app/accountInfo?acct=notmyacct and it works, that’s a broken access control vulnerability.",
+      "intent": "real_world_example_broken_access_control",
+      "type": "example_scenarios"
+    }
+  ],
+  "prevention": [
+    {
+      "id": "A01-Q048",
+      "question": "Why should access be denied by default in secure systems?",
+      "answer": "Denying access by default ensures users only receive permissions explicitly granted, minimizing unintended privilege exposure.",
+      "intent": "deny_by_default_principle",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q049",
+      "question": "How does using centralized authorization help prevent access control flaws?",
+      "answer": "Centralized authorization avoids inconsistent access rules across services and ensures uniform policy enforcement.",
+      "intent": "centralized_authorization_benefit",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q050",
+      "question": "Why are server-side access checks recommended over client-side?",
+      "answer": "Client-side access checks can be bypassed easily by attackers; server-side logic is more secure and reliable.",
+      "intent": "server_side_checks_preferred",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q051",
+      "question": "What is the benefit of using role-based access control (RBAC)?",
+      "answer": "RBAC simplifies access management by grouping permissions into roles rather than assigning them to individual users.",
+      "intent": "rbac_prevention_benefit",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q052",
+      "question": "Why should APIs use access tokens with scopes?",
+      "answer": "Scopes define what actions an API token can perform, reducing risk if a token is leaked or misused.",
+      "intent": "api_token_scope_security",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q053",
+      "question": "How does enforcing least privilege improve access control?",
+      "answer": "It minimizes the potential damage by ensuring users only have permissions required for their role or task.",
+      "intent": "least_privilege_benefit",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q054",
+      "question": "What is attribute-based access control (ABAC) and how does it help?",
+      "answer": "ABAC uses user and resource attributes to define fine-grained access rules, improving flexibility and security.",
+      "intent": "abac_fine_grained_access",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q055",
+      "question": "Why is secure configuration management important for access control?",
+      "answer": "Misconfigured services or servers may unintentionally expose resources or bypass access enforcement.",
+      "intent": "secure_config_management_access",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q056",
+      "question": "How can DevOps pipelines enforce access policies?",
+      "answer": "CI/CD tools can run policy-as-code checks, integration tests, and automated scans before deploying changes.",
+      "intent": "devops_policy_enforcement",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q057",
+      "question": "How can rate limiting protect against access control abuse?",
+      "answer": "Rate limiting restricts excessive access attempts, helping to prevent brute-force and enumeration attacks.",
+      "intent": "rate_limiting_access_protection",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q058",
+      "question": "What role do security headers play in access control?",
+      "answer": "Headers like `X-Frame-Options`, `Content-Security-Policy`, and `X-Content-Type-Options` help reduce attack surfaces that may bypass access logic.",
+      "intent": "security_headers_access_control",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q059",
+      "question": "Why should access tokens be short-lived?",
+      "answer": "Short-lived tokens reduce exposure if stolen and force re-validation of user access over time.",
+      "intent": "short_lived_tokens_security",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q060",
+      "question": "How does logging unauthorized access attempts help?",
+      "answer": "Logging helps detect abuse patterns, brute-force attempts, or misconfigurations that could lead to breaches.",
+      "intent": "unauthorized_access_logging",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q061",
+      "question": "Why is it risky to rely on hidden fields or JavaScript for access logic?",
+      "answer": "Attackers can easily modify client-side logic or fields; access control must be enforced server-side.",
+      "intent": "client_logic_risks",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q062",
+      "question": "How can API gateways help with access control enforcement?",
+      "answer": "API gateways provide centralized request inspection, authentication, rate-limiting, and policy enforcement across services.",
+      "intent": "api_gateway_access_control",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q063",
+      "question": "What is the benefit of using policy-as-code for access control?",
+      "answer": "It allows access policies to be versioned, tested, and deployed like code, improving visibility and consistency.",
+      "intent": "policy_as_code_access_control",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q064",
+      "question": "How can broken object-level authorization be prevented?",
+      "answer": "Always verify that users are authorized to access a specific object by checking ownership or roles on the server side.",
+      "intent": "object_level_authorization_prevention",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q065",
+      "question": "Why is re-authentication important before sensitive actions?",
+      "answer": "Re-authentication ensures the user is still legitimate, especially before performing critical changes like password updates or data exports.",
+      "intent": "reauthentication_sensitive_actions",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q066",
+      "question": "What’s the role of encryption in enforcing access control?",
+      "answer": "While not a substitute, encryption ensures that unauthorized access to storage still doesn’t reveal sensitive data.",
+      "intent": "encryption_access_control_support",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q067",
+      "question": "What is secure defaults and why is it important?",
+      "answer": "Secure defaults ensure that services and APIs are locked down unless explicitly configured to expose functionality, minimizing risk.",
+      "intent": "secure_defaults_importance",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q068",
+      "question": "Why should developers avoid hardcoded access rules?",
+      "answer": "Hardcoded rules are difficult to maintain, easy to forget during updates, and often inconsistent across modules, leading to gaps in access enforcement.",
+      "intent": "avoid_hardcoded_access_rules",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q069",
+      "question": "How does using an identity provider (IdP) help prevent broken access control?",
+      "answer": "IdPs centralize authentication and authorization, enforce consistent policies, and support standards like OAuth2 and SAML for secure delegation.",
+      "intent": "identity_provider_access_control",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q070",
+      "question": "How can input validation support secure access control?",
+      "answer": "Strong validation prevents users from tampering with request parameters (e.g., IDs, roles), reducing risk of forced browsing or privilege escalation.",
+      "intent": "input_validation_access_control",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q071",
+      "question": "Why should authorization checks be done before performing business logic?",
+      "answer": "Early authorization checks prevent unnecessary execution of sensitive operations, improving performance and reducing exposure.",
+      "intent": "early_authz_check_benefit",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q072",
+      "question": "How do secure API design patterns contribute to access control?",
+      "answer": "Patterns like using RESTful verbs properly, scoping endpoints, and avoiding overly generic routes help contain access privileges tightly.",
+      "intent": "api_design_patterns_access_control",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q073",
+      "question": "Why is it important to log both successful and failed access attempts?",
+      "answer": "Tracking both allows better auditing, helps detect abuse, and provides insights into possible misconfigurations or attacks.",
+      "intent": "log_success_and_failure",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q074",
+      "question": "What are access control lists (ACLs), and how can they help?",
+      "answer": "ACLs define what operations each user or role can perform on specific objects, enabling granular permissions control.",
+      "intent": "acl_use_in_prevention",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q075",
+      "question": "How can continuous security testing prevent broken access control?",
+      "answer": "Automated tests ensure that changes do not unintentionally weaken access control logic or introduce new paths to sensitive data.",
+      "intent": "continuous_testing_access_control",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q076",
+      "question": "How do container security practices affect access control?",
+      "answer": "Limiting container privileges and isolating services helps ensure a compromised component doesn’t gain unauthorized access to others.",
+      "intent": "container_security_access_control",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q077",
+      "question": "How does defining access control policies early in architecture help?",
+      "answer": "Early integration of access policies ensures they’re applied consistently across all services and components before technical debt accumulates.",
+      "intent": "early_access_control_architecture",
+      "type": "prevention_method"
+    },
+    {
+      "id": "A01-Q004",
+      "question": "How can broken access control be prevented?",
+      "answer": "Prevent broken access control by using server-side authorization, denying access by default, using centralized access control mechanisms, logging failures, and implementing functional tests.",
+      "intent": "prevention_broken_access_control",
+      "type": "prevention_methods"
+    },
+    {
+      "id": "A01-Q007",
+      "question": "What security principle helps mitigate broken access control?",
+      "answer": "The principle of least privilege helps reduce the risk by ensuring users only have access to what they need.",
+      "intent": "security_principle_broken_access_control",
+      "type": "prevention_methods"
+    },
+    {
+      "id": "A01-Q042",
+      "question": "What architectural pattern helps prevent broken access control?",
+      "answer": "A layered architecture with clear separation between presentation, business logic, and access control logic helps prevent unauthorized access.",
+      "intent": "architecture_prevention_broken_access_control",
+      "type": "prevention_methods"
+    },
+    {
+      "id": "A01-Q043",
+      "question": "How does role-based routing improve access control?",
+      "answer": "Role-based routing ensures that users can only navigate to pages appropriate to their role, reducing exposure to unauthorized resources.",
+      "intent": "role_based_routing_access_control",
+      "type": "prevention_methods"
+    },
+    {
+      "id": "A01-Q044",
+      "question": "Why is default deny important in access control?",
+      "answer": "The default deny principle ensures that no access is granted unless explicitly allowed, preventing accidental exposure of sensitive functions.",
+      "intent": "default_deny_policy",
+      "type": "prevention_methods"
+    },
+    {
+      "id": "A01-Q045",
+      "question": "What DevOps practice can help catch access control issues early?",
+      "answer": "Incorporating access control test cases in CI/CD pipelines helps detect authorization flaws during build and deploy phases.",
+      "intent": "devops_prevention_broken_access_control",
+      "type": "prevention_methods"
+    },
+    {
+      "id": "A01-Q046",
+      "question": "How can API gateways help enforce access control?",
+      "answer": "API gateways can authenticate requests, enforce role-based access, and apply policies before requests reach backend services.",
+      "intent": "api_gateway_access_control",
+      "type": "prevention_methods"
+    },
+    {
+      "id": "A01-Q047",
+      "question": "What role does rate limiting play in access control?",
+      "answer": "Rate limiting prevents brute-force attempts on access-controlled endpoints and limits abuse of authorized features.",
+      "intent": "rate_limiting_prevention",
+      "type": "prevention_methods"
+    }
+  ],
+  "proactive": [
+    {
+      "id": "A01-Q138",
+      "question": "What problems can arise if broken access control is not addressed promptly?",
+      "answer": "Unaddressed broken access control can lead to unauthorized data access, privilege escalation, data breaches, regulatory non-compliance, and reputational damage.",
+      "intent": "problems_unaddressed_broken_access_control",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q139",
+      "question": "What is the first step in mitigating broken access control vulnerabilities?",
+      "answer": "The first step is to perform a comprehensive access control audit to identify all resources and verify that access permissions are correctly enforced.",
+      "intent": "first_step_mitigation_broken_access_control",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q140",
+      "question": "How can continuous monitoring improve access control security?",
+      "answer": "Continuous monitoring helps detect anomalous access patterns, unauthorized privilege escalations, and potential breaches early, enabling faster response.",
+      "intent": "continuous_monitoring_access_control",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q141",
+      "question": "What role does automated testing play in preventing broken access control?",
+      "answer": "Automated testing, including fuzzing and penetration testing scripts, regularly validates access control rules and uncovers regressions before deployment.",
+      "intent": "automated_testing_prevention",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q142",
+      "question": "Why is defense-in-depth critical for access control?",
+      "answer": "Defense-in-depth layers multiple security controls such as MFA, role-based access control, and network segmentation to reduce risk even if one layer fails.",
+      "intent": "defense_in_depth_access_control",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q143",
+      "question": "What are the best practices for role management to avoid broken access control?",
+      "answer": "Define clear roles with least privilege, regularly review and update role assignments, and avoid excessive permissions or role creep.",
+      "intent": "role_management_best_practices",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q144",
+      "question": "How can infrastructure as code (IaC) help prevent access control misconfigurations?",
+      "answer": "IaC enforces consistent, repeatable configuration of access policies with version control, reducing human errors and drift over time.",
+      "intent": "iac_access_control_prevention",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q145",
+      "question": "What measures can secure APIs from broken access control issues?",
+      "answer": "Implement strong authentication, validate tokens rigorously, apply rate limiting, and enforce fine-grained permissions per endpoint.",
+      "intent": "api_security_measures",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q146",
+      "question": "How important is logging for detecting broken access control exploitation?",
+      "answer": "Detailed logging of access requests and denials provides essential forensic data and alerts for suspicious activities indicating access control abuse.",
+      "intent": "logging_importance_access_control",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q147",
+      "question": "What is the benefit of integrating access control with identity and access management (IAM) systems?",
+      "answer": "IAM centralizes access policies, simplifies management, and enforces consistent access rules across multiple systems and applications.",
+      "intent": "iam_integration_benefits",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q148",
+      "question": "How can code reviews reduce the risk of broken access control vulnerabilities?",
+      "answer": "Code reviews help catch insecure authorization logic, missing permission checks, and flawed access assumptions early in the development lifecycle.",
+      "intent": "code_reviews_access_control",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q149",
+      "question": "Why should client-side access control never be trusted?",
+      "answer": "Client-side checks can be bypassed easily; all critical access control must be enforced server-side to ensure security.",
+      "intent": "client_side_access_control_risk",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q150",
+      "question": "What role does regular training play in preventing broken access control?",
+      "answer": "Training ensures developers, admins, and users understand access control principles, risks, and proper implementation practices.",
+      "intent": "training_role_prevention",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q151",
+      "question": "How can you automate detection of access control anomalies?",
+      "answer": "Use behavior analytics and anomaly detection tools that flag unusual access requests or privilege escalations for investigation.",
+      "intent": "automated_anomaly_detection",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q152",
+      "question": "What is the importance of least privilege in mitigating access control risks?",
+      "answer": "Applying least privilege limits damage from compromised accounts by restricting access only to necessary resources and functions.",
+      "intent": "least_privilege_importance",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q153",
+      "question": "How should access control policies adapt to changing business needs?",
+      "answer": "Access policies must be reviewed and updated regularly to reflect organizational changes, new regulations, and evolving threat landscapes.",
+      "intent": "access_policy_adaptation",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q154",
+      "question": "Why is session management critical for secure access control?",
+      "answer": "Proper session expiration, invalidation, and secure cookie handling prevent attackers from hijacking sessions to bypass access controls.",
+      "intent": "session_management_importance",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q155",
+      "question": "How can penetration testing help strengthen access control?",
+      "answer": "Penetration testing simulates real-world attacks to uncover hidden flaws and validate that access controls are effectively enforced.",
+      "intent": "penetration_testing_access_control",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q156",
+      "question": "What impact does using open-source authorization frameworks have on access control?",
+      "answer": "Open-source frameworks can provide tested, community-vetted components, reducing custom errors but require regular updates and review.",
+      "intent": "opensource_frameworks_impact",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q157",
+      "question": "How does proper error handling prevent information leakage related to access control?",
+      "answer": "Generic error messages prevent attackers from learning about valid resources or access policies, limiting reconnaissance opportunities.",
+      "intent": "error_handling_access_control",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q158",
+      "question": "Why should access control testing be integrated into CI/CD pipelines?",
+      "answer": "Automated tests in CI/CD help catch access control regressions early and ensure security policies are continuously enforced during development.",
+      "intent": "ci_cd_integration_access_control",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q159",
+      "question": "What are the benefits of centralized policy management for access control?",
+      "answer": "Centralized management reduces inconsistencies, enables audit trails, and simplifies enforcement across distributed systems.",
+      "intent": "centralized_policy_management",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q160",
+      "question": "How can network segmentation assist in limiting access control damage?",
+      "answer": "Segmentation confines attackers to limited network areas, preventing lateral movement and protecting critical assets.",
+      "intent": "network_segmentation_benefits",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q161",
+      "question": "What automated tools can help maintain strong access control?",
+      "answer": "Tools include static code analyzers, dynamic scanners, policy compliance platforms, and identity governance solutions.",
+      "intent": "automated_tools_access_control",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q162",
+      "question": "How can bug bounty programs improve access control security?",
+      "answer": "Bug bounty programs incentivize external researchers to discover access control vulnerabilities, supplementing internal testing efforts.",
+      "intent": "bug_bounty_access_control",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q163",
+      "question": "Why is it important to revoke access immediately upon role changes or terminations?",
+      "answer": "Delayed revocation can leave stale permissions exploitable by former employees or contractors, increasing risk exposure.",
+      "intent": "access_revocation_importance",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q164",
+      "question": "How do encryption and tokenization complement access control?",
+      "answer": "They protect sensitive data even if access controls fail, reducing the impact of unauthorized access.",
+      "intent": "encryption_tokenization_access_control",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q165",
+      "question": "What should be included in an access control incident response plan?",
+      "answer": "The plan should include detection procedures, containment strategies, forensic analysis, communication protocols, and remediation steps.",
+      "intent": "incident_response_access_control",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q166",
+      "question": "How often should access control policies be reviewed?",
+      "answer": "Policies should be reviewed at least quarterly or whenever significant organizational changes occur.",
+      "intent": "policy_review_frequency",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01-Q167",
+      "question": "What are common pitfalls when fixing broken access control that organizations should avoid?",
+      "answer": "Pitfalls include partial fixes, relying solely on client-side controls, ignoring audit trails, and inadequate testing after changes.",
+      "intent": "common_pitfalls_fixing_access_control",
+      "type": "proactive_suggestion"
+    },
+    {
+      "id": "A01:010",
+      "question": "What OWASP references are useful for preventing broken access control?",
+      "answer": "Useful OWASP resources include the Proactive Controls guide, ASVS V4 for Access Control, the Testing Guide on Authorization, and the Authorization Cheat Sheet.",
+      "intent": "owasp_references_broken_access_control",
+      "type": "proactive_suggestions"
+    },
+    {
+      "id": "A01:016",
+      "question": "What happens if broken access control is exploited by attackers?",
+      "answer": "If exploited, attackers can view or modify sensitive data, perform actions as other users or administrators, delete records, or take over accounts—leading to data breaches, compliance violations, or total system compromise.",
+      "intent": "impact_broken_access_control",
+      "type": "proactive_suggestions"
+    }
+  ],
+  "reference": [
+    {
+      "id": "A01-Q108",
+      "question": "Where can I find the official OWASP guide on Broken Access Control?",
+      "answer": "The OWASP Broken Access Control page on their official website provides detailed guidance, examples, and mitigation techniques: https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control.html",
+      "intent": "owasp_broken_access_control_guide",
+      "type": "reference"
+    },
+    {
+      "id": "A01-Q109",
+      "question": "What OWASP cheat sheet helps secure access control implementations?",
+      "answer": "The OWASP Access Control Cheat Sheet offers best practices and common patterns to implement secure access control: https://cheatsheetseries.owasp.org/cheatsheets/Access_Control_Cheat_Sheet.html",
+      "intent": "owasp_access_control_cheat_sheet",
+      "type": "reference"
+    },
+    {
+      "id": "A01-Q110",
+      "question": "Which OWASP tool can help test access control vulnerabilities?",
+      "answer": "OWASP ZAP (Zed Attack Proxy) is widely used for scanning web applications for access control issues among many other vulnerabilities.",
+      "intent": "owasp_zap_tool_reference",
+      "type": "reference"
+    },
+    {
+      "id": "A01-Q111",
+      "question": "What role does Burp Suite play in testing Broken Access Control?",
+      "answer": "Burp Suite allows manual and automated testing of access controls via request manipulation, session analysis, and scanning features.",
+      "intent": "burp_suite_access_control_testing",
+      "type": "reference"
+    },
+    {
+      "id": "A01-Q112",
+      "question": "Is there a testing framework specifically for access control?",
+      "answer": "The Open Web Application Security Project (OWASP) provides test cases and guidelines within its Testing Guide focused on Access Control (Test 5.1).",
+      "intent": "owasp_testing_guide_access_control",
+      "type": "reference"
+    },
+    {
+      "id": "A01-Q113",
+      "question": "Where can I find policy templates for access control management?",
+      "answer": "Organizations can refer to the NIST Access Control Policy templates for formalizing access control governance: https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final",
+      "intent": "nist_access_control_policy_templates",
+      "type": "reference"
+    },
+    {
+      "id": "A01-Q114",
+      "question": "What is the OWASP Proactive Controls project?",
+      "answer": "OWASP Proactive Controls is a list of top 10 security controls developers should implement, including proper access control: https://owasp.org/www-project-proactive-controls/",
+      "intent": "owasp_proactive_controls_reference",
+      "type": "reference"
+    },
+    {
+      "id": "A01-Q115",
+      "question": "Which documentation explains Role-Based Access Control (RBAC) models?",
+      "answer": "The NIST RBAC standard (NIST Special Publication 800-162) describes RBAC models and implementation guidelines: https://csrc.nist.gov/publications/detail/sp/800-162/final",
+      "intent": "nist_rbac_standard_reference",
+      "type": "reference"
+    },
+    {
+      "id": "A01-Q116",
+      "question": "Are there online communities or forums for discussing access control security?",
+      "answer": "Security forums like Stack Exchange Security, OWASP Slack channels, and Reddit’s r/netsec provide discussions and advice on access control topics.",
+      "intent": "online_communities_access_control",
+      "type": "reference"
+    },
+    {
+      "id": "A01-Q117",
+      "question": "Where can developers learn best practices for API security and access control?",
+      "answer": "The OWASP API Security Top 10 project includes access control issues and best practices for securing APIs: https://owasp.org/www-project-api-security/",
+      "intent": "owasp_api_security_access_control",
+      "type": "reference"
+    }
+  ],
+  "statistics": [
+    {
+      "id": "A01:012",
+      "question": "How common is broken access control according to OWASP?",
+      "answer": "According to OWASP 2021, broken access control has the highest incidence rate at 3.81%, with over 318,000 occurrences and mapped to 19,013 CVEs.",
+      "intent": "statistics_broken_access_control",
+      "type": "statistics"
+    },
+    {
+      "id": "A01-Q118",
+      "question": "What percentage of breaches involve broken access control vulnerabilities?",
+      "answer": "According to the 2023 Verizon Data Breach Investigations Report, broken access control contributes to approximately 25% of data breaches.",
+      "intent": "breach_percentage_broken_access_control",
+      "type": "statistics"
+    },
+    {
+      "id": "A01-Q119",
+      "question": "How frequently is Broken Access Control ranked in the OWASP Top 10 over recent years?",
+      "answer": "Broken Access Control has been ranked #1 in the OWASP Top 10 in both the 2021 and 2023 editions, reflecting its persistent risk.",
+      "intent": "owasp_top10_ranking_broken_access_control",
+      "type": "statistics"
+    },
+    {
+      "id": "A01-Q120",
+      "question": "What industries are most impacted by broken access control vulnerabilities?",
+      "answer": "Finance, healthcare, and government sectors experience the highest impact, accounting for over 60% of reported incidents.",
+      "intent": "industries_impacted_broken_access_control",
+      "type": "statistics"
+    },
+    {
+      "id": "A01-Q121",
+      "question": "What is the average time to detect a broken access control breach?",
+      "answer": "The average time to detect such breaches is approximately 280 days, as per IBM's Cost of a Data Breach Report 2023.",
+      "intent": "time_to_detect_breach_broken_access_control",
+      "type": "statistics"
+    },
+    {
+      "id": "A01-Q122",
+      "question": "How much financial loss can broken access control incidents cause?",
+      "answer": "Average cost per incident due to broken access control is estimated at $4.5 million globally.",
+      "intent": "financial_loss_broken_access_control",
+      "type": "statistics"
+    },
+    {
+      "id": "A01-Q123",
+      "question": "What percentage of organizations have experienced privilege escalation attacks?",
+      "answer": "Around 43% of organizations report experiencing privilege escalation attacks, often stemming from access control weaknesses.",
+      "intent": "privilege_escalation_attack_stats",
+      "type": "statistics"
+    },
+    {
+      "id": "A01-Q124",
+      "question": "How effective are automated tools in detecting broken access control vulnerabilities?",
+      "answer": "Automated tools detect roughly 70-80% of broken access control issues, with the remainder requiring manual verification.",
+      "intent": "automation_effectiveness_broken_access_control",
+      "type": "statistics"
+    },
+    {
+      "id": "A01-Q125",
+      "question": "How has broken access control incident frequency changed over the last 5 years?",
+      "answer": "Incidents have increased by about 15% annually, correlating with growing complexity in application architectures.",
+      "intent": "incident_trend_broken_access_control",
+      "type": "statistics"
+    },
+    {
+      "id": "A01-Q126",
+      "question": "What is the average number of access control vulnerabilities found per audited application?",
+      "answer": "Security audits typically uncover 3 to 5 broken access control vulnerabilities per application on average.",
+      "intent": "average_vulnerabilities_per_application",
+      "type": "statistics"
+    },
+    {
+      "id": "A01-Q127",
+      "question": "How does implementing fine-grained access control impact security incident rates?",
+      "answer": "Organizations implementing fine-grained access control report a 40% reduction in related security incidents.",
+      "intent": "impact_fine_grained_access_control",
+      "type": "statistics"
+    },
+    {
+      "id": "A01-Q128",
+      "question": "What is the average time taken to remediate broken access control vulnerabilities?",
+      "answer": "On average, organizations take about 60 days to remediate broken access control vulnerabilities after detection.",
+      "intent": "remediation_time_broken_access_control",
+      "type": "statistics"
+    },
+    {
+      "id": "A01-Q129",
+      "question": "How often do broken access control flaws lead to data exfiltration?",
+      "answer": "Broken access control vulnerabilities contribute to approximately 30% of incidents involving unauthorized data exfiltration.",
+      "intent": "data_exfiltration_broken_access_control",
+      "type": "statistics"
+    },
+    {
+      "id": "A01-Q130",
+      "question": "What is the ratio of internal vs external attackers exploiting broken access control?",
+      "answer": "About 55% of broken access control exploits are initiated by insiders, while 45% are external attackers.",
+      "intent": "internal_external_attack_ratio",
+      "type": "statistics"
+    },
+    {
+      "id": "A01-Q131",
+      "question": "What percentage of organizations use automated testing tools to find broken access control issues?",
+      "answer": "Around 65% of organizations use automated tools as part of their security testing for access control flaws.",
+      "intent": "automation_usage_rate",
+      "type": "statistics"
+    },
+    {
+      "id": "A01-Q132",
+      "question": "How much can broken access control increase the risk of ransomware attacks?",
+      "answer": "Systems with broken access control are estimated to have a 50% higher likelihood of ransomware infection due to easier privilege escalation.",
+      "intent": "ransomware_risk_broken_access_control",
+      "type": "statistics"
+    },
+    {
+      "id": "A01-Q133",
+      "question": "What percentage of APIs tested have at least one broken access control vulnerability?",
+      "answer": "Security assessments show that about 70% of public APIs contain at least one broken access control flaw.",
+      "intent": "api_broken_access_control_prevalence",
+      "type": "statistics"
+    },
+    {
+      "id": "A01-Q134",
+      "question": "What is the average increase in attack surface caused by broken access control issues?",
+      "answer": "Broken access control vulnerabilities can increase the attack surface of an application by up to 25%.",
+      "intent": "attack_surface_increase_broken_access_control",
+      "type": "statistics"
+    },
+    {
+      "id": "A01-Q135",
+      "question": "How effective is multi-factor authentication (MFA) in preventing access control exploits?",
+      "answer": "MFA can reduce the risk of unauthorized access by approximately 90%, although it must be combined with proper access control checks.",
+      "intent": "mfa_effectiveness_broken_access_control",
+      "type": "statistics"
+    },
+    {
+      "id": "A01-Q136",
+      "question": "What percentage of cloud misconfigurations involve broken access control settings?",
+      "answer": "Studies find that around 40% of cloud security misconfigurations relate to access control errors.",
+      "intent": "cloud_misconfig_access_control_stats",
+      "type": "statistics"
+    },
+    {
+      "id": "A01-Q137",
+      "question": "What impact does regular access control training have on security incidents?",
+      "answer": "Organizations that conduct regular access control training report a 35% reduction in related security breaches.",
+      "intent": "training_impact_on_access_control",
+      "type": "statistics"
+    }
+  ],
+  "technical": [
+    {
+      "id": "A01-Q006",
+      "question": "What are common causes of broken access control?",
+      "answer": "Common causes include missing access checks, metadata manipulation (e.g., JWT tampering), improper privilege management, and force browsing to restricted pages.",
+      "intent": "causes_broken_access_control",
+      "type": "technical_explanation"
+    },
+    {
+      "id": "A01-Q008",
+      "question": "What is Insecure Direct Object Reference (IDOR)?",
+      "answer": "IDOR is a type of access control flaw where attackers can access data by modifying a direct reference to an object, such as a filename or user ID, without proper checks.",
+      "intent": "define_idor",
+      "type": "technical_explanation"
+    },
+    {
+      "id": "A01:013",
+      "question": "What is privilege escalation in broken access control?",
+      "answer": "Privilege escalation occurs when a user gains higher access rights than intended, such as performing admin actions while logged in as a normal user.",
+      "intent": "privilege_escalation_broken_access_control",
+      "type": "technical_explanation"
+    },
+    {
+      "id": "A01:014",
+      "question": "What is force browsing and how does it relate to access control?",
+      "answer": "Force browsing refers to accessing restricted URLs without proper authorization, like accessing /admin_getappInfo directly without being an admin.",
+      "intent": "force_browsing_broken_access_control",
+      "type": "technical_explanation"
+    },
+    {
+      "id": "A01:015",
+      "question": "How does CORS misconfiguration contribute to access control issues?",
+      "answer": "Misconfigured Cross-Origin Resource Sharing (CORS) can allow unauthorized domains to access protected resources, violating access control policies.",
+      "intent": "cors_misconfig_broken_access_control",
+      "type": "technical_explanation"
+    },
+    {
+      "id": "A01-Q023",
+      "question": "What is Role-Based Access Control (RBAC)?",
+      "answer": "RBAC assigns permissions to roles instead of individuals. Users are then assigned roles, making permission management scalable and organized.",
+      "intent": "define_rbac",
+      "type": "technical_explanation"
+    },
+    {
+      "id": "A01-Q024",
+      "question": "How does JWT affect access control security?",
+      "answer": "Improperly signed or unchecked JWTs can be tampered with to escalate privileges. It’s essential to validate and expire tokens properly.",
+      "intent": "jwt_access_control_security",
+      "type": "technical_explanation"
+    },
+    {
+      "id": "A01-Q025",
+      "question": "What are anti-patterns in access control implementation?",
+      "answer": "Anti-patterns include using client-side checks, hardcoding access logic, or skipping role verification entirely, which are all exploitable.",
+      "intent": "access_control_anti_patterns",
+      "type": "technical_explanation"
+    },
+    {
+      "id": "A01-Q026",
+      "question": "How can insecure APIs contribute to broken access control?",
+      "answer": "APIs with missing authentication, no rate limiting, or unverified user input can expose unauthorized endpoints and actions.",
+      "intent": "api_insecurity_broken_access_control",
+      "type": "technical_explanation"
+    },
+    {
+      "id": "A01-Q027",
+      "question": "What is access control enforcement point (ACEP)?",
+      "answer": "ACEP is the precise location in the application where a decision is made to allow or deny access to a resource or function.",
+      "intent": "define_access_control_enforcement_point",
+      "type": "technical_explanation"
+    },
+    {
+      "id": "A01-Q028",
+      "question": "How can misconfigured web servers cause access control issues?",
+      "answer": "Web servers exposing backup files, admin interfaces, or sensitive endpoints without proper restrictions can be exploited for unauthorized access.",
+      "intent": "web_server_misconfig_access_control",
+      "type": "technical_explanation"
+    }
+  ],
+  "vulnerability_identification": [
+    {
+      "id": "A01:009",
+      "question": "How can access control failures be detected?",
+      "answer": "By logging and monitoring access control violations, running integration tests, and using security scanners that check for authorization flaws.",
+      "intent": "detection_broken_access_control",
+      "type": "vulnerability_identification"
+    },
+    {
+      "id": "A01:011",
+      "question": "Which CWEs are associated with broken access control?",
+      "answer": "Broken access control maps to CWEs like CWE-200 (Information Exposure), CWE-352 (CSRF), CWE-284 (Improper Access Control), and many others.",
+      "intent": "mapped_cwes_broken_access_control",
+      "type": "vulnerability_identification"
+    },
+    {
+      "id": "A01-Q029",
+      "question": "How can broken access control be identified during a security test?",
+      "answer": "By manipulating parameters, testing endpoint access without proper roles, reviewing response codes, and using automated scanners like Burp or ZAP.",
+      "intent": "security_testing_broken_access_control",
+      "type": "vulnerability_identification"
+    },
+    {
+      "id": "A01-Q030",
+      "question": "What is a tell-tale sign of a broken access control vulnerability in logs?",
+      "answer": "Repeated access attempts to unauthorized resources, 403/401 response codes for logged-in users, or unexpected resource access patterns.",
+      "intent": "logging_signs_broken_access_control",
+      "type": "vulnerability_identification"
+    },
+    {
+      "id": "A01-Q031",
+      "question": "Can automated security tools detect broken access control?",
+      "answer": "Yes, tools like OWASP ZAP, Burp Suite, and custom fuzzers can detect many access control flaws, but manual validation is often required.",
+      "intent": "tool_detection_broken_access_control",
+      "type": "vulnerability_identification"
+    },
+    {
+      "id": "A01-Q032",
+      "question": "What are key test cases for identifying broken access control?",
+      "answer": "Test cases include accessing data from other users, skipping role checks, tampering with JWTs or cookies, and changing HTTP verbs.",
+      "intent": "test_cases_broken_access_control",
+      "type": "vulnerability_identification"
+    },
+    {
+      "id": "A01-Q033",
+      "question": "How can insecure file access lead to broken access control?",
+      "answer": "Improper directory permissions or exposing sensitive files (e.g., .env, backup.zips) without auth can lead to full compromise.",
+      "intent": "file_access_issues_broken_access_control",
+      "type": "vulnerability_identification"
+    },
+    {
+      "id": "A01-Q034",
+      "question": "What is an example of privilege escalation caused by API flaws?",
+      "answer": "If an API allows a normal user to send `isAdmin=true` in a JSON request and gain admin rights, that’s a critical escalation flaw.",
+      "intent": "api_privilege_escalation_example",
+      "type": "vulnerability_identification"
+    },
+    {
+      "id": "A01-Q035",
+      "question": "What is a common mistake developers make that causes broken access control?",
+      "answer": "Assuming the frontend handles security and skipping proper role validation in backend logic.",
+      "intent": "developer_mistake_broken_access_control",
+      "type": "vulnerability_identification"
+    },
+    {
+      "id": "A01-Q036",
+      "question": "How can unauthenticated access to a public endpoint become a risk?",
+      "answer": "If the endpoint leaks user identifiers, tokens, or permissions data, it can help attackers target internal systems more precisely.",
+      "intent": "unauthenticated_access_risk",
+      "type": "vulnerability_identification"
+    },
+    {
+      "id": "A01-Q037",
+      "question": "What is a tell-tale sign of a broken access control vulnerability in logs?",
+      "answer": "Repeated access attempts to unauthorized resources, 403/401 response codes for logged-in users, or unexpected resource access patterns.",
+      "intent": "logging_signs_broken_access_control",
+      "type": "vulnerability_identification"
+    },
+    {
+      "id": "A01-Q038",
+      "question": "Can automated security tools detect broken access control?",
+      "answer": "Yes, tools like OWASP ZAP, Burp Suite, and custom fuzzers can detect many access control flaws, but manual validation is often required.",
+      "intent": "tool_detection_broken_access_control",
+      "type": "vulnerability_identification"
+    },
+    {
+      "id": "A01-Q039",
+      "question": "What are key test cases for identifying broken access control?",
+      "answer": "Test cases include accessing data from other users, skipping role checks, tampering with JWTs or cookies, and changing HTTP verbs.",
+      "intent": "test_cases_broken_access_control",
+      "type": "vulnerability_identification"
+    },
+    {
+      "id": "A01-Q040",
+      "question": "How can insecure file access lead to broken access control?",
+      "answer": "Improper directory permissions or exposing sensitive files (e.g., .env, backup.zips) without auth can lead to full compromise.",
+      "intent": "file_access_issues_broken_access_control",
+      "type": "vulnerability_identification"
+    },
+    {
+      "id": "A01-Q041",
+      "question": "What is an example of privilege escalation caused by API flaws?",
+      "answer": "If an API allows a normal user to send `isAdmin=true` in a JSON request and gain admin rights, that’s a critical escalation flaw.",
+      "intent": "api_privilege_escalation_example",
+      "type": "vulnerability_identification"
+    }
+  ]
+}

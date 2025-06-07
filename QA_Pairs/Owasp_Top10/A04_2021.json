@@ -1,0 +1,1523 @@
+{
+  "basic_understanding": [
+    {
+      "id": "A04-Q001",
+      "type": "basic_understanding",
+      "intent": "explain_insecure_design",
+      "question": "What is Insecure Design?",
+      "answer": "Insecure Design refers to weaknesses caused by missing or ineffective security controls in the design or architecture of a system. It cannot be fixed by secure coding alone and must be addressed during planning."
+    },
+    {
+      "id": "A04-Q002",
+      "type": "basic_understanding",
+      "intent": "differentiate_design_and_implementation_flaws",
+      "question": "How is Insecure Design different from implementation flaws?",
+      "answer": "Insecure Design results from poor architectural decisions or lack of proper security planning, while implementation flaws are errors in the actual code. Design flaws require fixing the underlying logic and controls, not just the code."
+    },
+    {
+      "id": "A04-Q003",
+      "type": "basic_understanding",
+      "intent": "importance_of_threat_modeling",
+      "question": "Why is threat modeling important in preventing Insecure Design?",
+      "answer": "Threat modeling helps identify potential security issues early in the design phase, allowing developers to implement appropriate controls before coding begins, reducing the risk of design flaws."
+    },
+    {
+      "id": "A04-Q004",
+      "type": "basic_understanding",
+      "intent": "understand_secure_by_design",
+      "question": "What does 'Secure by Design' mean?",
+      "answer": "'Secure by Design' means incorporating security principles and controls into the software architecture and development process from the beginning, rather than treating security as an afterthought."
+    },
+    {
+      "id": "A04-Q005",
+      "type": "basic_understanding",
+      "intent": "list_common_issues",
+      "question": "What are some common issues that result from Insecure Design?",
+      "answer": "Common issues include missing threat modeling, weak authentication flows, lack of business logic validation, insufficient multi-tenant segregation, and absence of resource usage limits."
+    },
+    {
+      "id": "A04-Q006",
+      "type": "basic_understanding",
+      "intent": "explain_business_logic_validation",
+      "question": "What is business logic validation and how does it relate to Insecure Design?",
+      "answer": "Business logic validation ensures that users can only perform allowed actions based on defined rules. Without it, attackers may abuse workflows or gain unauthorized access, which is a key symptom of insecure design."
+    },
+    {
+      "id": "A04-Q007",
+      "type": "basic_understanding",
+      "intent": "role_of_user_stories",
+      "question": "How can user stories help prevent Insecure Design?",
+      "answer": "User stories that include security requirements and abuse cases ensure that developers consider security implications during the design and planning phases, reducing the risk of flaws."
+    },
+    {
+      "id": "A04-Q008",
+      "type": "basic_understanding",
+      "intent": "secure_design_patterns",
+      "question": "What are secure design patterns?",
+      "answer": "Secure design patterns are reusable solutions to common security problems in software architecture. They help ensure systems are designed with proven defensive techniques."
+    },
+    {
+      "id": "A04-Q009",
+      "type": "basic_understanding",
+      "intent": "explain_paved_road",
+      "question": "What does the term 'paved road' mean in secure development?",
+      "answer": "The 'paved road' refers to a set of approved, secure development practices, tools, and components that teams are encouraged to use to reduce design flaws and ensure consistent security across projects."
+    },
+    {
+      "id": "A04-Q010",
+      "type": "basic_understanding",
+      "intent": "understand_prevention_methods",
+      "question": "What are effective ways to prevent Insecure Design?",
+      "answer": "Effective methods include using a secure development lifecycle, conducting regular threat modeling, incorporating security in user stories, using secure design libraries, and validating business logic."
+    },
+    {
+      "id": "A04-Q011",
+      "type": "basic_understanding",
+      "intent": "impact_of_insecure_design",
+      "question": "Why is Insecure Design a critical security concern?",
+      "answer": "Because even perfectly written code can be exploited if the system was poorly designed. Without secure architecture, applications are vulnerable regardless of implementation quality."
+    },
+    {
+      "id": "A04-Q012",
+      "type": "basic_understanding",
+      "intent": "design_flaw_examples",
+      "question": "Can you give an example of a design flaw?",
+      "answer": "A system that uses security questions for password recovery is a design flaw, as the answers are often easy to guess or find, exposing users to account takeover."
+    },
+    {
+      "id": "A04-Q013",
+      "type": "basic_understanding",
+      "intent": "design_flaw_vs_bug",
+      "question": "Is a design flaw the same as a bug?",
+      "answer": "No. A design flaw is a systemic issue in how an application is structured or operates, while a bug is a specific error in code that causes incorrect behavior."
+    },
+    {
+      "id": "A04-Q014",
+      "type": "basic_understanding",
+      "intent": "define_threat_modeling",
+      "question": "What is threat modeling?",
+      "answer": "Threat modeling is a process of identifying potential threats to an application and planning defenses against them during the design phase."
+    },
+    {
+      "id": "A04-Q015",
+      "type": "basic_understanding",
+      "intent": "automation_and_design_flaws",
+      "question": "Can automated tools detect Insecure Design issues?",
+      "answer": "Automated tools may detect symptoms, but identifying insecure design typically requires human analysis through threat modeling and architectural review."
+    },
+    {
+      "id": "A04-Q016",
+      "type": "basic_understanding",
+      "intent": "secure_sdlc_role",
+      "question": "What is the role of a Secure Development Lifecycle (SDLC) in preventing Insecure Design?",
+      "answer": "A Secure SDLC integrates security into each stage of development, ensuring design considerations include threat modeling, secure patterns, and abuse case handling."
+    },
+    {
+      "id": "A04-Q017",
+      "type": "basic_understanding",
+      "intent": "resource_consumption_risks",
+      "question": "Why should resource consumption be controlled in system design?",
+      "answer": "Without resource usage limits, attackers can overload systems, causing denial of service. Design must account for quotas and fair use to protect availability."
+    },
+    {
+      "id": "A04-Q018",
+      "type": "basic_understanding",
+      "intent": "importance_of_design_reviews",
+      "question": "Why are design reviews important for security?",
+      "answer": "They help catch insecure design choices before development, reducing the cost and complexity of fixing security issues later."
+    },
+    {
+      "id": "A04-Q019",
+      "type": "basic_understanding",
+      "intent": "importance_of_architecture_in_security",
+      "question": "How does software architecture influence security?",
+      "answer": "Architecture defines how components interact and what protections are in place. A poor architecture can introduce security gaps even if individual modules are secure."
+    },
+    {
+      "id": "A04-Q020",
+      "type": "basic_understanding",
+      "intent": "tenant_segregation",
+      "question": "Why is tenant segregation important in multi-tenant systems?",
+      "answer": "Improper segregation can let one tenant access or interfere with another's data or resources. Secure design enforces strict boundaries between tenants."
+    },
+    {
+      "id": "A04-Q021",
+      "type": "basic_understanding",
+      "intent": "explain_abuse_cases",
+      "question": "What are abuse cases in software design?",
+      "answer": "Abuse cases are scenarios where a system can be misused intentionally or unintentionally. Considering them during design helps prevent vulnerabilities from being built in."
+    },
+    {
+      "id": "A04-Q022",
+      "type": "basic_understanding",
+      "intent": "plausibility_checks_meaning",
+      "question": "What are plausibility checks and how do they help?",
+      "answer": "Plausibility checks validate whether input or behavior makes sense within the business context, helping to block logical abuse or data manipulation."
+    },
+    {
+      "id": "A04-Q023",
+      "type": "basic_understanding",
+      "intent": "testing_for_design_flaws",
+      "question": "How can testing help identify design flaws?",
+      "answer": "Testing, especially with security-focused unit and integration tests, can reveal scenarios where design logic fails or lacks necessary safeguards."
+    },
+    {
+      "id": "A04-Q024",
+      "type": "basic_understanding",
+      "intent": "security_architecture_review",
+      "question": "What is a security architecture review?",
+      "answer": "It's a structured analysis of a system’s architecture to identify security weaknesses and suggest design improvements before implementation."
+    },
+    {
+      "id": "A04-Q025",
+      "type": "basic_understanding",
+      "intent": "preventing_mass_resource_usage",
+      "question": "How can design prevent mass resource abuse?",
+      "answer": "By setting rate limits, quotas, and monitoring usage patterns, design can enforce fair usage and prevent abuse by automated agents or malicious users."
+    },
+    {
+      "id": "A04-Q026",
+      "type": "basic_understanding",
+      "intent": "role_of_automation_in_design",
+      "question": "What role does automation play in secure design?",
+      "answer": "Automation supports secure design by enforcing consistent controls, validating configurations, and testing for compliance, but it can't replace human architectural decisions."
+    },
+    {
+      "id": "A04-Q027",
+      "type": "basic_understanding",
+      "intent": "reference_architectures",
+      "question": "What are reference architectures and how do they help?",
+      "answer": "Reference architectures are vetted architectural blueprints that guide developers in building secure systems, reducing the risk of introducing design flaws."
+    },
+    {
+      "id": "A04-Q028",
+      "type": "basic_understanding",
+      "intent": "understanding_owasp_guidance",
+      "question": "How does OWASP help prevent Insecure Design?",
+      "answer": "OWASP provides resources like cheat sheets, threat modeling guides, and secure design principles that organizations can use to design secure systems."
+    },
+    {
+      "id": "A04-Q029",
+      "type": "basic_understanding",
+      "intent": "understanding_security_questions_flaws",
+      "question": "Why are security questions considered an insecure design pattern?",
+      "answer": "Security questions are often based on publicly known or guessable answers, making them weak for authentication and prone to account takeover attacks."
+    },
+    {
+      "id": "A04-Q030",
+      "type": "basic_understanding",
+      "intent": "segregate_system_layers",
+      "question": "Why should system layers be segregated based on exposure?",
+      "answer": "Segregating layers helps contain attacks. Exposed components should be isolated from sensitive ones, minimizing the blast radius of a breach."
+    }
+  ],
+  "example_scenarios": [
+    {
+      "id": "A04-Q121",
+      "type": "example_scenarios",
+      "intent": "describe_insecure_recovery_workflow",
+      "question": "What is an example of an insecure account recovery workflow?",
+      "answer": "Using security questions for account recovery allows attackers to guess answers or obtain them from public sources, violating modern security standards."
+    },
+    {
+      "id": "A04-Q122",
+      "type": "example_scenarios",
+      "intent": "describe_group_discount_exploit",
+      "question": "How can attackers exploit a poorly designed group discount system?",
+      "answer": "If a cinema booking system lacks business logic validation, attackers can reserve hundreds of seats by manipulating discount conditions, leading to financial loss and denial of service."
+    },
+    {
+      "id": "A04-Q123",
+      "type": "example_scenarios",
+      "intent": "describe_bot_abuse_scenario",
+      "question": "Can you describe a scenario where bot abuse harmed an e-commerce platform?",
+      "answer": "A retail website without bot protection was exploited by scalpers to purchase all available GPUs instantly, damaging its reputation and legitimate user trust."
+    },
+    {
+      "id": "A04-Q124",
+      "type": "example_scenarios",
+      "intent": "explain_abuse_case_missing_in_design",
+      "question": "What can happen if abuse cases are not considered during design?",
+      "answer": "Attackers may exploit features such as password reset, checkout flow, or file uploads to perform unauthorized actions not anticipated by developers."
+    },
+    {
+      "id": "A04-Q125",
+      "type": "example_scenarios",
+      "intent": "explain_unsegregated_tenant_exploit",
+      "question": "What happens if tenant segregation is not properly implemented?",
+      "answer": "A flaw in tenant isolation can allow a user from one organization to access data or actions in another, violating confidentiality and compliance."
+    },
+    {
+      "id": "A04-Q126",
+      "type": "example_scenarios",
+      "intent": "describe_resource_consumption_attack",
+      "question": "How can unrestricted resource access lead to a denial-of-service?",
+      "answer": "Without controls, a malicious user can overwhelm a service by repeatedly triggering resource-intensive operations, degrading performance for others."
+    },
+    {
+      "id": "A04-Q127",
+      "type": "example_scenarios",
+      "intent": "explain_replay_attack_design_flaw",
+      "question": "How can insecure design lead to replay attacks?",
+      "answer": "If authentication tokens or request signatures can be reused, an attacker may capture and replay them to perform unauthorized actions."
+    },
+    {
+      "id": "A04-Q128",
+      "type": "example_scenarios",
+      "intent": "describe_unauthorized_access_case",
+      "question": "Give an example of insecure design causing unauthorized access.",
+      "answer": "A system that doesn’t validate user roles during access requests may allow standard users to access admin functions by guessing or manipulating URLs."
+    },
+    {
+      "id": "A04-Q129",
+      "type": "example_scenarios",
+      "intent": "describe_missing_business_validation_case",
+      "question": "How can missing business logic validation be abused?",
+      "answer": "Attackers might manipulate checkout quantities or coupon values to receive excessive discounts or free items."
+    },
+    {
+      "id": "A04-Q130",
+      "type": "example_scenarios",
+      "intent": "scenario_lack_of_threat_modeling",
+      "question": "What can go wrong if threat modeling is skipped?",
+      "answer": "Important attack paths like privilege escalation or logic abuse might go unnoticed, leading to critical security gaps."
+    },
+    {
+      "id": "A04-Q131",
+      "type": "example_scenarios",
+      "intent": "describe_weak_design_in_multistep_form",
+      "question": "Can you give a scenario where a multistep form was insecure by design?",
+      "answer": "If step validation is performed only on the final submission, users can skip steps or inject unexpected values directly into the backend."
+    },
+    {
+      "id": "A04-Q132",
+      "type": "example_scenarios",
+      "intent": "scenario_weak_file_upload_checks",
+      "question": "How can file upload features be misused due to insecure design?",
+      "answer": "A file upload service that fails to check MIME types or file content may allow attackers to upload executable code disguised as images."
+    },
+    {
+      "id": "A04-Q133",
+      "type": "example_scenarios",
+      "intent": "describe_insecure_webhook_design",
+      "question": "Describe a scenario where insecure webhook design was exploited.",
+      "answer": "A system trusted incoming webhooks without authentication, allowing attackers to trigger sensitive operations by faking requests."
+    },
+    {
+      "id": "A04-Q134",
+      "type": "example_scenarios",
+      "intent": "scenario_insufficient_quota_controls",
+      "question": "How can weak quota controls lead to abuse?",
+      "answer": "Attackers can consume excessive storage or API calls without hitting any limits, degrading service quality or causing financial damage."
+    },
+    {
+      "id": "A04-Q135",
+      "type": "example_scenarios",
+      "intent": "scenario_mobile_token_reuse",
+      "question": "What’s an example of insecure design in mobile token handling?",
+      "answer": "If mobile tokens are long-lived and not tied to device or session, stolen tokens can be reused from unauthorized devices."
+    },
+    {
+      "id": "A04-Q136",
+      "type": "example_scenarios",
+      "intent": "describe_race_condition_flaw",
+      "question": "How can race conditions arise from insecure design?",
+      "answer": "Failing to lock resources or check current state can let attackers exploit timing issues, such as triggering multiple discounts or bypassing limits."
+    },
+    {
+      "id": "A04-Q137",
+      "type": "example_scenarios",
+      "intent": "scenario_missing_logging_controls",
+      "question": "Can insecure logging design lead to vulnerabilities?",
+      "answer": "Yes, missing or excessive logging can expose sensitive data or hinder incident detection and response."
+    },
+    {
+      "id": "A04-Q138",
+      "type": "example_scenarios",
+      "intent": "scenario_open_redirect",
+      "question": "Give an example of a poorly designed redirect mechanism.",
+      "answer": "If a redirect feature trusts user input without validation, attackers can redirect users to phishing sites, enabling social engineering."
+    },
+    {
+      "id": "A04-Q139",
+      "type": "example_scenarios",
+      "intent": "scenario_insecure_admin_panel",
+      "question": "How can a poorly designed admin panel introduce risk?",
+      "answer": "If the panel is exposed on predictable URLs without extra authentication, attackers may find and abuse it."
+    },
+    {
+      "id": "A04-Q140",
+      "type": "example_scenarios",
+      "intent": "scenario_unvalidated_redirect_in_auth",
+      "question": "How can unvalidated redirects in authentication flows be abused?",
+      "answer": "Attackers can manipulate post-login redirects to send users to malicious sites, hijacking trust."
+    },
+    {
+      "id": "A04-Q141",
+      "type": "example_scenarios",
+      "intent": "scenario_insecure_default_settings",
+      "question": "Give a scenario involving insecure default settings.",
+      "answer": "A database is deployed with default credentials and open network access, allowing unauthorized remote connections."
+    },
+    {
+      "id": "A04-Q142",
+      "type": "example_scenarios",
+      "intent": "scenario_missing_rate_limiting",
+      "question": "What happens when rate limiting is missing in login systems?",
+      "answer": "Attackers can perform brute-force attacks to guess passwords without triggering any alarms or getting blocked."
+    },
+    {
+      "id": "A04-Q143",
+      "type": "example_scenarios",
+      "intent": "scenario_reused_components_flaws",
+      "question": "Can insecure design occur from reused components?",
+      "answer": "Yes, reusing vulnerable modules or misconfigured libraries can introduce systemic flaws across services."
+    },
+    {
+      "id": "A04-Q144",
+      "type": "example_scenarios",
+      "intent": "scenario_no_security_on_dev_endpoints",
+      "question": "How can insecure design affect development environments?",
+      "answer": "Leaving debug or staging endpoints accessible in production can reveal system internals or allow privileged access."
+    },
+    {
+      "id": "A04-Q145",
+      "type": "example_scenarios",
+      "intent": "scenario_multi_step_auth_flaw",
+      "question": "Describe a scenario with broken multi-step authentication.",
+      "answer": "An attacker bypasses step two of authentication because it’s client-side enforced and not validated on the server."
+    }
+  ],
+  "prevention": [
+    {
+      "id": "A04-Q091",
+      "type": "prevention_methods",
+      "intent": "secure_sdlc_use",
+      "question": "How does using a Secure Development Lifecycle (SDLC) help prevent insecure design?",
+      "answer": "A Secure SDLC integrates security assessments and controls throughout development, reducing design flaws before implementation begins."
+    },
+    {
+      "id": "A04-Q092",
+      "type": "prevention_methods",
+      "intent": "design_patterns_library_use",
+      "question": "Why is it beneficial to use secure design patterns or 'paved road' components?",
+      "answer": "They provide vetted, reusable solutions to common problems, reducing the chance of introducing security flaws through custom code."
+    },
+    {
+      "id": "A04-Q093",
+      "type": "prevention_methods",
+      "intent": "threat_modeling_critical_flows",
+      "question": "Why is threat modeling essential for critical flows like authentication and access control?",
+      "answer": "It identifies attack vectors early, allowing the design to include proper defenses against misuse or exploitation."
+    },
+    {
+      "id": "A04-Q094",
+      "type": "prevention_methods",
+      "intent": "security_controls_in_user_stories",
+      "question": "How can adding security controls to user stories improve design security?",
+      "answer": "It ensures developers consider and implement protections from the planning phase, aligning features with security requirements."
+    },
+    {
+      "id": "A04-Q095",
+      "type": "prevention_methods",
+      "intent": "plausibility_checks_use",
+      "question": "What role do plausibility checks play in secure design?",
+      "answer": "They validate inputs and behaviors across tiers, preventing unrealistic or malicious values from reaching sensitive systems."
+    },
+    {
+      "id": "A04-Q096",
+      "type": "prevention_methods",
+      "intent": "test_against_modeled_threats",
+      "question": "Why should tests be written to validate resistance against modeled threats?",
+      "answer": "It verifies that the implemented controls work as intended and guard against known threat scenarios."
+    },
+    {
+      "id": "A04-Q097",
+      "type": "prevention_methods",
+      "intent": "segregate_risk_layers",
+      "question": "How does segregating system and network layers based on risk improve security?",
+      "answer": "It limits exposure by isolating critical systems, reducing the blast radius of a potential breach."
+    },
+    {
+      "id": "A04-Q098",
+      "type": "prevention_methods",
+      "intent": "multi_tenant_separation",
+      "question": "What is the benefit of strong multi-tenant separation in application design?",
+      "answer": "It prevents cross-tenant data access and enforces clear isolation between user environments."
+    },
+    {
+      "id": "A04-Q099",
+      "type": "prevention_methods",
+      "intent": "resource_limit_enforcement",
+      "question": "How can enforcing per-user resource limits help mitigate abuse?",
+      "answer": "It prevents single users or bots from consuming disproportionate resources, reducing denial-of-service risks."
+    },
+    {
+      "id": "A04-Q100",
+      "type": "prevention_methods",
+      "intent": "design_review_by_appsec",
+      "question": "Why should application security professionals review design decisions?",
+      "answer": "They provide expert analysis of architectural risks and recommend appropriate security controls."
+    },
+    {
+      "id": "A04-Q101",
+      "type": "prevention_methods",
+      "intent": "embed_security_early",
+      "question": "Why is embedding security early in the development lifecycle important?",
+      "answer": "It reduces cost and effort by addressing flaws before code is written and prevents systemic issues from spreading."
+    },
+    {
+      "id": "A04-Q102",
+      "type": "prevention_methods",
+      "intent": "update_security_references",
+      "question": "How do reference architectures contribute to secure design?",
+      "answer": "They offer baseline security requirements and validated structures to avoid reinventing insecure solutions."
+    },
+    {
+      "id": "A04-Q103",
+      "type": "prevention_methods",
+      "intent": "include_misuse_abuse_cases",
+      "question": "Why should design teams consider misuse and abuse cases?",
+      "answer": "It ensures that the system can withstand malicious use, not just legitimate behavior."
+    },
+    {
+      "id": "A04-Q104",
+      "type": "prevention_methods",
+      "intent": "avoid_security_questions",
+      "question": "Why should designers avoid using security questions for verification?",
+      "answer": "They are weak forms of authentication and can often be guessed or found through social media."
+    },
+    {
+      "id": "A04-Q105",
+      "type": "prevention_methods",
+      "intent": "use_rate_limiting",
+      "question": "How does rate limiting support secure design?",
+      "answer": "It protects endpoints from brute-force and abuse by restricting the number of allowed requests over time."
+    },
+    {
+      "id": "A04-Q106",
+      "type": "prevention_methods",
+      "intent": "ensure_error_message_control",
+      "question": "How should error messages be handled in secure design?",
+      "answer": "They should provide minimal information to users and detailed context only to internal logging systems."
+    },
+    {
+      "id": "A04-Q107",
+      "type": "prevention_methods",
+      "intent": "prioritize_defense_in_depth",
+      "question": "Why is defense-in-depth a core prevention principle in design?",
+      "answer": "It ensures that multiple layers of controls exist so that if one fails, others still protect the system."
+    },
+    {
+      "id": "A04-Q108",
+      "type": "prevention_methods",
+      "intent": "use_secure_defaults",
+      "question": "What does 'secure by default' mean in application design?",
+      "answer": "Systems should have the most secure settings enabled initially, minimizing configuration-based vulnerabilities."
+    },
+    {
+      "id": "A04-Q109",
+      "type": "prevention_methods",
+      "intent": "automate_threat_modeling",
+      "question": "How can automating threat modeling improve prevention?",
+      "answer": "It increases consistency, saves time, and ensures that threat analysis is performed on every relevant component."
+    },
+    {
+      "id": "A04-Q110",
+      "type": "prevention_methods",
+      "intent": "monitor_design_drift",
+      "question": "Why is monitoring design drift important for maintaining secure architecture?",
+      "answer": "It helps detect when the implemented system deviates from the secure design plan, enabling corrective action."
+    },
+    {
+      "id": "A04-Q111",
+      "type": "prevention_methods",
+      "intent": "train_designers_in_security",
+      "question": "Why is it important to train designers in application security?",
+      "answer": "It empowers them to make informed choices and anticipate how attackers might exploit design weaknesses."
+    },
+    {
+      "id": "A04-Q112",
+      "type": "prevention_methods",
+      "intent": "integrate_static_analysis",
+      "question": "How does integrating static analysis support secure design?",
+      "answer": "It identifies insecure design patterns and logic early in the development cycle, before they reach production."
+    },
+    {
+      "id": "A04-Q113",
+      "type": "prevention_methods",
+      "intent": "enforce_secure_coding_standards",
+      "question": "How do secure coding standards support preventive design?",
+      "answer": "They align development practices with security goals and minimize opportunities for introducing flawed logic."
+    },
+    {
+      "id": "A04-Q114",
+      "type": "prevention_methods",
+      "intent": "test_designs_under_load",
+      "question": "Why is stress testing part of preventive design strategies?",
+      "answer": "It reveals how a system behaves under attack-like conditions, helping to address flaws in capacity or abuse prevention."
+    },
+    {
+      "id": "A04-Q115",
+      "type": "prevention_methods",
+      "intent": "document_security_decisions",
+      "question": "How does documenting security design decisions help?",
+      "answer": "It promotes transparency, enables reviews, and ensures future teams understand the rationale behind architecture choices."
+    },
+    {
+      "id": "A04-Q116",
+      "type": "prevention_methods",
+      "intent": "limit_user_functionality",
+      "question": "Why should designers limit user functionality to only what’s necessary?",
+      "answer": "Reducing unnecessary features minimizes the attack surface and potential misuse."
+    },
+    {
+      "id": "A04-Q117",
+      "type": "prevention_methods",
+      "intent": "architect_for_isolation",
+      "question": "What does it mean to architect for isolation?",
+      "answer": "It involves separating workloads, users, or data to ensure that compromise in one area does not affect others."
+    },
+    {
+      "id": "A04-Q118",
+      "type": "prevention_methods",
+      "intent": "use_token_bound_access",
+      "question": "How can token-bound access control prevent design flaws?",
+      "answer": "It ensures that authentication tokens are scoped and restricted, preventing their use across unintended contexts."
+    },
+    {
+      "id": "A04-Q119",
+      "type": "prevention_methods",
+      "intent": "test_user_story_threats",
+      "question": "Why should user stories be tested for potential threats?",
+      "answer": "To verify that each feature is resilient to abuse and includes necessary protections as part of its definition."
+    },
+    {
+      "id": "A04-Q120",
+      "type": "prevention_methods",
+      "intent": "use_identity_proofing",
+      "question": "What is identity proofing and how does it enhance secure design?",
+      "answer": "It verifies that users are who they claim to be before granting access, reducing the risk of impersonation-based attacks."
+    }
+  ],
+  "proactive": [
+    {
+      "id": "A04-Q188",
+      "type": "proactive_suggestions",
+      "intent": "implement_secure_design_lifecycle",
+      "question": "How can organizations proactively reduce Insecure Design risks?",
+      "answer": "Organizations should establish and use a secure development lifecycle involving AppSec professionals to evaluate and design security and privacy controls early in the design phase."
+    },
+    {
+      "id": "A04-Q189",
+      "type": "proactive_suggestions",
+      "intent": "use_secure_design_patterns",
+      "question": "Why is using a library of secure design patterns recommended?",
+      "answer": "Using a library of secure design patterns ensures consistent application of best practices, reducing the chance of insecure or outdated design decisions."
+    },
+    {
+      "id": "A04-Q190",
+      "type": "proactive_suggestions",
+      "intent": "conduct_threat_modeling_regularly",
+      "question": "How does conducting threat modeling help prevent Insecure Design vulnerabilities?",
+      "answer": "Threat modeling identifies potential threats in critical flows such as authentication and business logic early, allowing teams to design appropriate mitigations before coding begins."
+    },
+    {
+      "id": "A04-Q191",
+      "type": "proactive_suggestions",
+      "intent": "integrate_security_in_user_stories",
+      "question": "What is the benefit of integrating security language and controls into user stories?",
+      "answer": "It ensures security requirements are considered during development planning, preventing design flaws and aligning security with functional goals."
+    },
+    {
+      "id": "A04-Q192",
+      "type": "proactive_suggestions",
+      "intent": "write_plausibility_checks",
+      "question": "What role do plausibility checks across application tiers play in proactive security?",
+      "answer": "Plausibility checks help detect abnormal or malicious inputs at multiple layers, limiting the impact of design weaknesses and preventing abuse."
+    },
+    {
+      "id": "A04-Q193",
+      "type": "proactive_suggestions",
+      "intent": "implement_unit_and_integration_tests",
+      "question": "How can tests improve security against design flaws?",
+      "answer": "Writing unit and integration tests that validate resistance to modeled threats ensures that security controls are effective and design assumptions hold true."
+    },
+    {
+      "id": "A04-Q194",
+      "type": "proactive_suggestions",
+      "intent": "segregate_network_and_system_layers",
+      "question": "Why is segregation of system and network layers important?",
+      "answer": "Segregation limits the impact of vulnerabilities by isolating critical components, reducing attack surface and containing breaches."
+    },
+    {
+      "id": "A04-Q195",
+      "type": "proactive_suggestions",
+      "intent": "enforce_multi_tenant_separation",
+      "question": "What proactive step can prevent tenant data leakage in shared environments?",
+      "answer": "Implementing strong multi-tenant separation across all tiers prevents unauthorized access and data leakage between tenants."
+    },
+    {
+      "id": "A04-Q196",
+      "type": "proactive_suggestions",
+      "intent": "limit_resource_consumption",
+      "question": "How does enforcing resource consumption limits improve security?",
+      "answer": "It prevents abuse or denial of service by restricting how much resources a single user or automated agent can consume."
+    },
+    {
+      "id": "A04-Q197",
+      "type": "proactive_suggestions",
+      "intent": "involve_appsec_early",
+      "question": "Why should AppSec professionals be involved early in the design process?",
+      "answer": "Early involvement ensures security is baked into the architecture, reducing costly redesigns and preventing insecure design decisions."
+    },
+    {
+      "id": "A04-Q198",
+      "type": "proactive_suggestions",
+      "intent": "review_and_update_design_patterns",
+      "question": "Why is it important to regularly review and update design patterns?",
+      "answer": "Regular updates prevent reliance on outdated or insecure patterns, ensuring the design stays aligned with current security standards."
+    },
+    {
+      "id": "A04-Q199",
+      "type": "proactive_suggestions",
+      "intent": "train_developers_on_secure_design",
+      "question": "How can developer training reduce Insecure Design risks?",
+      "answer": "Training increases awareness of security principles, enabling developers to identify and avoid insecure design practices."
+    },
+    {
+      "id": "A04-Q200",
+      "type": "proactive_suggestions",
+      "intent": "apply_threat_assessment_tools",
+      "question": "What is the benefit of using threat assessment tools during design?",
+      "answer": "These tools automate identification of potential attack vectors, helping teams focus on critical security controls."
+    },
+    {
+      "id": "A04-Q201",
+      "type": "proactive_suggestions",
+      "intent": "simulate_attack_scenarios",
+      "question": "How does simulating attack scenarios aid proactive design?",
+      "answer": "It exposes design weaknesses by mimicking attacker behaviors, guiding remediation before deployment."
+    },
+    {
+      "id": "A04-Q202",
+      "type": "proactive_suggestions",
+      "intent": "collaborate_across_teams",
+      "question": "Why is cross-team collaboration important for secure design?",
+      "answer": "Collaboration between developers, architects, and security experts ensures all perspectives are considered, reducing overlooked risks."
+    },
+    {
+      "id": "A04-Q203",
+      "type": "proactive_suggestions",
+      "intent": "use_reference_architectures",
+      "question": "How do reference architectures contribute to secure design?",
+      "answer": "They provide vetted templates and best practices, accelerating secure design adoption and consistency."
+    },
+    {
+      "id": "A04-Q204",
+      "type": "proactive_suggestions",
+      "intent": "incorporate_privacy_by_design",
+      "question": "What is the benefit of incorporating privacy by design principles?",
+      "answer": "It ensures personal data is protected through design decisions, reducing privacy risks and compliance issues."
+    },
+    {
+      "id": "A04-Q205",
+      "type": "proactive_suggestions",
+      "intent": "perform_regular_design_reviews",
+      "question": "How do regular design reviews help maintain security?",
+      "answer": "They detect and address new threats or design weaknesses throughout the development lifecycle."
+    },
+    {
+      "id": "A04-Q206",
+      "type": "proactive_suggestions",
+      "intent": "use_automated_security_tools",
+      "question": "What role do automated security tools play in design validation?",
+      "answer": "They help identify design issues early and enforce compliance with security policies."
+    },
+    {
+      "id": "A04-Q207",
+      "type": "proactive_suggestions",
+      "intent": "document_security_decisions",
+      "question": "Why is documenting security decisions important in design?",
+      "answer": "It creates traceability and justification for design choices, aiding audits and future improvements."
+    },
+    {
+      "id": "A04-Q208",
+      "type": "proactive_suggestions",
+      "intent": "prioritize_security_risks",
+      "question": "How should security risks be prioritized during design?",
+      "answer": "Risks should be prioritized based on business impact and likelihood to focus mitigation efforts effectively."
+    },
+    {
+      "id": "A04-Q209",
+      "type": "proactive_suggestions",
+      "intent": "encourage_security_mindset",
+      "question": "How can teams foster a security-first mindset?",
+      "answer": "By promoting security awareness, continuous learning, and rewarding secure practices throughout the organization."
+    },
+    {
+      "id": "A04-Q210",
+      "type": "proactive_suggestions",
+      "intent": "conduct_postmortems_on_incidents",
+      "question": "What is the value of conducting postmortems on security incidents?",
+      "answer": "They provide lessons learned to improve future designs and prevent recurrence of similar vulnerabilities."
+    },
+    {
+      "id": "A04-Q211",
+      "type": "proactive_suggestions",
+      "intent": "stay_updated_with_security_standards",
+      "question": "Why should design teams stay updated with security standards?",
+      "answer": "To ensure designs comply with current regulations and incorporate latest best practices."
+    },
+    {
+      "id": "A04-Q212",
+      "type": "proactive_suggestions",
+      "intent": "leverage_industry_guidelines",
+      "question": "How do industry guidelines help in proactive design?",
+      "answer": "They offer proven frameworks and checklists that streamline secure design efforts."
+    },
+    {
+      "id": "A04-Q213",
+      "type": "proactive_suggestions",
+      "intent": "address_business_logic_flaws",
+      "question": "Why is addressing business logic flaws important in secure design?",
+      "answer": "Because attackers often exploit these flaws to bypass security controls or manipulate workflows."
+    },
+    {
+      "id": "A04-Q214",
+      "type": "proactive_suggestions",
+      "intent": "test_design_under_load_conditions",
+      "question": "What is the importance of testing design under load or abuse conditions?",
+      "answer": "It ensures the design can withstand stress, preventing abuse like denial of service or resource exhaustion."
+    },
+    {
+      "id": "A04-Q215",
+      "type": "proactive_suggestions",
+      "intent": "engage_in_security_community",
+      "question": "How does engaging with the security community benefit design teams?",
+      "answer": "It provides access to shared knowledge, new threats, and collaborative solutions."
+    }
+  ],
+  "reference": [
+    {
+      "id": "A04-Q146",
+      "type": "references",
+      "intent": "reference_secure_design_cheat_sheet",
+      "question": "Where can I learn about secure design principles?",
+      "answer": "You can refer to the OWASP Cheat Sheet: Secure Design Principles for a comprehensive guide on implementing security during the design phase."
+    },
+    {
+      "id": "A04-Q147",
+      "type": "references",
+      "intent": "reference_owasp_samm_architecture",
+      "question": "Which OWASP resource helps evaluate secure architecture?",
+      "answer": "OWASP SAMM: Design: Security Architecture provides maturity models and practices for integrating security into software design."
+    },
+    {
+      "id": "A04-Q148",
+      "type": "references",
+      "intent": "reference_owasp_samm_threat_assessment",
+      "question": "What OWASP resource focuses on threat assessment during design?",
+      "answer": "OWASP SAMM: Design: Threat Assessment is a key reference that guides how to identify and prioritize threats in software projects."
+    },
+    {
+      "id": "A04-Q149",
+      "type": "references",
+      "intent": "reference_nist_minimum_standards",
+      "question": "Which NIST document outlines minimum standards for secure software verification?",
+      "answer": "NIST’s 'Guidelines on Minimum Standards for Developer Verification of Software' is a valuable resource for ensuring software security practices."
+    },
+    {
+      "id": "A04-Q150",
+      "type": "references",
+      "intent": "reference_threat_modeling_manifesto",
+      "question": "Where can I find a practical framework for threat modeling?",
+      "answer": "The Threat Modeling Manifesto offers practical principles and values for performing threat modeling effectively."
+    },
+    {
+      "id": "A04-Q151",
+      "type": "references",
+      "intent": "reference_awesome_threat_modeling",
+      "question": "Is there a curated list of threat modeling tools and resources?",
+      "answer": "Yes, 'Awesome Threat Modeling' is a curated GitHub list containing threat modeling methodologies, tools, books, and resources."
+    },
+    {
+      "id": "A04-Q152",
+      "type": "references",
+      "intent": "reference_owasp_main_page",
+      "question": "Where can I find the official OWASP Top 10 documentation?",
+      "answer": "The official OWASP website (owasp.org) provides detailed documentation and resources related to the OWASP Top 10."
+    },
+    {
+      "id": "A04-Q153",
+      "type": "references",
+      "intent": "reference_secure_sdcl_guidance",
+      "question": "Where can I get guidance on Secure Software Development Lifecycle (SSDLC)?",
+      "answer": "OWASP and NIST both offer guidance on implementing secure development lifecycles that incorporate design phase security."
+    },
+    {
+      "id": "A04-Q154",
+      "type": "references",
+      "intent": "reference_secure_design_patterns",
+      "question": "Are there standard secure design patterns I can follow?",
+      "answer": "Yes, OWASP’s Secure Design Principles Cheat Sheet includes standard design patterns to prevent common vulnerabilities."
+    },
+    {
+      "id": "A04-Q155",
+      "type": "references",
+      "intent": "reference_security_user_stories",
+      "question": "Where can I learn to write secure user stories?",
+      "answer": "OWASP provides guidance on integrating security language into user stories to ensure security is considered from the beginning."
+    },
+    {
+      "id": "A04-Q156",
+      "type": "references",
+      "intent": "reference_cwe_209",
+      "question": "Where can I read more about CWE-209?",
+      "answer": "You can visit the MITRE CWE database to read about CWE-209: Information Exposure Through an Error Message."
+    },
+    {
+      "id": "A04-Q157",
+      "type": "references",
+      "intent": "reference_cwe_256",
+      "question": "What does CWE-256 refer to?",
+      "answer": "CWE-256 refers to the use of plaintext storage of passwords, which is a critical design flaw according to MITRE's CWE listings."
+    },
+    {
+      "id": "A04-Q158",
+      "type": "references",
+      "intent": "reference_owasp_testing_guide",
+      "question": "What OWASP resource helps in security testing insecure design flaws?",
+      "answer": "The OWASP Testing Guide includes specific sections on how to test for design-related security issues."
+    },
+    {
+      "id": "A04-Q159",
+      "type": "references",
+      "intent": "reference_asvs_design_controls",
+      "question": "Is there a standard that defines secure design controls?",
+      "answer": "Yes, OWASP ASVS (Application Security Verification Standard) includes detailed requirements for design-level security."
+    },
+    {
+      "id": "A04-Q160",
+      "type": "references",
+      "intent": "reference_nist_sp800-218",
+      "question": "Which NIST publication focuses on secure software development frameworks?",
+      "answer": "NIST SP 800-218 (SSDF) provides a recommended secure software development framework with emphasis on planning and design."
+    },
+    {
+      "id": "A04-Q161",
+      "type": "references",
+      "intent": "reference_mitre_cwe_project",
+      "question": "Where can I access the full list of CWEs related to insecure design?",
+      "answer": "MITRE’s CWE project (cwe.mitre.org) provides detailed information and mappings related to insecure design weaknesses."
+    },
+    {
+      "id": "A04-Q162",
+      "type": "references",
+      "intent": "reference_microsoft_secure_design_lifecycle",
+      "question": "Does Microsoft offer guidance on secure software design?",
+      "answer": "Yes, Microsoft’s Security Development Lifecycle (SDL) includes secure design principles and practices."
+    },
+    {
+      "id": "A04-Q163",
+      "type": "references",
+      "intent": "reference_google_secure_design",
+      "question": "Where can I learn about Google’s approach to secure design?",
+      "answer": "Google’s security documentation includes design principles such as defense in depth, principle of least privilege, and threat modeling."
+    },
+    {
+      "id": "A04-Q164",
+      "type": "references",
+      "intent": "reference_owasp_masvs",
+      "question": "Which OWASP standard is used for mobile application secure design?",
+      "answer": "OWASP MASVS (Mobile Application Security Verification Standard) outlines security requirements for mobile app design."
+    },
+    {
+      "id": "A04-Q165",
+      "type": "references",
+      "intent": "reference_threat_modeling_tools",
+      "question": "Are there tools recommended for threat modeling?",
+      "answer": "Yes, tools like Microsoft Threat Modeling Tool and OWASP Threat Dragon help teams model and mitigate threats in the design phase."
+    },
+    {
+      "id": "A04-Q166",
+      "type": "references",
+      "intent": "reference_owasp_clasp",
+      "question": "What is OWASP CLASP?",
+      "answer": "OWASP CLASP is a comprehensive set of security activities organized by role and project phase, including secure design practices."
+    }
+  ],
+  "statistics": [
+    {
+      "id": "A04-Q167",
+      "type": "statistics",
+      "intent": "insecure_design_cwe_count",
+      "question": "How many CWEs are mapped to Insecure Design in OWASP A04:2021?",
+      "answer": "There are 40 CWEs mapped to the Insecure Design category."
+    },
+    {
+      "id": "A04-Q168",
+      "type": "statistics",
+      "intent": "insecure_design_max_incidence",
+      "question": "What is the maximum incidence rate of Insecure Design vulnerabilities?",
+      "answer": "The maximum incidence rate is 24.19%."
+    },
+    {
+      "id": "A04-Q169",
+      "type": "statistics",
+      "intent": "insecure_design_avg_incidence",
+      "question": "What is the average incidence rate for Insecure Design?",
+      "answer": "The average incidence rate is 3.00%."
+    },
+    {
+      "id": "A04-Q170",
+      "type": "statistics",
+      "intent": "insecure_design_avg_exploit_score",
+      "question": "What is the average weighted exploit score for Insecure Design?",
+      "answer": "The average weighted exploit score is 6.46."
+    },
+    {
+      "id": "A04-Q171",
+      "type": "statistics",
+      "intent": "insecure_design_avg_impact_score",
+      "question": "What is the average weighted impact score for Insecure Design vulnerabilities?",
+      "answer": "The average weighted impact score is 6.78."
+    },
+    {
+      "id": "A04-Q172",
+      "type": "statistics",
+      "intent": "insecure_design_max_coverage",
+      "question": "What is the maximum coverage value for Insecure Design CWEs?",
+      "answer": "The maximum coverage is 77.25%."
+    },
+    {
+      "id": "A04-Q173",
+      "type": "statistics",
+      "intent": "insecure_design_avg_coverage",
+      "question": "What is the average coverage for Insecure Design CWEs?",
+      "answer": "The average coverage is 42.51%."
+    },
+    {
+      "id": "A04-Q174",
+      "type": "statistics",
+      "intent": "insecure_design_total_occurrences",
+      "question": "How many total occurrences are recorded under Insecure Design?",
+      "answer": "There are 262,407 total occurrences related to Insecure Design."
+    },
+    {
+      "id": "A04-Q175",
+      "type": "statistics",
+      "intent": "insecure_design_total_cves",
+      "question": "How many CVEs are associated with Insecure Design?",
+      "answer": "There are 2,691 CVEs associated with Insecure Design."
+    },
+    {
+      "id": "A04-Q176",
+      "type": "statistics",
+      "intent": "compare_avg_exploit_impact",
+      "question": "Is the average impact score higher than the exploit score for Insecure Design?",
+      "answer": "Yes, the average impact score is 6.78, which is higher than the average exploit score of 6.46."
+    },
+    {
+      "id": "A04-Q177",
+      "type": "statistics",
+      "intent": "insecure_design_cwe_highlight",
+      "question": "Which CWEs are most notable under Insecure Design?",
+      "answer": "Notable CWEs include CWE-209, CWE-256, CWE-501, and CWE-522."
+    },
+    {
+      "id": "A04-Q178",
+      "type": "statistics",
+      "intent": "insecure_design_position_in_top10",
+      "question": "What position does Insecure Design hold in the OWASP Top 10 for 2021?",
+      "answer": "Insecure Design is ranked A04:2021 in the OWASP Top 10 list."
+    },
+    {
+      "id": "A04-Q179",
+      "type": "statistics",
+      "intent": "insecure_design_category_type",
+      "question": "Is Insecure Design a new category in OWASP Top 10 2021?",
+      "answer": "Yes, Insecure Design is a newly introduced category in the OWASP Top 10 2021."
+    },
+    {
+      "id": "A04-Q180",
+      "type": "statistics",
+      "intent": "avg_vs_max_coverage_difference",
+      "question": "What is the difference between average and maximum coverage for Insecure Design?",
+      "answer": "The difference is 34.74% (77.25% max - 42.51% avg)."
+    },
+    {
+      "id": "A04-Q181",
+      "type": "statistics",
+      "intent": "avg_vs_max_incidence_difference",
+      "question": "What is the gap between maximum and average incidence rates for Insecure Design?",
+      "answer": "The gap is 21.19% (24.19% max - 3.00% avg)."
+    },
+    {
+      "id": "A04-Q182",
+      "type": "statistics",
+      "intent": "insecure_design_incidence_context",
+      "question": "What does the incidence rate signify in Insecure Design statistics?",
+      "answer": "Incidence rate represents the percentage of applications affected by Insecure Design issues across tested systems."
+    },
+    {
+      "id": "A04-Q183",
+      "type": "statistics",
+      "intent": "insecure_design_impact_meaning",
+      "question": "What does the average weighted impact score indicate?",
+      "answer": "It reflects the potential severity or damage caused by exploiting Insecure Design vulnerabilities."
+    },
+    {
+      "id": "A04-Q184",
+      "type": "statistics",
+      "intent": "insecure_design_exploitability_meaning",
+      "question": "What does the average exploitability score of 6.46 mean?",
+      "answer": "It indicates a moderate-to-high likelihood that Insecure Design issues can be exploited in real-world applications."
+    },
+    {
+      "id": "A04-Q185",
+      "type": "statistics",
+      "intent": "insecure_design_cwe_distribution",
+      "question": "How widely are the 40 CWEs distributed in real-world scenarios?",
+      "answer": "These CWEs are widely distributed, showing high coverage values, with a maximum of 77.25% and an average of 42.51%."
+    },
+    {
+      "id": "A04-Q186",
+      "type": "statistics",
+      "intent": "insecure_design_risk_significance",
+      "question": "Why is Insecure Design considered statistically significant?",
+      "answer": "Its high total occurrence (262,407) and mapping to 40 CWEs make it a critical risk category in real-world software."
+    },
+    {
+      "id": "A04-Q187",
+      "type": "statistics",
+      "intent": "insecure_design_trend_2021",
+      "question": "What trend led to the inclusion of Insecure Design in 2021?",
+      "answer": "The shift from coding flaws to pre-code architectural flaws increased awareness, leading to its inclusion in OWASP 2021."
+    }
+  ],
+  "technical": [
+    {
+      "id": "A04-Q031",
+      "type": "technical_explanation",
+      "intent": "define_cwe_209",
+      "question": "What is CWE-209 and how does it relate to Insecure Design?",
+      "answer": "CWE-209 refers to 'Information Exposure Through an Error Message'. It occurs when detailed error information is shown to users or attackers, which can aid in further exploitation. Insecure design leads to such issues when applications fail to restrict debug output in production."
+    },
+    {
+      "id": "A04-Q032",
+      "type": "technical_explanation",
+      "intent": "describe_lack_of_threat_modeling",
+      "question": "How does lack of threat modeling contribute to Insecure Design?",
+      "answer": "Without threat modeling, developers may not anticipate potential attack vectors or abuse cases, leading to designs that overlook necessary security controls or validations, making the system inherently insecure."
+    },
+    {
+      "id": "A04-Q033",
+      "type": "technical_explanation",
+      "intent": "explain_flawed_authentication_flow",
+      "question": "How can an insecure design lead to flawed authentication flows?",
+      "answer": "Designs that fail to include multi-factor authentication, session management, or protections against brute force attacks can result in authentication mechanisms that are easy to bypass or abuse."
+    },
+    {
+      "id": "A04-Q034",
+      "type": "technical_explanation",
+      "intent": "discuss_cwe_501_and_cwe_522",
+      "question": "What are CWE-501 and CWE-522, and how are they tied to design issues?",
+      "answer": "CWE-501 ('Trust Boundary Violation') and CWE-522 ('Insufficiently Protected Credentials') stem from poor architectural decisions, such as exposing internal services or failing to protect stored credentials, making them exploitable by design."
+    },
+    {
+      "id": "A04-Q035",
+      "type": "technical_explanation",
+      "intent": "secure_design_patterns_in_practice",
+      "question": "How can secure design patterns be practically applied to prevent vulnerabilities?",
+      "answer": "Secure design patterns like 'Least Privilege', 'Defense in Depth', and 'Fail Securely' provide repeatable architectural solutions that mitigate common security flaws when implemented consistently across systems."
+    },
+    {
+      "id": "A04-Q036",
+      "type": "technical_explanation",
+      "intent": "explain_multi_tenant_isolation",
+      "question": "What is multi-tenant isolation and why must it be enforced at design time?",
+      "answer": "Multi-tenant isolation ensures that each user or tenant's data and actions are strictly segregated. Failing to design this properly can lead to data leaks or privilege escalation across tenants."
+    },
+    {
+      "id": "A04-Q037",
+      "type": "technical_explanation",
+      "intent": "describe_secure_sdlc_impact",
+      "question": "What role does a secure SDLC play in addressing insecure design?",
+      "answer": "A Secure SDLC embeds threat modeling, design reviews, and secure pattern enforcement early in development, reducing the chance that design flaws will make it into production systems."
+    },
+    {
+      "id": "A04-Q038",
+      "type": "technical_explanation",
+      "intent": "validate_resource_consumption_limits",
+      "question": "How should applications be designed to enforce resource consumption limits?",
+      "answer": "Designs should include rate limiting, per-user quotas, circuit breakers, and load thresholds to prevent abuse and maintain service availability under attack or heavy usage."
+    },
+    {
+      "id": "A04-Q039",
+      "type": "technical_explanation",
+      "intent": "discuss_insecure_recovery_mechanisms",
+      "question": "Why is using security questions for password recovery considered insecure by design?",
+      "answer": "Security questions are often predictable, guessable, or publicly available, and they bypass stronger authentication layers, making them an insecure fallback if included in the system design."
+    },
+    {
+      "id": "A04-Q040",
+      "type": "technical_explanation",
+      "intent": "identify_design_abuse_vectors",
+      "question": "What are some abuse vectors that stem directly from insecure design?",
+      "answer": "Examples include overbooking through logic loopholes, bot purchasing due to missing automation detection, or privilege escalation from misconfigured trust boundaries—all rooted in faulty design assumptions."
+    },
+    {
+      "id": "A04-Q041",
+      "type": "technical_explanation",
+      "intent": "cwe_256_and_password_storage",
+      "question": "How does CWE-256 relate to insecure password storage design?",
+      "answer": "CWE-256 refers to 'Plaintext Storage of a Password'. A design that lacks encryption or secure vaulting mechanisms for sensitive credentials makes the system prone to compromise if access is gained."
+    },
+    {
+      "id": "A04-Q042",
+      "type": "technical_explanation",
+      "intent": "discuss_impact_of_cwe_434",
+      "question": "How does CWE-434 (Unrestricted File Upload) result from insecure design?",
+      "answer": "CWE-434 occurs when systems allow file uploads without validating type, size, or content, often due to a lack of constraints or checks at the design level, leading to potential code execution or data loss."
+    },
+    {
+      "id": "A04-Q043",
+      "type": "technical_explanation",
+      "intent": "define_reference_architecture_security",
+      "question": "What is a security reference architecture and how does it prevent design flaws?",
+      "answer": "A security reference architecture is a predefined framework that guides developers in building secure applications, reducing inconsistency and eliminating common insecure design patterns."
+    },
+    {
+      "id": "A04-Q044",
+      "type": "technical_explanation",
+      "intent": "cwe_799_resource_throttling",
+      "question": "How does CWE-799 (Improper Control of Resource Consumption) relate to poor design?",
+      "answer": "CWE-799 highlights issues like unbounded loops, unlimited API calls, or lack of session limits—design-level flaws that make systems vulnerable to DoS attacks or abuse."
+    },
+    {
+      "id": "A04-Q045",
+      "type": "technical_explanation",
+      "intent": "applying_security_controls_tiers",
+      "question": "Why should security controls be applied at all tiers of an application?",
+      "answer": "Applying controls at each layer—presentation, logic, data—ensures redundancy and defense-in-depth, making it harder for attackers to bypass protections through a single vulnerable layer."
+    },
+    {
+      "id": "A04-Q046",
+      "type": "technical_explanation",
+      "intent": "discuss_cwe_602_client_trust",
+      "question": "What does CWE-602 indicate and how is trusting client-side controls a design issue?",
+      "answer": "CWE-602 refers to trusting client-side components for security. Relying on client-side validation can be bypassed easily, so secure systems must enforce rules server-side as part of secure architecture."
+    },
+    {
+      "id": "A04-Q047",
+      "type": "technical_explanation",
+      "intent": "explain_cwe_840_business_logic",
+      "question": "How does CWE-840 relate to business logic flaws in insecure design?",
+      "answer": "CWE-840 deals with business logic errors that allow abuse of application functionality. These stem from failing to model misuse cases or not validating intended workflows during design."
+    },
+    {
+      "id": "A04-Q048",
+      "type": "technical_explanation",
+      "intent": "explain_design_vs_implementation_flaws",
+      "question": "What is the key difference between design flaws and implementation bugs?",
+      "answer": "Design flaws are architectural issues that affect the overall system behavior regardless of code quality, while implementation bugs are coding mistakes that violate an otherwise sound design."
+    },
+    {
+      "id": "A04-Q049",
+      "type": "technical_explanation",
+      "intent": "explain_fail_secure_design",
+      "question": "What does it mean for a system to 'fail securely' in design?",
+      "answer": "Failing securely means that when an error occurs, the system defaults to a secure state—denying access, protecting data, and not exposing sensitive details. It must be planned into the design."
+    },
+    {
+      "id": "A04-Q050",
+      "type": "technical_explanation",
+      "intent": "evaluate_bot_protection_in_design",
+      "question": "How can bot protection be designed into a web application?",
+      "answer": "Designs should include CAPTCHA, behavior analysis, rate-limiting, and IP throttling. Failure to plan these controls at design time leaves systems vulnerable to automation abuse."
+    },
+    {
+      "id": "A04-Q051",
+      "type": "technical_explanation",
+      "intent": "analyze_flawed_authorization_design",
+      "question": "Why is it dangerous to combine authentication and authorization logic in design?",
+      "answer": "Combining them increases complexity and can lead to flawed assumptions, such as authorizing users based solely on successful login, without verifying specific permissions or roles."
+    },
+    {
+      "id": "A04-Q052",
+      "type": "technical_explanation",
+      "intent": "explain_design_for_auditability",
+      "question": "Why must systems be designed for auditability?",
+      "answer": "Auditability requires logging, traceability, and accountability for security events. If not considered in the design phase, retrofitting audit features later can be incomplete or error-prone."
+    },
+    {
+      "id": "A04-Q053",
+      "type": "technical_explanation",
+      "intent": "impact_of_cwe_1173",
+      "question": "How does CWE-1173 (Improper Use of Validation Framework) relate to insecure design?",
+      "answer": "CWE-1173 arises when security validation frameworks are used incorrectly or inconsistently due to design decisions, resulting in partial or ineffective enforcement of security policies."
+    },
+    {
+      "id": "A04-Q054",
+      "type": "technical_explanation",
+      "intent": "design_flaw_static_tokens",
+      "question": "Why is using static API keys or tokens a design flaw?",
+      "answer": "Static tokens are prone to leakage, replay, and misuse. Secure design involves using short-lived, scoped tokens with rotation and revocation mechanisms."
+    },
+    {
+      "id": "A04-Q055",
+      "type": "technical_explanation",
+      "intent": "secure_workflow_design",
+      "question": "How should workflows be designed to prevent abuse cases?",
+      "answer": "Workflows must be threat-modeled to identify misuse, include validation at each step, and enforce business rules like quotas, sequence constraints, and authorization checks."
+    },
+    {
+      "id": "A04-Q056",
+      "type": "technical_explanation",
+      "intent": "explain_flawed_default_config",
+      "question": "Why are insecure default configurations considered a design problem?",
+      "answer": "Defaults often go unchanged. If configurations like admin:admin or open ports are insecure by default, they introduce vulnerabilities at scale. Secure defaults must be baked into design."
+    },
+    {
+      "id": "A04-Q057",
+      "type": "technical_explanation",
+      "intent": "designing_privilege_escalation_resistance",
+      "question": "How can applications be designed to prevent privilege escalation?",
+      "answer": "Role-based access controls (RBAC), strict separation of duties, and privilege boundaries must be part of the design to ensure users can't escalate roles or permissions."
+    },
+    {
+      "id": "A04-Q058",
+      "type": "technical_explanation",
+      "intent": "describe_design_input_validation",
+      "question": "What is the role of input validation in secure design?",
+      "answer": "Input validation must be centralized, whitelist-based, and enforced uniformly across layers. Designing this improperly results in inconsistent protections vulnerable to bypasses."
+    },
+    {
+      "id": "A04-Q059",
+      "type": "technical_explanation",
+      "intent": "explain_layered_defense_design",
+      "question": "Why is layered defense critical in security design?",
+      "answer": "Layered defenses ensure that if one control fails, others still protect the system. It includes combining firewalls, validation, auth controls, logging, and behavioral detection."
+    },
+    {
+      "id": "A04-Q060",
+      "type": "technical_explanation",
+      "intent": "discuss_design_flaw_in_automated_agents",
+      "question": "How can designs prevent abuse by automated agents?",
+      "answer": "By incorporating bot detection, rate limiting, user behavior analysis, and anomaly detection at the design stage, systems can effectively defend against automated abuse."
+    }
+  ],
+  "vulnerability_identification": [
+    {
+      "id": "A04-Q061",
+      "type": "vulnerability_identification",
+      "intent": "identify_missing_threat_modeling",
+      "question": "How can missing threat modeling lead to insecure design vulnerabilities?",
+      "answer": "Without threat modeling, potential abuse cases and attacker perspectives are overlooked, leading to workflows that can be easily exploited."
+    },
+    {
+      "id": "A04-Q062",
+      "type": "vulnerability_identification",
+      "intent": "identify_weak_design_patterns",
+      "question": "What makes outdated design patterns like security questions insecure?",
+      "answer": "They rely on predictable information and can be guessed or found through social engineering, leading to account takeover vulnerabilities."
+    },
+    {
+      "id": "A04-Q063",
+      "type": "vulnerability_identification",
+      "intent": "identify_lack_of_business_logic_validation",
+      "question": "Why is the absence of business logic validation a vulnerability?",
+      "answer": "It allows users to abuse application features in unintended ways, such as manipulating pricing, discounts, or bypassing usage limits."
+    },
+    {
+      "id": "A04-Q064",
+      "type": "vulnerability_identification",
+      "intent": "identify_insecure_multitenancy",
+      "question": "How does improper multitenancy design pose a security risk?",
+      "answer": "It can lead to data leaks between tenants, unauthorized access to shared resources, and compromise of tenant isolation."
+    },
+    {
+      "id": "A04-Q065",
+      "type": "vulnerability_identification",
+      "intent": "identify_no_security_in_user_stories",
+      "question": "Why is failing to include security in user stories a design flaw?",
+      "answer": "It results in missing controls for authentication, access control, or misuse prevention because security requirements aren't defined early."
+    },
+    {
+      "id": "A04-Q066",
+      "type": "vulnerability_identification",
+      "intent": "identify_unrestricted_resource_usage",
+      "question": "How is unrestricted resource consumption a design vulnerability?",
+      "answer": "Attackers can exploit the lack of quotas to cause denial-of-service (DoS) by consuming CPU, memory, bandwidth, or API limits."
+    },
+    {
+      "id": "A04-Q067",
+      "type": "vulnerability_identification",
+      "intent": "identify_scenario_account_recovery_risk",
+      "question": "What vulnerability exists in using security questions for account recovery?",
+      "answer": "Answers are often guessable or publicly available, making this method vulnerable to unauthorized access and identity fraud."
+    },
+    {
+      "id": "A04-Q068",
+      "type": "vulnerability_identification",
+      "intent": "identify_cwe_209_information_exposure",
+      "question": "What does CWE-209 indicate in insecure design?",
+      "answer": "CWE-209 refers to information exposure through error messages or logs, which can leak sensitive system details if not handled securely."
+    },
+    {
+      "id": "A04-Q069",
+      "type": "vulnerability_identification",
+      "intent": "identify_bot_abuse_risk",
+      "question": "Why is lack of bot detection a design-level vulnerability?",
+      "answer": "It allows automated scripts to abuse the system—such as purchasing inventory or scraping content—undermining business operations and trust."
+    },
+    {
+      "id": "A04-Q070",
+      "type": "vulnerability_identification",
+      "intent": "identify_insecure_api_rate_limits",
+      "question": "What happens if APIs are not rate-limited at the design level?",
+      "answer": "Without rate limiting, attackers can brute-force credentials, flood endpoints, or exhaust resources, leading to service degradation or outages."
+    },
+    {
+      "id": "A04-Q071",
+      "type": "vulnerability_identification",
+      "intent": "identify_over_permissive_flows",
+      "question": "How can overly permissive workflows introduce design flaws?",
+      "answer": "They can allow users to bypass intended steps, escalate privileges, or interact with data they shouldn't have access to."
+    },
+    {
+      "id": "A04-Q072",
+      "type": "vulnerability_identification",
+      "intent": "identify_lack_of_segregation",
+      "question": "Why is failure to segregate internal and public systems a vulnerability?",
+      "answer": "It exposes internal services to untrusted networks, increasing the attack surface and enabling lateral movement by attackers."
+    },
+    {
+      "id": "A04-Q073",
+      "type": "vulnerability_identification",
+      "intent": "identify_inconsistent_validation",
+      "question": "How does inconsistent validation across layers cause vulnerabilities?",
+      "answer": "Attackers can bypass weak client-side checks and exploit differences between front-end and back-end enforcement."
+    },
+    {
+      "id": "A04-Q074",
+      "type": "vulnerability_identification",
+      "intent": "identify_weak_session_design",
+      "question": "How can poor session design contribute to insecurity?",
+      "answer": "If sessions are not securely timed out, rotated, or scoped, attackers may hijack them and impersonate users."
+    },
+    {
+      "id": "A04-Q075",
+      "type": "vulnerability_identification",
+      "intent": "identify_missing_abuse_case_modeling",
+      "question": "Why is lack of abuse-case modeling dangerous?",
+      "answer": "It overlooks how legitimate features can be repurposed for malicious use, such as using group discount logic for seat hoarding."
+    },
+    {
+      "id": "A04-Q076",
+      "type": "vulnerability_identification",
+      "intent": "identify_lack_of_privacy_controls",
+      "question": "How does ignoring privacy considerations lead to design vulnerabilities?",
+      "answer": "Sensitive user data may be exposed, logged, or mishandled due to absence of data minimization or protection requirements."
+    },
+    {
+      "id": "A04-Q077",
+      "type": "vulnerability_identification",
+      "intent": "identify_insecure_workflow_loops",
+      "question": "What makes uncontrolled loops in business workflows risky?",
+      "answer": "Attackers may automate repeated actions to drain resources, manipulate processes, or discover flaws in logic execution."
+    },
+    {
+      "id": "A04-Q078",
+      "type": "vulnerability_identification",
+      "intent": "identify_cwe_656_weak_security_strategy",
+      "question": "What vulnerability does CWE-656 describe?",
+      "answer": "It points to adopting a weak security strategy, such as ignoring defense-in-depth or failing to consider attack resilience in system design."
+    },
+    {
+      "id": "A04-Q079",
+      "type": "vulnerability_identification",
+      "intent": "identify_flawed_error_handling_design",
+      "question": "Why is flawed error handling a design-level vulnerability?",
+      "answer": "Improper error design can leak stack traces, debug info, or internal logic to users, helping attackers craft more effective attacks."
+    },
+    {
+      "id": "A04-Q080",
+      "type": "vulnerability_identification",
+      "intent": "identify_shared_component_risks",
+      "question": "How can shared components between tenants introduce vulnerabilities?",
+      "answer": "Designs that fail to isolate tenant data or processes can lead to cross-tenant data leakage and privilege escalation."
+    },
+    {
+      "id": "A04-Q081",
+      "type": "vulnerability_identification",
+      "intent": "identify_missing_plausibility_checks",
+      "question": "Why is the lack of plausibility checks in design a problem?",
+      "answer": "Without checks, applications may accept impossible or malicious input, like negative prices or unrealistic order quantities."
+    },
+    {
+      "id": "A04-Q082",
+      "type": "vulnerability_identification",
+      "intent": "identify_cwe_525_insecure_signout",
+      "question": "What is CWE-525 and how does it relate to insecure design?",
+      "answer": "It refers to incomplete or improper sign-out mechanisms, which may allow session reuse or residual access after logout."
+    },
+    {
+      "id": "A04-Q083",
+      "type": "vulnerability_identification",
+      "intent": "identify_scenario_discount_exploit",
+      "question": "What was the design flaw in the cinema booking scenario?",
+      "answer": "Lack of validation allowed attackers to abuse the group discount logic by manipulating parameters and booking at scale."
+    },
+    {
+      "id": "A04-Q084",
+      "type": "vulnerability_identification",
+      "intent": "identify_missing_rate_control",
+      "question": "Why is missing rate control on sensitive endpoints a vulnerability?",
+      "answer": "It permits brute-force and enumeration attacks, especially on login, password reset, or user lookup functions."
+    },
+    {
+      "id": "A04-Q085",
+      "type": "vulnerability_identification",
+      "intent": "identify_hardcoded_credentials_design",
+      "question": "Why is the use of hardcoded credentials a design issue?",
+      "answer": "Hardcoded credentials are static and often reused across systems, making them easy targets if exposed or reverse-engineered."
+    },
+    {
+      "id": "A04-Q086",
+      "type": "vulnerability_identification",
+      "intent": "identify_weak_identity_verification_design",
+      "question": "How can weak identity verification methods be a design vulnerability?",
+      "answer": "Designs relying on easily bypassed checks or public info for identity verification increase the risk of impersonation."
+    },
+    {
+      "id": "A04-Q087",
+      "type": "vulnerability_identification",
+      "intent": "identify_lack_of_design_documentation",
+      "question": "Why is undocumented design a risk for vulnerabilities?",
+      "answer": "It prevents review, auditing, and consistent implementation, leading to ad-hoc decisions that may miss security requirements."
+    },
+    {
+      "id": "A04-Q088",
+      "type": "vulnerability_identification",
+      "intent": "identify_design_flaw_open_redirect",
+      "question": "How can a poor redirect design lead to security risks?",
+      "answer": "If redirect URLs aren't validated or constrained, attackers can trick users into phishing by redirecting to malicious sites."
+    },
+    {
+      "id": "A04-Q089",
+      "type": "vulnerability_identification",
+      "intent": "identify_insecure_design_for_mobile_apps",
+      "question": "What design flaws are common in mobile app architectures?",
+      "answer": "Lack of server-side validation, weak encryption, and over-trusting client logic can all lead to security bypasses in mobile apps."
+    },
+    {
+      "id": "A04-Q090",
+      "type": "vulnerability_identification",
+      "intent": "identify_automation_abuse_in_ecommerce",
+      "question": "Why is automation abuse common in insecure e-commerce designs?",
+      "answer": "Without protections like CAPTCHAs or rate-limiting, scalpers and bots can hoard inventory or scrape pricing data at scale."
+    }
+  ]
+}

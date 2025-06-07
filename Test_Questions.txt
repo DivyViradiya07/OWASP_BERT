@@ -1,0 +1,34 @@
+1. Conceptual Nuance & Semantic Understanding:
+These questions try to get at the core meaning or subtle differences, forcing the model to go beyond keyword matching.
+
+"Explain how data confidentiality is maintained by proper crypto usage." (Tests A02: Cryptographic Failures – focuses on 'confidentiality' beyond just 'encryption')
+"What's the difference between authentication and authorization from a security perspective?" (Tests A07: Identification and Authentication Failures vs A01: Broken Access Control - fundamental distinction)
+"Can insecure design alone lead to system compromise without coding errors?" (Tests A04: Insecure Design – emphasizes 'design' over 'implementation flaws')
+"Beyond patching, what's a proactive way to manage vulnerable dependencies?" (Tests A06: Vulnerable and Outdated Components – looks for proactive rather than reactive solutions)
+
+2. Cross-Category Linkage & Proactive Suggestions:
+These aim to trigger related topics or see if the model can implicitly link concepts across different OWASP categories.
+
+"A weak password policy leads to what kind of OWASP Top 10 issue, and what might happen next?" (Tests A07 but probes for downstream impact/related issues like A01)
+"If an attacker can access sensitive internal API endpoints, which OWASP risk is that, and what other risks should I consider?" (Tests A10: SSRF but also implicitly A01 and A05, looking for proactive suggestions)
+"I'm worried about sensitive data appearing in logs. What OWASP category covers that, and how does it relate to data exposure?" (Tests A09: Security Logging and its connection to A02 or A05)
+"How does a lack of secure CI/CD practices contribute to data integrity issues?" (Tests A08: Software and Data Integrity Failures and its connection to development practices)
+
+3. Solution/Mitigation-Oriented (Complex):
+These questions ask for solutions, which might map to prevention sections.
+
+"What architectural patterns help mitigate insecure design choices early in development?" (Tests A04: Insecure Design – looking for design-level solutions)
+"I want to protect my application from command injection. What are the best practices?" (Tests A03: Injection – requires finding comprehensive prevention)
+"How do I ensure my web application's identity verification process is robust against common attacks?" (Tests A07: Identification and Authentication Failures – looking for robust solutions)
+
+4. Indirect or Abstract Queries:
+These use less direct terminology to see if the semantic understanding holds up.
+
+"My app's error messages are too verbose. Which OWASP risk is that, and why is it a problem?" (Tests A05: Security Misconfiguration or A09: Logging – probes for information leakage)
+"What are the dangers of fetching external resources via user-supplied URLs without careful validation?" (Tests A10: SSRF without explicitly saying "SSRF")
+"If my system's internal configuration files are accessible through a web browser, what vulnerability applies?" (Tests A05: Security Misconfiguration related to exposed files)
+
+5. Combination / Scenario-Based:
+Asking about a scenario that touches multiple areas.
+
+"An attacker found an exposed admin panel, and then guessed the default password. Which OWASP categories are involved, and what's the combined impact?" (Tests A01: Broken Access Control and A07: Authentication Failures, looking for multi-faceted understanding)

@@ -1,0 +1,175 @@
+{
+    "cloud_security_risks": [
+      {
+        "id": 1,
+        "name": "Broken Access Control",
+        "description": "Occurs when cloud resources are not properly secured, allowing unauthorized users to access sensitive data or perform unauthorized actions.",
+        "impact": [
+          "Data breaches",
+          "Unauthorized access to sensitive information",
+          "Modification or deletion of data",
+          "Disruption of services"
+        ],
+        "mitigation": [
+          "Implement strong authentication and authorization mechanisms",
+          "Use role-based access control (RBAC) to restrict access based on user roles and responsibilities",
+          "Regularly review and update access control policies",
+          "Monitor for suspicious activity and unauthorized access attempts"
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Misconfiguration and Inadequate Change Control",
+        "description": "Misconfigured cloud services and inadequate change control processes that expose systems to vulnerabilities and breaches.",
+        "impact": [
+          "Data breaches",
+          "Denial of service (DoS) attacks",
+          "Unauthorized access to systems and data",
+          "Loss of data or system integrity"
+        ],
+        "mitigation": [
+          "Establish secure configuration baselines for cloud services",
+          "Implement automated security configuration tools",
+          "Use infrastructure as code (IaC) to manage and automate cloud infrastructure configurations",
+          "Implement a robust change management process to track and approve changes"
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Insecure Interfaces and APIs",
+        "description": "Insecure APIs and interfaces that allow attackers to exploit vulnerabilities and gain unauthorized access.",
+        "impact": [
+          "Data breaches",
+          "Injection attacks",
+          "Cross-site scripting (XSS) attacks",
+          "Denial of service (DoS) attacks"
+        ],
+        "mitigation": [
+          "Securely design and implement APIs with strong authentication and authorization",
+          "Validate all input to prevent injection attacks",
+          "Regularly test APIs for vulnerabilities using security testing tools",
+          "Implement rate limiting and input validation to mitigate DoS attacks"
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Vulnerable and Outdated Components",
+        "description": "Using vulnerable or outdated components in cloud applications introduces security risks.",
+        "impact": [
+          "Data breaches",
+          "Remote code execution",
+          "Denial of service (DoS) attacks",
+          "Loss of data or system integrity"
+        ],
+        "mitigation": [
+          "Regularly update and patch all components including OS, libraries, and applications",
+          "Use vulnerability scanning tools to identify and fix vulnerabilities",
+          "Implement process for tracking and managing component dependencies",
+          "Consider containerization to isolate applications and dependencies"
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Data Loss and Leakage",
+        "description": "Loss or leakage of data due to accidental deletion, misconfiguration, or malicious attacks.",
+        "impact": [
+          "Loss of sensitive data",
+          "Reputational damage",
+          "Financial losses",
+          "Legal and regulatory penalties"
+        ],
+        "mitigation": [
+          "Implement strong data security policies and procedures",
+          "Encrypt data at rest and in transit",
+          "Use data loss prevention (DLP) tools to monitor and prevent leakage",
+          "Regularly back up data and ensure backups are securely stored"
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Insufficient Identity, Credential, Access, and Key Management",
+        "description": "Poor management of identities, credentials, access rights, and encryption keys.",
+        "impact": [
+          "Account hijacking",
+          "Privilege escalation",
+          "Data breaches",
+          "Loss of control over cloud resources"
+        ],
+        "mitigation": [
+          "Implement strong password policies and multi-factor authentication",
+          "Use centralized identity and access management (IAM)",
+          "Regularly rotate credentials and keys",
+          "Apply least privilege access principles"
+        ]
+      },
+      {
+        "id": 7,
+        "name": "Account Hijacking",
+        "description": "Attackers gain unauthorized access to user accounts controlling cloud resources and data.",
+        "impact": [
+          "Data breaches",
+          "Unauthorized access to sensitive information",
+          "Modification or deletion of data",
+          "Disruption of services"
+        ],
+        "mitigation": [
+          "Implement strong authentication mechanisms like MFA",
+          "Monitor for suspicious login attempts and account activity",
+          "Educate users about phishing and social engineering",
+          "Implement account lockout policies after multiple failed login attempts"
+        ]
+      },
+      {
+        "id": 8,
+        "name": "Server-Side Request Forgery (SSRF)",
+        "description": "Attackers trick servers into making unauthorized requests to internal or external resources.",
+        "impact": [
+          "Data breaches",
+          "Access to internal systems and resources",
+          "Denial of service (DoS) attacks",
+          "Port scanning and network mapping"
+        ],
+        "mitigation": [
+          "Validate all user-supplied input to prevent SSRF",
+          "Sanitize URLs and limit allowed protocols and domains",
+          "Implement network segmentation to restrict internal access",
+          "Use web application firewalls (WAF) to detect and block SSRF"
+        ]
+      },
+      {
+        "id": 9,
+        "name": "Use of Insecure Third-Party Components",
+        "description": "Use of insecure third-party components introduces vulnerabilities.",
+        "impact": [
+          "Data breaches",
+          "Remote code execution",
+          "Denial of service (DoS) attacks",
+          "Loss of data or system integrity"
+        ],
+        "mitigation": [
+          "Vet and select third-party components carefully based on security posture",
+          "Regularly update and patch third-party components",
+          "Use vulnerability scanning tools on third-party components",
+          "Isolate third-party components from sensitive systems and data"
+        ]
+      },
+      {
+        "id": 10,
+        "name": "System Data Exposure",
+        "description": "Sensitive data like configuration files or logs are not properly protected and accessible to unauthorized users.",
+        "impact": [
+          "Data breaches",
+          "Loss of sensitive information",
+          "Compromise of system credentials",
+          "Reputational damage"
+        ],
+        "mitigation": [
+          "Encrypt sensitive data at rest and in transit",
+          "Implement access controls restricting access to sensitive data",
+          "Regularly review and update data security policies",
+          "Monitor for unauthorized access attempts"
+        ]
+      }
+    ]
+  }
+  

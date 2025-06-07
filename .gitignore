@@ -1,0 +1,6 @@
+/Non_Processed_CVEs
+.env
+/fine_tuned_owasp_model_advanced
+/results_intent_classifier
+/fine_tuned_intent_classifier
+/checkpoints

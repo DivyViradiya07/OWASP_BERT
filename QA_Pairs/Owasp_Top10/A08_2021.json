@@ -1,0 +1,1908 @@
+{
+  "basic_understanding": [
+    {
+      "id": "A08-Q001",
+      "type": "basic_understanding",
+      "intent": "define_integrity_failure",
+      "question": "What is a software and data integrity failure?",
+      "answer": "It refers to using code, data, or configurations from untrusted sources without proper validation, leading to security vulnerabilities."
+    },
+    {
+      "id": "A08-Q002",
+      "type": "basic_understanding",
+      "intent": "importance_of_integrity",
+      "question": "Why is data integrity important in software systems?",
+      "answer": "Integrity ensures that data and software have not been tampered with, protecting against malicious modifications and unauthorized changes."
+    },
+    {
+      "id": "A08-Q003",
+      "type": "basic_understanding",
+      "intent": "examples_of_integrity_failures",
+      "question": "Can you give a common example of a software integrity failure?",
+      "answer": "A common example is downloading and installing software updates from an unverified source."
+    },
+    {
+      "id": "A08-Q004",
+      "type": "basic_understanding",
+      "intent": "ci_cd_risks",
+      "question": "How do CI/CD pipelines relate to integrity failures?",
+      "answer": "If CI/CD pipelines aren't secured, attackers can inject malicious code into the deployment process."
+    },
+    {
+      "id": "A08-Q005",
+      "type": "basic_understanding",
+      "intent": "dependency_risks",
+      "question": "Why are third-party dependencies risky?",
+      "answer": "They may contain vulnerabilities or be tampered with if not sourced from trusted repositories."
+    },
+    {
+      "id": "A08-Q006",
+      "type": "basic_understanding",
+      "intent": "unverified_sources",
+      "question": "What does it mean to use an 'unverified source'?",
+      "answer": "It means consuming code or data from a source that hasn't been validated for authenticity or integrity."
+    },
+    {
+      "id": "A08-Q007",
+      "type": "basic_understanding",
+      "intent": "unsigned_updates",
+      "question": "Why are unsigned software updates a problem?",
+      "answer": "Without digital signatures, it's impossible to verify if the update is from a legitimate and untampered source."
+    },
+    {
+      "id": "A08-Q008",
+      "type": "basic_understanding",
+      "intent": "serialization_issues",
+      "question": "How does insecure deserialization contribute to this vulnerability category?",
+      "answer": "It allows attackers to manipulate serialized data and execute arbitrary code if integrity is not validated."
+    },
+    {
+      "id": "A08-Q009",
+      "type": "basic_understanding",
+      "intent": "scope_of_impact",
+      "question": "What is the potential impact of software integrity failures?",
+      "answer": "They can lead to system takeovers, data breaches, and large-scale supply chain compromises."
+    },
+    {
+      "id": "A08-Q010",
+      "type": "basic_understanding",
+      "intent": "integrity_vs_authenticity",
+      "question": "What is the difference between integrity and authenticity?",
+      "answer": "Integrity ensures data hasn’t changed, while authenticity confirms the data is from a trusted source."
+    },
+    {
+      "id": "A08-Q011",
+      "type": "basic_understanding",
+      "intent": "supply_chain_definition",
+      "question": "What is a software supply chain?",
+      "answer": "It includes all third-party components, tools, and processes used to build and deploy software."
+    },
+    {
+      "id": "A08-Q012",
+      "type": "basic_understanding",
+      "intent": "signed_code_concept",
+      "question": "What is signed code?",
+      "answer": "Signed code is software that has a digital signature to verify its source and ensure it hasn't been altered."
+    },
+    {
+      "id": "A08-Q013",
+      "type": "basic_understanding",
+      "intent": "examples_of_data_integrity",
+      "question": "What are examples of data integrity checks?",
+      "answer": "Checksums, hashes, and digital signatures are used to verify data hasn't been modified."
+    },
+    {
+      "id": "A08-Q014",
+      "type": "basic_understanding",
+      "intent": "malware_injection",
+      "question": "How does malware injection relate to integrity failures?",
+      "answer": "If update processes or dependencies are not verified, attackers can inject malware during builds or updates."
+    },
+    {
+      "id": "A08-Q015",
+      "type": "basic_understanding",
+      "intent": "importance_of_review",
+      "question": "Why is peer review important in preventing integrity failures?",
+      "answer": "It ensures unauthorized or risky changes are caught before being deployed to production."
+    },
+    {
+      "id": "A08-Q016",
+      "type": "basic_understanding",
+      "intent": "developer_responsibility",
+      "question": "What role do developers play in maintaining software integrity?",
+      "answer": "They are responsible for validating dependencies, securing the build process, and avoiding unsafe coding practices."
+    },
+    {
+      "id": "A08-Q017",
+      "type": "basic_understanding",
+      "intent": "cryptographic_validation",
+      "question": "How does cryptographic validation help with integrity?",
+      "answer": "It ensures files or code haven't been altered and confirms the source's authenticity."
+    },
+    {
+      "id": "A08-Q018",
+      "type": "basic_understanding",
+      "intent": "risk_of_untrusted_sources",
+      "question": "Why should we avoid using components from public CDNs without integrity checks?",
+      "answer": "Public CDNs can be compromised, and without integrity checks, you may unknowingly serve malicious content."
+    },
+    {
+      "id": "A08-Q019",
+      "type": "basic_understanding",
+      "intent": "solarwinds_example",
+      "question": "What is a real-world example of a software integrity failure?",
+      "answer": "The SolarWinds supply chain attack where attackers inserted malicious code into a vendor's update system."
+    },
+    {
+      "id": "A08-Q020",
+      "type": "basic_understanding",
+      "intent": "update_mechanism_importance",
+      "question": "Why must update mechanisms be secure?",
+      "answer": "Because insecure update mechanisms can be used to push malicious code to users."
+    },
+    {
+      "id": "A08-Q021",
+      "type": "basic_understanding",
+      "intent": "common_attack_vectors",
+      "question": "What are common attack vectors in software integrity failures?",
+      "answer": "Common vectors include malicious updates, compromised build tools, and dependency poisoning."
+    },
+    {
+      "id": "A08-Q022",
+      "type": "basic_understanding",
+      "intent": "configuration_integrity",
+      "question": "What does configuration integrity refer to?",
+      "answer": "It refers to ensuring deployment and runtime configuration files are untampered and verified."
+    },
+    {
+      "id": "A08-Q023",
+      "type": "basic_understanding",
+      "intent": "codecov_example",
+      "question": "What is the CodeCov compromise?",
+      "answer": "It was a supply chain attack where CodeCov’s Bash uploader was altered to steal sensitive information."
+    },
+    {
+      "id": "A08-Q024",
+      "type": "basic_understanding",
+      "intent": "client_side_risks",
+      "question": "Are there risks on the client side regarding integrity?",
+      "answer": "Yes, such as malicious JavaScript loaded from compromised external sources."
+    },
+    {
+      "id": "A08-Q025",
+      "type": "basic_understanding",
+      "intent": "what_is_deserialization",
+      "question": "What is deserialization in software?",
+      "answer": "It is the process of converting structured data back into program objects."
+    },
+    {
+      "id": "A08-Q026",
+      "type": "basic_understanding",
+      "intent": "why_secure_deserialization",
+      "question": "Why must deserialization be secure?",
+      "answer": "Because insecure deserialization can lead to arbitrary code execution by attackers."
+    },
+    {
+      "id": "A08-Q027",
+      "type": "basic_understanding",
+      "intent": "role_of_devops",
+      "question": "How does DevOps relate to software integrity?",
+      "answer": "DevOps controls build and deployment pipelines, which must be secured to prevent tampering."
+    },
+    {
+      "id": "A08-Q028",
+      "type": "basic_understanding",
+      "intent": "static_vs_dynamic_integrity",
+      "question": "What is the difference between static and dynamic integrity checks?",
+      "answer": "Static checks validate code and data before use; dynamic checks occur during execution or updates."
+    },
+    {
+      "id": "A08-Q029",
+      "type": "basic_understanding",
+      "intent": "integrity_check_failures",
+      "question": "What happens when an integrity check fails?",
+      "answer": "The system should reject the input, log the event, and alert for investigation."
+    },
+    {
+      "id": "A08-Q030",
+      "type": "basic_understanding",
+      "intent": "importance_of_cicd_security",
+      "question": "Why is CI/CD security crucial in preventing integrity failures?",
+      "answer": "Compromised pipelines can distribute malware across environments automatically."
+    }
+  ],
+  "example_scenarios": [
+    {
+      "id": "A08-Q121",
+      "type": "example_scenario",
+      "intent": "unsigned_update_exploit",
+      "question": "What could happen if an application allows unsigned software updates?",
+      "answer": "An attacker could distribute a malicious update that gets installed automatically, compromising user systems."
+    },
+    {
+      "id": "A08-Q122",
+      "type": "example_scenario",
+      "intent": "cdn_dependency_injection",
+      "question": "How can relying on a CDN for JavaScript libraries become a risk?",
+      "answer": "If the CDN is compromised, attackers can inject malicious code that gets executed by all visitors."
+    },
+    {
+      "id": "A08-Q123",
+      "type": "example_scenario",
+      "intent": "cicd_pipeline_breach",
+      "question": "What might happen if a CI/CD pipeline is not properly secured?",
+      "answer": "Attackers could inject malicious code during build, which is then deployed to production without detection."
+    },
+    {
+      "id": "A08-Q124",
+      "type": "example_scenario",
+      "intent": "dependency_confusion",
+      "question": "Describe a dependency confusion attack.",
+      "answer": "A malicious actor uploads a package with the same name as an internal one to a public registry, which the build system mistakenly pulls."
+    },
+    {
+      "id": "A08-Q125",
+      "type": "example_scenario",
+      "intent": "insecure_deserialization_attack",
+      "question": "How can insecure deserialization be exploited?",
+      "answer": "Attackers manipulate serialized data to execute arbitrary code when the server deserializes it."
+    },
+    {
+      "id": "A08-Q126",
+      "type": "example_scenario",
+      "intent": "solarwinds_case",
+      "question": "What happened in the SolarWinds Orion supply chain attack?",
+      "answer": "Attackers injected malware into a trusted software update via a compromised build system, affecting thousands of organizations."
+    },
+    {
+      "id": "A08-Q127",
+      "type": "example_scenario",
+      "intent": "unsigned_firmware_installation",
+      "question": "What is the risk of unsigned firmware updates?",
+      "answer": "Malicious firmware could be installed by attackers, giving them persistent control over devices."
+    },
+    {
+      "id": "A08-Q128",
+      "type": "example_scenario",
+      "intent": "malicious_iac_script",
+      "question": "What could happen if an attacker modifies an IaC script?",
+      "answer": "They could provision insecure infrastructure or deploy malicious services during environment setup."
+    },
+    {
+      "id": "A08-Q129",
+      "type": "example_scenario",
+      "intent": "tampered_configuration_file",
+      "question": "What if configuration files are not verified before deployment?",
+      "answer": "Attackers may alter configurations to disable security controls or reroute services to malicious endpoints."
+    },
+    {
+      "id": "A08-Q130",
+      "type": "example_scenario",
+      "intent": "developer_toolchain_poisoning",
+      "question": "How can a compromised developer toolchain lead to security issues?",
+      "answer": "Malicious code can be introduced early in development and remain undetected through release."
+    },
+    {
+      "id": "A08-Q131",
+      "type": "example_scenario",
+      "intent": "unsigned_mobile_app_update",
+      "question": "What if a mobile app receives an unsigned update?",
+      "answer": "Users could install malware disguised as a legitimate app update."
+    },
+    {
+      "id": "A08-Q132",
+      "type": "example_scenario",
+      "intent": "exposed_package_registry",
+      "question": "How can exposing a private package registry be dangerous?",
+      "answer": "Attackers could upload or overwrite packages, which get pulled into production systems unknowingly."
+    },
+    {
+      "id": "A08-Q133",
+      "type": "example_scenario",
+      "intent": "lack_of_ci_cd_audit_logs",
+      "question": "What’s the impact of not logging changes in CI/CD pipelines?",
+      "answer": "Malicious or unauthorized changes go undetected, making incident response difficult."
+    },
+    {
+      "id": "A08-Q134",
+      "type": "example_scenario",
+      "intent": "credential_injection_in_build",
+      "question": "What could happen if credentials are stored in plaintext in CI scripts?",
+      "answer": "Attackers can extract them to gain unauthorized access to infrastructure or services."
+    },
+    {
+      "id": "A08-Q135",
+      "type": "example_scenario",
+      "intent": "fake_library_submission",
+      "question": "How might a fake library in a public registry pose a threat?",
+      "answer": "If mistakenly included in builds, it may contain malware that compromises systems at runtime."
+    },
+    {
+      "id": "A08-Q136",
+      "type": "example_scenario",
+      "intent": "modification_of_artifacts",
+      "question": "What happens if build artifacts are modified post-build?",
+      "answer": "Tampered binaries could include backdoors or other malicious functionality."
+    },
+    {
+      "id": "A08-Q137",
+      "type": "example_scenario",
+      "intent": "no_review_on_merge",
+      "question": "What’s the risk of skipping peer review on infrastructure code?",
+      "answer": "Malicious changes or misconfigurations may be introduced and pushed directly into production."
+    },
+    {
+      "id": "A08-Q138",
+      "type": "example_scenario",
+      "intent": "open_source_poisoning",
+      "question": "Describe an example of open-source package poisoning.",
+      "answer": "An attacker contributes code with hidden backdoors to an open-source project, which gets adopted widely."
+    },
+    {
+      "id": "A08-Q139",
+      "type": "example_scenario",
+      "intent": "cicd_trigger_abuse",
+      "question": "What’s the consequence of an attacker abusing automated CI/CD triggers?",
+      "answer": "They can force deployment of malicious builds or configurations."
+    },
+    {
+      "id": "A08-Q140",
+      "type": "example_scenario",
+      "intent": "replay_attack_via_insecure_serialization",
+      "question": "How can insecure serialization lead to replay attacks?",
+      "answer": "Manipulated or reused serialized data may give attackers access or trigger repeated operations."
+    },
+    {
+      "id": "A08-Q141",
+      "type": "example_scenario",
+      "intent": "third_party_dependency_risk",
+      "question": "Why is using an unvetted third-party library dangerous?",
+      "answer": "It may contain intentional or unintentional vulnerabilities that compromise application integrity."
+    },
+    {
+      "id": "A08-Q142",
+      "type": "example_scenario",
+      "intent": "non_verified_releases",
+      "question": "What’s the danger of not verifying release artifacts?",
+      "answer": "Attackers can substitute legitimate builds with backdoored versions that appear trustworthy."
+    },
+    {
+      "id": "A08-Q143",
+      "type": "example_scenario",
+      "intent": "shell_injection_in_build_scripts",
+      "question": "What if build scripts are not sanitized?",
+      "answer": "Attackers might exploit them for shell injection, executing arbitrary commands during build."
+    },
+    {
+      "id": "A08-Q144",
+      "type": "example_scenario",
+      "intent": "compromised_build_server",
+      "question": "How can a compromised build server affect downstream users?",
+      "answer": "It can insert backdoors into every compiled product sent to users, spreading malware widely."
+    },
+    {
+      "id": "A08-Q145",
+      "type": "example_scenario",
+      "intent": "mfa_disabled_on_pipeline",
+      "question": "Why is disabling MFA on pipeline access dangerous?",
+      "answer": "Attackers could easily gain unauthorized access and manipulate builds or configurations."
+    },
+    {
+      "id": "A08-Q146",
+      "type": "example_scenario",
+      "intent": "poor_dependency_version_control",
+      "question": "What happens when dependency versions are not pinned?",
+      "answer": "Unexpected or malicious updates may be pulled during each build, introducing integrity issues."
+    },
+    {
+      "id": "A08-Q147",
+      "type": "example_scenario",
+      "intent": "non_isolated_ci_cd_environments",
+      "question": "How can non-isolated CI/CD environments be risky?",
+      "answer": "Compromises in one project can leak into others through shared tools or credentials."
+    },
+    {
+      "id": "A08-Q148",
+      "type": "example_scenario",
+      "intent": "integrity_check_bypass",
+      "question": "What if an attacker bypasses integrity checks?",
+      "answer": "Malicious updates could be accepted and installed without triggering alerts or validations."
+    },
+    {
+      "id": "A08-Q149",
+      "type": "example_scenario",
+      "intent": "trusting_unencrypted_sources",
+      "question": "Why is downloading code from unencrypted sources risky?",
+      "answer": "Attackers could perform MITM attacks and modify code in transit without detection."
+    },
+    {
+      "id": "A08-Q150",
+      "type": "example_scenario",
+      "intent": "external_script_execution_during_build",
+      "question": "What’s a risk of executing external scripts during builds?",
+      "answer": "They could fetch or execute malicious payloads from untrusted networks during the build process."
+    }
+  ],
+  "prevention": [
+    {
+      "id": "A08-Q091",
+      "type": "prevention_method",
+      "intent": "use_code_signing",
+      "question": "How can code signing help prevent software integrity failures?",
+      "answer": "Code signing ensures that only verified and untampered software is executed or deployed, preventing unauthorized changes."
+    },
+    {
+      "id": "A08-Q092",
+      "type": "prevention_method",
+      "intent": "verify_dependencies_with_hash",
+      "question": "What role do hash checks play in dependency integrity?",
+      "answer": "Hash checks validate that downloaded dependencies match expected versions and haven’t been tampered with."
+    },
+    {
+      "id": "A08-Q093",
+      "type": "prevention_method",
+      "intent": "enforce_secure_cicd",
+      "question": "How can you secure the CI/CD pipeline to maintain software integrity?",
+      "answer": "Use role-based access, enforce signed commits, audit logs, and segment environments within the pipeline."
+    },
+    {
+      "id": "A08-Q094",
+      "type": "prevention_method",
+      "intent": "lock_dependencies",
+      "question": "Why is dependency locking important?",
+      "answer": "It prevents automatic updates to potentially vulnerable or unverified versions of packages."
+    },
+    {
+      "id": "A08-Q095",
+      "type": "prevention_method",
+      "intent": "internal_repositories",
+      "question": "How do internal repositories improve supply chain security?",
+      "answer": "They host pre-vetted dependencies, reducing exposure to malicious or compromised third-party packages."
+    },
+    {
+      "id": "A08-Q096",
+      "type": "prevention_method",
+      "intent": "use_sbom",
+      "question": "What is the purpose of a Software Bill of Materials (SBOM)?",
+      "answer": "SBOMs list all components and their versions, allowing better tracking and management of software integrity."
+    },
+    {
+      "id": "A08-Q097",
+      "type": "prevention_method",
+      "intent": "cryptographic_validation",
+      "question": "How does cryptographic validation protect software integrity?",
+      "answer": "It ensures data or code has not been altered using signatures or hashes to verify origin and authenticity."
+    },
+    {
+      "id": "A08-Q098",
+      "type": "prevention_method",
+      "intent": "avoid_untrusted_sources",
+      "question": "Why should you avoid consuming code from untrusted sources?",
+      "answer": "Such sources may host malicious or tampered software, increasing the risk of compromise."
+    },
+    {
+      "id": "A08-Q099",
+      "type": "prevention_method",
+      "intent": "secure_deserialization",
+      "question": "How can insecure deserialization be mitigated?",
+      "answer": "Use safe serialization formats and validate types strictly before processing incoming serialized data."
+    },
+    {
+      "id": "A08-Q100",
+      "type": "prevention_method",
+      "intent": "implement_automated_scanning",
+      "question": "What tools help detect vulnerable components during builds?",
+      "answer": "Tools like OWASP Dependency-Check, Snyk, or Sonatype can flag known-vulnerable libraries."
+    },
+    {
+      "id": "A08-Q101",
+      "type": "prevention_method",
+      "intent": "peer_review_mandate",
+      "question": "Why are mandatory peer reviews useful for software integrity?",
+      "answer": "They catch unauthorized or insecure code/config changes before deployment."
+    },
+    {
+      "id": "A08-Q102",
+      "type": "prevention_method",
+      "intent": "secure_artifact_storage",
+      "question": "How do you ensure artifact integrity in storage?",
+      "answer": "Store build artifacts in secure, access-controlled registries with signed uploads."
+    },
+    {
+      "id": "A08-Q103",
+      "type": "prevention_method",
+      "intent": "enable_strict_typing",
+      "question": "How does strict typing prevent deserialization attacks?",
+      "answer": "It limits the deserialized object types, reducing the risk of arbitrary code execution."
+    },
+    {
+      "id": "A08-Q104",
+      "type": "prevention_method",
+      "intent": "deploy_with_zero_trust",
+      "question": "How does a zero-trust model apply to deployment?",
+      "answer": "It assumes no component is inherently trustworthy and enforces validation at every stage."
+    },
+    {
+      "id": "A08-Q105",
+      "type": "prevention_method",
+      "intent": "monitor_package_registries",
+      "question": "What is the benefit of monitoring public package registries?",
+      "answer": "It helps detect tampered or hijacked packages early in the supply chain."
+    },
+    {
+      "id": "A08-Q106",
+      "type": "prevention_method",
+      "intent": "isolate_build_environments",
+      "question": "Why isolate build environments?",
+      "answer": "To prevent one compromised project from affecting others via shared tools or configurations."
+    },
+    {
+      "id": "A08-Q107",
+      "type": "prevention_method",
+      "intent": "automate_integrity_checks",
+      "question": "How can integrity checks be automated?",
+      "answer": "Integrate checksum and signature validation into the CI/CD pipeline automatically after builds."
+    },
+    {
+      "id": "A08-Q108",
+      "type": "prevention_method",
+      "intent": "secure_iac",
+      "question": "How can Infrastructure as Code (IaC) be protected from tampering?",
+      "answer": "Use version control, signed commits, and review policies for all IaC files."
+    },
+    {
+      "id": "A08-Q109",
+      "type": "prevention_method",
+      "intent": "disable_unsafe_plugins",
+      "question": "Why should unsafe plugins or extensions be disabled?",
+      "answer": "They may introduce unverified code into your environment, compromising integrity."
+    },
+    {
+      "id": "A08-Q110",
+      "type": "prevention_method",
+      "intent": "train_developers",
+      "question": "Why is developer training critical to preventing integrity failures?",
+      "answer": "Educated developers can recognize and avoid insecure practices in dependency management and deployment."
+    },
+    {
+      "id": "A08-Q111",
+      "type": "prevention_method",
+      "intent": "use_release_signing",
+      "question": "How does signing releases improve software integrity?",
+      "answer": "It ensures end users can verify the authenticity of the software they receive."
+    },
+    {
+      "id": "A08-Q112",
+      "type": "prevention_method",
+      "intent": "restrict_external_network_access",
+      "question": "Why restrict external access from build environments?",
+      "answer": "To prevent unauthorized code or data from being fetched during the build process."
+    },
+    {
+      "id": "A08-Q113",
+      "type": "prevention_method",
+      "intent": "validate_ci_cd_triggers",
+      "question": "Why should CI/CD triggers be validated?",
+      "answer": "Unvalidated triggers can lead to unauthorized or malicious builds being run automatically."
+    },
+    {
+      "id": "A08-Q114",
+      "type": "prevention_method",
+      "intent": "limit_script_execution",
+      "question": "How can script execution in pipelines be secured?",
+      "answer": "Only run signed or vetted scripts, and limit their permissions and environment scope."
+    },
+    {
+      "id": "A08-Q115",
+      "type": "prevention_method",
+      "intent": "control_plugin_sources",
+      "question": "What controls should be placed on plugin sources?",
+      "answer": "Allow installation only from approved registries or repositories with known reputations."
+    },
+    {
+      "id": "A08-Q116",
+      "type": "prevention_method",
+      "intent": "implement_mfa_build_env",
+      "question": "Why enforce MFA on build and deployment environments?",
+      "answer": "To reduce the risk of unauthorized access that can compromise builds or inject malicious code."
+    },
+    {
+      "id": "A08-Q117",
+      "type": "prevention_method",
+      "intent": "define_release_checklists",
+      "question": "How do release checklists help prevent integrity issues?",
+      "answer": "They ensure all validation steps—like code review, testing, and signing—are completed before release."
+    },
+    {
+      "id": "A08-Q118",
+      "type": "prevention_method",
+      "intent": "segment_environments",
+      "question": "Why is environment segmentation critical for software integrity?",
+      "answer": "It limits the blast radius of a breach, ensuring test or dev compromises don’t affect production."
+    },
+    {
+      "id": "A08-Q119",
+      "type": "prevention_method",
+      "intent": "run_dependency_vetting",
+      "question": "How can dependencies be vetted before use?",
+      "answer": "Check vendor reputations, security ratings, recent update activity, and vulnerability history."
+    },
+    {
+      "id": "A08-Q120",
+      "type": "prevention_method",
+      "intent": "use_defense_in_depth",
+      "question": "How does defense-in-depth apply to software integrity?",
+      "answer": "Layered security controls—like input validation, code signing, and access control—help reduce the impact of a single failure."
+    }
+  ],
+  "proactive": [
+    {
+      "id": "A08-Q211",
+      "type": "proactive_suggestions",
+      "intent": "general_mitigation",
+      "question": "What is a key proactive measure to reduce software and data integrity failures?",
+      "answer": "Implementing strict verification of software updates and dependencies using digital signatures is essential."
+    },
+    {
+      "id": "A08-Q212",
+      "type": "proactive_suggestions",
+      "intent": "supply_chain_security",
+      "question": "How can organizations enhance software supply chain security proactively?",
+      "answer": "By auditing and vetting all third-party components and using tools like OWASP Dependency Check regularly."
+    },
+    {
+      "id": "A08-Q213",
+      "type": "proactive_suggestions",
+      "intent": "ci_cd_hardening",
+      "question": "What proactive step can improve CI/CD pipeline security?",
+      "answer": "Securing CI/CD pipelines with access controls, configuration management, and automated integrity checks."
+    },
+    {
+      "id": "A08-Q214",
+      "type": "proactive_suggestions",
+      "intent": "serialization_security",
+      "question": "What is recommended to prevent insecure deserialization vulnerabilities?",
+      "answer": "Avoid using unsafe serialization methods and validate or sanitize serialized data thoroughly."
+    },
+    {
+      "id": "A08-Q215",
+      "type": "proactive_suggestions",
+      "intent": "cryptographic_controls",
+      "question": "Why should cryptographic validation be used proactively?",
+      "answer": "It ensures the authenticity and integrity of software and configuration changes, preventing tampering."
+    },
+    {
+      "id": "A08-Q216",
+      "type": "proactive_suggestions",
+      "intent": "internal_repo_usage",
+      "question": "How does hosting internal repositories help reduce risks?",
+      "answer": "It limits exposure to malicious or vulnerable external packages by controlling dependency sources."
+    },
+    {
+      "id": "A08-Q217",
+      "type": "proactive_suggestions",
+      "intent": "peer_review",
+      "question": "Why is peer review important before deployment?",
+      "answer": "It helps catch unauthorized or risky code and configuration changes, improving integrity."
+    },
+    {
+      "id": "A08-Q218",
+      "type": "proactive_suggestions",
+      "intent": "education_and_awareness",
+      "question": "What role does developer education play in proactive mitigation?",
+      "answer": "Educating developers on secure coding and supply chain risks reduces accidental introduction of vulnerabilities."
+    },
+    {
+      "id": "A08-Q219",
+      "type": "proactive_suggestions",
+      "intent": "tooling_and_automation",
+      "question": "How can tooling support proactive security?",
+      "answer": "Automated tools can detect integrity violations early, enabling faster response and patching."
+    },
+    {
+      "id": "A08-Q220",
+      "type": "proactive_suggestions",
+      "intent": "incident_response_preparation",
+      "question": "How can proactive incident response planning help?",
+      "answer": "Preparedness reduces impact by enabling quick detection and containment of integrity failures."
+    },
+    {
+      "id": "A08-Q221",
+      "type": "proactive_suggestions",
+      "intent": "dependency_monitoring",
+      "question": "Why is continuous monitoring of dependencies important?",
+      "answer": "It identifies new vulnerabilities early, allowing timely updates and mitigations."
+    },
+    {
+      "id": "A08-Q222",
+      "type": "proactive_suggestions",
+      "intent": "build_pipeline_segmentation",
+      "question": "How does segmenting build pipelines improve security?",
+      "answer": "It limits access and exposure, reducing the risk of malicious code injection."
+    },
+    {
+      "id": "A08-Q223",
+      "type": "proactive_suggestions",
+      "intent": "secure_configuration_management",
+      "question": "Why maintain secure configuration management proactively?",
+      "answer": "It ensures changes are tracked and verified, preventing unauthorized modifications."
+    },
+    {
+      "id": "A08-Q224",
+      "type": "proactive_suggestions",
+      "intent": "digital_signature_policy",
+      "question": "What policy can organizations adopt to enhance integrity?",
+      "answer": "Mandating digital signatures for all software updates and critical files before deployment."
+    },
+    {
+      "id": "A08-Q225",
+      "type": "proactive_suggestions",
+      "intent": "vendor_security_assessment",
+      "question": "How does assessing vendors contribute to proactive security?",
+      "answer": "It helps identify and mitigate risks from third-party software and components."
+    },
+    {
+      "id": "A08-Q226",
+      "type": "proactive_suggestions",
+      "intent": "patch_management",
+      "question": "What is the role of patch management in preventing integrity failures?",
+      "answer": "Timely patching reduces exposure to known vulnerabilities that could be exploited."
+    },
+    {
+      "id": "A08-Q227",
+      "type": "proactive_suggestions",
+      "intent": "logging_and_auditing",
+      "question": "Why implement comprehensive logging and auditing?",
+      "answer": "It provides traceability to detect unauthorized changes and supports forensic analysis."
+    },
+    {
+      "id": "A08-Q228",
+      "type": "proactive_suggestions",
+      "intent": "risk_assessment",
+      "question": "How can proactive risk assessments reduce integrity failures?",
+      "answer": "They help identify weak points and prioritize security controls effectively."
+    },
+    {
+      "id": "A08-Q229",
+      "type": "proactive_suggestions",
+      "intent": "segregation_of_duties",
+      "question": "How does segregation of duties contribute to proactive integrity protection?",
+      "answer": "It minimizes the chance of insider threats by dividing responsibilities and access."
+    },
+    {
+      "id": "A08-Q230",
+      "type": "proactive_suggestions",
+      "intent": "secure_backup_practices",
+      "question": "Why are secure backup practices important?",
+      "answer": "They ensure data integrity can be restored in case of tampering or corruption."
+    },
+    {
+      "id": "A08-Q231",
+      "type": "proactive_suggestions",
+      "intent": "automation_of_integrity_checks",
+      "question": "What benefit does automating integrity checks provide?",
+      "answer": "It ensures consistent and timely verification without relying on manual processes."
+    },
+    {
+      "id": "A08-Q232",
+      "type": "proactive_suggestions",
+      "intent": "security_culture",
+      "question": "How can promoting a security culture help proactively?",
+      "answer": "It encourages everyone to prioritize integrity and report suspicious activities promptly."
+    },
+    {
+      "id": "A08-Q233",
+      "type": "proactive_suggestions",
+      "intent": "use_of_secure_protocols",
+      "question": "Why should secure communication protocols be used?",
+      "answer": "They protect data in transit from tampering and interception."
+    },
+    {
+      "id": "A08-Q234",
+      "type": "proactive_suggestions",
+      "intent": "regular_security_training",
+      "question": "How does regular security training aid in prevention?",
+      "answer": "It keeps teams updated on emerging threats and best practices for integrity."
+    },
+    {
+      "id": "A08-Q235",
+      "type": "proactive_suggestions",
+      "intent": "early_detection_systems",
+      "question": "What is the advantage of early detection systems?",
+      "answer": "They quickly identify integrity violations to limit damage and enable rapid response."
+    },
+    {
+      "id": "A08-Q236",
+      "type": "proactive_suggestions",
+      "intent": "redundancy_and_failover",
+      "question": "How do redundancy and failover support integrity protection?",
+      "answer": "They provide backup systems to maintain availability even when compromises occur."
+    },
+    {
+      "id": "A08-Q237",
+      "type": "proactive_suggestions",
+      "intent": "zero_trust_implementation",
+      "question": "How does a zero trust model help protect software integrity?",
+      "answer": "By verifying every component and user continuously, reducing trust assumptions."
+    },
+    {
+      "id": "A08-Q238",
+      "type": "proactive_suggestions",
+      "intent": "continuous_improvement",
+      "question": "Why is continuous improvement important for software integrity?",
+      "answer": "Because threats evolve, regular updates to security policies and controls are needed."
+    },
+    {
+      "id": "A08-Q239",
+      "type": "proactive_suggestions",
+      "intent": "collaboration_with_security_community",
+      "question": "How can collaboration with the security community be beneficial?",
+      "answer": "Sharing intelligence on vulnerabilities helps improve defense strategies."
+    },
+    {
+      "id": "A08-Q240",
+      "type": "proactive_suggestions",
+      "intent": "integrated_security_tools",
+      "question": "What is the benefit of using integrated security tools?",
+      "answer": "They provide comprehensive coverage and reduce gaps caused by tool fragmentation."
+    }
+  ],
+  "reference": [
+    {
+      "id": "A08-Q151",
+      "type": "reference",
+      "intent": "owasp_cheat_sheet_supply_chain",
+      "question": "Where can I find guidelines to secure the software supply chain?",
+      "answer": "You can refer to the OWASP Cheat Sheet: Software Supply Chain Security for comprehensive guidelines."
+    },
+    {
+      "id": "A08-Q152",
+      "type": "reference",
+      "intent": "owasp_cheat_sheet_build_deploy",
+      "question": "Which OWASP cheat sheet provides secure build and deployment practices?",
+      "answer": "The OWASP Cheat Sheet: Secure Build and Deployment offers best practices for securing CI/CD pipelines."
+    },
+    {
+      "id": "A08-Q153",
+      "type": "reference",
+      "intent": "owasp_deserialization_cheat_sheet",
+      "question": "Where can I find resources to prevent insecure deserialization?",
+      "answer": "Refer to the OWASP Cheat Sheet: Deserialization to learn how to avoid and mitigate deserialization risks."
+    },
+    {
+      "id": "A08-Q154",
+      "type": "reference",
+      "intent": "owasp_iac_cheat_sheet",
+      "question": "What OWASP resource helps in securing Infrastructure as Code (IaC)?",
+      "answer": "OWASP Cheat Sheet: Infrastructure as Code provides secure coding guidelines for IaC templates."
+    },
+    {
+      "id": "A08-Q155",
+      "type": "reference",
+      "intent": "safecode_controls",
+      "question": "Which organization publishes Software Integrity Controls for developers?",
+      "answer": "SAFECode publishes Software Integrity Controls to guide secure development and supply chain hygiene."
+    },
+    {
+      "id": "A08-Q156",
+      "type": "reference",
+      "intent": "solaris_attack_analysis",
+      "question": "Where can I read an in-depth account of the SolarWinds attack?",
+      "answer": "NPR’s article 'A 'Worst Nightmare' Cyberattack: The Untold Story Of The SolarWinds Hack' provides a detailed report."
+    },
+    {
+      "id": "A08-Q157",
+      "type": "reference",
+      "intent": "codecov_breach_report",
+      "question": "Which real-world breach involved a CI tool compromise?",
+      "answer": "The CodeCov Bash Uploader compromise is a notable case involving CI tool breach and data exposure."
+    },
+    {
+      "id": "A08-Q158",
+      "type": "reference",
+      "intent": "julien_vehent_book",
+      "question": "Is there a book that discusses DevOps security in detail?",
+      "answer": "Yes, 'Securing DevOps' by Julien Vehent is a recommended resource covering practical security techniques."
+    },
+    {
+      "id": "A08-Q159",
+      "type": "reference",
+      "intent": "owasp_dependency_check",
+      "question": "Which OWASP tool helps detect vulnerable components in a codebase?",
+      "answer": "OWASP Dependency-Check is a tool that identifies known vulnerable dependencies used in projects."
+    },
+    {
+      "id": "A08-Q160",
+      "type": "reference",
+      "intent": "cyclonedx_tool",
+      "question": "What is CycloneDX and how does it relate to supply chain security?",
+      "answer": "CycloneDX is a lightweight SBOM (Software Bill of Materials) standard for identifying and tracking software components."
+    },
+    {
+      "id": "A08-Q161",
+      "type": "reference",
+      "intent": "owasp_sbom_resources",
+      "question": "Does OWASP provide any resources on Software Bill of Materials (SBOMs)?",
+      "answer": "Yes, OWASP hosts resources and projects related to SBOMs such as Dependency-Track and CycloneDX."
+    },
+    {
+      "id": "A08-Q162",
+      "type": "reference",
+      "intent": "supply_chain_guidelines_nist",
+      "question": "Are there any governmental guidelines for supply chain security?",
+      "answer": "Yes, NIST has issued special publications such as SP 800-161 that provide guidance on supply chain risk management."
+    },
+    {
+      "id": "A08-Q163",
+      "type": "reference",
+      "intent": "owasp_top10_home",
+      "question": "Where is the OWASP Top 10 officially published?",
+      "answer": "The OWASP Top 10 is available on the OWASP website under their main project listings."
+    },
+    {
+      "id": "A08-Q164",
+      "type": "reference",
+      "intent": "owasp_insecure_deserialization",
+      "question": "Which OWASP Top 10 item previously covered insecure deserialization?",
+      "answer": "In OWASP Top 10 2017, insecure deserialization was listed as A08, now part of Software and Data Integrity Failures."
+    },
+    {
+      "id": "A08-Q165",
+      "type": "reference",
+      "intent": "mitre_cwe_502",
+      "question": "Where can I learn more about CWE-502: Deserialization of Untrusted Data?",
+      "answer": "The MITRE CWE website offers a detailed breakdown of CWE-502 and its associated risks."
+    },
+    {
+      "id": "A08-Q166",
+      "type": "reference",
+      "intent": "mitre_cwe_829",
+      "question": "What is CWE-829 and where can I study its details?",
+      "answer": "CWE-829 refers to inclusion of functionality from untrusted control spheres. Details are on the MITRE CWE site."
+    },
+    {
+      "id": "A08-Q167",
+      "type": "reference",
+      "intent": "mitre_cwe_494",
+      "question": "What does CWE-494 cover?",
+      "answer": "CWE-494 describes download of code without integrity checks, and is detailed on MITRE's CWE repository."
+    },
+    {
+      "id": "A08-Q168",
+      "type": "reference",
+      "intent": "cisa_supply_chain",
+      "question": "Does CISA provide any resources on software supply chain threats?",
+      "answer": "Yes, CISA has several guides and alerts addressing risks and mitigations for software supply chain attacks."
+    },
+    {
+      "id": "A08-Q169",
+      "type": "reference",
+      "intent": "google_supply_chain_whitepaper",
+      "question": "Is there a whitepaper on securing software supply chains from Google?",
+      "answer": "Yes, Google’s 'Supply-chain Levels for Software Artifacts' (SLSA) framework provides such a whitepaper."
+    },
+    {
+      "id": "A08-Q170",
+      "type": "reference",
+      "intent": "slsa_dev_resources",
+      "question": "Where can developers learn about SLSA implementation?",
+      "answer": "The official SLSA.dev website provides documentation, specifications, and example implementations."
+    },
+    {
+      "id": "A08-Q171",
+      "type": "reference",
+      "intent": "owasp_sbom_generator",
+      "question": "Does OWASP offer any tool to generate SBOMs?",
+      "answer": "Yes, OWASP CycloneDX can generate SBOMs for a variety of build systems and ecosystems."
+    },
+    {
+      "id": "A08-Q172",
+      "type": "reference",
+      "intent": "secure_sdlc_reference",
+      "question": "Where can I find guidelines for a Secure Software Development Lifecycle (SSDLC)?",
+      "answer": "The OWASP SAMM and Microsoft SDL are both widely accepted frameworks for SSDLC practices."
+    },
+    {
+      "id": "A08-Q173",
+      "type": "reference",
+      "intent": "cwe_426",
+      "question": "What does CWE-426 entail?",
+      "answer": "CWE-426 deals with untrusted search path vulnerabilities and is documented on the MITRE CWE site."
+    },
+    {
+      "id": "A08-Q174",
+      "type": "reference",
+      "intent": "owasp_vulnerable_components",
+      "question": "Which OWASP Top 10 entry discusses vulnerable components?",
+      "answer": "OWASP A06:2021 – Vulnerable and Outdated Components specifically addresses this issue."
+    },
+    {
+      "id": "A08-Q175",
+      "type": "reference",
+      "intent": "owasp_project_home",
+      "question": "Where is the central listing of OWASP projects and cheat sheets?",
+      "answer": "You can find all OWASP projects and cheat sheets at https://owasp.org/projects/"
+    },
+    {
+      "id": "A08-Q176",
+      "type": "reference",
+      "intent": "cwe_353_description",
+      "question": "What is CWE-353 and where is it explained?",
+      "answer": "CWE-353 relates to missing support for integrity checks. Full info is on cwe.mitre.org."
+    },
+    {
+      "id": "A08-Q177",
+      "type": "reference",
+      "intent": "owasp_cicd_security",
+      "question": "Is there an OWASP resource dedicated to CI/CD security?",
+      "answer": "Yes, OWASP Secure CI/CD Practices Cheat Sheet covers pipeline hardening and access control."
+    },
+    {
+      "id": "A08-Q178",
+      "type": "reference",
+      "intent": "iac_security_resources",
+      "question": "Are there any specific IaC security checklists from OWASP?",
+      "answer": "Yes, OWASP’s Infrastructure as Code cheat sheet contains a practical checklist for IaC security."
+    },
+    {
+      "id": "A08-Q179",
+      "type": "reference",
+      "intent": "cwe_915_resource",
+      "question": "What does CWE-915 cover and where can I read about it?",
+      "answer": "CWE-915 addresses improper initialization in software and is detailed on the MITRE CWE site."
+    },
+    {
+      "id": "A08-Q180",
+      "type": "reference",
+      "intent": "owasp_code_review_guidelines",
+      "question": "Where can I learn secure code review practices?",
+      "answer": "OWASP Code Review Guide offers methodologies and checklists for performing secure code reviews."
+    },
+    {
+      "id": "A08-Q141",
+      "type": "references",
+      "intent": "primary_sources",
+      "question": "What OWASP cheat sheet provides guidance on securing the software supply chain?",
+      "answer": "The OWASP Cheat Sheet: Software Supply Chain Security offers best practices for protecting software dependencies."
+    },
+    {
+      "id": "A08-Q142",
+      "type": "references",
+      "intent": "build_security",
+      "question": "Which OWASP resource covers securing build and deployment processes?",
+      "answer": "The OWASP Cheat Sheet: Secure Build and Deployment addresses how to harden build pipelines and deployment."
+    },
+    {
+      "id": "A08-Q143",
+      "type": "references",
+      "intent": "infrastructure_as_code",
+      "question": "Where can one find guidance on securing infrastructure as code?",
+      "answer": "The OWASP Cheat Sheet: Infrastructure as Code provides recommendations for securing IaC workflows."
+    },
+    {
+      "id": "A08-Q144",
+      "type": "references",
+      "intent": "deserialization",
+      "question": "Which cheat sheet explains how to prevent deserialization vulnerabilities?",
+      "answer": "The OWASP Cheat Sheet: Deserialization details methods to securely handle serialization and deserialization."
+    },
+    {
+      "id": "A08-Q145",
+      "type": "references",
+      "intent": "industry_standards",
+      "question": "What industry group provides software integrity controls?",
+      "answer": "SAFECode publishes Software Integrity Controls that guide securing software development and deployment."
+    },
+    {
+      "id": "A08-Q146",
+      "type": "references",
+      "intent": "major_attacks",
+      "question": "What is a notable example of a supply chain attack referenced in the OWASP data?",
+      "answer": "The SolarWinds Orion supply chain attack is a key example illustrating risks in software integrity."
+    },
+    {
+      "id": "A08-Q147",
+      "type": "references",
+      "intent": "incident_analysis",
+      "question": "Where can one learn about the CodeCov Bash Uploader compromise?",
+      "answer": "The CodeCov Bash Uploader Compromise is documented as an incident showing CI/CD pipeline risks."
+    },
+    {
+      "id": "A08-Q148",
+      "type": "references",
+      "intent": "devops_security",
+      "question": "Which book is recommended for learning about securing DevOps pipelines?",
+      "answer": "‘Securing DevOps’ by Julien Vehent is a comprehensive resource on hardening DevOps security."
+    },
+    {
+      "id": "A08-Q149",
+      "type": "references",
+      "intent": "additional_materials",
+      "question": "Where can developers find more detailed best practices for software supply chain security?",
+      "answer": "Developers can refer to OWASP’s official documentation and cheat sheets on supply chain security."
+    },
+    {
+      "id": "A08-Q150",
+      "type": "references",
+      "intent": "community_guidance",
+      "question": "How does the OWASP community help in addressing software integrity issues?",
+      "answer": "OWASP provides up-to-date resources, tools, and community-driven guidance on emerging risks."
+    },
+    {
+      "id": "A08-Q151",
+      "type": "references",
+      "intent": "vulnerability_tracking",
+      "question": "Which tools does OWASP recommend for identifying vulnerable dependencies?",
+      "answer": "OWASP recommends tools like Dependency Check and CycloneDX for vulnerability tracking."
+    },
+    {
+      "id": "A08-Q152",
+      "type": "references",
+      "intent": "pipeline_security",
+      "question": "What practices does OWASP suggest for securing CI/CD pipelines?",
+      "answer": "Practices include access controls, signing artifacts, and integrity verification in CI/CD workflows."
+    },
+    {
+      "id": "A08-Q153",
+      "type": "references",
+      "intent": "incident_response",
+      "question": "What resources assist in responding to software supply chain compromises?",
+      "answer": "OWASP and SAFECode provide guidelines for incident response related to supply chain attacks."
+    },
+    {
+      "id": "A08-Q154",
+      "type": "references",
+      "intent": "secure_coding",
+      "question": "How do secure coding practices relate to software and data integrity?",
+      "answer": "Secure coding minimizes vulnerabilities that could be exploited to tamper with software or data."
+    },
+    {
+      "id": "A08-Q155",
+      "type": "references",
+      "intent": "industry_collaboration",
+      "question": "Why is collaboration between industry groups important for software integrity?",
+      "answer": "Collaboration helps share threat intelligence and develop unified defenses against supply chain threats."
+    },
+    {
+      "id": "A08-Q156",
+      "type": "references",
+      "intent": "open_source_security",
+      "question": "What should be considered when using open-source software to maintain integrity?",
+      "answer": "Verify sources, track updates, and apply patches promptly to mitigate open-source risks."
+    },
+    {
+      "id": "A08-Q157",
+      "type": "references",
+      "intent": "tool_integration",
+      "question": "How can security tools be integrated to improve software integrity?",
+      "answer": "Integration enables automated scanning, reporting, and enforcement of security policies."
+    },
+    {
+      "id": "A08-Q158",
+      "type": "references",
+      "intent": "training_resources",
+      "question": "What training resources are recommended for developers on software integrity?",
+      "answer": "OWASP training modules and security conferences provide valuable education on these topics."
+    },
+    {
+      "id": "A08-Q159",
+      "type": "references",
+      "intent": "regulatory_compliance",
+      "question": "How do software integrity controls help with regulatory compliance?",
+      "answer": "They ensure software security measures meet standards like ISO, NIST, and GDPR requirements."
+    },
+    {
+      "id": "A08-Q160",
+      "type": "references",
+      "intent": "best_practice_adoption",
+      "question": "How can organizations adopt best practices for software integrity?",
+      "answer": "By following OWASP guidance and integrating security into the SDLC from design to deployment."
+    },
+    {
+      "id": "A08-Q161",
+      "type": "references",
+      "intent": "incident_study",
+      "question": "What lessons were learned from the SolarWinds attack relevant to software integrity?",
+      "answer": "The attack underscored the need for supply chain transparency and strong build system security."
+    },
+    {
+      "id": "A08-Q162",
+      "type": "references",
+      "intent": "secure_architecture",
+      "question": "Which references explain secure architecture principles for integrity?",
+      "answer": "OWASP and SAFECode documents detail architectural controls for maintaining integrity."
+    },
+    {
+      "id": "A08-Q163",
+      "type": "references",
+      "intent": "continuous_monitoring",
+      "question": "What references recommend continuous monitoring for integrity?",
+      "answer": "OWASP materials advocate continuous monitoring of software components and configurations."
+    },
+    {
+      "id": "A08-Q164",
+      "type": "references",
+      "intent": "software_update_security",
+      "question": "Which resources cover secure update mechanisms?",
+      "answer": "OWASP Cheat Sheets and SAFECode controls provide guidelines for secure software updates."
+    },
+    {
+      "id": "A08-Q165",
+      "type": "references",
+      "intent": "third_party_management",
+      "question": "How do references suggest managing third-party risks?",
+      "answer": "Through vendor assessments, contract requirements, and ongoing monitoring as per OWASP guidance."
+    },
+    {
+      "id": "A08-Q166",
+      "type": "references",
+      "intent": "secure_build_tools",
+      "question": "What build tools are recommended for integrity assurance?",
+      "answer": "Tools that support artifact signing, verification, and pipeline auditing are recommended."
+    },
+    {
+      "id": "A08-Q167",
+      "type": "references",
+      "intent": "policy_development",
+      "question": "Where can organizations find guidance on developing integrity policies?",
+      "answer": "OWASP and SAFECode offer templates and best practices for policy creation."
+    },
+    {
+      "id": "A08-Q168",
+      "type": "references",
+      "intent": "automation_advantages",
+      "question": "What references discuss benefits of automation in maintaining integrity?",
+      "answer": "OWASP automation cheat sheets highlight efficiency and consistency improvements."
+    },
+    {
+      "id": "A08-Q169",
+      "type": "references",
+      "intent": "emerging_threats",
+      "question": "How do references address emerging software integrity threats?",
+      "answer": "OWASP frequently updates materials to cover new vulnerabilities and attack techniques."
+    },
+    {
+      "id": "A08-Q170",
+      "type": "references",
+      "intent": "community_engagement",
+      "question": "What role does community engagement play in software integrity?",
+      "answer": "Community sharing accelerates detection and remediation of integrity issues."
+    }
+  ],
+  "statistics": [
+    {
+      "id": "A08-Q181",
+      "type": "statistics",
+      "intent": "cwEs_mapped",
+      "question": "How many CWEs are mapped to the Software and Data Integrity Failures category?",
+      "answer": "There are 10 CWEs mapped to the Software and Data Integrity Failures category."
+    },
+    {
+      "id": "A08-Q182",
+      "type": "statistics",
+      "intent": "max_incidence_rate",
+      "question": "What is the maximum incidence rate reported for this category?",
+      "answer": "The maximum incidence rate for Software and Data Integrity Failures is 16.67%."
+    },
+    {
+      "id": "A08-Q183",
+      "type": "statistics",
+      "intent": "average_incidence_rate",
+      "question": "What is the average incidence rate of Software and Data Integrity Failures?",
+      "answer": "The average incidence rate is 2.05%."
+    },
+    {
+      "id": "A08-Q184",
+      "type": "statistics",
+      "intent": "average_weighted_exploit",
+      "question": "What is the average weighted exploitability score for this category?",
+      "answer": "The average weighted exploitability score is 6.94."
+    },
+    {
+      "id": "A08-Q185",
+      "type": "statistics",
+      "intent": "average_weighted_impact",
+      "question": "What is the average weighted impact score for Software and Data Integrity Failures?",
+      "answer": "The average weighted impact score is 7.94."
+    },
+    {
+      "id": "A08-Q186",
+      "type": "statistics",
+      "intent": "max_coverage",
+      "question": "What is the maximum coverage percentage for this vulnerability category?",
+      "answer": "The maximum coverage is 75.04%."
+    },
+    {
+      "id": "A08-Q187",
+      "type": "statistics",
+      "intent": "average_coverage",
+      "question": "What is the average coverage for Software and Data Integrity Failures?",
+      "answer": "The average coverage is 45.35%."
+    },
+    {
+      "id": "A08-Q188",
+      "type": "statistics",
+      "intent": "total_occurrences",
+      "question": "How many total occurrences of vulnerabilities have been reported in this category?",
+      "answer": "There have been 47,972 total occurrences reported."
+    },
+    {
+      "id": "A08-Q189",
+      "type": "statistics",
+      "intent": "total_cves",
+      "question": "How many total CVEs are associated with Software and Data Integrity Failures?",
+      "answer": "There are 1,152 total CVEs associated with this category."
+    },
+    {
+      "id": "A08-Q190",
+      "type": "statistics",
+      "intent": "incidence_trends",
+      "question": "Is the incidence rate of Software and Data Integrity Failures increasing or decreasing over time?",
+      "answer": "Recent studies show that incidence rates are gradually increasing due to rising supply chain attacks."
+    },
+    {
+      "id": "A08-Q191",
+      "type": "statistics",
+      "intent": "impact_score_comparison",
+      "question": "How does the average impact score of this category compare to other OWASP Top 10 categories?",
+      "answer": "Software and Data Integrity Failures have one of the highest average impact scores among OWASP Top 10 categories."
+    },
+    {
+      "id": "A08-Q192",
+      "type": "statistics",
+      "intent": "exploitability_vs_impact",
+      "question": "How do exploitability and impact scores compare for this vulnerability category?",
+      "answer": "This category has a moderately high exploitability score (6.94) and an even higher impact score (7.94), indicating severe potential damage."
+    },
+    {
+      "id": "A08-Q193",
+      "type": "statistics",
+      "intent": "coverage_analysis",
+      "question": "What does coverage mean in the context of these statistics?",
+      "answer": "Coverage refers to the percentage of systems or software that are affected or vulnerable to this category."
+    },
+    {
+      "id": "A08-Q194",
+      "type": "statistics",
+      "intent": "max_coverage_significance",
+      "question": "Why is maximum coverage important for this vulnerability category?",
+      "answer": "Maximum coverage indicates how widespread the vulnerability can be, showing potential impact on many systems."
+    },
+    {
+      "id": "A08-Q195",
+      "type": "statistics",
+      "intent": "average_coverage_significance",
+      "question": "What does average coverage tell us about Software and Data Integrity Failures?",
+      "answer": "Average coverage shows the typical percentage of affected systems across different environments."
+    },
+    {
+      "id": "A08-Q196",
+      "type": "statistics",
+      "intent": "occurrence_frequency",
+      "question": "Are occurrences of this vulnerability category frequent in reported data?",
+      "answer": "Yes, with 47,972 occurrences, it is a significant category within vulnerability reports."
+    },
+    {
+      "id": "A08-Q197",
+      "type": "statistics",
+      "intent": "cve_density",
+      "question": "What is the density of CVEs in this category relative to others?",
+      "answer": "With 1,152 CVEs, the density is moderate but increasing as supply chain attacks become more common."
+    },
+    {
+      "id": "A08-Q198",
+      "type": "statistics",
+      "intent": "incidence_vs_impact_correlation",
+      "question": "Is there a correlation between incidence rates and impact in this category?",
+      "answer": "Despite a relatively low average incidence rate, the high impact score indicates serious consequences when exploited."
+    },
+    {
+      "id": "A08-Q199",
+      "type": "statistics",
+      "intent": "trends_in_weighted_scores",
+      "question": "Have weighted exploit or impact scores changed over recent years?",
+      "answer": "Weighted scores remain high, reflecting the ongoing critical nature of these failures."
+    },
+    {
+      "id": "A08-Q200",
+      "type": "statistics",
+      "intent": "category_ranking",
+      "question": "Where does Software and Data Integrity Failures rank in the OWASP Top 10 for 2021?",
+      "answer": "It is ranked A08, reflecting its emergence as a critical new category in 2021."
+    },
+    {
+      "id": "A08-Q201",
+      "type": "statistics",
+      "intent": "incidence_in_critical_systems",
+      "question": "How prevalent are these failures in critical infrastructure systems?",
+      "answer": "They are increasingly prevalent in critical systems due to complex software supply chains."
+    },
+    {
+      "id": "A08-Q202",
+      "type": "statistics",
+      "intent": "exploit_score_impact_on_risk",
+      "question": "How do exploitability and impact scores affect overall risk?",
+      "answer": "High exploitability combined with high impact raises the overall risk level, necessitating strong mitigations."
+    },
+    {
+      "id": "A08-Q203",
+      "type": "statistics",
+      "intent": "coverage_in_enterprise_software",
+      "question": "What coverage levels are observed in enterprise software?",
+      "answer": "Enterprise software often shows high coverage percentages, sometimes nearing the maximum of 75%."
+    },
+    {
+      "id": "A08-Q204",
+      "type": "statistics",
+      "intent": "historical_occurrence_comparison",
+      "question": "How do current occurrences compare to historical data?",
+      "answer": "Occurrences have risen sharply in recent years, reflecting growing supply chain risks."
+    },
+    {
+      "id": "A08-Q205",
+      "type": "statistics",
+      "intent": "average_impact_significance",
+      "question": "Why is the average impact score significant?",
+      "answer": "It highlights that even a moderate frequency vulnerability can have very serious consequences."
+    },
+    {
+      "id": "A08-Q206",
+      "type": "statistics",
+      "intent": "impact_vs_prevalence",
+      "question": "Does higher impact correspond to higher prevalence in this category?",
+      "answer": "Not necessarily; the category has high impact but relatively lower average prevalence."
+    },
+    {
+      "id": "A08-Q207",
+      "type": "statistics",
+      "intent": "weighted_score_definition",
+      "question": "What do weighted exploit and impact scores mean?",
+      "answer": "Weighted scores combine multiple factors like ease of exploit and damage severity into single metrics."
+    },
+    {
+      "id": "A08-Q208",
+      "type": "statistics",
+      "intent": "total_cves_significance",
+      "question": "Is the total number of CVEs significant for this category?",
+      "answer": "Yes, over 1,100 CVEs indicate active and ongoing discovery of vulnerabilities."
+    },
+    {
+      "id": "A08-Q209",
+      "type": "statistics",
+      "intent": "relationship_with_other_categories",
+      "question": "Does this category overlap with other OWASP Top 10 categories statistically?",
+      "answer": "There is some overlap, especially with Vulnerable Components and Broken Access Control."
+    },
+    {
+      "id": "A08-Q210",
+      "type": "statistics",
+      "intent": "future_trends",
+      "question": "What are the future trends for this vulnerability category?",
+      "answer": "Incidence and impact are expected to increase as software supply chains become more complex."
+    }
+  ],
+  "technical": [
+    {
+      "id": "A08-Q031",
+      "type": "technical",
+      "intent": "explain_signed_updates",
+      "question": "How do signed software updates work?",
+      "answer": "Signed updates use digital signatures created with private keys. Clients verify these with public keys to ensure authenticity and integrity before applying the update."
+    },
+    {
+      "id": "A08-Q032",
+      "type": "technical_explanation",
+      "intent": "explain_hash_checks",
+      "question": "What is the role of hash checks in verifying data integrity?",
+      "answer": "Hash checks compute a checksum of the original data; if the hash of the received data matches, it confirms the data wasn't altered."
+    },
+    {
+      "id": "A08-Q033",
+      "type": "technical_explanation",
+      "intent": "explain_dependency_confusion",
+      "question": "What is a dependency confusion attack?",
+      "answer": "It's when attackers publish malicious packages with the same names as internal ones on public repositories, tricking the system into using the wrong package."
+    },
+    {
+      "id": "A08-Q034",
+      "type": "technical_explanation",
+      "intent": "describe_deserialization",
+      "question": "What makes deserialization vulnerable to exploitation?",
+      "answer": "Deserialization is dangerous when it accepts untrusted input, allowing attackers to manipulate object construction and potentially trigger code execution."
+    },
+    {
+      "id": "A08-Q035",
+      "type": "technical_explanation",
+      "intent": "explain_build_pipelines",
+      "question": "How can build pipelines introduce integrity failures?",
+      "answer": "If build systems are not isolated or authenticated, attackers may inject malicious code or modify the output binaries."
+    },
+    {
+      "id": "A08-Q036",
+      "type": "technical_explanation",
+      "intent": "compare_checksum_signature",
+      "question": "What's the difference between a checksum and a digital signature?",
+      "answer": "Checksums verify data integrity, while digital signatures verify both integrity and the authenticity of the source."
+    },
+    {
+      "id": "A08-Q037",
+      "type": "technical_explanation",
+      "intent": "explain_package_verification",
+      "question": "How does a package manager verify package integrity?",
+      "answer": "It checks the package's cryptographic hash or digital signature against expected values before installation."
+    },
+    {
+      "id": "A08-Q038",
+      "type": "technical_explanation",
+      "intent": "describe_code_signing",
+      "question": "What is code signing and how does it work?",
+      "answer": "Code signing uses a digital certificate to sign executables and scripts, allowing systems to verify the publisher and integrity before execution."
+    },
+    {
+      "id": "A08-Q039",
+      "type": "technical_explanation",
+      "intent": "explain_infrastructure_as_code_risks",
+      "question": "Why is integrity important in infrastructure-as-code scripts?",
+      "answer": "Unverified or tampered IaC scripts can result in misconfigured or vulnerable infrastructure deployments."
+    },
+    {
+      "id": "A08-Q040",
+      "type": "technical_explanation",
+      "intent": "secure_update_architecture",
+      "question": "What are best practices for a secure update architecture?",
+      "answer": "Use signed updates, enforce HTTPS transport, verify update signatures, and log update activities."
+    },
+    {
+      "id": "A08-Q041",
+      "type": "technical_explanation",
+      "intent": "explain_container_integrity",
+      "question": "How can container integrity be validated?",
+      "answer": "By using image signing tools like Notary or Cosign to verify that container images come from trusted registries and haven’t been modified."
+    },
+    {
+      "id": "A08-Q042",
+      "type": "technical_explanation",
+      "intent": "discuss_dependency_checking",
+      "question": "What is dependency checking in software supply chains?",
+      "answer": "It's the process of scanning third-party libraries for known vulnerabilities and verifying their source and integrity."
+    },
+    {
+      "id": "A08-Q043",
+      "type": "technical_explanation",
+      "intent": "role_of_sbom",
+      "question": "What is a Software Bill of Materials (SBOM) and why is it useful?",
+      "answer": "An SBOM is a list of all components in a software system. It helps identify vulnerable or untrusted parts during audits."
+    },
+    {
+      "id": "A08-Q044",
+      "type": "technical_explanation",
+      "intent": "explain_secure_ci_cd",
+      "question": "How does securing the CI/CD pipeline prevent integrity issues?",
+      "answer": "Securing CI/CD ensures only authorized changes pass through, and code isn’t tampered with during the build and deployment process."
+    },
+    {
+      "id": "A08-Q045",
+      "type": "technical_explanation",
+      "intent": "explain_gpg_verification",
+      "question": "How is GPG used to verify source code integrity?",
+      "answer": "Developers sign code with GPG keys, allowing others to verify the code was authored by them and hasn't been altered."
+    },
+    {
+      "id": "A08-Q046",
+      "type": "technical_explanation",
+      "intent": "explain_digital_signature_algorithms",
+      "question": "What cryptographic algorithms are used in digital signatures?",
+      "answer": "Common algorithms include RSA, ECDSA, and EdDSA, which rely on private/public key pairs."
+    },
+    {
+      "id": "A08-Q047",
+      "type": "technical_explanation",
+      "intent": "explain_tamper_proofing",
+      "question": "What is tamper-proofing in software?",
+      "answer": "Tamper-proofing uses encryption, signing, or obfuscation to prevent or detect unauthorized modifications to code or data."
+    },
+    {
+      "id": "A08-Q048",
+      "type": "technical_explanation",
+      "intent": "role_of_version_pinning",
+      "question": "How does version pinning improve supply chain integrity?",
+      "answer": "By locking dependencies to specific trusted versions, you reduce the risk of accidentally pulling in malicious or compromised updates."
+    },
+    {
+      "id": "A08-Q049",
+      "type": "technical_explanation",
+      "intent": "describe_manifest_file",
+      "question": "What is a manifest file in package management?",
+      "answer": "It lists dependencies and metadata of the software package, helping in validating component integrity and ensuring reproducibility."
+    },
+    {
+      "id": "A08-Q050",
+      "type": "technical_explanation",
+      "intent": "impact_of_insecure_ci_cd",
+      "question": "What can happen if CI/CD pipelines are insecure?",
+      "answer": "Attackers can inject malicious code during builds, exfiltrate secrets, or modify deployment configurations."
+    },
+    {
+      "id": "A08-Q051",
+      "type": "technical_explanation",
+      "intent": "difference_between_md5_sha256",
+      "question": "Why is SHA-256 preferred over MD5 for integrity checks?",
+      "answer": "SHA-256 is more secure and resistant to collision attacks, unlike MD5 which can be manipulated to produce the same hash."
+    },
+    {
+      "id": "A08-Q052",
+      "type": "technical_explanation",
+      "intent": "explain_secure_boot",
+      "question": "What is secure boot and how does it relate to data integrity?",
+      "answer": "Secure boot ensures the system boots using only trusted and signed software, preventing rootkits or boot-level malware."
+    },
+    {
+      "id": "A08-Q053",
+      "type": "technical_explanation",
+      "intent": "importance_of_build_isolation",
+      "question": "Why is isolating build environments important?",
+      "answer": "It prevents one compromised build from affecting others and stops unauthorized access to build tools or secrets."
+    },
+    {
+      "id": "A08-Q054",
+      "type": "technical_explanation",
+      "intent": "explain_ci_cd_artifact_signing",
+      "question": "What is artifact signing in CI/CD?",
+      "answer": "It involves signing built binaries or packages so that consumers can verify their origin and integrity before using them."
+    },
+    {
+      "id": "A08-Q055",
+      "type": "technical_explanation",
+      "intent": "explain_package_lock_files",
+      "question": "What are package lock files and how do they enhance integrity?",
+      "answer": "They lock the exact versions of dependencies to ensure consistent builds and prevent unverified or altered packages from being used."
+    },
+    {
+      "id": "A08-Q056",
+      "type": "technical_explanation",
+      "intent": "explain_hash_collision_risks",
+      "question": "What are hash collision risks in integrity checks?",
+      "answer": "If two different inputs produce the same hash, an attacker could replace legitimate code with malicious content that passes verification."
+    },
+    {
+      "id": "A08-Q057",
+      "type": "technical_explanation",
+      "intent": "explain_build_secrets_protection",
+      "question": "How should secrets be protected in build systems?",
+      "answer": "Secrets should be stored in encrypted vaults and only accessed by authorized jobs with minimal privileges."
+    },
+    {
+      "id": "A08-Q058",
+      "type": "technical_explanation",
+      "intent": "describe_dynamic_integrity_checking",
+      "question": "What is dynamic integrity checking?",
+      "answer": "It involves runtime verification that critical files or configurations haven’t changed using hash validation or file integrity monitors."
+    },
+    {
+      "id": "A08-Q059",
+      "type": "technical_explanation",
+      "intent": "role_of_monitoring_tools",
+      "question": "What role do monitoring tools play in data integrity?",
+      "answer": "They detect changes to critical files, alert on tampering, and provide logs for forensic analysis."
+    },
+    {
+      "id": "A08-Q060",
+      "type": "technical_explanation",
+      "intent": "explain_code_integrity_policy",
+      "question": "What is a code integrity policy?",
+      "answer": "A set of rules enforced by the operating system or tools that only allow signed and approved code to run."
+    }
+  ],
+  "vulnerability_identification": [
+    {
+      "id": "A08-Q061",
+      "type": "vulnerability_identification",
+      "intent": "identify_unsigned_updates",
+      "question": "How can you identify if an update mechanism lacks signature verification?",
+      "answer": "Check whether the update process includes cryptographic signature checks before installing new code or packages."
+    },
+    {
+      "id": "A08-Q062",
+      "type": "vulnerability_identification",
+      "intent": "detect_unverified_dependencies",
+      "question": "What signals the use of unverified software dependencies?",
+      "answer": "Dependencies pulled from public repositories without integrity verification or reputation checks are unverified."
+    },
+    {
+      "id": "A08-Q063",
+      "type": "vulnerability_identification",
+      "intent": "scan_for_insecure_deserialization",
+      "question": "How do you detect insecure deserialization in an application?",
+      "answer": "Analyze code and inputs for use of unserialize/deserialize functions without proper input validation or type enforcement."
+    },
+    {
+      "id": "A08-Q064",
+      "type": "vulnerability_identification",
+      "intent": "identify_insecure_cicd_integrity",
+      "question": "What indicates weak integrity controls in CI/CD pipelines?",
+      "answer": "Lack of signed commits, unaudited build scripts, or absence of role-based access control in the pipeline."
+    },
+    {
+      "id": "A08-Q065",
+      "type": "vulnerability_identification",
+      "intent": "check_for_dependency_confusion_risks",
+      "question": "How can dependency confusion vulnerabilities be detected?",
+      "answer": "Look for package names that match internal libraries but are not scoped or locked in the dependency manager."
+    },
+    {
+      "id": "A08-Q066",
+      "type": "vulnerability_identification",
+      "intent": "detect_unencrypted_software_distribution",
+      "question": "How can you identify if software is distributed insecurely?",
+      "answer": "Verify whether update downloads use HTTPS and whether package files are cryptographically signed."
+    },
+    {
+      "id": "A08-Q067",
+      "type": "vulnerability_identification",
+      "intent": "identify_lack_of_build_artifact_validation",
+      "question": "What reveals a lack of validation on build artifacts?",
+      "answer": "Missing checksum comparison or signature verification on compiled files before deployment."
+    },
+    {
+      "id": "A08-Q068",
+      "type": "vulnerability_identification",
+      "intent": "scan_iac_scripts_for_tampering",
+      "question": "How can Infrastructure as Code (IaC) scripts be analyzed for tampering?",
+      "answer": "Review IaC change history and verify scripts against known-good versions in version control."
+    },
+    {
+      "id": "A08-Q069",
+      "type": "vulnerability_identification",
+      "intent": "detect_use_of_weak_serialization_formats",
+      "question": "How do you detect use of insecure serialization formats?",
+      "answer": "Look for formats like Java native serialization or PHP’s unserialize without validation or context isolation."
+    },
+    {
+      "id": "A08-Q070",
+      "type": "vulnerability_identification",
+      "intent": "monitor_package_sources",
+      "question": "How do you verify the trust level of package sources?",
+      "answer": "Audit package repositories to confirm they are official, signed, and monitored for malicious uploads."
+    },
+    {
+      "id": "A08-Q071",
+      "type": "vulnerability_identification",
+      "intent": "detect_malicious_third_party_scripts",
+      "question": "How can malicious third-party scripts be identified?",
+      "answer": "Review external scripts for obfuscation, unexpected behavior, or references to suspicious domains."
+    },
+    {
+      "id": "A08-Q072",
+      "type": "vulnerability_identification",
+      "intent": "verify_ci_cd_code_signing",
+      "question": "How do you confirm CI/CD builds use code signing?",
+      "answer": "Check build pipelines and artifact repositories for digital signatures on output packages."
+    },
+    {
+      "id": "A08-Q073",
+      "type": "vulnerability_identification",
+      "intent": "assess_peer_review_enforcement",
+      "question": "How do you detect the absence of code review for configuration changes?",
+      "answer": "Evaluate pull request workflows to ensure code/config changes require approvals before merging."
+    },
+    {
+      "id": "A08-Q074",
+      "type": "vulnerability_identification",
+      "intent": "detect_insecure_git_hooks",
+      "question": "How do you identify insecure Git hooks or scripts in repositories?",
+      "answer": "Audit `.git/hooks`, `.github/workflows`, and CI/CD YAML files for unsafe execution commands or unchecked inputs."
+    },
+    {
+      "id": "A08-Q075",
+      "type": "vulnerability_identification",
+      "intent": "check_firmware_integrity_controls",
+      "question": "What shows a lack of firmware integrity validation?",
+      "answer": "Missing digital signature checks or fallback to unsigned updates in embedded or IoT devices."
+    },
+    {
+      "id": "A08-Q076",
+      "type": "vulnerability_identification",
+      "intent": "review_build_access_controls",
+      "question": "How can poor build access controls be detected?",
+      "answer": "Audit CI/CD systems for excessive permissions, shared credentials, or missing MFA for privileged roles."
+    },
+    {
+      "id": "A08-Q077",
+      "type": "vulnerability_identification",
+      "intent": "check_unsigned_mobile_updates",
+      "question": "How do you detect mobile apps distributing unsigned updates?",
+      "answer": "Analyze update delivery methods; if APKs are installed outside app stores or unsigned, it’s a red flag."
+    },
+    {
+      "id": "A08-Q078",
+      "type": "vulnerability_identification",
+      "intent": "identify_persistent_unaudited_scripts",
+      "question": "What indicates the presence of unaudited persistent scripts?",
+      "answer": "Scripts that are reused across builds or environments without checksums, reviews, or source verification."
+    },
+    {
+      "id": "A08-Q079",
+      "type": "vulnerability_identification",
+      "intent": "review_container_image_sources",
+      "question": "How do you assess risk from container image sources?",
+      "answer": "Verify images originate from trusted registries and are scanned for known CVEs and integrity violations."
+    },
+    {
+      "id": "A08-Q080",
+      "type": "vulnerability_identification",
+      "intent": "identify_unsigned_serialized_objects",
+      "question": "How can unsigned serialized objects be identified?",
+      "answer": "Check for data structures passed between services or stored on clients without integrity checks or encryption."
+    },
+    {
+      "id": "A08-Q081",
+      "type": "vulnerability_identification",
+      "intent": "scan_plugins_for_malicious_behavior",
+      "question": "How can plugin systems be a source of integrity failures?",
+      "answer": "Unverified or auto-installed plugins from external marketplaces can introduce backdoors or unsafe code."
+    },
+    {
+      "id": "A08-Q082",
+      "type": "vulnerability_identification",
+      "intent": "detect_build_script_injections",
+      "question": "How do you detect possible injection in build scripts?",
+      "answer": "Review scripts for unescaped shell commands or inputs sourced from external, untrusted environments."
+    },
+    {
+      "id": "A08-Q083",
+      "type": "vulnerability_identification",
+      "intent": "verify_artifact_tracking_systems",
+      "question": "How do you verify artifact tracking across builds?",
+      "answer": "Use artifact management tools to assign immutable IDs and ensure traceability from build to deployment."
+    },
+    {
+      "id": "A08-Q084",
+      "type": "vulnerability_identification",
+      "intent": "detect_injection_via_deserialization",
+      "question": "How can injection be detected during deserialization?",
+      "answer": "Test inputs that result in deserialization for unexpected code execution or unsafe object instantiation."
+    },
+    {
+      "id": "A08-Q085",
+      "type": "vulnerability_identification",
+      "intent": "audit_third_party_update_servers",
+      "question": "What indicates risk in third-party update servers?",
+      "answer": "Update servers that are not HTTPS-enforced, lack DNSSEC, or are not under organizational control pose risk."
+    },
+    {
+      "id": "A08-Q086",
+      "type": "vulnerability_identification",
+      "intent": "verify_internal_repository_access",
+      "question": "How do you assess internal repository protection?",
+      "answer": "Check access logs and permissions to ensure only authorized developers can upload or modify packages."
+    },
+    {
+      "id": "A08-Q087",
+      "type": "vulnerability_identification",
+      "intent": "scan_configurations_for_integrity_controls",
+      "question": "How can configuration tampering be detected?",
+      "answer": "Use checksums or Git diffs to detect unauthorized or out-of-band changes to deployment configurations."
+    },
+    {
+      "id": "A08-Q088",
+      "type": "vulnerability_identification",
+      "intent": "review_deployment_process_security",
+      "question": "How do you assess the integrity of the deployment process?",
+      "answer": "Ensure that the deployment pipeline enforces validations, signatures, and approval stages before release."
+    },
+    {
+      "id": "A08-Q089",
+      "type": "vulnerability_identification",
+      "intent": "detect_exposed_build_logs",
+      "question": "How can leaked build logs lead to integrity failures?",
+      "answer": "Logs containing secrets, internal URLs, or commit hashes can be exploited if not properly secured."
+    },
+    {
+      "id": "A08-Q090",
+      "type": "vulnerability_identification",
+      "intent": "scan_dependencies_for_transitive_risks",
+      "question": "How do you uncover transitive integrity vulnerabilities in software dependencies?",
+      "answer": "Use tools like OWASP Dependency Track to analyze the entire dependency tree for outdated or vulnerable components."
+    }
+  ]
+}
