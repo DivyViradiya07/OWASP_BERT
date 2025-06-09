@@ -1,104 +1,108 @@
-1. Conceptual Nuance & Semantic Understanding:
-These questions try to get at the core meaning or subtle differences, forcing the model to go beyond keyword matching.
-
-"Explain how data confidentiality is maintained by proper crypto usage." (Tests A02: Cryptographic Failures – focuses on 'confidentiality' beyond just 'encryption')
-"What's the difference between authentication and authorization from a security perspective?" (Tests A07: Identification and Authentication Failures vs A01: Broken Access Control - fundamental distinction)
-"Can insecure design alone lead to system compromise without coding errors?" (Tests A04: Insecure Design – emphasizes 'design' over 'implementation flaws')
-"Beyond patching, what's a proactive way to manage vulnerable dependencies?" (Tests A06: Vulnerable and Outdated Components – looks for proactive rather than reactive solutions)
-
-2. Cross-Category Linkage & Proactive Suggestions:
-These aim to trigger related topics or see if the model can implicitly link concepts across different OWASP categories.
-
-"A weak password policy leads to what kind of OWASP Top 10 issue, and what might happen next?" (Tests A07 but probes for downstream impact/related issues like A01)
-"If an attacker can access sensitive internal API endpoints, which OWASP risk is that, and what other risks should I consider?" (Tests A10: SSRF but also implicitly A01 and A05, looking for proactive suggestions)
-"I'm worried about sensitive data appearing in logs. What OWASP category covers that, and how does it relate to data exposure?" (Tests A09: Security Logging and its connection to A02 or A05)
-"How does a lack of secure CI/CD practices contribute to data integrity issues?" (Tests A08: Software and Data Integrity Failures and its connection to development practices)
-
-3. Solution/Mitigation-Oriented (Complex):
-These questions ask for solutions, which might map to prevention sections.
-
-"What architectural patterns help mitigate insecure design choices early in development?" (Tests A04: Insecure Design – looking for design-level solutions)
-"I want to protect my application from command injection. What are the best practices?" (Tests A03: Injection – requires finding comprehensive prevention)
-"How do I ensure my web application's identity verification process is robust against common attacks?" (Tests A07: Identification and Authentication Failures – looking for robust solutions)
-
-4. Indirect or Abstract Queries:
-These use less direct terminology to see if the semantic understanding holds up.
-
-"My app's error messages are too verbose. Which OWASP risk is that, and why is it a problem?" (Tests A05: Security Misconfiguration or A09: Logging – probes for information leakage)
-"What are the dangers of fetching external resources via user-supplied URLs without careful validation?" (Tests A10: SSRF without explicitly saying "SSRF")
-"If my system's internal configuration files are accessible through a web browser, what vulnerability applies?" (Tests A05: Security Misconfiguration related to exposed files)
-
-5. Combination / Scenario-Based:
-Asking about a scenario that touches multiple areas.
-
-"An attacker found an exposed admin panel, and then guessed the default password. Which OWASP categories are involved, and what's the combined impact?" (Tests A01: Broken Access Control and A07: Authentication Failures, looking for multi-faceted understanding)
+1. Broken Access Control (A01)
+-Basic Understanding: What is broken access control in web applications?
+-Technical Explanation: How do insecure direct object references (IDOR) enable broken access control?
+-Vulnerability ID: How can I test if my application has broken access control issues?
+-Prevention Methods: What are the best practices to prevent broken access control?
+-Example Scenarios: Can you give me a real-world example of a broken access control attack?
+-References: What OWASP resources are available for broken access control?
+-Statistics: How common are broken access control vulnerabilities in web applications?
+-Proactive Suggestions: What security headers should I implement to enhance access control?
 
 
+2. Cryptographic Failures (A02)
+-Basic Understanding: What are cryptographic failures in web security?
+-Technical Explanation: How does weak cryptographic storage lead to data breaches?
+-Vulnerability ID: How can I check if my application uses weak encryption?
+-Prevention Methods: What are the industry standards for secure password hashing?
+-Example Scenarios: Can you describe a major breach caused by cryptographic failures?
+-References: What are the NIST recommendations for cryptographic algorithms?
+-Statistics: What percentage of data breaches involve weak cryptography?
+-Proactive Suggestions: What libraries should I use for secure encryption?
 
 
-General OWASP Questions
-"What is OWASP Top 10?"
-"Explain the difference between OWASP Top 10 2017 and 2021"
-"What are the most critical web application security risks?"
-"How often is the OWASP Top 10 updated?"
-Specific OWASP Categories
-"What is broken access control?"
-"How can I prevent SQL injection attacks?"
-"What are some examples of security misconfigurations?"
-"Explain cryptographic failures with examples"
-Vulnerability Details
-"What is Cross-Site Scripting (XSS) and how does it work?"
-"How can I test for SQL injection vulnerabilities?"
-"What are the risks of using components with known vulnerabilities?"
-"Explain the impact of insecure deserialization"
-Remediation & Prevention
-"How to secure an API against common attacks?"
-"Best practices for secure authentication"
-"How to implement proper session management?"
-"What are the security headers I should implement?"
-Report Explanation
-"Explain this vulnerability report: [paste report]"
-"What does 'Insecure Direct Object Reference' mean in this finding?"
-"Help me understand this security scan result: [paste result]"
-Summarization Requests
-"Summarize the key points about CSRF protection"
-"Give me a brief overview of API security best practices"
-"What are the main points about secure file uploads?"
-Technical Deep Dives
-"How does JWT authentication work and what are common vulnerabilities?"
-"Explain the Same-Origin Policy and CORS"
-"What are the security implications of using third-party libraries?"
-Compliance & Standards
-"How does OWASP ASVS differ from OWASP Top 10?"
-"What are the PCI DSS requirements for web applications?"
-"How to implement OAuth 2.0 securely?"
-Attack Scenarios
-"How would an attacker exploit a broken authentication vulnerability?"
-"What are some real-world examples of XXE attacks?"
-"Demonstrate a CSRF attack with an example"
-Security Testing
-"What tools can I use for web application security testing?"
-"How to perform a security code review?"
-"What should be included in a security testing checklist?"
-Emerging Threats
-"What are the latest web application security threats?"
-"How are AI and ML being used in web application security?"
-"What security considerations are there for serverless applications?"
-Knowledge Graph Related
-"What are the related concepts to input validation?"
-"How is authentication related to session management?"
-"Show me security controls for API security"
-General Security
-"What is the principle of least privilege?"
-"Explain defense in depth for web applications"
-"What is the difference between authentication and authorization?"
-Specific Technologies
-"How to secure a React.js application?"
-"What are the security best practices for Node.js applications?"
-"How to implement secure password hashing in Python?"
-Incident Response
-"What are the steps to take after discovering a data breach?"
-"How to handle a security incident in a web application?"
-"What should be included in an incident response plan?"
-Security Headers
-"What security headers should I implement for my web application?"
+3. Injection (A03)
+-Basic Understanding: What is SQL injection and how does it work?
+-Technical Explanation: How does parameterized query prevent SQL injection?
+-Vulnerability ID: What tools can detect NoSQL injection vulnerabilities?
+-Prevention Methods: How to prevent command injection in Node.js applications?
+-Example Scenarios: Show me a practical example of a blind SQL injection attack.
+-References: Where can I find OWASP's injection prevention cheat sheet?
+-Statistics: How many web applications are vulnerable to injection attacks?
+-Proactive Suggestions: What security headers help prevent XSS and injection attacks?
+
+
+4. Insecure Design (A04)
+-Basic Understanding: What does insecure design mean in application security?
+-Technical Explanation: How does threat modeling help prevent insecure design?
+-Vulnerability ID: How to identify business logic vulnerabilities?
+-Prevention Methods: What are the secure design principles for microservices?
+-Example Scenarios: Can you give an example of a security flaw from poor design?
+-References: What are the OWASP Secure Design Patterns?
+-Statistics: How many breaches are attributed to insecure design?
+-Proactive Suggestions: What design patterns improve application security?
+
+
+5. Security Misconfiguration (A05)
+-Basic Understanding: What is security misconfiguration?
+-Technical Explanation: How do default credentials lead to security breaches?
+-Vulnerability ID: How to scan for security misconfigurations?
+-Prevention Methods: What's the secure configuration for Apache/Nginx?
+-Example Scenarios: Describe a breach caused by security misconfiguration.
+-References: What are the CIS benchmarks for server security?
+-Statistics: How common are misconfiguration-related breaches?
+-Proactive Suggestions: What tools can automate security configuration checks?
+
+
+6. Vulnerable and Outdated Components (A06)
+-Basic Understanding: Why are outdated components a security risk?
+-Technical Explanation: How does dependency confusion work?
+-Vulnerability ID: How to check for vulnerable dependencies in Python/Node.js?
+-Prevention Methods: What's the process for secure dependency management?
+-Example Scenarios: Can you describe the Equifax breach?
+-References: What are the best SBOM tools available?
+-Statistics: How many breaches involve known vulnerabilities?
+-Proactive Suggestions: How to implement automated dependency updates?
+
+
+7. Identification and Authentication Failures (A07)
+-Basic Understanding: What are authentication vulnerabilities?
+-Technical Explanation: How do credential stuffing attacks work?
+-Vulnerability ID: How to test for weak password policies?
+-Prevention Methods: What are the best practices for MFA implementation?
+-Example Scenarios: Describe a real-world account takeover attack.
+-References: What are the NIST password guidelines?
+-Statistics: How many users reuse passwords across services?
+-Proactive Suggestions: What authentication protocols are most secure?
+
+
+8. Software and Data Integrity Failures (A08)
+-Basic Understanding: What are software supply chain attacks?
+-Technical Explanation: How does dependency hijacking work?
+-Vulnerability ID: How to verify package integrity?
+-Prevention Methods: What are the best practices for code signing?
+-Example Scenarios: Explain the SolarWinds attack.
+-References: What are the SLSA framework levels?
+-Statistics: How many organizations were affected by supply chain attacks?
+-Proactive Suggestions: How to implement software bill of materials (SBOM)?
+
+
+9. Security Logging and Monitoring Failures (A09)
+-Basic Understanding: Why is security logging important?
+-Technical Explanation: How does SIEM work for threat detection?
+-Vulnerability ID: How to test if logs are being properly collected?
+-Prevention Methods: What should be included in security logs?
+-Example Scenarios: How did poor logging affect the Target breach?
+-References: What are the OWASP logging guidelines?
+-Statistics: How long do breaches go undetected on average?
+-Proactive Suggestions: What tools can help with log analysis?
+
+
+10. Server-Side Request Forgery (SSRF) (A10)
+-Basic Understanding: What is SSRF and why is it dangerous?
+-Technical Explanation: How does SSRF lead to cloud metadata exposure?
+-Vulnerability ID: How to test for SSRF vulnerabilities?
+-Prevention Methods: What are the best defenses against SSRF?
+-Example Scenarios: Can you describe a major SSRF attack?
+-References: What are the OWASP SSRF prevention techniques?
+-Statistics: How common are SSRF vulnerabilities in cloud environments?
+-Proactive Suggestions: How to implement URL validation securely?
