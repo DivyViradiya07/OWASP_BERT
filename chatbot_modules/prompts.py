@@ -44,6 +44,7 @@ DEFAULT_TOPIC_PROMPTS = {
         Example:
         User Query: What is XSS?
         Rewritten Query: Explain Cross-Site Scripting (XSS) vulnerability, including its types, impact, prevention methods, and real-world examples.
+        Note: Don't include this in the user prompt.
 
         User Query: {query}
         Rewritten Query:"""
